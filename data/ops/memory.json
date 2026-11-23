@@ -442,8 +442,8 @@
 "1pc:157672":"model:aio:aio-cooler-cpu-h100i-icue-link-liquid-240mm",
 "1pc:157890":"model:gpu:256bit-580-akr580d5s8gh1-rx-8gb",
 "1pc:157898":"model:motherboard:ak-ak-eg-h610-h610ms-h610mseg-atx",
-"1pc:157899":"model:case_fan:120-3xfans-controller-neon-pwm-120mm-3-rgb-black",
-"1pc:157900":"model:case_fan:120-fan-neon-pwm-120mm-rgb-black",
+"1pc:157899":"model:case_fan:120-3-neon-pwm-120mm-rgb-black",
+"1pc:157900":"model:case_fan:120-neon-pwm-120mm-rgb-black",
 "1pc:157901":"manual:case:1pc-157901-tms-c8",
 "1pc:157902":"model:case:c8-c8w-case-white",
 "1pc:157903":"model:case:1x120mm-2x160mm-case-fans-gaming-nx416l-black",
@@ -488,7 +488,7 @@
 "1pc:159859":"model:cooler_air:ma824-masterair-stealth-120mm",
 "1pc:159860":"model:cooler_air:2x120mm-a115-af-dual-elite-fan-to-up-170mm-140mm-black",
 "1pc:159861":"model:cooler_air:b1-cooler-cpu-rc-t120-tr120-160mm-120mm-black",
-"1pc:160175":"model:case:216-case-lan216x-lancool-pc-black",
+"1pc:160175":"model:case:216-lancool-black-2",
 "1pc:160188":"model:psu:hx1000i-1000w-full-black",
 "1pc:160241":"model:memory:0-2x48gb-3-5600-96gb-black-cl46-ddr5-expo-pro-xmp-96gb-x2-5600mhz-cl46-black",
 "1pc:160266":"model:storage:2-m-nvme-pcie-vi3000-512gb-nvme-m2",
@@ -682,7 +682,7 @@
 "1pc:171391":"model:motherboard:b760m-d4-k-prime-microatx",
 "1pc:171392":"model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
 "1pc:171448":"model:motherboard:aorus-pro-x870e-atx",
-"1pc:171449":"model:motherboard:aorus-ice-pro-x870e-atx",
+"1pc:171449":"model:motherboard:0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-ice-pro-wi-x870e-atx",
 "1pc:171565":"model:storage:t705-4000gb-nvme-m22280-2",
 "1pc:171569":"model:case_fan:140-fan-neo-prizm-t3-140mm-rgb-black",
 "1pc:171571":"model:case_fan:120-fan-neo-prizm-t3-120mm-rgb-black",
@@ -2806,7 +2806,7 @@
 "ivory:112783":"model:motherboard:eagle-wifi7-x870-atx",
 "ivory:112789":"mpn:motherboard:x870aelitewf7ice",
 "ivory:112793":"sku:motherboard:4711377254557",
-"ivory:112797":"model:motherboard:aorus-ice-pro-x870e-atx",
+"ivory:112797":"model:motherboard:0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-ice-pro-wi-x870e-atx",
 "ivory:112805":"mpn:motherboard:x870eaorusmaster",
 "ivory:112835":"model:motherboard:mag-tomahawk-wifi-z890-atx",
 "ivory:112839":"model:memory:kvr56u46bd8-32-32gb-5600mhz-cl46-green-dimm",
@@ -8563,7 +8563,7 @@
 "tms:GX870EAORUSMASTERX3D":"model:motherboard:aorus-master-x3d-x870e-atx",
 "tms:GX870EAORUSMASTERX3DI":"model:motherboard:aorus-ice-master-x3d-x870e-atx",
 "tms:GX870EAORUSPRO":"model:motherboard:aorus-pro-x870e-atx",
-"tms:GX870EAORUSPROICE":"model:motherboard:aorus-ice-pro-x870e-atx",
+"tms:GX870EAORUSPROICE":"model:motherboard:0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-ice-pro-wi-x870e-atx",
 "tms:GX870EAORUSPROX3D":"model:motherboard:aorus-pro-x3d-x870e-atx",
 "tms:GX870EAORUSPROX3DICE":"model:motherboard:aorus-ice-pro-x3d-x870e-atx",
 "tms:GX870EAORUSXTREMEAITOP":"model:motherboard:0-1xhdmi-2xusb-4-7-ai-aorus-atx-ddr5-top-wifi-x870e-xtreme-eatx",
@@ -8990,8 +8990,8 @@
 "tms:NE850GM":"model:psu:0-0-3-5-850w-active-atx-full-gold-modular-ne850gm-neoeco-pcie-pfc-ready-850w-full-black",
 "tms:NE850GM-ATX3.0":"model:psu:0-0-3-850w-atx-atx3-gold-m-modular-ne850g-ne850gm-neoeco-psu-850w",
 "tms:NE850PLATINUM":"model:psu:1-atx3-full-modular-ne850-neoeco-850w-full",
-"tms:NEON120ARGB":"model:case_fan:120-fan-neon-pwm-120mm-rgb-black",
-"tms:NEON120ARGB3PK":"model:case_fan:120-3xfans-controller-neon-pwm-120mm-3-rgb-black",
+"tms:NEON120ARGB":"model:case_fan:120-neon-pwm-120mm-rgb-black",
+"tms:NEON120ARGB3PK":"model:case_fan:120-3-neon-pwm-120mm-rgb-black",
 "tms:NF-A12X15PWM":"model:case_fan:a12x15-fan-nf-pwm-120mm",
 "tms:NF-A12X25G2LS-PWM":"model:case_fan:a12x25-fan-g2-ls-nf-pwm-120mm",
 "tms:NF-A12X25G2PWM":"model:case_fan:a12x25-fan-g2-nf-pwm-120mm",
@@ -9123,7 +9123,7 @@
 "tms:PC-A4H2OX4":"model:case:0-4-a4-case-h2o-x4-black",
 "tms:PC-A76X":"model:case:a76x-black",
 "tms:PC-LAN216RX":"model:case:216-lancool-black",
-"tms:PC-LAN216X":"model:case:216-case-lan216x-lancool-pc-black",
+"tms:PC-LAN216X":"model:case:216-lancool-black-2",
 "tms:PC-TR01A":"model:case:01a-odyssey-tr-x-silver",
 "tms:PC-TU150":"model:case:aluminum-itx-mini-pc-solid-tu150-windowless",
 "tms:PC-TU150WA":"model:case:aluminum-case-pc-tg-tu150-silver",
@@ -10469,7 +10469,7 @@
 "yahav:9364":"model:motherboard:atx-ax-b760m-ddr5-displayport-gaming-hdmi-lga1700-micro-x-microatx",
 "yahav:9368":"model:motherboard:ax-b650-gaming-v2-x-atx",
 "yahav:9370":"model:memory:0-2x32gb-3-6000-cl30-expo-vengeance-xmp-64gb-x2-6000mhz-cl30-rgb-black",
-"yahav:9371":"model:case:216-case-lan216x-lancool-pc-black",
+"yahav:9371":"model:case:216-lancool-black-2",
 "yahav:9372":"model:cpu:14100",
 "yahav:9373":"model:cpu:14100-tray",
 "yahav:9374":"model:cpu:14100f",
@@ -10599,7 +10599,7 @@
 "yahav:9953":"model:case:600-base-light-lx-white",
 "yahav:9954":"model:case:900-base-fx-light-black",
 "yahav:9955":"model:case:900-base-fx-light-white",
-"yahav:9956":"model:motherboard:aorus-ice-pro-x870e-atx",
+"yahav:9956":"model:motherboard:0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-ice-pro-wi-x870e-atx",
 "yahav:9957":"model:motherboard:aorus-pro-x870e-atx",
 "yahav:9960":"model:case:3x120mm-uv5-black",
 "yahav:9961":"model:case:3x120mm-uv6-black",
@@ -12656,7 +12656,7 @@
 "case"
 ],
 "model:case:1x120mm-2x200mm-500-haf-mid-tower-white":[
-"CoolerMaster HAF 500 White",
+"Cooler Master HAF 500 2X200MM 1X120MM Black",
 "case"
 ],
 "model:case:1x120mm-3x140mm-fan-mid-tower-z10-black":[
@@ -12791,12 +12791,12 @@
 "Lian Li Lancool 215 Black",
 "case"
 ],
-"model:case:216-case-lan216x-lancool-pc-black":[
-"Lian Li Lancool 216 Black",
-"case"
-],
 "model:case:216-lancool-black":[
 "Lancool 216R RGB Black",
+"case"
+],
+"model:case:216-lancool-black-2":[
+"Lian Li Lancool 216 Black",
 "case"
 ],
 "model:case:217-case-mid-tower-black":[
@@ -15279,6 +15279,10 @@
 "Antec Vision 3X120MM 120mm PWM ARGB x3 Black",
 "case_fan"
 ],
+"model:case_fan:120-3-neon-pwm-120mm-rgb-black":[
+"Antec Neon 120mm PWM ARGB x3 Black",
+"case_fan"
+],
 "model:case_fan:120-3x-fans-nova-pwm-120mm-3-black":[
 "Antec Nova 120mm PWM x3 Black",
 "case_fan"
@@ -15293,10 +15297,6 @@
 ],
 "model:case_fan:120-3xfans-air-nexus-pwm-120mm-3-rgb-white":[
 "SilverStone AIR Nexus 3XFANS 120mm PWM ARGB x3 White",
-"case_fan"
-],
-"model:case_fan:120-3xfans-controller-neon-pwm-120mm-3-rgb-black":[
-"Antec Neon 3XFANS 120mm PWM ARGB x3 Black",
 "case_fan"
 ],
 "model:case_fan:120-4-a12x25-black-chromax-g2-nf-pwm-120mm-1-black":[
@@ -15339,10 +15339,6 @@
 "Antec NEO Prizm T3 120mm PWM ARGB Black",
 "case_fan"
 ],
-"model:case_fan:120-fan-neon-pwm-120mm-rgb-black":[
-"Antec Neon 120mm PWM ARGB Black",
-"case_fan"
-],
 "model:case_fan:120-fan-nova-pwm-120mm-black":[
 "Antec Nova 120mm PWM Black",
 "case_fan"
@@ -15361,6 +15357,10 @@
 ],
 "model:case_fan:120-icue-link-max-rx120-120mm-rgb-white":[
 "Corsair RX120 MAX 120mm PWM ARGB White",
+"case_fan"
+],
+"model:case_fan:120-neon-pwm-120mm-rgb-black":[
+"Antec Neon 120mm PWM ARGB Black",
 "case_fan"
 ],
 "model:case_fan:120-nova-pwm-to-to-up-up-120mm-black":[
@@ -22755,6 +22755,10 @@
 "Gigabyte X870E Aorus Xtreme AI TOP WIFI7",
 "motherboard"
 ],
+"model:motherboard:0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-ice-pro-wi-x870e-atx":[
+"Gigabyte X870E Aorus PRO ICE WIFI7",
+"motherboard"
+],
 "model:motherboard:0-1xhdmi-2xusb-4-7-aorus-elite-wifi-x870-atx":[
 "Gigabyte X870 Aorus Elite 1XHDMI 2XUSB WIFI7",
 "motherboard"
@@ -23787,10 +23791,6 @@
 "Gigabyte X870E Aorus PRO X3D ICE WIFI7",
 "motherboard"
 ],
-"model:motherboard:aorus-ice-pro-x870e-atx":[
-"Gigabyte X870E Aorus PRO ICE WIFI7",
-"motherboard"
-],
 "model:motherboard:aorus-ice-pro-x870i-miniitx":[
 "Gigabyte X870I Aorus PRO ICE WIFI7",
 "motherboard"
@@ -24232,7 +24232,7 @@
 "motherboard"
 ],
 "model:motherboard:b760-gaming-tuf-wifi-atx":[
-"ASUS TUF Gaming B760-Plus WIFI6 (90MB1ER0-M1EAY0)",
+"ASUS TUF Gaming B760-Plus WIFI6",
 "motherboard"
 ],
 "model:motherboard:b760-gaming-tuf-wifi-atx-2":[
@@ -26792,7 +26792,7 @@
 "psu"
 ],
 "model:psu:rm750e-750w-full-black":[
-"Corsair RM750e 750W ATX 3.1 Gold Modular",
+"Corsair RM750e 750W ATX 3.1 Gold",
 "psu"
 ],
 "model:psu:rm750e-750w-full-white":[

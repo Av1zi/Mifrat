@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T11:14:37.476108+00:00",
+  "generated_at": "2026-11-23T22:43:44.138640+00:00",
   "gaps": [
     {
       "category": "case",
@@ -36,9 +36,9 @@
       "label": "סוג האחסון",
       "count": 69,
       "products": [
+        "model:motherboard:0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-ice-pro-wi-x870e-atx",
         "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx"
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx"
       ]
     },
     {
@@ -176,9 +176,9 @@
       "label": "רמקולים",
       "count": 32,
       "products": [
+        "model:motherboard:0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-ice-pro-wi-x870e-atx",
         "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
-        "model:motherboard:6-666-d5-h610m-wifi-microatx",
-        "model:motherboard:a-b860-gaming-rog-strix-wifi-atx"
+        "model:motherboard:6-666-d5-h610m-wifi-microatx"
       ]
     },
     {
@@ -3376,7 +3376,7 @@
       "label": "רמקולים",
       "count": 4,
       "products": [
-        "model:case:216-case-lan216x-lancool-pc-black",
+        "model:case:216-lancool-black-2",
         "model:case:2500x-black",
         "model:case:3x120mm-fans-flow-h6-included-mid-tower-white"
       ]
