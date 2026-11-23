@@ -25,6 +25,9 @@ and secrets). No secret ever goes into git or a GitHub workflow.
   **This is the only phone message**: problems are included in this report,
   not sent separately, even when urgent. No reminders or "Resolved" pushes.
   If the report data is unavailable, the daily message says so instead.
+  If ntfy rejects the push (rate limit, outage), every later half-hour tick
+  retries the same day's report, so a rejection delays it instead of losing
+  it; a new day never sends the previous day's report.
 - **Live problems on `/admin/`**: half-hourly checks and Nano run events
   still update the console without sending extra messages.
 
@@ -118,8 +121,14 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
   `npx tsx` with a small script calling `dailyReport(status, evaluate(status,
   now), now)`.
 - Send a test push: in the Worker dashboard (Settings → Triggers → Cron),
-  use "Trigger". At 10:xx Israel it sends the daily report. At other times
-  it updates console findings only and sends nothing.
+  use "Trigger". From 10:00 Israel it sends the day's report unless it was
+  already delivered; before that it updates console findings only and sends
+  nothing.
+- A report that did not arrive: the Worker logs `ntfy rejected the push:
+  <status>` (run `npx wrangler tail`). Status 429 with body code `42908`
+  means ntfy.sh's free daily message quota for the shared visitor IP is
+  spent; later ticks keep retrying, but the free tier can stay blocked for
+  hours. ntfy Pro or a self-hosted ntfy removes the shared-IP quota.
 - Nano: `nano/ops_notify.sh pc-parts-il-ksp.service success` posts an `ok`
   run, which then shows under Alerts & runs.
 

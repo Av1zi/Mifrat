@@ -54,7 +54,7 @@ export interface OpsEnv {
 }
 
 export const DEFAULT_ORIGIN = "https://mifrat.avizi.workers.dev";
-/** The daily report goes out on the first cron tick in this Israel hour. */
+/** First Israel hour that tries the daily report (later ticks retry if rejected). */
 export const REPORT_HOUR_ISRAEL = 10;
 const RUN_RETENTION_DAYS = 60;
 const MAX_EVENT_BYTES = 2048;
@@ -131,8 +131,20 @@ export async function push(env: OpsEnv, msg: PushMessage, fetcher: typeof fetch 
   };
   try {
     const res = await fetcher(`${url.origin}/`, { method: "POST", headers, body: JSON.stringify(body) });
+    if (!res.ok) {
+      // A rejected publish is silent on the phone. Log why (ntfy 42908 =
+      // daily message quota: the free tier counts anonymous publishes per
+      // visitor IP, and Workers share egress IPs) so `wrangler tail` shows it.
+      const retryAfter = res.headers.get("retry-after");
+      console.warn(
+        `ntfy rejected the push: ${res.status}` +
+          (retryAfter ? ` (retry-after ${retryAfter}s)` : "") +
+          (env.NTFY_TOKEN ? "" : " (no NTFY_TOKEN: anonymous, shared-IP quota)")
+      );
+    }
     return res.ok;
-  } catch {
+  } catch (err) {
+    console.warn(`ntfy push failed: ${String(err)}`);
     return false;
   }
 }
@@ -294,7 +306,12 @@ export async function syncAlerts(
   }
 }
 
-/** The 10:00 report: once per Israel date, on the first tick in that hour. */
+/**
+ * The daily report: once per Israel date, from 10:00 on. The first attempt is
+ * the 10:00 tick; if ntfy rejects it (quota, outage) every later tick retries
+ * until it is delivered, because a report that never arrives is the failure
+ * that matters. A new day starts fresh, so yesterday's report is never sent.
+ */
 export async function maybeDailyReport(
   env: OpsEnv,
   status: OpsStatus | null,
@@ -303,7 +320,7 @@ export async function maybeDailyReport(
   fetcher: typeof fetch = fetch
 ): Promise<PushMessage | null> {
   const { date, hour } = israelParts(now);
-  if (hour !== REPORT_HOUR_ISRAEL || !env.LISTS_DB) return null;
+  if (hour < REPORT_HOUR_ISRAEL || !env.LISTS_DB) return null;
   const done = await env.LISTS_DB.prepare("SELECT value FROM ops_meta WHERE name = 'daily_report'")
     .first<{ value: string }>();
   if (done?.value === date) return null;

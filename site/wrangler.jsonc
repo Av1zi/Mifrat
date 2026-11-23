@@ -28,8 +28,9 @@
 	},
 	// Ops cron (ops-worker.ts): every 30 minutes it checks the scrape
 	// report, the deployed site and the Nano run events for the admin console.
-	// Only the first tick of 10:xx Israel time (07:00 or 08:00 UTC,
-	// DST-aware in code) sends the daily scrape report. Free plan: 5 cron
+	// The daily scrape report goes out at 10:00 Israel time (07:00 or 08:00
+	// UTC, DST-aware in code). If ntfy rejects that push, later ticks retry
+	// the same day's report until it is delivered. Free plan: 5 cron
 	// triggers per account; this uses one.
 	"triggers": {
 		"crons": ["*/30 * * * *"]

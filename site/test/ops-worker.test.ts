@@ -332,11 +332,17 @@ describe("ops cron: daily report", () => {
     expect(t.pushes).toHaveLength(1);
   });
 
-  it("does not send outside 10:xx Israel time", async () => {
+  it("waits for 10:00 Israel and never sends an earlier day's report", async () => {
     const t = setup();
-    await t.cron("2026-11-12T07:30:00Z"); // 09:30 Israel
-    await t.cron("2026-11-12T09:00:00Z"); // 11:00 Israel
+    await t.cron("2026-11-12T07:30:00Z"); // 09:30 Israel: too early
     expect(t.pushes).toHaveLength(0);
+    // The next day starts with nothing delivered for 11-13; 08:00 Israel is
+    // still too early, and the 11-12 report is not sent late.
+    await t.cron("2026-11-13T06:00:00Z");
+    expect(t.pushes).toHaveLength(0);
+    const r = await t.cron("2026-11-13T09:00:00Z"); // 11:00 Israel: 11-13's own report
+    expect(r.report?.title).toContain("Fri 13/11");
+    expect(t.pushes).toHaveLength(1);
   });
 
   it("summer time: 07:00 UTC is 10:00 Israel", async () => {
@@ -431,6 +437,33 @@ describe("ops cron: daily report", () => {
     expect(t.pushes).toHaveLength(1);
     expect(t.pings).toEqual(["2026-11-12"]);
   });
+
+  it("keeps retrying a rejected report through the day, then stops once delivered", async () => {
+    const t = setup();
+    // ntfy's free tier counts anonymous publishes per visitor IP; Workers share
+    // egress IPs, so a 429 (code 42908) can last for hours.
+    const rejected = (async (input: RequestInfo | URL, init?: RequestInit) =>
+      String(input) === "https://ntfy.sh/"
+        ? new Response('{"code":42908,"error":"daily message quota reached"}', {
+            status: 429,
+            headers: { "retry-after": "21600" },
+          })
+        : t.fetcher(input, init)) as typeof fetch;
+
+    for (const at of ["2026-11-12T08:00:00Z", "2026-11-12T10:00:00Z", "2026-11-12T15:00:00Z"]) {
+      expect((await runCron(t.env, new Date(at), rejected)).report).toBeNull();
+    }
+    expect(t.db.meta.has("daily_report")).toBe(false);
+    expect(t.pings).toEqual([]);
+
+    // 22:30 Israel: the quota freed up, so the report still arrives today.
+    const late = await t.cron("2026-11-12T20:30:00Z");
+    expect(late.report).not.toBeNull();
+    expect(t.pushes).toHaveLength(1);
+    expect(t.pings).toEqual(["2026-11-12"]);
+    await t.cron("2026-11-12T21:00:00Z");
+    expect(t.pushes).toHaveLength(1);
+  });
 });
 
 describe("ops cron: alerts", () => {
@@ -480,7 +513,7 @@ describe("ops cron: alerts", () => {
     const t = setup();
     takeAbuseHits();
     for (let i = 0; i < 300; i++) recordAbuse();
-    const r = await t.cron("2026-11-12T12:00:00Z");
+    const r = await t.cron("2026-11-12T07:00:00Z"); // 09:00 Israel: no daily report due yet
     expect(r.findings).toContainEqual(
       expect.objectContaining({
         title: "API flood (possible attack)",
@@ -562,7 +595,10 @@ describe("ops cron: alerts", () => {
     const t = setup(null);
     const r = await t.cron("2026-11-12T12:00:00Z");
     expect(r.findings.map((f) => f.key)).toEqual(["report-missing"]);
-    expect(r.report).toBeNull();
+    // Past 10:00 the daily message still goes out and says the data is missing.
+    expect(r.report?.title).toContain("report unavailable");
+    await t.cron("2026-11-12T12:30:00Z");
+    expect(t.pushes).toHaveLength(1);
   });
 
   it("sends nothing without an ntfy topic, and refuses a non-https one", async () => {
