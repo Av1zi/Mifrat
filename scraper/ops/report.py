@@ -28,6 +28,7 @@ itself a finding there.
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import os
 import sys
@@ -175,6 +176,8 @@ def build(now: datetime, raw_dir: Path = RAW, catalog: dict | None = None,
     """(status, changes, memory) for `now`. Pure apart from reading raw_dir."""
     if catalog is None:
         catalog = _read_json(CATALOG, {})
+    if not isinstance(catalog, dict):
+        catalog = {}
     crawls = load_crawls(raw_dir, now, WINDOW_DAYS)
     window_start = (now - timedelta(days=WINDOW_DAYS)).strftime("%Y-%m-%d")
     firsts = first_snapshot_days(raw_dir)
@@ -267,13 +270,14 @@ def seed_memory_from_git(days: int) -> dict:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
     parser.add_argument("--print", action="store_true", help="print the per-vendor summary")
     parser.add_argument("--out", type=Path, default=OPS)
     parser.add_argument("--seed-git", action="store_true",
                         help="one-time: fill memory.json from past catalogs in git history")
     args = parser.parse_args(argv)
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if isinstance(sys.stdout, io.TextIOWrapper):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
     now = datetime.now(timezone.utc)
     memory = _read_json(args.out / "memory.json", {})

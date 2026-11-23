@@ -255,12 +255,17 @@ def _product_events(out: Replay) -> list[dict]:
         if info.get("live"):
             pid = info["pid"]
             for key, state in gone:
+                if state.gone_at is None:
+                    continue
                 events.append({"at": iso(state.gone_at), "type": "vendor_lost",
                                "vendor": state.vendor, "key": key, "pid": pid,
                                "product": info["product"], "category": info["category"],
                                "title": state.title, "url": state.url, "price": state.price})
         else:
-            events.append({"at": iso(max(s.gone_at for _, s in gone)), "type": "product_gone",
+            gone_times = [s.gone_at for _, s in gone if s.gone_at is not None]
+            if not gone_times:
+                continue
+            events.append({"at": iso(max(gone_times)), "type": "product_gone",
                            "pid": pid, "product": info["product"], "category": info["category"],
                            "vendors": sorted({s.vendor for _, s in gone}),
                            "price": min((s.price for _, s in gone if s.price), default=None),

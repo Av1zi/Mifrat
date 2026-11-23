@@ -168,7 +168,8 @@ class KspDetailSpider(scrapy.Spider):
         stop_failure(self, failure)
         if getattr(self, "_blocked", False):
             return
-        self.crawler.stats.set_value("crawl/failed", True)
+        if self.crawler is not None and self.crawler.stats is not None:
+            self.crawler.stats.set_value("crawl/failed", True)
         self.logger.warning("[ksp_detail] uin %s: request failed: %r",
                             failure.request.meta.get("vendor_sku"), failure.value)
         yield from self._next_request()
@@ -181,7 +182,8 @@ class KspDetailSpider(scrapy.Spider):
                               "the rest stays pending", response.status, uin)
             self._stop(f"ksp_detail blocked {response.status}")
         if response.status != 200:
-            self.crawler.stats.set_value("crawl/failed", True)
+            if self.crawler is not None and self.crawler.stats is not None:
+                self.crawler.stats.set_value("crawl/failed", True)
             self.logger.warning("[ksp_detail] uin %s: HTTP %s", uin, response.status)
             yield from self._next_request()
             return

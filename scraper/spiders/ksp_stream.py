@@ -213,7 +213,8 @@ class KspStreamSpider(KspSpider):
 
     def _stop_incomplete(self, reason):
         self._failed = True
-        self.crawler.stats.set_value("crawl/failed", True)
+        if self.crawler is not None and self.crawler.stats is not None:
+            self.crawler.stats.set_value("crawl/failed", True)
         self.logger.error("[ksp-stream] %s; no snapshot", reason)
         raise CloseSpider("ksp incomplete — stream transport")
 

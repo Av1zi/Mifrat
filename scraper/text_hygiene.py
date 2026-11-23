@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import html
 import re
+from typing import Any
 
 # A named entity without its ";" must end the word ("&amp " yes, "&amplifier" no).
 ENTITY_RE = re.compile(
@@ -39,7 +40,7 @@ def clean_text(value: str) -> str:
     return re.sub(r" {2,}", " ", text).strip()
 
 
-def clean_tree(value, key: str = ""):
+def clean_tree(value: Any, key: str = "") -> Any:
     """`clean_text` over every string in a JSON value (dict keys too), link
     fields excepted."""
     if isinstance(value, str):

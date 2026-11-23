@@ -180,8 +180,12 @@ def load_listings(path: Path) -> list[dict]:
     This also tries to recover from concatenated JSON objects on one line,
     which can happen when copy/pasting raw output.
     """
-    listings = []
+    listings: list[dict] = []
     decoder = json.JSONDecoder()
+
+    def append_listing(value) -> None:
+        if isinstance(value, dict):
+            listings.append(value)
 
     with open(path, encoding="utf-8-sig") as f:
         for line in f:
@@ -190,7 +194,7 @@ def load_listings(path: Path) -> list[dict]:
                 continue
 
             try:
-                listings.append(json.loads(line))
+                append_listing(json.loads(line))
                 continue
             except json.JSONDecodeError:
                 idx = 0
@@ -204,7 +208,7 @@ def load_listings(path: Path) -> list[dict]:
 
                     try:
                         obj, end = decoder.raw_decode(line[idx:])
-                        listings.append(obj)
+                        append_listing(obj)
                         idx += end
                     except json.JSONDecodeError:
                         break
@@ -606,11 +610,13 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 # Detail specs and the Yahav/1PC real_sku carry the same
                 # entities and bidi marks as titles (audit J).
                 item = clean_tree(json.loads(line))
+                if not isinstance(item, dict):
+                    continue
                 sku = str(item.get("vendor_sku") or "").strip()
                 specs = item.get("specs")
                 image_url = item.get("image_url")
                 extra = item.get("extra")
-                if sku and specs:
+                if sku and isinstance(specs, dict):
                     detail_index[(vendor_key, sku)] = {
                         key: _collapse_doubled(value)
                         if isinstance(value, str) else value
@@ -622,7 +628,10 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 # overwritten with an unfetchable directory URL (Sep 2026:
                 # 116 products showed broken images this way).
                 candidates: list[str] = []
-                for url in [*(item.get("image_urls") or []), image_url]:
+                image_urls = item.get("image_urls")
+                if not isinstance(image_urls, list):
+                    image_urls = []
+                for url in [*image_urls, image_url]:
                     if not url or not _has_image_basename(str(url)):
                         continue
                     for expanded in candidate_urls(str(url)) or [str(url)]:

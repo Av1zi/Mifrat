@@ -112,7 +112,8 @@ def parse_stream(body: bytes | str, expected_keys: list[str]) -> list[Component]
             done = True
         else:
             request_id, key = data.get("requestId"), data.get("key")
-            if not isinstance(request_id, str) or expected.get(request_id) != key:
+            if (not isinstance(request_id, str) or not isinstance(key, str)
+                    or expected.get(request_id) != key):
                 raise StreamError("unexpected component identity")
             if request_id in found:
                 raise StreamError("duplicate component")

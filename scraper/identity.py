@@ -759,7 +759,7 @@ def _known_values(category: str | None, listing: dict) -> dict[str, str]:
     """The axis values that can contradict another listing's."""
     return {axis: value
             for axis, value in variant_values(category, listing).items()
-            if not _axis_wildcard(category, axis, value)}
+            if value is not None and not _axis_wildcard(category, axis, value)}
 
 
 def variant_conflict(category: str | None, a: dict, b: dict) -> bool:
@@ -1019,7 +1019,7 @@ def _listing_keys(listing: dict) -> set[str]:
 
 
 def _cluster(category: str | None, listings: list[dict], *,
-            seeds: list[list[dict]] = (),
+            seeds: list[list[dict]] | None = None,
             skip: frozenset[str] = frozenset()) -> list[list[dict]]:
     """Greedy variant clustering on every axis except `skip`.
 
@@ -1027,6 +1027,7 @@ def _cluster(category: str | None, listings: list[dict], *,
     carries a single manufacturer part number); they are never split, they
     only absorb listings that do not contradict them.
     """
+    seeds = seeds or []
     axes = tuple(a for a in variant_axes(category) if a not in skip)
     if not axes:
         groups = [list(seed) for seed in seeds]
@@ -1141,11 +1142,14 @@ def variant_subgroups(category: str | None,
         # listing of a part TMS sells Tray, so the seed splits by packaging.
         split: list[list[dict]] = []
         for seed in seeds:
-            by_pack: dict[str | None, list[dict]] = {}
+            by_pack: dict[str, list[dict]] = {}
+            unstated: list[dict] = []
             for enriched in seed:
-                by_pack.setdefault(_axis_value(category, "packaging", enriched),
-                                   []).append(enriched)
-            unstated = by_pack.pop(None, [])
+                pack = _axis_value(category or "", "packaging", enriched)
+                if pack is None:
+                    unstated.append(enriched)
+                else:
+                    by_pack.setdefault(pack, []).append(enriched)
             parts = [by_pack[key] for key in sorted(by_pack)] or [[]]
             parts[0].extend(unstated)
             split.extend(parts)

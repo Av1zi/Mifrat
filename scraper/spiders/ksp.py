@@ -279,7 +279,9 @@ class KspSpider(scrapy.Spider):
     allowed_domains = ["ksp.co.il"]
     handle_httpstatus_list = [403, 429]
 
-    custom_settings = {
+    # Explicit dict (not the base class's dict | None) so subclasses can
+    # unpack it with ** without a None guard.
+    custom_settings: dict = {
         # Keep Playwright out of this spider: the Nano has no browser, and
         # KSP does not need one. Both schemes go through curl_cffi so no
         # default HTTP11 request can leak a plain TLS handshake.
