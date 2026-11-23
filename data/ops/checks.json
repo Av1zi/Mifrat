@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-23T22:48:19+00:00",
+ "generated_at": "2026-11-23T23:03:24+00:00",
  "night": "2026-11-24",
  "suite": "publish",
  "escalate_nights": 3,
@@ -45,7 +45,7 @@
    "title": "TMS detail-page parser (fixtures)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 1.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -199,7 +199,7 @@
    "title": "Scrape block stops and runner outcomes",
    "status": "pass",
    "exit": 0,
-   "seconds": 5.2,
+   "seconds": 4.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -210,7 +210,7 @@
    "title": "Population loss attribution",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -254,7 +254,7 @@
    "title": "Cloud detail runner isolation and outcomes",
    "status": "pass",
    "exit": 0,
-   "seconds": 9.9,
+   "seconds": 9.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -287,7 +287,7 @@
    "title": "Ledger rules self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.5,
+   "seconds": 1.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -320,7 +320,7 @@
    "title": "Photo pipeline rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.6,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -331,7 +331,7 @@
    "title": "Ops report rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 2.0,
+   "seconds": 1.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -397,7 +397,7 @@
    "title": "Shipped text hygiene",
    "status": "pass",
    "exit": 0,
-   "seconds": 3.2,
+   "seconds": 3.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -408,7 +408,7 @@
    "title": "Cover corpus (format, size, borders)",
    "status": "pass",
    "exit": 0,
-   "seconds": 25.8,
+   "seconds": 25.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -463,7 +463,7 @@
    "title": "Category reduction from source absences",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.2,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -518,7 +518,7 @@
    "title": "Repeated snapshot rows",
    "status": "pass",
    "exit": 0,
-   "seconds": 15.0,
+   "seconds": 13.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -540,10 +540,10 @@
    "title": "Ledgers point at live data",
    "status": "warn",
    "exit": 1,
-   "seconds": 10.1,
+   "seconds": 10.2,
    "since": "2026-11-22T01:51:01+00:00",
    "nights": 3,
-   "detail": "      ivory/90MB1LN0-M0EAY0.webp\n      ivory/90MB1M70-M0EAY0.webp\n      ivory/90MB1MD0-M0EAY0.webp\n      ivory/90MB1N90-M0EAY0.webp\n      ivory/90MB1NW0-M0EAY0.webp\n      ivory/90MB1P60-M0EAY0.webp\n      ivory/90MB1PI0-M0EAY0.webp\n      ivory/90YV0ALA-M0NA00.webp\n      ivory/90YV0LX0-M0NA00.webp\n  [fail] override model:gpu:4000-blackwell-pro-rtx-24gb reaches no product\n  [fail] cover files no listing uses: 942 > budget 900\n[check-ledgers] 2 failure(s)"
+   "detail": "      ivory/90MB1LN0-M0EAY0.webp\n      ivory/90MB1M70-M0EAY0.webp\n      ivory/90MB1MD0-M0EAY0.webp\n      ivory/90MB1N90-M0EAY0.webp\n      ivory/90MB1NW0-M0EAY0.webp\n      ivory/90MB1P60-M0EAY0.webp\n      ivory/90MB1PI0-M0EAY0.webp\n      ivory/90YV0ALA-M0NA00.webp\n      ivory/90YV0LX0-M0NA00.webp\n  [fail] override model:gpu:4000-blackwell-pro-rtx-24gb reaches no product\n  [fail] cover files no listing uses: 945 > budget 900\n[check-ledgers] 2 failure(s)"
   },
   {
    "name": "backtest",
@@ -554,7 +554,7 @@
    "seconds": 8.3,
    "since": "2026-11-23T11:28:27+00:00",
    "nights": 2,
-   "detail": "...                                   130    126      4   96.9  pinned\ntitle -> storage.capacity_gb                                       559    540     19   96.6  pinned\ntitle -> storage.form_factor                                       374    373      1   99.7\ntitle -> storage.interface                                         407    405      2   99.5\ntitle -> storage.nand                                                5      5      0  100.0\ntitle -> storage.nvme                                              284    284      0  100.0\ntitle -> storage.pcie_gen                                          197    197      0  100.0\ntitle -> storage.rpm                                                89     89      0  100.0\ntitle -> storage.series                                            455    385     70   84.6  pinned\ntitle -> storage.type                                              464    464      0  100.0\n[backtest] 150 rule/field pairs, 31257 overlaps, 487 disagree; 49 below the ideal bar, 1 regression(s) past p<0.0001\n[backtest] FAIL derived:cpu.socket_memory_platform -> cpu.max_memory_gb: 78.3% precision on 60 overlaps (13 disagree, p=3.3e-14 < 0.0001, acceptable 99.0%, pinned None)"
+   "detail": "...                                   130    126      4   96.9  pinned\ntitle -> storage.capacity_gb                                       559    540     19   96.6  pinned\ntitle -> storage.form_factor                                       374    373      1   99.7\ntitle -> storage.interface                                         407    405      2   99.5\ntitle -> storage.nand                                                5      5      0  100.0\ntitle -> storage.nvme                                              284    284      0  100.0\ntitle -> storage.pcie_gen                                          197    197      0  100.0\ntitle -> storage.rpm                                                89     89      0  100.0\ntitle -> storage.series                                            455    385     70   84.6  pinned\ntitle -> storage.type                                              464    464      0  100.0\n[backtest] 150 rule/field pairs, 31249 overlaps, 487 disagree; 49 below the ideal bar, 1 regression(s) past p<0.0001\n[backtest] FAIL derived:cpu.socket_memory_platform -> cpu.max_memory_gb: 78.3% precision on 60 overlaps (13 disagree, p=3.3e-14 < 0.0001, acceptable 99.0%, pinned None)"
   },
   {
    "name": "coverage",
