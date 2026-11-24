@@ -8315,58 +8315,6 @@
   {
     "kind": "variant_conflict",
     "category": "memory",
-    "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:210599",
-        "vendor": "1pc",
-        "vendor_sku": "KF560C30BWEAK2-32",
-        "title": "קיט זיכרון Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע לבן",
-        "price": 2547
-      },
-      {
-        "listing_key": "tms:KF560C30BWEAK2-32",
-        "vendor": "tms",
-        "vendor_sku": "KF560C30BWEAK2-32",
-        "title": "Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
-        "price": null
-      },
-      {
-        "listing_key": "yahav:10209",
-        "vendor": "yahav",
-        "vendor_sku": "KF560C30BWEAK2-32",
-        "title": "זיכרון חברת Kingston דגם Kingston FURY Beast RGB White DDR5 32GB 16GBX2 6000MHZ CL30",
-        "price": 2400
-      }
-    ],
-    "model_code": "0-2x16gb-3-6000-beast-cl30-expo-fury-xmp",
-    "manufacturer_pn": [
-      "KF560C30BWEAK232"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
-    "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:KF560C30BWEK2-32",
-        "vendor": "tms",
-        "vendor_sku": "KF560C30BWEK2-32",
-        "title": "Kingston FURY Beast DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
-        "price": 2858
-      }
-    ],
-    "model_code": "0-2x16gb-3-6000-beast-cl30-expo-fury-xmp",
-    "manufacturer_pn": [
-      "KF560C30BWEK232"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
     "product_id": "model:memory:0-2x16gb-3-6000-cl30-ripjaws-s5-xmp-32gb-x2-6000mhz-cl30-black",
     "vendor": "",
     "offers": [
@@ -8506,19 +8454,10 @@
         "vendor_sku": "6000J3040F16GX2-TZ5RS",
         "title": "זיכרון G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע כסוף",
         "price": 2993
-      },
-      {
-        "listing_key": "tms:6000J3040F16GX2-TZ5RS",
-        "vendor": "tms",
-        "vendor_sku": "6000J3040F16GX2-TZ5RS",
-        "title": "G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 Silver XMP 3.0",
-        "price": null
       }
     ],
     "model_code": "0-2x16gb-3-6000-cl30-trident-xmp-z5",
-    "manufacturer_pn": [
-      "6000J3040F16GX2TZ5RS"
-    ]
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",

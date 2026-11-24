@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T21:35:13.196878+00:00",
+  "generated_at": "2026-11-24T21:45:27.883289+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -108526,7 +108526,7 @@
           "Warranty / Warranty type": "3 years."
         }
       },
-      "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white"
+      "product_id": "model:memory:16gbx2-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-white"
     },
     {
       "vendor_id": "1pc",
@@ -306945,7 +306945,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 30,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -309009,7 +309009,7 @@
         "cpu_generation": "Ryzen 7000"
       },
       "eilat_price_ils": 1858,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -320811,7 +320811,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 2523,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -320893,7 +320893,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 3167,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -320974,7 +320974,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 3167,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -321467,7 +321467,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 2519,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -321633,7 +321633,7 @@
         "memory": "64GB"
       },
       "eilat_price_ils": 5962,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -322221,91 +322221,6 @@
     },
     {
       "vendor_id": "tms",
-      "vendor_sku": "6000J3040F16GX2-TZ5RS",
-      "url": "https://tms.co.il/desktop-ram/g-skill-6000j3040f16gx2-tz5rs",
-      "title_raw": "G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 Silver XMP 3.0",
-      "price_ils": null,
-      "in_stock": false,
-      "tile_parser": 2,
-      "category_guess": "ram",
-      "image_url": "https://tms.co.il/image/catalog/products/6000J3040F16GX2-TZ5RS/dl1hfKcBCh.jpg",
-      "scraped_at": "2026-11-23T22:40:41.426628+00:00",
-      "_eilat_stale": false,
-      "eilat_price_ils": 2478,
-      "eilat_in_stock": true,
-      "eilat_stale": false,
-      "eilat_only": true,
-      "last_seen": "2026-11-24",
-      "seen_day": "2026-11-24",
-      "stale": false,
-      "listing_key": "tms:6000J3040F16GX2-TZ5RS",
-      "price_ils_raw": null,
-      "category_normalized": "memory",
-      "match_text": "6000J3040F16GX2-TZ5RS G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 Silver XMP 3.0",
-      "brand": "G.Skill",
-      "mpn": "6000J3040F16GX2-TZ5RS",
-      "bundle_only": false,
-      "new_pc_deal": false,
-      "attributes": {
-        "manufacturer": "G.Skill",
-        "brand": "G.Skill",
-        "maker": "G.Skill",
-        "vendor_brand": "G.Skill",
-        "model": "Trident Z5 2x16GB 6000 CL30 XMP 3.0",
-        "model_name": "Trident Z5 2x16GB 6000 CL30 XMP 3.0",
-        "part_numbers": "6000J3040F16GX2-TZ5RS",
-        "part_number": "6000J3040F16GX2-TZ5RS",
-        "mpn": "6000J3040F16GX2-TZ5RS",
-        "memory_type": "DDR5",
-        "ram_type": "DDR5",
-        "memory_support": "DDR5",
-        "speed": "DDR5-6000",
-        "memory_speed": "DDR5-6000",
-        "speed_mhz": 6000,
-        "speed_rating_mhz": 6000,
-        "speed_rating": 6000,
-        "memory_speed_mhz": 6000,
-        "module_count": 2,
-        "modules": "2x16GB",
-        "modules_count": 2,
-        "number_of_modules": 2,
-        "module_size_gb": 16,
-        "module_capacity_gb": 16,
-        "total_gb": 32,
-        "capacity_gb": 32,
-        "capacity": "32GB",
-        "kit": "2x16GB",
-        "first_word_latency_ns": 10.0,
-        "first_word_latency": "10.0 ns",
-        "cas_latency": 30,
-        "cas": 30,
-        "cl": 30,
-        "voltage_v": 1.35,
-        "voltage": "1.35V",
-        "memory_voltage": 1.35,
-        "lighting": "ARGB",
-        "rgb_lighting": "ARGB",
-        "color": "Black / Silver",
-        "colour": "Black / Silver",
-        "memory": "32GB"
-      },
-      "vendor_meta": {
-        "detail_specs": {
-          "סוג זכרון": "DDR5",
-          "גודל זיכרון (RAM)": "32GB",
-          "סוג תאורה": "ARGB",
-          "פרופיל זיכרון": "Intel XMP",
-          "ערכת זיכרון": "2x16GB",
-          "מהירות זיכרון (Max)": "6000",
-          "זמן איחזור": "CL30",
-          "מתח זיכרון": "1.35V",
-          "צבע": "שחור | כסוף"
-        }
-      },
-      "product_id": "model:memory:0-2x16gb-3-6000-cl30-trident-xmp-z5-32gb-x2-6000mhz-cl30-rgb-blacksilver"
-    },
-    {
-      "vendor_id": "tms",
       "vendor_sku": "6000J3040F16GX2-TZ5S",
       "url": "https://tms.co.il/desktop-ram/g-skill-6000j3040f16gx2-tz5s",
       "title_raw": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 Silver XMP 3.0",
@@ -322864,7 +322779,7 @@
         "memory": "64GB"
       },
       "eilat_price_ils": 4956,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -323277,7 +323192,7 @@
         "memory": "64GB"
       },
       "eilat_price_ils": 4099,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -324178,7 +324093,7 @@
         "memory": "64GB"
       },
       "eilat_price_ils": 6222,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -324425,7 +324340,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 3726,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -330754,7 +330669,7 @@
         "expansion_slots": "PCIe 4.0 x1 | PCIe 4.0 x16"
       },
       "eilat_price_ils": 831,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -340017,7 +339932,7 @@
         "expansion_slots": "PCIe 5.0 x16 slot"
       },
       "eilat_price_ils": 3037,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -340137,7 +340052,7 @@
         "expansion_slots": "PCIe 5.0 x16 slot | PCIe 4.0 x16, mode x4"
       },
       "eilat_price_ils": 1289,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -341659,7 +341574,7 @@
         "length": "358 mm"
       },
       "eilat_price_ils": 36021,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -349560,7 +349475,7 @@
         "led": "No"
       },
       "eilat_price_ils": 342,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -354751,7 +354666,7 @@
         "cpu_tier": "I5"
       },
       "eilat_price_ils": 641,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -356663,7 +356578,7 @@
         "cpu_tier": "I9"
       },
       "eilat_price_ils": 1698,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -356856,7 +356771,7 @@
         "cpu_tier": "I9"
       },
       "eilat_price_ils": 1949,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -367689,7 +367604,7 @@
         "memory": "48GB"
       },
       "eilat_price_ils": 2608,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -367942,7 +367857,7 @@
         "memory": "64GB"
       },
       "eilat_price_ils": 4173,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -368112,7 +368027,7 @@
         "memory": "64GB"
       },
       "eilat_price_ils": 4844,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -368361,7 +368276,7 @@
         "memory": "64GB"
       },
       "eilat_price_ils": 4918,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -368696,7 +368611,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 3633,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -369036,7 +368951,7 @@
         "memory": "96GB"
       },
       "eilat_price_ils": 6707,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -379457,7 +379372,7 @@
         "family": "MP700"
       },
       "eilat_price_ils": 1304,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -380730,7 +380645,7 @@
         "family": "2280 NVMe"
       },
       "eilat_price_ils": 630,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -385381,7 +385296,7 @@
         "memory": "16GB"
       },
       "eilat_price_ils": 440,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -388587,7 +388502,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 1118,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -399553,13 +399468,13 @@
       "tile_parser": 2,
       "category_guess": "motherboard",
       "image_url": "https://tms.co.il/image/catalog/products/GB650EAGLEAX/4WOVVb3dnK.jpg",
-      "scraped_at": "2026-11-23T22:42:38.660087+00:00",
+      "scraped_at": "2026-11-24T21:38:41.065264+00:00",
       "_eilat_stale": false,
       "eilat_price_ils": 596,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "eilat_only": true,
-      "last_seen": "2026-11-24",
+      "last_seen": "2026-11-25",
       "seen_day": "2026-11-24",
       "stale": false,
       "listing_key": "tms:GB650EAGLEAX",
@@ -417284,7 +417199,7 @@
         "expansion_slots": "PCIe 4.0 x16, mode x8 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
       },
       "eilat_price_ils": 1416,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -418247,7 +418162,7 @@
         "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
       },
       "eilat_price_ils": 1054,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -425766,7 +425681,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 2128,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -426087,7 +426002,7 @@
         "memory": "16GB"
       },
       "eilat_price_ils": 1282,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -426104,93 +426019,6 @@
         }
       },
       "product_id": "model:memory:0-3-6000-beast-cl30-expo-fury-xmp-16gb-x1-6000mhz-cl30-black-dimm"
-    },
-    {
-      "vendor_id": "tms",
-      "vendor_sku": "KF560C30BWEAK2-32",
-      "url": "https://tms.co.il/desktop-ram/kingston-kf560c30bweak2-32",
-      "title_raw": "Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
-      "price_ils": null,
-      "in_stock": false,
-      "tile_parser": 2,
-      "category_guess": "ram",
-      "image_url": "https://tms.co.il/image/catalog/products/KF560C30BWEAK2-32/uId5EefG8O.jpg",
-      "scraped_at": "2026-11-23T22:40:00.520820+00:00",
-      "_eilat_stale": false,
-      "eilat_price_ils": 2198,
-      "eilat_in_stock": true,
-      "eilat_stale": false,
-      "eilat_only": true,
-      "last_seen": "2026-11-24",
-      "seen_day": "2026-11-24",
-      "stale": false,
-      "listing_key": "tms:KF560C30BWEAK2-32",
-      "price_ils_raw": null,
-      "category_normalized": "memory",
-      "match_text": "KF560C30BWEAK2-32 Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
-      "brand": "Kingston",
-      "mpn": "KF560C30BWEAK2-32",
-      "bundle_only": false,
-      "new_pc_deal": false,
-      "attributes": {
-        "manufacturer": "Kingston",
-        "brand": "Kingston",
-        "maker": "Kingston",
-        "vendor_brand": "Kingston",
-        "model": "FURY Beast 2x16GB 6000 CL30 EXPO XMP 3.0",
-        "model_name": "FURY Beast 2x16GB 6000 CL30 EXPO XMP 3.0",
-        "part_numbers": "KF560C30BWEAK2-32",
-        "part_number": "KF560C30BWEAK2-32",
-        "mpn": "KF560C30BWEAK2-32",
-        "memory_type": "DDR5",
-        "ram_type": "DDR5",
-        "memory_support": "DDR5",
-        "speed": "DDR5-6000",
-        "memory_speed": "DDR5-6000",
-        "speed_mhz": 6000,
-        "speed_rating_mhz": 6000,
-        "speed_rating": 6000,
-        "memory_speed_mhz": 6000,
-        "module_count": 2,
-        "modules": "2x16GB",
-        "modules_count": 2,
-        "number_of_modules": 2,
-        "module_size_gb": 16,
-        "module_capacity_gb": 16,
-        "total_gb": 32,
-        "capacity_gb": 32,
-        "capacity": "32GB",
-        "kit": "2x16GB",
-        "first_word_latency_ns": 10.0,
-        "first_word_latency": "10.0 ns",
-        "cas_latency": 30,
-        "cas": 30,
-        "cl": 30,
-        "voltage_v": 1.4,
-        "voltage": "1.4V",
-        "memory_voltage": 1.4,
-        "lighting": "ARGB",
-        "rgb_lighting": "ARGB",
-        "color": "White",
-        "colour": "White",
-        "memory": "32GB"
-      },
-      "vendor_meta": {
-        "detail_specs": {
-          "סוג זכרון": "DDR5",
-          "גודל זיכרון (RAM)": "32GB",
-          "סוג תאורה": "ARGB",
-          "פרופיל זיכרון": "AMD EXPO",
-          "ערכת זיכרון": "2x16GB",
-          "מהירות זיכרון (Max)": "6000",
-          "מהירות זיכרון (Default)": "4800",
-          "זמן איחזור": "CL30",
-          "מתח זיכרון": "1.4V",
-          "צבע": "לבן",
-          "סדרה": "Beast White RGB"
-        }
-      },
-      "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white"
     },
     {
       "vendor_id": "tms",
@@ -427197,7 +427025,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 436,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -437994,9 +437822,6 @@
         "audio_chip": "3 port",
         "expansion_slots": "PCIe 4.0 x4 | PCIe 5.0 x16 slot | PCIe 4.0 x1"
       },
-      "eilat_price_ils": 484,
-      "eilat_in_stock": false,
-      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "ערכת שבבים": "Intel Z890",
@@ -444752,7 +444577,7 @@
         "length": "126 mm"
       },
       "eilat_price_ils": 8197,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -448690,7 +448515,7 @@
         "length": "304 mm"
       },
       "eilat_price_ils": 7452,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -448976,7 +448801,7 @@
         "length": "360 mm"
       },
       "eilat_price_ils": 35473,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -449071,7 +448896,7 @@
         "length": "360 mm"
       },
       "eilat_price_ils": 35473,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -449157,7 +448982,7 @@
         "power_connectors": "1x16-pin"
       },
       "eilat_price_ils": 36570,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -450919,7 +450744,7 @@
         "length": "332 mm"
       },
       "eilat_price_ils": 7079,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -480206,7 +480031,7 @@
         "length": "245 mm"
       },
       "eilat_price_ils": 2067,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -488227,7 +488052,7 @@
           "מהירות זיכרון": "6000Mhz"
         }
       },
-      "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white"
+      "product_id": "model:memory:16gbx2-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-white"
     },
     {
       "vendor_id": "yahav",
@@ -562547,7 +562372,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 2067,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -562713,7 +562538,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 2067,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -647567,7 +647392,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 436,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -647699,7 +647524,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 436,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -873438,7 +873263,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 30,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -873492,7 +873317,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 30,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -895936,7 +895761,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 342,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -896013,7 +895838,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 342,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -945251,7 +945076,7 @@
           "model_code": null,
           "packaging_basis": "title",
           "eilat_price_ils": 1698,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -974055,7 +973880,7 @@
           "model_code": null,
           "packaging_basis": "title",
           "eilat_price_ils": 1858,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -974145,7 +973970,7 @@
         "model_code": null,
         "packaging_basis": "title",
         "eilat_price_ils": 1858,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -986327,7 +986152,7 @@
           "model_code": null,
           "packaging_basis": "title",
           "eilat_price_ils": 641,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -988588,7 +988413,7 @@
           "model_code": null,
           "packaging_basis": "title",
           "eilat_price_ils": 1949,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1011030,7 +1010855,7 @@
           },
           "model_code": "GV-N5080WF3-16GD",
           "eilat_price_ils": 7452,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1011099,7 +1010924,7 @@
         },
         "model_code": "GV-N5080WF3-16GD",
         "eilat_price_ils": 7452,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1032984,7 +1032809,7 @@
           },
           "model_code": "GV-N3090TURBO-24GD",
           "eilat_price_ils": 8197,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1033055,7 +1032880,7 @@
         },
         "model_code": "GV-N3090TURBO-24GD",
         "eilat_price_ils": 8197,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1040634,7 +1040459,7 @@
           },
           "model_code": "GV-N5090AORUSST ICE-32GD",
           "eilat_price_ils": 35473,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1040718,7 +1040543,7 @@
         },
         "model_code": "GV-N5090AORUSST ICE-32GD",
         "eilat_price_ils": 35473,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1042322,7 +1042147,7 @@
           },
           "model_code": "GV-N5090AORUSM ICE-32GD",
           "eilat_price_ils": 35473,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1042394,7 +1042219,7 @@
         },
         "model_code": "GV-N5090AORUSM ICE-32GD",
         "eilat_price_ils": 35473,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1042619,7 +1042444,7 @@
           },
           "model_code": "GV-N5090AORUSX W-32GD",
           "eilat_price_ils": 36570,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1042693,7 +1042518,7 @@
         },
         "model_code": "GV-N5090AORUSX W-32GD",
         "eilat_price_ils": 36570,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1062143,7 +1061968,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 7079,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1062217,7 +1062042,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 7079,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1082549,7 +1082374,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 3167,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1082614,7 +1082439,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 3167,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1085355,369 +1085180,6 @@
       }
     },
     {
-      "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white",
-      "canonical_name": "Kingston Fury Beast ARGB DDR5 32GB (2x16GB) 6000MHz CL30",
-      "description": null,
-      "category": "memory",
-      "brand": "Kingston",
-      "model": "FURY Beast 2x16GB 6000 CL30",
-      "attributes": {
-        "manufacturer": "Kingston",
-        "brand": "Kingston",
-        "maker": "Kingston",
-        "vendor_brand": "Kingston",
-        "model": "FURY Beast 2x16GB 6000 CL30",
-        "model_name": "FURY Beast 2x16GB 6000 CL30",
-        "part_numbers": "KF560C30BWEAK2-32",
-        "part_number": "KF560C30BWEAK2-32",
-        "mpn": "KF560C30BWEAK2-32",
-        "memory_type": "DDR5",
-        "ram_type": "DDR5",
-        "memory_support": "DDR5",
-        "speed": "DDR5-6000",
-        "memory_speed": "DDR5-6000",
-        "speed_mhz": 6000,
-        "speed_rating_mhz": 6000,
-        "speed_rating": 6000,
-        "memory_speed_mhz": 6000,
-        "form_factor": "DIMM",
-        "dimm_type": "DIMM",
-        "memory_form_factor": "DIMM",
-        "module_count": 2,
-        "modules": "2x16GB",
-        "modules_count": 2,
-        "number_of_modules": 2,
-        "module_size_gb": 16,
-        "module_capacity_gb": 16,
-        "total_gb": 32,
-        "capacity_gb": 32,
-        "capacity": "32GB",
-        "kit": "2x16GB",
-        "first_word_latency_ns": 10.0,
-        "first_word_latency": "10.0 ns",
-        "cas_latency": 30,
-        "cas": 30,
-        "cl": 30,
-        "voltage_v": 1.4,
-        "voltage": "1.4V",
-        "memory_voltage": 1.4,
-        "ecc": "No",
-        "ecc_support": "No",
-        "registered": "No",
-        "ecc_registered": "No",
-        "buffered": "No",
-        "heat_spreader": "Yes",
-        "heatsink": "Yes",
-        "lighting": "ARGB",
-        "rgb_lighting": "ARGB",
-        "color": "White",
-        "colour": "White",
-        "memory": "32GB"
-      },
-      "matched_by": "identity",
-      "vendor_count": 3,
-      "offers": [
-        {
-          "vendor_id": "1pc",
-          "vendor_sku": "KF560C30BWEAK2-32",
-          "listing_key": "1pc:210599",
-          "url": "https://1pc.co.il/web/product/210599",
-          "price_ils": 2547,
-          "in_stock": true,
-          "last_seen": "2026-11-24",
-          "seen_day": "2026-11-24",
-          "stale": false,
-          "title_raw": "קיט זיכרון Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע לבן",
-          "category_guess": "memory",
-          "category_normalized": "memory",
-          "brand": "Kingston",
-          "mpn": "KF560C30BWEAK2-32",
-          "image_url": "https://1pc.co.il/media/pictures/298169.jpeg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "Kingston",
-            "brand": "Kingston",
-            "maker": "Kingston",
-            "vendor_brand": "Kingston",
-            "model": "FURY Beast 2x16GB 6000 CL30",
-            "model_name": "FURY Beast 2x16GB 6000 CL30",
-            "part_numbers": "KF560C30BWEAK2-32",
-            "part_number": "KF560C30BWEAK2-32",
-            "mpn": "KF560C30BWEAK2-32",
-            "memory_type": "DDR5",
-            "ram_type": "DDR5",
-            "memory_support": "DDR5",
-            "speed": "DDR5-6000",
-            "memory_speed": "DDR5-6000",
-            "speed_mhz": 6000,
-            "speed_rating_mhz": 6000,
-            "speed_rating": 6000,
-            "memory_speed_mhz": 6000,
-            "module_count": 2,
-            "modules": "2x16GB",
-            "modules_count": 2,
-            "number_of_modules": 2,
-            "module_size_gb": 16,
-            "module_capacity_gb": 16,
-            "total_gb": 32,
-            "capacity_gb": 32,
-            "capacity": "32GB",
-            "kit": "2x16GB",
-            "first_word_latency_ns": 10.0,
-            "first_word_latency": "10.0 ns",
-            "cas_latency": 30,
-            "cas": 30,
-            "cl": 30,
-            "lighting": "RGB",
-            "rgb_lighting": "RGB",
-            "color": "White",
-            "colour": "White",
-            "memory": "32GB"
-          },
-          "model_code": null
-        },
-        {
-          "vendor_id": "tms",
-          "vendor_sku": "KF560C30BWEAK2-32",
-          "listing_key": "tms:KF560C30BWEAK2-32",
-          "url": "https://tms.co.il/desktop-ram/kingston-kf560c30bweak2-32",
-          "price_ils": null,
-          "in_stock": false,
-          "last_seen": "2026-11-24",
-          "seen_day": "2026-11-24",
-          "stale": false,
-          "title_raw": "Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
-          "category_guess": "ram",
-          "category_normalized": "memory",
-          "brand": "Kingston",
-          "mpn": "KF560C30BWEAK2-32",
-          "image_url": "https://tms.co.il/image/catalog/products/KF560C30BWEAK2-32/uId5EefG8O.jpg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "Kingston",
-            "brand": "Kingston",
-            "maker": "Kingston",
-            "vendor_brand": "Kingston",
-            "model": "FURY Beast 2x16GB 6000 CL30 EXPO XMP 3.0",
-            "model_name": "FURY Beast 2x16GB 6000 CL30 EXPO XMP 3.0",
-            "part_numbers": "KF560C30BWEAK2-32",
-            "part_number": "KF560C30BWEAK2-32",
-            "mpn": "KF560C30BWEAK2-32",
-            "memory_type": "DDR5",
-            "ram_type": "DDR5",
-            "memory_support": "DDR5",
-            "speed": "DDR5-6000",
-            "memory_speed": "DDR5-6000",
-            "speed_mhz": 6000,
-            "speed_rating_mhz": 6000,
-            "speed_rating": 6000,
-            "memory_speed_mhz": 6000,
-            "module_count": 2,
-            "modules": "2x16GB",
-            "modules_count": 2,
-            "number_of_modules": 2,
-            "module_size_gb": 16,
-            "module_capacity_gb": 16,
-            "total_gb": 32,
-            "capacity_gb": 32,
-            "capacity": "32GB",
-            "kit": "2x16GB",
-            "first_word_latency_ns": 10.0,
-            "first_word_latency": "10.0 ns",
-            "cas_latency": 30,
-            "cas": 30,
-            "cl": 30,
-            "voltage_v": 1.4,
-            "voltage": "1.4V",
-            "memory_voltage": 1.4,
-            "lighting": "ARGB",
-            "rgb_lighting": "ARGB",
-            "color": "White",
-            "colour": "White",
-            "memory": "32GB"
-          },
-          "model_code": null,
-          "eilat_price_ils": 2198,
-          "eilat_in_stock": true,
-          "eilat_stale": false,
-          "eilat_only": true
-        },
-        {
-          "vendor_id": "yahav",
-          "vendor_sku": "KF560C30BWEAK2-32",
-          "listing_key": "yahav:10209",
-          "url": "https://www.yahavpc.co.il/product/10209",
-          "price_ils": 2400,
-          "in_stock": true,
-          "last_seen": "2026-11-24",
-          "seen_day": "2026-11-24",
-          "stale": false,
-          "title_raw": "זיכרון חברת Kingston דגם Kingston FURY Beast RGB White DDR5 32GB 16GBX2 6000MHZ CL30",
-          "category_guess": "ram",
-          "category_normalized": "memory",
-          "brand": "Kingston",
-          "mpn": "KF560C30BWEAK2-32",
-          "image_url": "https://www.yahavpc.co.il/img/p/10209/g1.png",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "Kingston",
-            "brand": "Kingston",
-            "maker": "Kingston",
-            "vendor_brand": "Kingston",
-            "model": "FURY Beast 16GBX2 CL30",
-            "model_name": "FURY Beast 16GBX2 CL30",
-            "part_numbers": "KF560C30BWEAK2-32",
-            "part_number": "KF560C30BWEAK2-32",
-            "mpn": "KF560C30BWEAK2-32",
-            "memory_type": "DDR5",
-            "ram_type": "DDR5",
-            "memory_support": "DDR5",
-            "speed": "DDR5-6000",
-            "memory_speed": "DDR5-6000",
-            "speed_mhz": 6000,
-            "speed_rating_mhz": 6000,
-            "speed_rating": 6000,
-            "memory_speed_mhz": 6000,
-            "total_gb": 32,
-            "capacity_gb": 32,
-            "capacity": "32GB",
-            "kit": 32,
-            "first_word_latency_ns": 10.0,
-            "first_word_latency": "10.0 ns",
-            "cas_latency": 30,
-            "cas": 30,
-            "cl": 30,
-            "lighting": "RGB",
-            "rgb_lighting": "RGB",
-            "color": "White",
-            "colour": "White",
-            "memory": "32GB"
-          },
-          "model_code": null
-        }
-      ],
-      "image_url": "https://tms.co.il/image/catalog/products/KF560C30BWEAK2-32/uId5EefG8O.jpg",
-      "attribute_conflicts": {
-        "model": [
-          "FURY Beast 2x16GB 6000 CL30",
-          "FURY Beast 2x16GB 6000 CL30 EXPO XMP 3.0",
-          "FURY Beast 16GBX2 CL30"
-        ],
-        "model_name": [
-          "FURY Beast 2x16GB 6000 CL30",
-          "FURY Beast 2x16GB 6000 CL30 EXPO XMP 3.0",
-          "FURY Beast 16GBX2 CL30"
-        ],
-        "kit": [
-          "2x16GB",
-          32
-        ],
-        "lighting": [
-          "RGB",
-          "ARGB"
-        ],
-        "rgb_lighting": [
-          "RGB",
-          "ARGB"
-        ]
-      },
-      "best_offer": {
-        "vendor_id": "yahav",
-        "vendor_sku": "KF560C30BWEAK2-32",
-        "listing_key": "yahav:10209",
-        "url": "https://www.yahavpc.co.il/product/10209",
-        "price_ils": 2400,
-        "in_stock": true,
-        "last_seen": "2026-11-24",
-        "seen_day": "2026-11-24",
-        "stale": false,
-        "title_raw": "זיכרון חברת Kingston דגם Kingston FURY Beast RGB White DDR5 32GB 16GBX2 6000MHZ CL30",
-        "category_guess": "ram",
-        "category_normalized": "memory",
-        "brand": "Kingston",
-        "mpn": "KF560C30BWEAK2-32",
-        "image_url": "https://www.yahavpc.co.il/img/p/10209/g1.png",
-        "bundle_only": false,
-        "attributes": {
-          "manufacturer": "Kingston",
-          "brand": "Kingston",
-          "maker": "Kingston",
-          "vendor_brand": "Kingston",
-          "model": "FURY Beast 16GBX2 CL30",
-          "model_name": "FURY Beast 16GBX2 CL30",
-          "part_numbers": "KF560C30BWEAK2-32",
-          "part_number": "KF560C30BWEAK2-32",
-          "mpn": "KF560C30BWEAK2-32",
-          "memory_type": "DDR5",
-          "ram_type": "DDR5",
-          "memory_support": "DDR5",
-          "speed": "DDR5-6000",
-          "memory_speed": "DDR5-6000",
-          "speed_mhz": 6000,
-          "speed_rating_mhz": 6000,
-          "speed_rating": 6000,
-          "memory_speed_mhz": 6000,
-          "total_gb": 32,
-          "capacity_gb": 32,
-          "capacity": "32GB",
-          "kit": 32,
-          "first_word_latency_ns": 10.0,
-          "first_word_latency": "10.0 ns",
-          "cas_latency": 30,
-          "cas": 30,
-          "cl": 30,
-          "lighting": "RGB",
-          "rgb_lighting": "RGB",
-          "color": "White",
-          "colour": "White",
-          "memory": "32GB"
-        },
-        "model_code": null
-      },
-      "specs": {
-        "manufacturer": "Kingston",
-        "model": "FURY Beast 2x16GB 6000 CL30",
-        "part_numbers": [
-          "KF560C30BWEAK2-32"
-        ],
-        "memory_type": "DDR5",
-        "speed": "DDR5-6000",
-        "speed_mhz": 6000,
-        "form_factor": "DIMM",
-        "module_count": 2,
-        "module_size_gb": 16,
-        "total_gb": 32,
-        "first_word_latency_ns": 10.0,
-        "cas_latency": 30,
-        "voltage_v": 1.4,
-        "ecc": false,
-        "registered": false,
-        "heat_spreader": true,
-        "lighting": "ARGB",
-        "color": "White"
-      },
-      "spec_sources": {
-        "total_gb": "catalog",
-        "memory_type": "reference",
-        "module_count": "catalog",
-        "module_size_gb": "catalog",
-        "speed_mhz": "catalog",
-        "speed": "vendor",
-        "cas_latency": "vendor",
-        "first_word_latency_ns": "vendor",
-        "lighting": "vendor",
-        "color": "vendor",
-        "model": "vendor",
-        "part_numbers": "vendor",
-        "manufacturer": "vendor",
-        "voltage_v": "vendor",
-        "form_factor": "catalog",
-        "registered": "catalog",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
-        "ecc": "derived:memory.no_ecc_marker"
-      }
-    },
-    {
       "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-white",
       "canonical_name": "Kingston Fury Beast DDR5 32GB (2x16GB) 6000MHz CL30 (KF560C30BWEK2-32)",
       "description": null,
@@ -1086360,7 +1085822,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 2523,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1086425,7 +1085887,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 2523,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1088636,7 +1088098,7 @@
         "memory": "32GB"
       },
       "matched_by": "identity",
-      "vendor_count": 2,
+      "vendor_count": 1,
       "offers": [
         {
           "vendor_id": "1pc",
@@ -1088699,85 +1088161,9 @@
             "memory": "32GB"
           },
           "model_code": null
-        },
-        {
-          "vendor_id": "tms",
-          "vendor_sku": "6000J3040F16GX2-TZ5RS",
-          "listing_key": "tms:6000J3040F16GX2-TZ5RS",
-          "url": "https://tms.co.il/desktop-ram/g-skill-6000j3040f16gx2-tz5rs",
-          "price_ils": null,
-          "in_stock": false,
-          "last_seen": "2026-11-24",
-          "seen_day": "2026-11-24",
-          "stale": false,
-          "title_raw": "G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 Silver XMP 3.0",
-          "category_guess": "ram",
-          "category_normalized": "memory",
-          "brand": "G.Skill",
-          "mpn": "6000J3040F16GX2-TZ5RS",
-          "image_url": "https://tms.co.il/image/catalog/products/6000J3040F16GX2-TZ5RS/dl1hfKcBCh.jpg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "G.Skill",
-            "brand": "G.Skill",
-            "maker": "G.Skill",
-            "vendor_brand": "G.Skill",
-            "model": "Trident Z5 2x16GB 6000 CL30 XMP 3.0",
-            "model_name": "Trident Z5 2x16GB 6000 CL30 XMP 3.0",
-            "part_numbers": "6000J3040F16GX2-TZ5RS",
-            "part_number": "6000J3040F16GX2-TZ5RS",
-            "mpn": "6000J3040F16GX2-TZ5RS",
-            "memory_type": "DDR5",
-            "ram_type": "DDR5",
-            "memory_support": "DDR5",
-            "speed": "DDR5-6000",
-            "memory_speed": "DDR5-6000",
-            "speed_mhz": 6000,
-            "speed_rating_mhz": 6000,
-            "speed_rating": 6000,
-            "memory_speed_mhz": 6000,
-            "module_count": 2,
-            "modules": "2x16GB",
-            "modules_count": 2,
-            "number_of_modules": 2,
-            "module_size_gb": 16,
-            "module_capacity_gb": 16,
-            "total_gb": 32,
-            "capacity_gb": 32,
-            "capacity": "32GB",
-            "kit": "2x16GB",
-            "first_word_latency_ns": 10.0,
-            "first_word_latency": "10.0 ns",
-            "cas_latency": 30,
-            "cas": 30,
-            "cl": 30,
-            "voltage_v": 1.35,
-            "voltage": "1.35V",
-            "memory_voltage": 1.35,
-            "lighting": "ARGB",
-            "rgb_lighting": "ARGB",
-            "color": "Black / Silver",
-            "colour": "Black / Silver",
-            "memory": "32GB"
-          },
-          "model_code": null,
-          "eilat_price_ils": 2478,
-          "eilat_in_stock": true,
-          "eilat_stale": false,
-          "eilat_only": true
         }
       ],
-      "image_url": "https://tms.co.il/image/catalog/products/6000J3040F16GX2-TZ5RS/dl1hfKcBCh.jpg",
-      "attribute_conflicts": {
-        "model": [
-          "Trident Z5 2x16GB 6000 CL30",
-          "Trident Z5 2x16GB 6000 CL30 XMP 3.0"
-        ],
-        "model_name": [
-          "Trident Z5 2x16GB 6000 CL30",
-          "Trident Z5 2x16GB 6000 CL30 XMP 3.0"
-        ]
-      },
+      "image_url": "https://1pc.co.il/media/catalog/v1/ddc13d5d010fe073a90d270e0f4aeb37aa7809d03d06d3c10dcc75b2865857ca.webp",
       "best_offer": {
         "vendor_id": "1pc",
         "vendor_sku": "6000J3040F16GX2-TZ5RS",
@@ -1093226,7 +1092612,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 3726,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1093303,7 +1092689,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 3726,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1097906,7 +1097292,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 4173,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1097973,7 +1097359,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 4173,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1099858,7 +1099244,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 4918,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1099925,7 +1099311,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 4918,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1101299,7 +1100685,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 4844,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1101376,7 +1100762,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 4844,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1101609,7 +1100995,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 4956,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1101686,7 +1101072,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 4956,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1102093,7 +1101479,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 4099,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1102158,7 +1101544,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 4099,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1103027,7 +1102413,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 6222,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1103094,7 +1102480,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 6222,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1105887,7 +1105273,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 1282,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1117369,6 +1116755,289 @@
       }
     },
     {
+      "product_id": "model:memory:16gbx2-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-white",
+      "canonical_name": "Kingston Fury Beast RGB DDR5 32GB (2x16GB) 6000MHz CL30 (KF560C30BWEAK2-32)",
+      "description": null,
+      "category": "memory",
+      "brand": "Kingston",
+      "model": "FURY Beast 2x16GB 6000 CL30",
+      "attributes": {
+        "manufacturer": "Kingston",
+        "brand": "Kingston",
+        "maker": "Kingston",
+        "vendor_brand": "Kingston",
+        "model": "FURY Beast 2x16GB 6000 CL30",
+        "model_name": "FURY Beast 2x16GB 6000 CL30",
+        "part_numbers": "KF560C30BWEAK2-32",
+        "part_number": "KF560C30BWEAK2-32",
+        "mpn": "KF560C30BWEAK2-32",
+        "memory_type": "DDR5",
+        "ram_type": "DDR5",
+        "memory_support": "DDR5",
+        "speed": "DDR5-6000",
+        "memory_speed": "DDR5-6000",
+        "speed_mhz": 6000,
+        "speed_rating_mhz": 6000,
+        "speed_rating": 6000,
+        "memory_speed_mhz": 6000,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
+        "module_count": 2,
+        "modules": "2x16GB",
+        "modules_count": 2,
+        "number_of_modules": 2,
+        "module_size_gb": 16,
+        "module_capacity_gb": 16,
+        "total_gb": 32,
+        "capacity_gb": 32,
+        "capacity": "32GB",
+        "kit": "2x16GB",
+        "first_word_latency_ns": 10.0,
+        "first_word_latency": "10.0 ns",
+        "cas_latency": 30,
+        "cas": 30,
+        "cl": 30,
+        "ecc": "No",
+        "ecc_support": "No",
+        "registered": "No",
+        "ecc_registered": "No",
+        "buffered": "No",
+        "heat_spreader": "Yes",
+        "heatsink": "Yes",
+        "lighting": "RGB",
+        "rgb_lighting": "RGB",
+        "color": "White",
+        "colour": "White",
+        "memory": "32GB"
+      },
+      "matched_by": "identity",
+      "vendor_count": 2,
+      "offers": [
+        {
+          "vendor_id": "1pc",
+          "vendor_sku": "KF560C30BWEAK2-32",
+          "listing_key": "1pc:210599",
+          "url": "https://1pc.co.il/web/product/210599",
+          "price_ils": 2547,
+          "in_stock": true,
+          "last_seen": "2026-11-24",
+          "seen_day": "2026-11-24",
+          "stale": false,
+          "title_raw": "קיט זיכרון Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע לבן",
+          "category_guess": "memory",
+          "category_normalized": "memory",
+          "brand": "Kingston",
+          "mpn": "KF560C30BWEAK2-32",
+          "image_url": "https://1pc.co.il/media/pictures/298169.jpeg",
+          "bundle_only": false,
+          "attributes": {
+            "manufacturer": "Kingston",
+            "brand": "Kingston",
+            "maker": "Kingston",
+            "vendor_brand": "Kingston",
+            "model": "FURY Beast 2x16GB 6000 CL30",
+            "model_name": "FURY Beast 2x16GB 6000 CL30",
+            "part_numbers": "KF560C30BWEAK2-32",
+            "part_number": "KF560C30BWEAK2-32",
+            "mpn": "KF560C30BWEAK2-32",
+            "memory_type": "DDR5",
+            "ram_type": "DDR5",
+            "memory_support": "DDR5",
+            "speed": "DDR5-6000",
+            "memory_speed": "DDR5-6000",
+            "speed_mhz": 6000,
+            "speed_rating_mhz": 6000,
+            "speed_rating": 6000,
+            "memory_speed_mhz": 6000,
+            "module_count": 2,
+            "modules": "2x16GB",
+            "modules_count": 2,
+            "number_of_modules": 2,
+            "module_size_gb": 16,
+            "module_capacity_gb": 16,
+            "total_gb": 32,
+            "capacity_gb": 32,
+            "capacity": "32GB",
+            "kit": "2x16GB",
+            "first_word_latency_ns": 10.0,
+            "first_word_latency": "10.0 ns",
+            "cas_latency": 30,
+            "cas": 30,
+            "cl": 30,
+            "lighting": "RGB",
+            "rgb_lighting": "RGB",
+            "color": "White",
+            "colour": "White",
+            "memory": "32GB"
+          },
+          "model_code": null
+        },
+        {
+          "vendor_id": "yahav",
+          "vendor_sku": "KF560C30BWEAK2-32",
+          "listing_key": "yahav:10209",
+          "url": "https://www.yahavpc.co.il/product/10209",
+          "price_ils": 2400,
+          "in_stock": true,
+          "last_seen": "2026-11-24",
+          "seen_day": "2026-11-24",
+          "stale": false,
+          "title_raw": "זיכרון חברת Kingston דגם Kingston FURY Beast RGB White DDR5 32GB 16GBX2 6000MHZ CL30",
+          "category_guess": "ram",
+          "category_normalized": "memory",
+          "brand": "Kingston",
+          "mpn": "KF560C30BWEAK2-32",
+          "image_url": "https://www.yahavpc.co.il/img/p/10209/g1.png",
+          "bundle_only": false,
+          "attributes": {
+            "manufacturer": "Kingston",
+            "brand": "Kingston",
+            "maker": "Kingston",
+            "vendor_brand": "Kingston",
+            "model": "FURY Beast 16GBX2 CL30",
+            "model_name": "FURY Beast 16GBX2 CL30",
+            "part_numbers": "KF560C30BWEAK2-32",
+            "part_number": "KF560C30BWEAK2-32",
+            "mpn": "KF560C30BWEAK2-32",
+            "memory_type": "DDR5",
+            "ram_type": "DDR5",
+            "memory_support": "DDR5",
+            "speed": "DDR5-6000",
+            "memory_speed": "DDR5-6000",
+            "speed_mhz": 6000,
+            "speed_rating_mhz": 6000,
+            "speed_rating": 6000,
+            "memory_speed_mhz": 6000,
+            "total_gb": 32,
+            "capacity_gb": 32,
+            "capacity": "32GB",
+            "kit": 32,
+            "first_word_latency_ns": 10.0,
+            "first_word_latency": "10.0 ns",
+            "cas_latency": 30,
+            "cas": 30,
+            "cl": 30,
+            "lighting": "RGB",
+            "rgb_lighting": "RGB",
+            "color": "White",
+            "colour": "White",
+            "memory": "32GB"
+          },
+          "model_code": null
+        }
+      ],
+      "image_url": "https://www.yahavpc.co.il/img/p/10209/g1.png",
+      "attribute_conflicts": {
+        "model": [
+          "FURY Beast 2x16GB 6000 CL30",
+          "FURY Beast 16GBX2 CL30"
+        ],
+        "model_name": [
+          "FURY Beast 2x16GB 6000 CL30",
+          "FURY Beast 16GBX2 CL30"
+        ],
+        "kit": [
+          "2x16GB",
+          32
+        ]
+      },
+      "best_offer": {
+        "vendor_id": "yahav",
+        "vendor_sku": "KF560C30BWEAK2-32",
+        "listing_key": "yahav:10209",
+        "url": "https://www.yahavpc.co.il/product/10209",
+        "price_ils": 2400,
+        "in_stock": true,
+        "last_seen": "2026-11-24",
+        "seen_day": "2026-11-24",
+        "stale": false,
+        "title_raw": "זיכרון חברת Kingston דגם Kingston FURY Beast RGB White DDR5 32GB 16GBX2 6000MHZ CL30",
+        "category_guess": "ram",
+        "category_normalized": "memory",
+        "brand": "Kingston",
+        "mpn": "KF560C30BWEAK2-32",
+        "image_url": "https://www.yahavpc.co.il/img/p/10209/g1.png",
+        "bundle_only": false,
+        "attributes": {
+          "manufacturer": "Kingston",
+          "brand": "Kingston",
+          "maker": "Kingston",
+          "vendor_brand": "Kingston",
+          "model": "FURY Beast 16GBX2 CL30",
+          "model_name": "FURY Beast 16GBX2 CL30",
+          "part_numbers": "KF560C30BWEAK2-32",
+          "part_number": "KF560C30BWEAK2-32",
+          "mpn": "KF560C30BWEAK2-32",
+          "memory_type": "DDR5",
+          "ram_type": "DDR5",
+          "memory_support": "DDR5",
+          "speed": "DDR5-6000",
+          "memory_speed": "DDR5-6000",
+          "speed_mhz": 6000,
+          "speed_rating_mhz": 6000,
+          "speed_rating": 6000,
+          "memory_speed_mhz": 6000,
+          "total_gb": 32,
+          "capacity_gb": 32,
+          "capacity": "32GB",
+          "kit": 32,
+          "first_word_latency_ns": 10.0,
+          "first_word_latency": "10.0 ns",
+          "cas_latency": 30,
+          "cas": 30,
+          "cl": 30,
+          "lighting": "RGB",
+          "rgb_lighting": "RGB",
+          "color": "White",
+          "colour": "White",
+          "memory": "32GB"
+        },
+        "model_code": null
+      },
+      "specs": {
+        "manufacturer": "Kingston",
+        "model": "FURY Beast 2x16GB 6000 CL30",
+        "part_numbers": [
+          "KF560C30BWEAK2-32"
+        ],
+        "memory_type": "DDR5",
+        "speed": "DDR5-6000",
+        "speed_mhz": 6000,
+        "form_factor": "DIMM",
+        "module_count": 2,
+        "module_size_gb": 16,
+        "total_gb": 32,
+        "first_word_latency_ns": 10.0,
+        "cas_latency": 30,
+        "voltage_v": null,
+        "ecc": false,
+        "registered": false,
+        "heat_spreader": true,
+        "lighting": "RGB",
+        "color": "White"
+      },
+      "spec_sources": {
+        "total_gb": "catalog",
+        "memory_type": "reference",
+        "module_count": "catalog",
+        "module_size_gb": "catalog",
+        "speed_mhz": "catalog",
+        "speed": "vendor",
+        "cas_latency": "vendor",
+        "first_word_latency_ns": "vendor",
+        "lighting": "vendor",
+        "color": "vendor",
+        "model": "vendor",
+        "part_numbers": "vendor",
+        "manufacturer": "vendor",
+        "form_factor": "catalog",
+        "registered": "catalog",
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
+        "ecc": "derived:memory.no_ecc_marker"
+      }
+    },
+    {
       "product_id": "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
       "canonical_name": "Corsair Vengeance LPX DDR4 32GB (2x16GB) 3200MHz CL16",
       "description": "זיכרון חברת Corsair דגם Vengeance LPX White 32GB 16GBX2 KIT DDR4 3200Mhz CL16",
@@ -1122449,7 +1122118,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 2608,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1122526,7 +1122195,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 2608,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1126178,7 +1125847,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 3167,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1126243,7 +1125912,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 3167,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1127414,7 +1127083,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 1118,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1127481,7 +1127150,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 1118,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1132149,7 +1131818,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 2128,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1135601,7 +1135270,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 2519,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1135678,7 +1135347,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 2519,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1143677,7 +1143346,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 3633,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1143744,7 +1143413,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 3633,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1144147,7 +1143816,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 5962,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1144212,7 +1143881,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 5962,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1155436,7 +1155105,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 440,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1155499,7 +1155168,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 440,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1195616,7 +1195285,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 6707,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1195693,7 +1195362,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 6707,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1224896,7 +1224565,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 3037,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1225054,7 +1224723,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 3037,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1292579,7 +1292248,7 @@
           },
           "model_code": "X870E AORUS PRO",
           "eilat_price_ils": 1416,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1296110,7 +1295779,7 @@
           "url": "https://tms.co.il/computer-hardware-components/motherboards/gigabyte-b650-eagle-ax",
           "price_ils": null,
           "in_stock": false,
-          "last_seen": "2026-11-24",
+          "last_seen": "2026-11-25",
           "seen_day": "2026-11-24",
           "stale": false,
           "title_raw": "Gigabyte B650 EAGLE AX",
@@ -1313232,7 +1312901,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 831,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1313349,7 +1313018,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 831,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1364701,7 +1364370,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 1289,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1409823,10 +1409492,7 @@
             "audio_chip": "3 port",
             "expansion_slots": "PCIe 4.0 x4 | PCIe 5.0 x16 slot | PCIe 4.0 x1"
           },
-          "model_code": null,
-          "eilat_price_ils": 484,
-          "eilat_in_stock": false,
-          "eilat_stale": false
+          "model_code": null
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/MS-CHA-Z890M/ZgpAUMBrSd.jpg",
@@ -1409954,10 +1409620,7 @@
           "audio_chip": "3 port",
           "expansion_slots": "PCIe 4.0 x4 | PCIe 5.0 x16 slot | PCIe 4.0 x1"
         },
-        "model_code": null,
-        "eilat_price_ils": 484,
-        "eilat_in_stock": false,
-        "eilat_stale": false
+        "model_code": null
       },
       "specs": {
         "manufacturer": "MAXSUN",
@@ -1437304,7 +1436967,7 @@
           },
           "model_code": "X870 GAMING X WIFI7",
           "eilat_price_ils": 1054,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1437426,7 +1437089,7 @@
         },
         "model_code": "X870 GAMING X WIFI7",
         "eilat_price_ils": 1054,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1534806,7 +1534469,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 630,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         }
       ],
@@ -1534853,7 +1534516,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 630,
-        "eilat_in_stock": false,
+        "eilat_in_stock": true,
         "eilat_stale": false
       },
       "specs": {
@@ -1589008,7 +1588671,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 1304,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         }
       ],
@@ -1589085,7 +1588748,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 1304,
-        "eilat_in_stock": false,
+        "eilat_in_stock": true,
         "eilat_stale": false
       },
       "specs": {
@@ -1612081,7 +1611744,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 36021,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1616481,6 +1616144,7 @@
     "model:cpu:14900k-tray": "model:cpu:corei914900k-tray",
     "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-blackwhite": "model:memory:2x16gb-6000-cl30-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-blackwhite",
     "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-black": "model:memory:2x16gb-6000-cl30-neo-trident-z5-32gb-x2-6000mhz-cl30-black",
+    "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white": "model:memory:16gbx2-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-white",
     "model:storage:2t-agammixs70b-blade-cs-gammix-s70-2000gb-pciegen4x4-m22280": "model:storage:2-2048gb-2t-2tb-7400mb-agammixs70b-blade-cs-gammix-gen4-m-nvme-s70-ssd-2000gb-pciegen4x4-m22280",
     "model:case_fan:b15-coolleo-n28-pwm-120mm": "model:case_fan:b15-fan-n28-pwm-120mm-black",
     "model:storage:256mb-2tb-barracuda-hdd-sata3-2000gb-sata-35": "model:storage:barracuda-st2000dm008-2000gb-sata-35",
@@ -1617378,7 +1617042,6 @@
     "model:psu:1-atx3-combat-fg-flower-super-850w": "model:psu:1-atx3-combat-fg-850w",
     "model:psu:0-atx3-modular-1300w": "model:psu:0-atx3-1300w",
     "model:case_fan:120mm-fan-pack-reverse-rgb-sl-triple-uni-white-wireless-120mm-3-rgb-white": "model:case_fan:fans-reverse-sl-uni-wireless-x3-120mm-3-rgb-white",
-    "model:memory:16gbx2-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-white": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white",
     "model:psu:1-3-9020336-cp-cybenetics-eu-rm850e-850w-full": "model:psu:1-3-cybenetics-rm850e-850w-full",
     "model:storage:256mb-7200rpm-8tb-iii-pro-purple-sata-surveillance-wd8002purp-8000gb-sata-35": "model:storage:purple-wd-8000gb-sata-35-5640",
     "model:gpu:12gd-gv-oc-r907gregaming-12gb": "model:gpu:12g-9070-gaming-gre-oc-radeon-rx-12gb",
@@ -1618633,7 +1618296,7 @@
     "model:psu:ud850gm-pg5-ice-v2-atx3-1-850w": "model:psu:1-atx3-ice-modular-pg5-ud850gm-v2-850w",
     "model:storage:mp700-elite-gen5x4-4000gb-m2pcie-m22280": "model:storage:elite-gen5x4-mp700-4000gb-m2pcie-m22280",
     "model:storage:mp700-5-0-2242-2000gb-m2pcie-m22242": "model:storage:0-2242-5-mp700-2000gb-m2pcie-m22242",
-    "model:memory:fury-beast-16gbx2-cl30-32gb-x2-6000mhz-cl30-rgb-white": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white",
+    "model:memory:fury-beast-16gbx2-cl30-32gb-x2-6000mhz-cl30-rgb-white": "model:memory:16gbx2-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-white",
     "model:motherboard:x870e-aero-x3d-wood-atx": "model:motherboard:aero-wood-x3d-x870e-atx",
     "model:memory:3200-cl22-bulk-16gb-x1-3200mhz-cl22": "model:memory:3200-bulk-cl22-16gb-x1-3200mhz-cl22",
     "model:memory:ram-6400-sodimm-48gb-x1-6400mhz-sodimm": "model:memory:6400-ram-sodimm-48gb-x1-6400mhz-sodimm",
@@ -1622067,7 +1621730,7 @@
     "mpn:psu:gpud850gmpg5ice": "model:psu:1-atx3-ice-modular-pg5-ud850gm-v2-850w",
     "mpn:storage:cssdf4000gbmp700ehs": "model:storage:elite-gen5x4-mp700-4000gb-m2pcie-m22280",
     "mpn:storage:cssdf2000gbmp700mcr": "model:storage:0-2242-5-mp700-2000gb-m2pcie-m22242",
-    "mpn:memory:kf560c30bweak232": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white",
+    "mpn:memory:kf560c30bweak232": "model:memory:16gbx2-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-white",
     "mpn:motherboard:gb760mgamingxddr4gen5": "model:motherboard:b760m-gaming-x-microatx",
     "mpn:motherboard:gx870eaerox3dwood": "model:motherboard:aero-wood-x3d-x870e-atx",
     "mpn:memory:hmag78dxnub096n": "model:memory:3200-bulk-cl22-16gb-x1-3200mhz-cl22",
@@ -1631223,58 +1630886,6 @@
     {
       "kind": "variant_conflict",
       "category": "memory",
-      "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:210599",
-          "vendor": "1pc",
-          "vendor_sku": "KF560C30BWEAK2-32",
-          "title": "קיט זיכרון Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע לבן",
-          "price": 2547
-        },
-        {
-          "listing_key": "tms:KF560C30BWEAK2-32",
-          "vendor": "tms",
-          "vendor_sku": "KF560C30BWEAK2-32",
-          "title": "Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
-          "price": null
-        },
-        {
-          "listing_key": "yahav:10209",
-          "vendor": "yahav",
-          "vendor_sku": "KF560C30BWEAK2-32",
-          "title": "זיכרון חברת Kingston דגם Kingston FURY Beast RGB White DDR5 32GB 16GBX2 6000MHZ CL30",
-          "price": 2400
-        }
-      ],
-      "model_code": "0-2x16gb-3-6000-beast-cl30-expo-fury-xmp",
-      "manufacturer_pn": [
-        "KF560C30BWEAK232"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "memory",
-      "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-white",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "tms:KF560C30BWEK2-32",
-          "vendor": "tms",
-          "vendor_sku": "KF560C30BWEK2-32",
-          "title": "Kingston FURY Beast DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
-          "price": 2858
-        }
-      ],
-      "model_code": "0-2x16gb-3-6000-beast-cl30-expo-fury-xmp",
-      "manufacturer_pn": [
-        "KF560C30BWEK232"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "memory",
       "product_id": "model:memory:0-2x16gb-3-6000-cl30-ripjaws-s5-xmp-32gb-x2-6000mhz-cl30-black",
       "vendor": "",
       "offers": [
@@ -1631414,19 +1631025,10 @@
           "vendor_sku": "6000J3040F16GX2-TZ5RS",
           "title": "זיכרון G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע כסוף",
           "price": 2993
-        },
-        {
-          "listing_key": "tms:6000J3040F16GX2-TZ5RS",
-          "vendor": "tms",
-          "vendor_sku": "6000J3040F16GX2-TZ5RS",
-          "title": "G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 Silver XMP 3.0",
-          "price": null
         }
       ],
       "model_code": "0-2x16gb-3-6000-cl30-trident-xmp-z5",
-      "manufacturer_pn": [
-        "6000J3040F16GX2TZ5RS"
-      ]
+      "manufacturer_pn": []
     },
     {
       "kind": "variant_conflict",
@@ -1641737,7 +1641339,7 @@
       }
     }
   ],
-  "review_queue_count": 751,
+  "review_queue_count": 749,
   "skipped_vendors": [],
   "eilat": {
     "vendors": {
