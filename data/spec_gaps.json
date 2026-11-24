@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T23:34:09.718234+00:00",
+  "generated_at": "2026-11-24T05:31:53.311456+00:00",
   "gaps": [
     {
       "category": "case",
@@ -262,36 +262,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 25,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 25,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מידות משאבה",
-      "count": 25,
-      "products": [
-        "model:aio:240-a-freezer-iii-liquid-240mm-white",
-        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
-        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "סוג האחסון",
       "count": 25,
@@ -309,6 +279,36 @@
         "model:motherboard:a-am5-b840m-prime-wifi-microatx",
         "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
         "model:motherboard:a-b760m-csm-prime-microatx-2"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 24,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-sn5100-wd-wds100t5b0e-1000gb-pciegen40-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 24,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-sn5100-wd-wds100t5b0e-1000gb-pciegen40-m22280"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "מידות משאבה",
+      "count": 24,
+      "products": [
+        "model:aio:240-a-freezer-iii-liquid-240mm-white",
+        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
+        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white"
       ]
     },
     {
@@ -402,6 +402,26 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "צריכת חשמל",
+      "count": 21,
+      "products": [
+        "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "משקל",
+      "count": 21,
+      "products": [
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
+      ]
+    },
+    {
       "category": "storage",
       "label": "R/W Speed",
       "count": 21,
@@ -419,26 +439,6 @@
         "model:cooler_air:1700-coolermaster-i70c-lga-70mm-120mm",
         "model:cooler_air:17xx-cooler-cpu-l9i-nh-40mm-92mm",
         "model:cooler_air:1u-775-cl-low-p0172-passive-profile-black"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "צריכת חשמל",
-      "count": 20,
-      "products": [
-        "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "משקל",
-      "count": 20,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -1038,7 +1038,7 @@
       "products": [
         "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25",
         "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:2-3-mu-pc2t0t-portable-t7-usb-ww-2000gb-usb"
+        "model:storage:2-2048gb-2t-2tb-7400mb-agammixs70b-blade-cs-gammix-gen4-m-nvme-s70-ssd-2000gb-pciegen4x4-m22280"
       ]
     },
     {
@@ -2763,6 +2763,16 @@
     },
     {
       "category": "gpu",
+      "label": "אפיק זיכרון",
+      "count": 6,
+      "products": [
+        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "Processor frequency (OC mode)",
       "count": 6,
       "products": [
@@ -2877,8 +2887,8 @@
       "count": 6,
       "products": [
         "model:storage:0-2-cssd-f4000gbmp700pnh-mp700-pro-x4-4000gb-nvme-m22280",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:990-heatsink-pro-1000gb-m2-m22280"
+        "model:storage:990-heatsink-pro-1000gb-m2-m22280",
+        "model:storage:c715-cras-1000gb-nvme"
       ]
     },
     {
@@ -3029,16 +3039,6 @@
         "model:cpu:14700kf",
         "model:cpu:14900k",
         "model:cpu:14900kf"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "אפיק זיכרון",
-      "count": 5,
-      "products": [
-        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb"
       ]
     },
     {
@@ -3213,26 +3213,6 @@
     },
     {
       "category": "storage",
-      "label": "גובה",
-      "count": 5,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מק\"ט יצרן",
-      "count": 5,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "זיכרון פלאש",
       "count": 5,
       "products": [
@@ -3259,6 +3239,26 @@
         "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
         "model:storage:2-5-s270-sata-spatium-960gb-sata-25",
         "model:storage:3d-a58-ace-nand-sp001tbss3a58a25-1000gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "גובה",
+      "count": 5,
+      "products": [
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme",
+        "model:storage:m461-spatium-1000gb-pciexpress40"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מק\"ט יצרן",
+      "count": 5,
+      "products": [
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme",
+        "model:storage:mz-v9v1t0bw-1000gb"
       ]
     },
     {
@@ -4143,26 +4143,6 @@
     },
     {
       "category": "storage",
-      "label": "רוחב",
-      "count": 4,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "עומק",
-      "count": 4,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "Operational conditions - Operating temperature (T-T)",
       "count": 4,
       "products": [
@@ -4259,6 +4239,26 @@
         "model:storage:2230-vp4000-2000gb-gen4x4-m22230",
         "model:storage:lite-vp4300-vp4300l2tbm28h-x4-2000gb-gen4x4-m22280",
         "model:storage:lite-vp4300-vp4300l4tbm28h-x4-4000gb-gen4x4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "רוחב",
+      "count": 4,
+      "products": [
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme",
+        "model:storage:m461-spatium-1000gb-pciexpress40"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "עומק",
+      "count": 4,
+      "products": [
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme",
+        "model:storage:m461-spatium-1000gb-pciexpress40"
       ]
     },
     {
@@ -4647,6 +4647,16 @@
       "products": [
         "model:gpu:2gd5-brk-evo-gt710-sl-2gb",
         "model:gpu:lp-o6g-rtx3050-6gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "יציאות תצוגה",
+      "count": 3,
+      "products": [
+        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
+        "model:gpu:730-geforce-gt-4gb",
+        "model:gpu:a400-pny-rtx-4gb"
       ]
     },
     {
@@ -5191,32 +5201,12 @@
     },
     {
       "category": "storage",
-      "label": "קבוצת נפח",
-      "count": 3,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה מקסימלית ב- MB/s",
-      "count": 3,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "מידע על המוצר",
       "count": 3,
       "products": [
         "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
-        "model:storage:2-2280-4t-4tb-agammixs70b-blade-cs-gammix-m-nvme-pcie-s70-ssd-xpg-4000gb-pciegen4x4-m22280",
-        "model:storage:2t-agammixs70b-blade-cs-gammix-s70-2000gb-pciegen4x4-m22280"
+        "model:storage:2-2048gb-2t-2tb-7400mb-agammixs70b-blade-cs-gammix-gen4-m-nvme-s70-ssd-2000gb-pciegen4x4-m22280",
+        "model:storage:2-2280-4t-4tb-agammixs70b-blade-cs-gammix-m-nvme-pcie-s70-ssd-xpg-4000gb-pciegen4x4-m22280"
       ]
     },
     {
@@ -5287,6 +5277,26 @@
         "model:storage:512gcs-710-710-aleg-legend-512gb-pciegen3x4-m22280",
         "model:storage:lns100-1000gb-sata-25",
         "model:storage:pm883-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "קבוצת נפח",
+      "count": 3,
+      "products": [
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme",
+        "model:storage:mz-v9v1t0bw-1000gb"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה מקסימלית ב- MB/s",
+      "count": 3,
+      "products": [
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme",
+        "model:storage:mz-v9v1t0bw-1000gb"
       ]
     },
     {
@@ -6040,6 +6050,15 @@
     },
     {
       "category": "gpu",
+      "label": "מספר צגים מרבי",
+      "count": 2,
+      "products": [
+        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
+        "model:gpu:730-geforce-gt-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "ליבות CUDA®",
       "count": 2,
       "products": [
@@ -6068,15 +6087,6 @@
     {
       "category": "gpu",
       "label": "מידות הכרטיס",
-      "count": 2,
-      "products": [
-        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
-        "model:gpu:a400-pny-rtx-4gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "יציאות תצוגה",
       "count": 2,
       "products": [
         "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
@@ -8591,14 +8601,6 @@
     },
     {
       "category": "gpu",
-      "label": "מספר צגים מרבי",
-      "count": 1,
-      "products": [
-        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "מחבר חשמל",
       "count": 1,
       "products": [
@@ -9083,6 +9085,22 @@
       "count": 1,
       "products": [
         "model:gpu:5080-gddr7-geforce-oc-prime-rtx-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מספר חלק",
+      "count": 1,
+      "products": [
+        "model:gpu:730-geforce-gt-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תדר ליבה של המעבד הגרפי",
+      "count": 1,
+      "products": [
+        "model:gpu:730-geforce-gt-4gb"
       ]
     },
     {
@@ -11679,14 +11697,6 @@
     },
     {
       "category": "storage",
-      "label": "הערה",
-      "count": 1,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "מידות עם גוף הקירור",
       "count": 1,
       "products": [
@@ -12275,6 +12285,14 @@
       "count": 1,
       "products": [
         "model:storage:m461-spatium-1000gb-pciexpress40"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "הערה",
+      "count": 1,
+      "products": [
+        "model:storage:mz-v9v1t0bw-1000gb"
       ]
     },
     {

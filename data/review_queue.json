@@ -67,17 +67,6 @@
   },
   {
     "score": 90,
-    "category": "motherboard",
-    "brand": "MSI",
-    "listing_a": "1pc:223278",
-    "listing_b": "yahav:11813",
-    "title_a": "לוח אם MSI MAG B850 TOMAHAWK MAX WIFI II שחור",
-    "title_b": "לוח אם חברת MSI דגם MAG B850 TOMAHAWK MAX WIFI II AM5 DDR5 HDMI ATX",
-    "match_text_a": "223278 MSI MAG B850 TOMAHAWK MAX WIFI II",
-    "match_text_b": "11813 MSI MAG B850 TOMAHAWK MAX WIFI II AM5 DDR5 HDMI ATX"
-  },
-  {
-    "score": 90,
     "category": "storage",
     "brand": "Kingston",
     "listing_a": "ivory:107886",
@@ -2689,10 +2678,19 @@
         "vendor_sku": "PC-LAN216X",
         "title": "מארז מחשב Lian-Li Lancool 216 שחור",
         "price": 412
+      },
+      {
+        "listing_key": "yahav:9371",
+        "vendor": "yahav",
+        "vendor_sku": "PC-LAN216X",
+        "title": "מארז חברת Lancool דגם Lancool 216 Mesh Black Mid Tower Case צבע שחור",
+        "price": 465
       }
     ],
     "model_code": "216-lancool",
-    "manufacturer_pn": []
+    "manufacturer_pn": [
+      "PCLAN216X"
+    ]
   },
   {
     "kind": "variant_conflict",
@@ -7941,7 +7939,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-000001404",
         "title": "מעבד חברת AMD דגם Ryzen 7 9700X Boost 5.5Ghz 32MB Cache AM5 TRAY - Without Cooler",
-        "price": 1250
+        "price": 1060
       },
       {
         "listing_key": "tms:100-000001404",
@@ -9819,7 +9817,7 @@
         "vendor": "yahav",
         "vendor_sku": "B850-EAGLE-WIFI6E",
         "title": "לוח אם חברת Gigabyte דגם B850 Eagle Wifi 6E AM5 DDR5 HDMI DP ATX",
-        "price": 990
+        "price": 730
       }
     ],
     "model_code": "b850-eagle-wifi6e",
@@ -14729,40 +14727,6 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:3000rpm-360mm-77cfm-argb-cooling-freezer-iii-liquid-pro-white-360mm-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:135498",
-        "vendor": "ivory",
-        "vendor_sku": "ACFRE00184A",
-        "title": "קירור נוזלי למעבד ARCTIC Liquid Freezer III Pro | תאורת A-RGB | רדיאטור 360 מ\"מ | צבע שחור",
-        "price": 445
-      }
-    ],
-    "model_code": "360-a-freezer-iii-liquid-pro-rgb",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "aio",
-    "product_id": "model:aio:360-a-freezer-iii-liquid-pro-360mm-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:398991",
-        "vendor": "ksp",
-        "vendor_sku": "398991",
-        "title": "קירור נוזלי למעבד Liquid Freezer III Pro 360 A-RGB מבית Arctic - צבע לבן",
-        "price": 479
-      }
-    ],
-    "model_code": "360-a-freezer-iii-liquid-pro",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "aio",
     "product_id": "model:aio:3000rpm-360mm-77cfm-argb-cooling-freezer-iii-liquid-pro-white-360mm-white",
     "vendor": "",
     "offers": [
@@ -16390,13 +16354,6 @@
         "price": 247
       },
       {
-        "listing_key": "ivory:126564",
-        "vendor": "ivory",
-        "vendor_sku": "CO-9050181-WW",
-        "title": "3 מאווררים למארז 12 ס\"מ Corsair RS120 ARGB PWM בצבע שחור",
-        "price": 119
-      },
-      {
         "listing_key": "tms:CO-9050181-WW",
         "vendor": "tms",
         "vendor_sku": "CO-9050181-WW",
@@ -16415,23 +16372,6 @@
     "manufacturer_pn": [
       "CO9050181WW"
     ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-rs120-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:343400",
-        "vendor": "ksp",
-        "vendor_sku": "343400",
-        "title": "מאוורר למארז Corsair RS120 ARGB - צבע לבן - 3 יחידות",
-        "price": 219
-      }
-    ],
-    "model_code": "3-rs120",
-    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
