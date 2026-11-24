@@ -1265,7 +1265,7 @@
 "1pc:200265":"model:memory:2x16gb-6000-cl26-expo-neo-trident-z5-32gb-x2-6000mhz-cl26-rgb-black",
 "1pc:200266":"model:memory:2x16gb-6000-cl26-expo-neo-trident-z5-32gb-x2-6000mhz-cl26-rgb-blackwhite",
 "1pc:200268":"model:memory:0-2x32gb-3-6000-cl32-m5-ripjaws-xmp-64gb-x2-6000mhz-cl32-rgb-black",
-"1pc:200269":"model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-blackwhite",
+"1pc:200269":"model:memory:2x16gb-6000-cl30-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-blackwhite",
 "1pc:200270":"model:memory:2x16gb-32gb-6000-cl28-ddr5-expo-g-neo-royal-silver-trident-z5-32gb-x2-6000mhz-cl28-rgb-silver",
 "1pc:200271":"model:memory:2x32gb-6000-64gb-cl30-ddr5-expo-g-neo-royal-silver-trident-z5-64gb-x2-6000mhz-cl30-rgb-silver",
 "1pc:200274":"model:memory:2x16gb-32gb-6400-cl30-ddr5-expo-g-gold-neo-royal-trident-z5-32gb-x2-6400mhz-cl30-rgb-gold",
@@ -1280,7 +1280,7 @@
 "1pc:201726":"model:memory:0-2x32gb-3-6000-64gb-cl28-ddr5-g-gold-royal-trident-xmp-z5-64gb-x2-6000mhz-cl28-rgb-gold",
 "1pc:201727":"model:memory:0-2x16gb-3-32gb-6000-cl28-ddr5-g-royal-silver-trident-xmp-z5-32gb-x2-6000mhz-cl28-rgb-silver",
 "1pc:201728":"model:memory:0-2x16gb-3-32gb-6400-cl32-ddr5-g-royal-silver-trident-xmp-z5-32gb-x2-6000mhz-cl32-rgb-silver",
-"1pc:201770":"model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-black",
+"1pc:201770":"model:memory:2x16gb-6000-cl30-neo-trident-z5-32gb-x2-6000mhz-cl30-black",
 "1pc:201805":"mpn:psu:90ye00v2b0na00",
 "1pc:201855":"model:memory:5-elite-pver516g56c38w-viper-16gb-5600mhz-rgb",
 "1pc:201945":"model:gpu:12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-12gb",
@@ -7288,13 +7288,13 @@
 "tms:6000J2836G32GX2-TR5G":"model:memory:0-2x32gb-3-6000-64gb-cl28-ddr5-g-gold-royal-trident-xmp-z5-64gb-x2-6000mhz-cl28-rgb-gold",
 "tms:6000J2836G32GX2-TR5S":"model:memory:0-2x32gb-3-6000-64gb-cl28-ddr5-g-royal-silver-trident-xmp-z5-64gb-x2-6000mhz-cl28-rgb-silver",
 "tms:6000J3036F16GX2-RS5K":"model:memory:0-2x16gb-3-6000-cl30-ripjaws-s5-xmp-32gb-x2-6000mhz-cl30-black",
-"tms:6000J3036F16GX2-TZ5NRW":"model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-blackwhite",
+"tms:6000J3036F16GX2-TZ5NRW":"model:memory:2x16gb-6000-cl30-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-blackwhite",
 "tms:6000J3036F16GX2-TZ5RK":"model:memory:0-2x16gb-3-6000-cl30-trident-xmp-z5-32gb-x2-6000mhz-cl30-rgb-black",
 "tms:6000J3036G32GX2-TR5NS":"model:memory:2x32gb-6000-64gb-cl30-ddr5-expo-g-neo-royal-silver-trident-z5-64gb-x2-6000mhz-cl30-rgb-silver",
 "tms:6000J3038F16GX2-FX5":"model:memory:2x16gb-6000-cl30-expo-flare-x5-32gb-x2-6000mhz-cl30-black",
 "tms:6000J3038F16GX2-RM5NRK":"model:memory:2x16gb-6000-cl30-expo-m5-neo-ripjaws-32gb-x2-6000mhz-cl30-rgb-black",
 "tms:6000J3038F16GX2-RM5NRW":"model:memory:2x16gb-6000-cl30-expo-m5-neo-ripjaws-32gb-x2-6000mhz-cl30-rgb-white",
-"tms:6000J3038F16GX2-TZ5N":"model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-black",
+"tms:6000J3038F16GX2-TZ5N":"model:memory:2x16gb-6000-cl30-neo-trident-z5-32gb-x2-6000mhz-cl30-black",
 "tms:6000J3038F16GX2-TZ5NR":"model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-black",
 "tms:6000J3040F16GX2-RS5K":"model:memory:0-2x16gb-3-6000-cl30-ripjaws-s5-xmp-32gb-x2-6000mhz-cl30-black-2",
 "tms:6000J3040F16GX2-RS5W":"model:memory:0-2x16gb-3-6000-cl30-ripjaws-s5-xmp-32gb-x2-6000mhz-cl30-white",
@@ -21503,20 +21503,20 @@
 "V-Color ARGB 32GB DDR5 (2x16GB) 6000MHz CL30",
 "memory"
 ],
-"model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-black":[
-"G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000MHz CL30 (6000J3038F16GX2-TZ5N)",
-"memory"
-],
 "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-black":[
 "G.Skill Trident Z5 ARGB DDR5 32GB (2x16GB) 6000MHz CL30 (6000J3038F16GX2-TZ5NR)",
 "memory"
 ],
-"model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-blackwhite":[
-"G.Skill Trident Z5 ARGB DDR5 32GB (2x16GB) 6000MHz CL30 (6000J3036F16GX2-TZ5NRW)",
-"memory"
-],
 "model:memory:2x16gb-6000-cl30-fit-v-32gb-x2-6000mhz-cl30-white":[
 "Klevv 32GB DDR5 (2x16GB) 6000MHz CL30",
+"memory"
+],
+"model:memory:2x16gb-6000-cl30-neo-trident-z5-32gb-x2-6000mhz-cl30-black":[
+"G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000MHz CL30 (6000J3038F16GX2-TZ5N)",
+"memory"
+],
+"model:memory:2x16gb-6000-cl30-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-blackwhite":[
+"G.Skill Trident Z5 ARGB DDR5 32GB (2x16GB) 6000MHz CL30 (6000J3036F16GX2-TZ5NRW)",
 "memory"
 ],
 "model:memory:2x16gb-6000-cl36-orion-v-32gb-x2-6000mhz-cl36-rgb-grey-dimm":[
