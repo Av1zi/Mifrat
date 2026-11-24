@@ -225,6 +225,16 @@ describe("vendor health", () => {
   it("a dropped vendor is never missing", () => {
     expect(vendorHealth(status(), VENDORS[5], TEN_AM).state).toBe("dropped");
   });
+
+  it("a paused vendor retains last-crawl evidence without claiming a nightly deadline", () => {
+    const vendor = { ...VENDORS[2], paused: "Recovery failed; timers disabled" };
+    const s = status({ ksp: [crawl("ksp", "2026-11-07T20:12:00Z")] });
+    const h = vendorHealth(s, vendor, TEN_AM);
+    expect(h.state).toBe("paused");
+    expect(h.tonight).toBeNull();
+    expect(h.last?.start).toBe("2026-11-07T20:12:00Z");
+    expect(h.notes).toContain(vendor.paused);
+  });
 });
 
 describe("findings", () => {
@@ -250,6 +260,58 @@ describe("findings", () => {
     expect(f[0].severity).toBe("high");
     // 11-07 20:12 -> 11-12 08:00 UTC is 4.5 days.
     expect(f[0].detail).toContain("4 days ago (923 items)");
+  });
+
+  it("a paused source stays visible and does not mask missing active home vendors", () => {
+    const s = status(
+      { tms: [], onepc: [], ksp: [] },
+      {
+        vendors: VENDORS.map((v) =>
+          v.id === "ksp" ? { ...v, paused: "Nov 22 recovery failed; timers disabled" } : v
+        ),
+      }
+    );
+    const findings = evaluate(s, TEN_AM);
+    expect(findings.map((f) => f.key)).toEqual(["nano-down", "paused:ksp"]);
+    expect(findings.find((f) => f.key === "nano-down")?.detail).not.toContain("KSP");
+    expect(findings.find((f) => f.key === "paused:ksp")?.detail).toContain("timers disabled");
+    const message = dailyReport(s, findings, TEN_AM);
+    expect(message.message).toContain("KSP     paused");
+    expect(message.message).not.toContain("KSP     not scraped");
+    expect(message.priority).toBe(3);
+  });
+
+  it("an owner-reviewed pause persists despite a crawl, while fresh block evidence stays urgent", () => {
+    const s = status(
+      {},
+      {
+        vendors: VENDORS.map((v) =>
+          v.id === "ksp" ? { ...v, paused: "Recovery needs owner review" } : v
+        ),
+      }
+    );
+    const findings = evaluate(s, TEN_AM, {
+      nanoRuns: {
+        ksp: { vendor: "ksp", at: TEN_AM.toISOString(), ok: false, outcome: "blocked" },
+      },
+    });
+    expect(findings.map((f) => f.key)).toEqual(["blocked:ksp", "paused:ksp"]);
+    expect(findings[0].severity).toBe("urgent");
+    expect(vendorHealth(s, s.vendors[2], TEN_AM).state).toBe("paused");
+  });
+
+  it("all home vendors paused is not a Nano outage and is not all OK", () => {
+    const s = status(
+      {},
+      {
+        vendors: VENDORS.map((v) =>
+          v.host === "home" ? { ...v, paused: "Owner-reviewed collection pause" } : v
+        ),
+      }
+    );
+    const findings = evaluate(s, TEN_AM);
+    expect(findings.map((f) => f.key)).toEqual(["paused:ksp", "paused:onepc", "paused:tms"]);
+    expect(dailyReport(s, findings, TEN_AM).priority).toBe(3);
   });
 
   it("a stale report is a finding (a dead pipeline cannot look healthy)", () => {

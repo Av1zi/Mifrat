@@ -28,6 +28,9 @@ class Vendor:
     min_rows: int
     due_utc: str       # HH:MM UTC by which the night's crawl should exist
     dropped: str | None = None
+    # Owner-reviewed collection state, not a missing nightly run. Clear only
+    # when an approved recovery changes the source policy/timer state.
+    paused: str | None = None
 
 
 VENDORS: dict[str, Vendor] = {
@@ -35,7 +38,9 @@ VENDORS: dict[str, Vendor] = {
     for v in (
         Vendor("tms", "TMS", "home", True, 1800, "04:00"),
         Vendor("onepc", "1PC", "home", True, 1600, "04:00"),
-        Vendor("ksp", "KSP", "home", True, 800, "04:00"),
+        Vendor("ksp", "KSP", "home", True, 800, "04:00", paused=(
+            "Nov 22 recovery failed (stream HTTP 403); listing/detail timers remain disabled. "
+            "Owner-reviewed cooldown and protocol evidence are required before recovery.")),
         Vendor("ivory", "Ivory", "cloud", True, 500, "06:00"),
         Vendor("yahav", "YahavPC", "cloud", True, 800, "06:00"),
         Vendor("plonter", "Plonter", "cloud", False, 1800, "06:00", dropped="2026-09-29"),

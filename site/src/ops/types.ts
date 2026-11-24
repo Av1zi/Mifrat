@@ -11,6 +11,8 @@ export interface OpsVendor {
   min_rows: number;
   due_utc: string;
   dropped: string | null;
+  /** Owner-reviewed collection pause; absent in older reports. Not dropped. */
+  paused?: string | null;
 }
 
 export interface OpsCrawl {

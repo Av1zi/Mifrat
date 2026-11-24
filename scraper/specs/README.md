@@ -94,7 +94,9 @@ normalizes in memory and writes its report under ignored `tmp/`.
   Run `scripts/backtest_rules.py --check` when changing inference.
 - CPU socket/generation memory-limit inference is quarantined: unsupported
   exact models stay unknown; sourced and curated values remain. The rejected
-  candidate is still measured, labelled `[quarantined]`, by rule-health backtests.
+   candidate is still measured, labelled `[quarantined]`, by rule-health backtests.
+   Its disagreements remain diagnostic, not active-rule regressions; re-enabling
+   the rule subjects its actual predictions to the unchanged regression test.
 - Curated tables must state only facts invariant for their anchor; variant
   ambiguity stays empty. `scripts/fill_report.py --check-tables` measures them
   against sourced catalog facts.

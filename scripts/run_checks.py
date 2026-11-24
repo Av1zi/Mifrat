@@ -169,6 +169,8 @@ CHECKS: list[Check] = [
           py("scripts/check_golden_resolution.py"), BOTH),
     Check("tms_detail", CODE, "TMS detail-page parser (fixtures)", py("scripts/check_tms_detail.py"), BOTH),
     Check("spec_merge", CODE, "Spec merge-layer rules", py("scripts/check_spec_merge.py"), BOTH),
+    Check("backtest_fixtures", CODE, "Active regressions and quarantined rule diagnostics",
+          py("scripts/check_backtest_rules.py"), BOTH),
     Check("qa_resolution", CODE, "QA enrichment identity and workbench rules",
           py("scripts/check_qa_resolution.py"), BOTH),
     Check("qa_automation", CODE, "Evidence-backed QA automation (offline pipeline corpus)",

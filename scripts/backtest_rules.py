@@ -13,6 +13,8 @@ measures exactly that, offline, from data/catalog.json:
                  listings, run fill_derived + infer_specs, and compare what the
                  rule writes with the sourced value. One field at a time,
                  because rules chain (fan size -> fanless).
+  quarantined    Rejected candidates remain measured and labelled, but do not
+                 count as active regressions: they cannot write catalog facts.
   title rules    Run the title parser on every listing and compare each value
                  with the product's sourced value for that field.
   tables         The curated-table check from fill_report.py --check-tables
@@ -168,9 +170,11 @@ class Tally:
     def __init__(self) -> None:
         self.pairs: dict[str, dict] = {}
 
-    def add(self, key: str, ok: bool, example: dict) -> None:
+    def add(self, key: str, ok: bool, example: dict, *, quarantined: bool = False) -> None:
         slot = self.pairs.setdefault(key, {"overlap": 0, "agree": 0, "disagree": 0,
-                                           "examples": []})
+                                           "examples": [], "quarantined": quarantined})
+        if slot["quarantined"] != quarantined:
+            raise ValueError("An active rule and quarantined candidate cannot share a tally")
         slot["overlap"] += 1
         if ok:
             slot["agree"] += 1
@@ -197,9 +201,11 @@ def backtest_derived(products: list[dict], by_product: dict, tally: Tally) -> No
             infer_specs(category, shadow_specs, shadow_sources, context=context)
             label = str(shadow_sources.get(field) or "")
             predicted = shadow_specs.get(field)
+            quarantined = False
             if category == "cpu" and field == "max_memory_gb" and predicted is None:
                 predicted = cpu_memory_platform_candidate(shadow_specs)
                 label = "derived:cpu.socket_memory_platform [quarantined]"
+                quarantined = True
             if predicted is None or not label.startswith("derived"):
                 continue
             tally.add(f"{label} -> {category}.{field}",
@@ -207,7 +213,7 @@ def backtest_derived(products: list[dict], by_product: dict, tally: Tally) -> No
                       {"product_id": product.get("product_id"),
                        "name": product.get("canonical_name"),
                        "rule": predicted, "sourced": actual,
-                       "source": sources.get(field)})
+                       "source": sources.get(field)}, quarantined=quarantined)
 
 
 def backtest_title(products: list[dict], by_product: dict, tally: Tally) -> None:
@@ -343,7 +349,7 @@ def main() -> int:
              if not args.rule or args.rule in k}
     baseline = (json.loads(BASELINE.read_text(encoding="utf-8"))
                 if BASELINE.exists() else {})
-    failing, regressions = [], []
+    failing, regressions, quarantined_regressions = [], [], []
     print(f"{'rule -> field':<62}{'overlap':>8}{'agree':>7}{'disagr':>7}{'prec%':>7}")
     for key, slot in pairs.items():
         precision = slot["agree"] * 100 / slot["overlap"]
@@ -352,13 +358,14 @@ def main() -> int:
         # is_regression is the --check gate (statistical, see its docstring).
         below = below_bar(slot, key)
         regressed = is_regression(slot, key, pinned)
-        mark = "" if not below else ("  pinned" if pinned is not None else "  FAIL")
+        mark = ("  quarantined" if slot["quarantined"] else
+                "" if not below else ("  pinned" if pinned is not None else "  FAIL"))
         print(f"{key:<62}{slot['overlap']:>8}{slot['agree']:>7}{slot['disagree']:>7}"
               f"{precision:>7.1f}{mark}")
         if below:
             failing.append(key)
         if regressed:
-            regressions.append(key)
+            (quarantined_regressions if slot["quarantined"] else regressions).append(key)
             for example in slot["examples"][:args.examples]:
                 print(f"      {json.dumps(example, ensure_ascii=False)[:220]}")
 
@@ -367,12 +374,19 @@ def main() -> int:
     print(f"[backtest] {len(pairs)} rule/field pairs, {total} overlaps, {bad} disagree; "
           f"{len(failing)} below the ideal bar, {len(regressions)} regression(s) "
           f"past p<{ALPHA:g}")
+    for key in quarantined_regressions:
+        slot = pairs[key]
+        print(f"[backtest] INFO quarantined {key}: "
+              f"{slot['agree'] * 100 / slot['overlap']:.1f}% precision on "
+              f"{slot['overlap']} overlaps ({slot['disagree']} disagree); "
+              "candidate is not used by inference")
 
     if args.json:
         args.json.write_text(json.dumps(pairs, ensure_ascii=False, indent=1), encoding="utf-8")
     if args.write_baseline:
         pins = {k: round(slot["agree"] * 100 / slot["overlap"], 1)
-                for k, slot in sorted(tally.pairs.items()) if below_bar(slot, k)}
+                for k, slot in sorted(tally.pairs.items())
+                if not slot["quarantined"] and below_bar(slot, k)}
         BASELINE.write_text(json.dumps(pins, indent=1) + "\n", encoding="utf-8")
         print(f"[backtest] pinned {len(pins)} below-bar pairs in {BASELINE}")
     if args.check and regressions:

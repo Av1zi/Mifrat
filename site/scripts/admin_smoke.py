@@ -62,7 +62,7 @@ def main() -> int:
             page.add_init_script(f"localStorage.setItem('mifrat:theme', {json.dumps(theme)})")
             calls = {"rebuild": 0, "status": 0, "fail_status": False,
                      "rebuild_status": 202, "rebuild_body": {"ok": True, "started_at": NOW},
-                     "stamp": NOW}
+                      "stamp": NOW, "paused": None}
             errors: list[str] = []
             page.on("pageerror", lambda error: errors.append(str(error)))
             page.on("console", lambda message: errors.append(message.text) if message.type == "error" else None)
@@ -75,6 +75,8 @@ def main() -> int:
                     status = 503 if calls["fail_status"] else 200
                     body = copy.deepcopy(STATUS)
                     body["generated_at"] = calls["stamp"]
+                    if calls["paused"]:
+                        body["vendors"][0]["paused"] = calls["paused"]
                 elif path.endswith("/changes.json"):
                     body = CHANGES
                 elif path.endswith("/checks.json"):
@@ -142,6 +144,21 @@ def main() -> int:
             page.clock.fast_forward(250)
             assert page.evaluate("location.hash.startsWith('#prices')"), "old search timer changed the current tab"
         check("navigate during search", tab_during_search)
+
+        def paused_source(page, calls):
+            calls["paused"] = (
+                "Recovery failed (stream HTTP 403); listing/detail timers remain disabled. "
+                "Owner-reviewed cooldown and protocol evidence are required before recovery.")
+            open_page(page, "#tonight")
+            text = page.locator("#main").inner_text()
+            assert "KSP collection paused" in text
+            assert "Not scraped" not in text and "Nano down" not in text
+            assert page.locator(".vcard__state").inner_text() == "Paused"
+            assert page.locator(".nb__due").count() == 0
+            overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
+            assert overflow <= 1, f"paused-source horizontal overflow: {overflow}px"
+        for width in (320, 375, 1280):
+            check(f"paused source/{width}", paused_source, width)
 
         def rebuild_once(page, calls):
             open_page(page)

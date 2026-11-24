@@ -48,6 +48,10 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
   gone, missing, partial, misfiled, two crawls in one file). "Not scraped" and
   "late" depend on the clock, so `site/src/ops/rules.ts` decides them when
   read. A report that stopped updating is itself an alert.
+- An owner-reviewed collection pause is separate from a missed nightly run:
+  the console/cards/daily report show the reason and retain stale-crawl evidence.
+  Paused home vendors do not contribute to "Nano down?"; blocks, stale reports
+  and offers falling out of the stale-forward window remain visible problems.
 - Each cron tick also reads the newest completed `normalize-and-deploy` run
   on main from the public GitHub Actions API (no token needed; it uses
   `GH_DISPATCH_TOKEN` when set). A failure opens "Normalize failed" with the
@@ -65,7 +69,9 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
   Neither ingestion nor evaluation sends individual phone notifications.
 - Lifecycle rules (owner, 2026-11-12): a listing absent from one crawl is
   *missing*. One absent from two crawls, at least 36 h apart, is *gone*. A
-  partial crawl never counts an absence.
+  partial crawl never counts an absence. The 36-hour clock begins at the first
+  valid missing crawl, not the last sighting; a sighting in a partial crawl
+  still resets the absence streak.
 - A crawl belongs to the night it started in. The file name does not matter
   (the old `run_tms.sh` appended two nights to one file).
 

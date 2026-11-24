@@ -193,7 +193,10 @@ def _replay_vendor(vendor: str, crawls: list[Crawl], out: Replay, onboarding: bo
                     state.state = "missing"
                     state.missing_since = at
                     summary["missing"] += 1
-                hours = (at - state.last).total_seconds() / 3600
+                # Time without a crawl is not evidence of absence. Start at
+                # the first valid missing crawl, not the last sighting.
+                hours = ((at - state.missing_since).total_seconds() / 3600
+                         if state.missing_since else 0)
                 if state.misses >= DELIST_MIN_ABSENCES and hours >= DELIST_MIN_HOURS:
                     state.state = "gone"
                     state.gone_at = at

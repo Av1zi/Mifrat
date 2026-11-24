@@ -257,9 +257,6 @@
     "model:memory:3200-cl22-sodimm-16gb-x1-3200mhz-cl22-sodimm": {
       "module_size_gb": 16
     },
-    "model:gpu:4000-blackwell-pro-rtx-24gb": {
-      "memory_type": "GDDR7"
-    },
     "model:storage:gp-vsd1tb-1000gb-usb": {
       "form_factor": "External"
     },

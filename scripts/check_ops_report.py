@@ -163,12 +163,14 @@ def self_test() -> int:
         gone = _types(out, "gone")
         gone_skus = sorted(e["url"].rsplit("/", 1)[-1] for e in gone)
         # big[-1]: absent night 2 (missing), back night 3, absent 4-6 -> gone
-        # once, at its second absence (night 5); big[-2]: absent 4-6 -> same.
+        # once, after 48h of confirmed absences (night 6); big[-2]: same.
         check("4 one absence is missing", summaries[1]["missing"] == 1 and
               summaries[1]["gone"] == 0, f"{summaries[1]}")
         check("5 gone once each", gone_skus == sorted([big[-2], big[-1]]), f"{gone_skus}")
-        check("5 gone at second absence", all(e["at"].startswith("2026-11-05") for e in gone),
+        check("5 gone after 36h of absences", all(e["at"].startswith("2026-11-06") for e in gone),
               f"{[e['at'] for e in gone]}")
+        check("5 daily absences only 24h apart stay missing", summaries[4]["gone"] == 0,
+              f"{summaries[4]}")
     finally:
         raw.close()
 
@@ -217,6 +219,36 @@ def self_test() -> int:
     # 6. A suspect crawl never counts an absence.
     raw = Raw()
     try:
+        # An old sighting cannot substitute for 36h between missing crawls.
+        # Partial absences do not start the clock; a partial sighting resets it.
+        a = T0
+        for hours, skus in ((0, big), (120, big[1:]), (144, big[1:]),
+                            (156, big[:900]), (168, big[1:]), (192, big[1:])):
+            at = a + timedelta(hours=hours)
+            raw.write(at.strftime("%Y-%m-%d"), "tms", _rows("tms", at, skus), append=True)
+        out = _replay(raw)
+        check("5 old sighting does not advance absence clock", out.crawls[2]["gone"] == 0,
+              f"{out.crawls[2]}")
+        check("6 partial sighting restarts absence streak", not _types(out, "gone"), "")
+    finally:
+        raw.close()
+
+    raw = Raw()
+    try:
+        # Exactly 36h after the first valid absence is sufficient, even if
+        # intervening partial crawls omit this listing (they add no misses).
+        for hours, skus in ((0, big), (24, big[:900]), (48, big[1:]),
+                            (60, big[1:900]), (72, big[1:]), (84, big[1:])):
+            at = T0 + timedelta(hours=hours)
+            raw.write(at.strftime("%Y-%m-%d"), "tms", _rows("tms", at, skus), append=True)
+        out = _replay(raw)
+        check("6 partial absence does not start clock", out.crawls[4]["gone"] == 0, "")
+        check("5 exactly 36h since first absence is gone", out.crawls[5]["gone"] == 1, "")
+    finally:
+        raw.close()
+
+    raw = Raw()
+    try:
         _nightly(raw, "tms", [big, big, big[:900], big[:900], big])
         out = _replay(raw)
         check("6 suspect flagged", out.crawls[2]["suspect"] is not None, f"{out.crawls[2]}")
@@ -240,7 +272,7 @@ def self_test() -> int:
     raw = Raw()
     try:
         _nightly(raw, "tms", [big, big + ["NEW1"], big + ["NEW1"], big[2:] + ["NEW1"],
-                              big[2:] + ["NEW1"]])
+                              big[2:] + ["NEW1"], big[2:] + ["NEW1"]])
         _nightly(raw, "ivory", [big[:600], big[:600] + ["X9"], big[:600] + ["X9"],
                                 big[:600] + ["X9"], big[:600] + ["X9"]])
         catalog = {
@@ -288,7 +320,7 @@ def self_test() -> int:
         events = [e["type"] for e in out.events if e.get("pid") == "p-old"
                   and e["type"] in ("product_gone", "vendor_lost")]
         check("9 wait for a missing sibling", events == [], f"{events}")
-        _nightly(raw, "ivory", [big[1:600]], start=T0 + timedelta(days=5))
+        _nightly(raw, "ivory", [big[1:600], big[1:600]], start=T0 + timedelta(days=5))
         out = _replay(raw, {}, memory=memory)
         events = [e["type"] for e in out.events if e.get("pid") == "p-old"
                   and e["type"] in ("product_gone", "vendor_lost")]
@@ -333,6 +365,9 @@ def self_test() -> int:
         check("12 generated_at", status["generated_at"] == changes["generated_at"], "")
         check("12 every vendor listed", set(status["crawls"]) >= {"tms", "onepc", "ksp", "ivory", "yahav"},
               f"{sorted(status['crawls'])}")
+        check("12 collection pause survives report serialization",
+              next(v for v in status["vendors"] if v["id"] == "ksp")["paused"] ==
+              report.VENDORS["ksp"].paused, "")
         check("12 crawl recorded", len(status["crawls"]["tms"]) == 2, "")
         check("12 onboarding", status["crawls"]["tms"][0]["baseline"], "")
     finally:

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T05:31:53.311456+00:00",
+  "generated_at": "2026-11-24T14:06:36.269439+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -557478,9 +557478,6 @@
         "watt": 65,
         "integrated_graphics": "Intel HD Graphics 530",
         "graphics": "Intel HD Graphics 530",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -557758,7 +557755,7 @@
         "l3_cache_mb": 8.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel HD Graphics 530",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -557788,8 +557785,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -557844,9 +557840,6 @@
         "watt": 65,
         "integrated_graphics": "AMD Radeon Graphics",
         "graphics": "AMD Radeon Graphics",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -558098,7 +558091,7 @@
         "l3_cache_mb": null,
         "tdp_w": 65,
         "integrated_graphics": "AMD Radeon Graphics",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -558123,8 +558116,7 @@
         "packaging": "vendor",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.a_series_locked",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -558188,9 +558180,6 @@
         "watt": 35,
         "integrated_graphics": "Intel UHD Graphics 630",
         "graphics": "Intel UHD Graphics 630",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -558468,7 +558457,7 @@
         "l3_cache_mb": 6.0,
         "tdp_w": 35,
         "integrated_graphics": "Intel UHD Graphics 630",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -558499,8 +558488,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -558564,9 +558552,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -558839,7 +558824,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -558869,8 +558854,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -558934,9 +558918,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -559209,7 +559190,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -559239,8 +559220,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -559301,9 +559281,6 @@
         "watt": 35,
         "integrated_graphics": "Intel HD Graphics 2500",
         "graphics": "Intel HD Graphics 2500",
-        "max_memory_gb": 32,
-        "max_memory": 32,
-        "maximum_memory": 32,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -559583,7 +559560,7 @@
         "l3_cache_mb": 3.0,
         "tdp_w": 35,
         "integrated_graphics": "Intel HD Graphics 2500",
-        "max_memory_gb": 32,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -559613,8 +559590,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -560025,9 +560001,6 @@
         "watt": 65,
         "integrated_graphics": "Intel HD Graphics 630",
         "graphics": "Intel HD Graphics 630",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -560303,7 +560276,7 @@
         "l3_cache_mb": 6.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel HD Graphics 630",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -560333,8 +560306,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -560398,9 +560370,6 @@
         "watt": 35,
         "integrated_graphics": "Intel HD Graphics 530",
         "graphics": "Intel HD Graphics 530",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -560668,7 +560637,7 @@
         "l3_cache_mb": 8,
         "tdp_w": 35,
         "integrated_graphics": "Intel HD Graphics 530",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -560698,8 +560667,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -560763,9 +560731,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -561042,7 +561007,7 @@
         "l3_cache_mb": 30,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -561072,8 +561037,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -561137,9 +561101,6 @@
         "watt": 125,
         "integrated_graphics": "Intel Xe",
         "graphics": "Intel Xe",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -561415,7 +561376,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel Xe",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -561445,8 +561406,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -561504,9 +561464,6 @@
         "watt": 54,
         "integrated_graphics": "Intel HD Graphics 510",
         "graphics": "Intel HD Graphics 510",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -561759,7 +561716,7 @@
         "l3_cache_mb": 3,
         "tdp_w": 54,
         "integrated_graphics": "Intel HD Graphics 510",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -561788,8 +561745,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.value_line_locked",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -561850,9 +561806,6 @@
         "watt": 51,
         "integrated_graphics": "Intel HD Graphics 630",
         "graphics": "Intel HD Graphics 630",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -562123,7 +562076,7 @@
         "l3_cache_mb": 3.0,
         "tdp_w": 51,
         "integrated_graphics": "Intel HD Graphics 630",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -562153,8 +562106,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -562218,9 +562170,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -562493,7 +562442,7 @@
         "l3_cache_mb": 12.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -562523,8 +562472,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -563165,7 +563113,7 @@
         "manufacturer": "vendor",
         "chipset": "vendor",
         "chip_manufacturer": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "vendor",
         "color": "vendor",
         "part_numbers": "vendor",
@@ -780647,8 +780595,8 @@
         "brand": "Lian Li",
         "maker": "Lian Li",
         "vendor_brand": "Lian Li",
-        "model": "LIAN-LI 011 VISION Mid Tower Case O11VW",
-        "model_name": "LIAN-LI 011 VISION Mid Tower Case O11VW",
+        "model": "O11 Vision",
+        "model_name": "O11 Vision",
         "part_numbers": "O11VW",
         "part_number": "O11VW",
         "mpn": "O11VW",
@@ -780920,7 +780868,7 @@
       },
       "specs": {
         "manufacturer": "Lian Li",
-        "model": "LIAN-LI 011 VISION Mid Tower Case O11VW",
+        "model": "O11 Vision",
         "part_numbers": [
           "O11VW"
         ],
@@ -780972,7 +780920,7 @@
         "drive_bays_35": "vendor",
         "drive_bays_25": "vendor",
         "volume_l": "vendor",
-        "model": "vendor",
+        "model": "manufacturer",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "lighting": "vendor",
@@ -897117,8 +897065,8 @@
         "brand": "be quiet!",
         "maker": "be quiet!",
         "vendor_brand": "be quiet!",
-        "model": "PURE ROCK PRO 3 LX BK043",
-        "model_name": "PURE ROCK PRO 3 LX BK043",
+        "model": "Pure Rock Pro 3 LX",
+        "model_name": "Pure Rock Pro 3 LX",
         "part_numbers": "BK043",
         "part_number": "BK043",
         "mpn": "BK043",
@@ -897459,7 +897407,7 @@
       },
       "specs": {
         "manufacturer": "be quiet!",
-        "model": "PURE ROCK PRO 3 LX BK043",
+        "model": "Pure Rock Pro 3 LX",
         "part_numbers": [
           "BK043"
         ],
@@ -897491,7 +897439,7 @@
         "fan_size_mm": "catalog",
         "tdp_w": "reference",
         "sockets": "manufacturer",
-        "model": "vendor",
+        "model": "manufacturer",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "fan_rpm_max": "manufacturer",
@@ -901041,8 +900989,8 @@
         "brand": "be quiet!",
         "maker": "be quiet!",
         "vendor_brand": "be quiet!",
-        "model": "PURE ROCK 3 BK039",
-        "model_name": "PURE ROCK 3 BK039",
+        "model": "Pure Rock 3 Black",
+        "model_name": "Pure Rock 3 Black",
         "part_numbers": "BK039",
         "part_number": "BK039",
         "mpn": "BK039",
@@ -901335,7 +901283,7 @@
       },
       "specs": {
         "manufacturer": "be quiet!",
-        "model": "PURE ROCK 3 BK039",
+        "model": "Pure Rock 3 Black",
         "part_numbers": [
           "BK039"
         ],
@@ -901367,7 +901315,7 @@
         "fan_size_mm": "manufacturer",
         "tdp_w": "reference",
         "sockets": "manufacturer",
-        "model": "vendor",
+        "model": "manufacturer",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "fan_rpm_max": "manufacturer",
@@ -901388,8 +901336,8 @@
         "brand": "be quiet!",
         "maker": "be quiet!",
         "vendor_brand": "be quiet!",
-        "model": "PURE ROCK 3 LX BK040",
-        "model_name": "PURE ROCK 3 LX BK040",
+        "model": "Pure Rock 3 LX",
+        "model_name": "Pure Rock 3 LX",
         "part_numbers": "BK040",
         "part_number": "BK040",
         "mpn": "BK040",
@@ -901684,7 +901632,7 @@
       },
       "specs": {
         "manufacturer": "be quiet!",
-        "model": "PURE ROCK 3 LX BK040",
+        "model": "Pure Rock 3 LX",
         "part_numbers": [
           "BK040"
         ],
@@ -901716,7 +901664,7 @@
         "fan_size_mm": "manufacturer",
         "tdp_w": "reference",
         "sockets": "manufacturer",
-        "model": "vendor",
+        "model": "manufacturer",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "fan_rpm_max": "manufacturer",
@@ -901908,8 +901856,8 @@
         "brand": "be quiet!",
         "maker": "be quiet!",
         "vendor_brand": "be quiet!",
-        "model": "PURE ROCK PRO 3 BK042",
-        "model_name": "PURE ROCK PRO 3 BK042",
+        "model": "Pure Rock Pro 3 Black",
+        "model_name": "Pure Rock Pro 3 Black",
         "part_numbers": "BK042",
         "part_number": "BK042",
         "mpn": "BK042",
@@ -902093,7 +902041,7 @@
       },
       "specs": {
         "manufacturer": "be quiet!",
-        "model": "PURE ROCK PRO 3 BK042",
+        "model": "Pure Rock Pro 3 Black",
         "part_numbers": [
           "BK042"
         ],
@@ -902125,7 +902073,7 @@
         "fan_size_mm": "catalog",
         "tdp_w": "reference",
         "sockets": "manufacturer",
-        "model": "vendor",
+        "model": "manufacturer",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "fan_rpm_max": "manufacturer",
@@ -902146,8 +902094,8 @@
         "brand": "be quiet!",
         "maker": "be quiet!",
         "vendor_brand": "be quiet!",
-        "model": "PURE ROCK PRO 3 BK041",
-        "model_name": "PURE ROCK PRO 3 BK041",
+        "model": "Pure Rock Pro 3",
+        "model_name": "Pure Rock Pro 3",
         "part_numbers": "BK041",
         "part_number": "BK041",
         "mpn": "BK041",
@@ -902434,7 +902382,7 @@
       },
       "specs": {
         "manufacturer": "be quiet!",
-        "model": "PURE ROCK PRO 3 BK041",
+        "model": "Pure Rock Pro 3",
         "part_numbers": [
           "BK041"
         ],
@@ -902466,7 +902414,7 @@
         "fan_size_mm": "catalog",
         "tdp_w": "reference",
         "sockets": "manufacturer",
-        "model": "vendor",
+        "model": "manufacturer",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "fan_rpm_max": "manufacturer",
@@ -906261,8 +906209,8 @@
         "brand": "be quiet!",
         "maker": "be quiet!",
         "vendor_brand": "be quiet!",
-        "model": "Dark Rock Pro 6 BK048",
-        "model_name": "Dark Rock Pro 6 BK048",
+        "model": "DARK ROCK PRO 6",
+        "model_name": "DARK ROCK PRO 6",
         "part_numbers": "BK048",
         "part_number": "BK048",
         "mpn": "BK048",
@@ -906452,7 +906400,7 @@
       },
       "specs": {
         "manufacturer": "be quiet!",
-        "model": "Dark Rock Pro 6 BK048",
+        "model": "DARK ROCK PRO 6",
         "part_numbers": [
           "BK048"
         ],
@@ -906483,7 +906431,7 @@
         "fan_size_mm": "catalog",
         "tdp_w": "manufacturer",
         "sockets": "manufacturer",
-        "model": "vendor",
+        "model": "manufacturer",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "color": "manufacturer",
@@ -916790,8 +916738,8 @@
         "brand": "be quiet!",
         "maker": "be quiet!",
         "vendor_brand": "be quiet!",
-        "model": "DARK ROCK ELITE BK037",
-        "model_name": "DARK ROCK ELITE BK037",
+        "model": "Dark Rock Elite",
+        "model_name": "Dark Rock Elite",
         "part_numbers": "BK037",
         "part_number": "BK037",
         "mpn": "BK037",
@@ -917057,7 +917005,7 @@
       },
       "specs": {
         "manufacturer": "be quiet!",
-        "model": "DARK ROCK ELITE BK037",
+        "model": "Dark Rock Elite",
         "part_numbers": [
           "BK037"
         ],
@@ -917087,7 +917035,7 @@
         "height_mm": "manufacturer",
         "fan_size_mm": "manufacturer",
         "tdp_w": "reference",
-        "model": "vendor",
+        "model": "manufacturer",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "fan_rpm_max": "vendor",
@@ -930510,9 +930458,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 630",
         "graphics": "Intel UHD Graphics 630",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -930664,7 +930609,7 @@
         "l3_cache_mb": 6.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 630",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -930693,8 +930638,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -930758,9 +930702,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "Yes",
@@ -931058,7 +930999,7 @@
         "l3_cache_mb": 6.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -931089,8 +931030,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -931154,9 +931094,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -931454,7 +931391,7 @@
         "l3_cache_mb": 6.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -931485,8 +931422,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -931550,9 +931486,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 630",
         "graphics": "Intel UHD Graphics 630",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -931832,7 +931765,7 @@
         "l3_cache_mb": 12.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 630",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -931862,8 +931795,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -931927,9 +931859,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -932225,7 +932154,7 @@
         "l3_cache_mb": 12.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -932255,8 +932184,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -932320,9 +932248,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 630",
         "graphics": "Intel UHD Graphics 630",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -932602,7 +932527,7 @@
         "l3_cache_mb": 12.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 630",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -932632,8 +932557,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -932697,9 +932621,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 630",
         "graphics": "Intel UHD Graphics 630",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -932976,7 +932897,7 @@
         "l3_cache_mb": 16.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 630",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -933006,8 +932927,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -933069,9 +932989,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 730",
         "graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -933274,7 +933191,7 @@
         "l3_cache_mb": 12.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -933303,8 +933220,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -933368,9 +933284,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -933621,7 +933534,7 @@
         "l3_cache_mb": 12.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -933651,8 +933564,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -933716,9 +933628,6 @@
         "watt": 60,
         "integrated_graphics": "Intel UHD Graphics 730",
         "graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -934064,7 +933973,7 @@
         "l3_cache_mb": 12,
         "tdp_w": 60,
         "integrated_graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -934095,8 +934004,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -934160,9 +934068,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 730",
         "graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "Yes",
         "cooler_included": "Yes",
         "cooler": "Yes",
@@ -934318,7 +934223,7 @@
         "l3_cache_mb": 18,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -934348,8 +934253,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -934413,9 +934317,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -934668,7 +934569,7 @@
         "l3_cache_mb": 20,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -934698,8 +934599,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -934763,9 +934663,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -935101,7 +934998,7 @@
         "l3_cache_mb": 25,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -935131,8 +935028,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -935196,9 +935092,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -935447,7 +935340,7 @@
         "l3_cache_mb": 25,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -935477,8 +935370,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -935542,9 +935434,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -935820,7 +935709,7 @@
         "l3_cache_mb": 25,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -935850,8 +935739,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -935915,9 +935803,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -936108,7 +935993,7 @@
         "l3_cache_mb": 30,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -936138,8 +936023,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -936203,9 +936087,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "Yes",
         "cooler_included": "Yes",
         "cooler": "Yes",
@@ -936484,7 +936365,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -936514,8 +936395,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -936579,9 +936459,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -936866,7 +936743,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -936896,8 +936773,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -936961,9 +936837,6 @@
         "watt": 60,
         "integrated_graphics": "Intel UHD Graphics 730",
         "graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "Yes",
@@ -937121,7 +936994,7 @@
         "l3_cache_mb": 12,
         "tdp_w": 60,
         "integrated_graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -937152,8 +937025,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -937217,9 +937089,6 @@
         "watt": 60,
         "integrated_graphics": "Intel UHD Graphics 730",
         "graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -937637,7 +937506,7 @@
         "l3_cache_mb": 12.0,
         "tdp_w": 60,
         "integrated_graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -937668,8 +937537,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -937733,9 +937601,6 @@
         "watt": 58,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "Yes",
@@ -937943,7 +937808,7 @@
         "l3_cache_mb": 12.0,
         "tdp_w": 58,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -937974,8 +937839,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -938037,9 +937901,6 @@
         "watt": 58,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -938197,7 +938058,7 @@
         "l3_cache_mb": 12,
         "tdp_w": 58,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -938227,8 +938088,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -938292,9 +938152,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 730",
         "graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "Yes",
         "cooler_included": "Yes",
         "cooler": "Yes",
@@ -938540,7 +938397,7 @@
         "l3_cache_mb": 20.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -938570,8 +938427,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -938635,9 +938491,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 730",
         "graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -939052,7 +938905,7 @@
         "l3_cache_mb": 20.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -939082,8 +938935,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -939147,9 +938999,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "Yes",
         "cooler_included": "Yes",
         "cooler": "Yes",
@@ -939452,7 +939301,7 @@
         "l3_cache_mb": 20.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -939482,8 +939331,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "unlocked": "derived:cpu.intel_locked_suffix",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "unlocked": "derived:cpu.intel_locked_suffix"
       }
     },
     {
@@ -939547,9 +939395,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -939946,7 +939791,7 @@
         "l3_cache_mb": 20.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -939976,8 +939821,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -940041,9 +939885,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "Yes",
         "cooler_included": "Yes",
         "cooler": "Yes",
@@ -940199,7 +940040,7 @@
         "l3_cache_mb": 24,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -940229,8 +940070,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -940292,9 +940132,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -940450,7 +940287,7 @@
         "l3_cache_mb": 24,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -940479,8 +940316,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -940544,9 +940380,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -940753,7 +940586,7 @@
         "l3_cache_mb": 24.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -940783,8 +940616,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -940848,9 +940680,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -941038,7 +940867,7 @@
         "l3_cache_mb": 24,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -941068,8 +940897,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -941133,9 +940961,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -941291,7 +941116,7 @@
         "l3_cache_mb": 24,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -941321,8 +941146,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -941386,9 +941210,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -941640,7 +941461,7 @@
         "l3_cache_mb": 24.0,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -941670,8 +941491,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -941735,9 +941555,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -941921,7 +941738,7 @@
         "l3_cache_mb": 24,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -941951,8 +941768,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -942016,9 +941832,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -942273,7 +942086,7 @@
         "l3_cache_mb": 33.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -942304,8 +942117,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -942369,9 +942181,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "Yes",
         "cooler_included": "Yes",
         "cooler": "Yes",
@@ -942543,7 +942352,7 @@
         "l3_cache_mb": 33.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -942573,8 +942382,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -942638,9 +942446,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -943080,7 +942885,7 @@
         "l3_cache_mb": 33.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -943110,8 +942915,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -943175,9 +942979,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -943512,7 +943313,7 @@
         "l3_cache_mb": 33.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -943543,8 +943344,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -943608,9 +943408,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -943850,7 +943647,7 @@
         "l3_cache_mb": 33,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -943881,8 +943678,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -943940,9 +943736,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -944094,7 +943887,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -944122,8 +943915,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -944187,9 +943979,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -944398,7 +944187,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -944428,8 +944217,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -944491,9 +944279,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -944712,7 +944497,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -944741,8 +944526,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -944806,9 +944590,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -944978,7 +944759,7 @@
         "l3_cache_mb": 36,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -945009,8 +944790,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -945070,9 +944850,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -945224,7 +945001,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -945253,8 +945030,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -945318,9 +945094,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -945679,7 +945452,7 @@
         "l3_cache_mb": 36,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -945709,8 +945482,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -945768,9 +945540,6 @@
         "watt": 150,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -945922,7 +945691,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 150,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -945950,8 +945719,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -946015,9 +945783,6 @@
         "watt": 150,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -946301,7 +946066,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 150,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -946331,8 +946096,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -946393,9 +946157,6 @@
         "watt": 65,
         "integrated_graphics": "Intel HD Graphics 2000",
         "graphics": "Intel HD Graphics 2000",
-        "max_memory_gb": 32,
-        "max_memory": 32,
-        "maximum_memory": 32,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "lithography_nm": 32,
@@ -946581,7 +946342,7 @@
         "l3_cache_mb": 3.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel HD Graphics 2000",
-        "max_memory_gb": 32,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": null,
         "packaging": null,
@@ -946609,8 +946370,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
-        "unlocked": "derived:cpu.intel_locked_suffix",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "unlocked": "derived:cpu.intel_locked_suffix"
       }
     },
     {
@@ -946668,9 +946428,6 @@
         "watt": 65,
         "integrated_graphics": "Intel HD Graphics 2000",
         "graphics": "Intel HD Graphics 2000",
-        "max_memory_gb": 32,
-        "max_memory": 32,
-        "maximum_memory": 32,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -946924,7 +946681,7 @@
         "l3_cache_mb": 3.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel HD Graphics 2000",
-        "max_memory_gb": 32,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -946953,8 +946710,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -949030,9 +948786,6 @@
         "watt": 65,
         "integrated_graphics": "Intel HD Graphics 2000",
         "graphics": "Intel HD Graphics 2000",
-        "max_memory_gb": 32,
-        "max_memory": 32,
-        "maximum_memory": 32,
         "ecc_support": "No",
         "ecc": "No",
         "includes_cooler": "No",
@@ -949306,7 +949059,7 @@
         "l3_cache_mb": 6.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel HD Graphics 2000",
-        "max_memory_gb": 32,
+        "max_memory_gb": null,
         "ecc_support": false,
         "includes_cooler": false,
         "packaging": "tray",
@@ -949337,8 +949090,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -952204,9 +951956,6 @@
         "turbo_clock_ghz": 5.3,
         "l3_cache_mb": 30.0,
         "l3_cache": "30MB",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -952427,7 +952176,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": null,
         "integrated_graphics": null,
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -952454,8 +952203,7 @@
         "smt": "derived:cpu.arrow_lake_no_ht",
         "thread_count": "derived:cpu.no_smt_threads_equal_cores",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -952519,9 +952267,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -952973,7 +952718,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -953003,8 +952748,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -953318,9 +953062,6 @@
         "watt": 65,
         "integrated_graphics": "Intel Xe",
         "graphics": "Intel Xe",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "packaging": "Box",
         "box_type": "boxed",
         "pack": "boxed",
@@ -953465,7 +953206,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel Xe",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": null,
         "packaging": "boxed",
@@ -953493,8 +953234,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.arrow_lake_no_ht",
         "thread_count": "derived:cpu.no_smt_threads_equal_cores",
-        "unlocked": "derived:cpu.intel_locked_suffix",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "unlocked": "derived:cpu.intel_locked_suffix"
       }
     },
     {
@@ -953558,9 +953298,6 @@
         "watt": 65,
         "integrated_graphics": "Intel Xe",
         "graphics": "Intel Xe",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -953827,7 +953564,7 @@
         "l3_cache_mb": 30,
         "tdp_w": 65,
         "integrated_graphics": "Intel Xe",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -953857,8 +953594,7 @@
         "smt": "derived:cpu.arrow_lake_no_ht",
         "thread_count": "derived:cpu.no_smt_threads_equal_cores",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -953918,9 +953654,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "packaging": "Box",
         "box_type": "boxed",
         "pack": "boxed",
@@ -954065,7 +953798,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": null,
         "packaging": "boxed",
@@ -954093,8 +953826,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.arrow_lake_no_ht",
         "thread_count": "derived:cpu.no_smt_threads_equal_cores",
-        "unlocked": "derived:cpu.intel_locked_suffix",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "unlocked": "derived:cpu.intel_locked_suffix"
       }
     },
     {
@@ -954447,9 +954179,6 @@
         "watt": 125,
         "integrated_graphics": "Intel Xe",
         "graphics": "Intel Xe",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -954648,7 +954377,7 @@
         "l3_cache_mb": 30,
         "tdp_w": 125,
         "integrated_graphics": "Intel Xe",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -954678,8 +954407,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.arrow_lake_no_ht",
         "thread_count": "derived:cpu.no_smt_threads_equal_cores",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -954743,9 +954471,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -954942,7 +954667,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -954972,8 +954697,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.arrow_lake_no_ht",
         "thread_count": "derived:cpu.no_smt_threads_equal_cores",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -955037,9 +954761,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -955390,7 +955111,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -955420,8 +955141,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -955485,9 +955205,6 @@
         "watt": 125,
         "integrated_graphics": "Intel Graphics",
         "graphics": "Intel Graphics",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -955840,7 +955557,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel Graphics",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -955870,8 +955587,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -955935,9 +955651,6 @@
         "watt": 125,
         "integrated_graphics": "Intel Graphics",
         "graphics": "Intel Graphics",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -956390,7 +956103,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel Graphics",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -956420,8 +956133,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.arrow_lake_no_ht",
         "thread_count": "derived:cpu.no_smt_threads_equal_cores",
-        "unlocked": "derived:cpu.intel_locked_suffix",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "unlocked": "derived:cpu.intel_locked_suffix"
       }
     },
     {
@@ -956485,9 +956197,6 @@
         "watt": 65,
         "integrated_graphics": "Intel Xe",
         "graphics": "Intel Xe",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "packaging": "Box",
         "box_type": "boxed",
         "pack": "boxed",
@@ -956688,7 +956397,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel Xe",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": null,
         "packaging": "boxed",
@@ -956717,8 +956426,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
-        "unlocked": "derived:cpu.intel_locked_suffix",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "unlocked": "derived:cpu.intel_locked_suffix"
       }
     },
     {
@@ -956782,9 +956490,6 @@
         "watt": 65,
         "integrated_graphics": "Intel Xe",
         "graphics": "Intel Xe",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -956980,7 +956685,7 @@
         "l3_cache_mb": 36,
         "tdp_w": 65,
         "integrated_graphics": "Intel Xe",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -957010,8 +956715,7 @@
         "smt": "derived:cpu.arrow_lake_no_ht",
         "thread_count": "derived:cpu.no_smt_threads_equal_cores",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -957075,9 +956779,6 @@
         "watt": 125,
         "integrated_graphics": "Intel Xe",
         "graphics": "Intel Xe",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -957371,7 +957072,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel Xe",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -957401,8 +957102,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -957466,9 +957166,6 @@
         "watt": 125,
         "integrated_graphics": "Intel Xe",
         "graphics": "Intel Xe",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -957917,7 +957614,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel Xe",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -957947,8 +957644,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -958006,9 +957702,6 @@
         "watt": 35,
         "integrated_graphics": "AMD Radeon Graphics",
         "graphics": "AMD Radeon Graphics",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -958237,7 +957930,7 @@
         "l3_cache_mb": 4.0,
         "tdp_w": 35,
         "integrated_graphics": "AMD Radeon Graphics",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -958263,8 +957956,7 @@
         "microarchitecture": "derived:cpu.model_microarchitecture",
         "smt": "derived:cpu.thread_math_smt",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -958328,9 +958020,6 @@
         "watt": 65,
         "integrated_graphics": "Radeon Vega 8",
         "graphics": "Radeon Vega 8",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "No",
         "ecc": "No",
         "includes_cooler": "Yes",
@@ -958501,7 +958190,7 @@
         "l3_cache_mb": 4,
         "tdp_w": 65,
         "integrated_graphics": "Radeon Vega 8",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": false,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -958532,8 +958221,7 @@
         "unlocked": "derived:cpu.amd_lineup_unlocked",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
-        "core_family": "derived:cpu.amd_family_is_uarch",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "core_family": "derived:cpu.amd_family_is_uarch"
       }
     },
     {
@@ -958595,9 +958283,6 @@
         "watt": 65,
         "integrated_graphics": "Radeon Vega 8",
         "graphics": "Radeon Vega 8",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "No",
         "ecc": "No",
         "includes_cooler": "No",
@@ -958782,7 +958467,7 @@
         "l3_cache_mb": 2.0,
         "tdp_w": 65,
         "integrated_graphics": "Radeon Vega 8",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": false,
         "includes_cooler": false,
         "packaging": "tray",
@@ -958811,8 +958496,7 @@
         "unlocked": "derived:cpu.amd_lineup_unlocked",
         "lithography_nm": "derived:cpu.architecture_node",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -958876,9 +958560,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -959154,7 +958835,7 @@
         "l3_cache_mb": 16.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -959185,8 +958866,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -959603,9 +959283,6 @@
         "watt": 77,
         "integrated_graphics": "Intel HD Graphics 2500",
         "graphics": "Intel HD Graphics 2500",
-        "max_memory_gb": 32,
-        "max_memory": 32,
-        "maximum_memory": 32,
         "lithography_nm": 22,
         "manufacturing_process": 22,
         "process_nm": 22,
@@ -959796,7 +959473,7 @@
         "l3_cache_mb": 6.0,
         "tdp_w": 77,
         "integrated_graphics": "Intel HD Graphics 2500",
-        "max_memory_gb": 32,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": null,
         "packaging": null,
@@ -959824,8 +959501,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
-        "unlocked": "derived:cpu.intel_locked_suffix",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "unlocked": "derived:cpu.intel_locked_suffix"
       }
     },
     {
@@ -959889,9 +959565,6 @@
         "watt": 77,
         "integrated_graphics": "Intel HD Graphics 2500",
         "graphics": "Intel HD Graphics 2500",
-        "max_memory_gb": 32,
-        "max_memory": 32,
-        "maximum_memory": 32,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -960092,7 +959765,7 @@
         "l3_cache_mb": 6.0,
         "tdp_w": 77,
         "integrated_graphics": "Intel HD Graphics 2500",
-        "max_memory_gb": 32,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -960122,8 +959795,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -960370,9 +960042,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -960648,7 +960317,7 @@
         "l3_cache_mb": 16.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -960679,8 +960348,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -963546,9 +963214,6 @@
         "watt": 65,
         "integrated_graphics": "Radeon Vega 7",
         "graphics": "Radeon Vega 7",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "No",
         "ecc": "No",
         "includes_cooler": "No",
@@ -963824,7 +963489,7 @@
         "l3_cache_mb": 16.0,
         "tdp_w": 65,
         "integrated_graphics": "Radeon Vega 7",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": false,
         "includes_cooler": false,
         "packaging": "tray",
@@ -963855,8 +963520,7 @@
         "unlocked": "derived:cpu.amd_lineup_unlocked",
         "lithography_nm": "derived:cpu.architecture_node",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -963920,9 +963584,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "Yes",
@@ -964093,7 +963754,7 @@
         "l3_cache_mb": 32.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -964124,8 +963785,7 @@
         "series": "derived:cpu.model_series",
         "smt": "derived:cpu.lineup_smt",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -964189,9 +963849,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -964515,7 +964172,7 @@
         "l3_cache_mb": 32.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -964546,8 +964203,7 @@
         "unlocked": "manufacturer",
         "ecc_support": "derived:cpu.ryzen_desktop_ecc",
         "smt": "derived:cpu.lineup_smt",
-        "core_family": "derived:cpu.amd_family_is_uarch",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "core_family": "derived:cpu.amd_family_is_uarch"
       }
     },
     {
@@ -964605,9 +964261,6 @@
         "rated_power": 65,
         "total_power": 65,
         "watt": 65,
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -964764,7 +964417,7 @@
         "l3_cache_mb": 16.0,
         "tdp_w": 65,
         "integrated_graphics": null,
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -964793,8 +964446,7 @@
         "thread_count": "derived:cpu.smt_core_math",
         "unlocked": "derived:cpu.amd_lineup_unlocked",
         "lithography_nm": "derived:cpu.architecture_node",
-        "core_family": "derived:cpu.amd_family_is_uarch",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "core_family": "derived:cpu.amd_family_is_uarch"
       }
     },
     {
@@ -964854,9 +964506,6 @@
         "watt": 65,
         "integrated_graphics": "Radeon Vega 8",
         "graphics": "Radeon Vega 8",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "No",
         "ecc": "No",
         "packaging": "Box",
@@ -965012,7 +964661,7 @@
         "l3_cache_mb": 16.0,
         "tdp_w": 65,
         "integrated_graphics": "Radeon Vega 8",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": false,
         "includes_cooler": null,
         "packaging": "boxed",
@@ -965041,8 +964690,7 @@
         "smt": "derived:cpu.lineup_smt",
         "unlocked": "derived:cpu.amd_lineup_unlocked",
         "lithography_nm": "derived:cpu.architecture_node",
-        "core_family": "derived:cpu.amd_family_is_uarch",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "core_family": "derived:cpu.amd_family_is_uarch"
       }
     },
     {
@@ -965540,9 +965188,6 @@
         "watt": 65,
         "integrated_graphics": "Radeon Graphics",
         "graphics": "Radeon Graphics",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -965825,7 +965470,7 @@
         "l3_cache_mb": 16.0,
         "tdp_w": 65,
         "integrated_graphics": "Radeon Graphics",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -965856,8 +965501,7 @@
         "ecc_support": "derived:cpu.ryzen_pro_ecc",
         "smt": "derived:cpu.lineup_smt",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -965921,9 +965565,6 @@
         "watt": 105,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -966214,7 +965855,7 @@
         "l3_cache_mb": 32.0,
         "tdp_w": 105,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -966245,8 +965886,7 @@
         "unlocked": "manufacturer",
         "ecc_support": "derived:cpu.ryzen_desktop_ecc",
         "smt": "derived:cpu.lineup_smt",
-        "core_family": "derived:cpu.amd_family_is_uarch",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "core_family": "derived:cpu.amd_family_is_uarch"
       }
     },
     {
@@ -968622,9 +968262,6 @@
         "watt": 65,
         "integrated_graphics": "Intel HD Graphics 630",
         "graphics": "Intel HD Graphics 630",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "packaging": "Box",
         "box_type": "boxed",
         "pack": "boxed",
@@ -968821,7 +968458,7 @@
         "l3_cache_mb": 6.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel HD Graphics 630",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": null,
         "packaging": "boxed",
@@ -968850,8 +968487,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
-        "unlocked": "derived:cpu.intel_locked_suffix",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "unlocked": "derived:cpu.intel_locked_suffix"
       }
     },
     {
@@ -968915,9 +968551,6 @@
         "watt": 65,
         "integrated_graphics": "Intel HD Graphics 630",
         "graphics": "Intel HD Graphics 630",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -969123,7 +968756,7 @@
         "l3_cache_mb": 6.0,
         "tdp_w": 65,
         "integrated_graphics": "Intel HD Graphics 630",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -969153,8 +968786,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -970128,9 +969760,6 @@
         "watt": 65,
         "integrated_graphics": "Intel HD Graphics 630",
         "graphics": "Intel HD Graphics 630",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -970326,7 +969955,7 @@
         "l3_cache_mb": 6,
         "tdp_w": 65,
         "integrated_graphics": "Intel HD Graphics 630",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -970356,8 +969985,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -972811,9 +972439,6 @@
         "watt": 112,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 256,
-        "max_memory": 256,
-        "maximum_memory": 256,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -973079,7 +972704,7 @@
         "l3_cache_mb": 8,
         "tdp_w": 112,
         "integrated_graphics": "No",
-        "max_memory_gb": 256,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -973109,8 +972734,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -977927,9 +977551,6 @@
         "watt": 65,
         "integrated_graphics": "Radeon 740M",
         "graphics": "Radeon 740M",
-        "max_memory_gb": 256,
-        "max_memory": 256,
-        "maximum_memory": 256,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "Yes",
@@ -978109,7 +977730,7 @@
         "l3_cache_mb": 16.0,
         "tdp_w": 65,
         "integrated_graphics": "Radeon 740M",
-        "max_memory_gb": 256,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -978140,8 +977761,7 @@
         "series": "derived:cpu.model_series",
         "unlocked": "derived:cpu.amd_lineup_unlocked",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -978591,9 +978211,6 @@
         "watt": 65,
         "integrated_graphics": "Radeon 740M",
         "graphics": "Radeon 740M",
-        "max_memory_gb": 256,
-        "max_memory": 256,
-        "maximum_memory": 256,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -978839,7 +978456,7 @@
         "l3_cache_mb": 16.0,
         "tdp_w": 65,
         "integrated_graphics": "Radeon 740M",
-        "max_memory_gb": 256,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -978870,8 +978487,7 @@
         "ecc_support": "manufacturer",
         "unlocked": "derived:cpu.amd_lineup_unlocked",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -980354,9 +979970,6 @@
         "watt": 35,
         "integrated_graphics": "Intel UHD",
         "graphics": "Intel UHD",
-        "max_memory_gb": 64,
-        "max_memory": 64,
-        "maximum_memory": 64,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -980636,7 +980249,7 @@
         "l3_cache_mb": 8.0,
         "tdp_w": 35,
         "integrated_graphics": "Intel UHD",
-        "max_memory_gb": 64,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -980667,8 +980280,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -981957,9 +981569,6 @@
         "watt": 120,
         "integrated_graphics": "Radeon",
         "graphics": "Radeon",
-        "max_memory_gb": 256,
-        "max_memory": 256,
-        "maximum_memory": 256,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -982111,7 +981720,7 @@
         "l3_cache_mb": 96.0,
         "tdp_w": 120,
         "integrated_graphics": "Radeon",
-        "max_memory_gb": 256,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "boxed",
@@ -982141,8 +981750,7 @@
         "unlocked": "derived:cpu.amd_lineup_unlocked",
         "lithography_nm": "derived:cpu.architecture_node",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -986657,9 +986265,6 @@
         "watt": 65,
         "integrated_graphics": "Intel UHD Graphics 730",
         "graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -986969,7 +986574,7 @@
         "l3_cache_mb": 18,
         "tdp_w": 65,
         "integrated_graphics": "Intel UHD Graphics 730",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -986999,8 +986604,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -987064,9 +986668,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -987446,7 +987047,7 @@
         "l3_cache_mb": 18.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -987476,8 +987077,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_smt",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -987541,9 +987141,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -987868,7 +987465,7 @@
         "l3_cache_mb": 24,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -987898,8 +987495,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -987963,9 +987559,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "includes_cooler": "Yes",
         "cooler_included": "Yes",
         "cooler": "Yes",
@@ -988377,7 +987970,7 @@
         "l3_cache_mb": 25.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": true,
         "packaging": "boxed",
@@ -988407,8 +988000,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
         "unlocked": "derived:cpu.intel_locked_suffix",
-        "includes_cooler": "derived:cpu.lineup_box_cooler",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.lineup_box_cooler"
       }
     },
     {
@@ -988472,9 +988064,6 @@
         "watt": 125,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -988774,7 +988363,7 @@
         "l3_cache_mb": 30.0,
         "tdp_w": 125,
         "integrated_graphics": "No",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -988804,8 +988393,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -988869,9 +988457,6 @@
         "watt": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
         "graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
-        "max_memory": 192,
-        "maximum_memory": 192,
         "includes_cooler": "No",
         "cooler_included": "No",
         "cooler": "No",
@@ -989248,7 +988833,7 @@
         "l3_cache_mb": 36.0,
         "tdp_w": 125,
         "integrated_graphics": "Intel UHD Graphics 770",
-        "max_memory_gb": 192,
+        "max_memory_gb": null,
         "ecc_support": null,
         "includes_cooler": false,
         "packaging": "tray",
@@ -989278,8 +988863,7 @@
         "core_family": "derived:cpu.architecture_family",
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.intel_gen_ht",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -990784,9 +990368,6 @@
         "watt": 55,
         "integrated_graphics": "Intel HD Graphics",
         "graphics": "Intel HD Graphics",
-        "max_memory_gb": 32,
-        "max_memory": 32,
-        "maximum_memory": 32,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -991046,7 +990627,7 @@
         "l3_cache_mb": 3,
         "tdp_w": 55,
         "integrated_graphics": "Intel HD Graphics",
-        "max_memory_gb": 32,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -991076,8 +990657,7 @@
         "lithography_nm": "derived:cpu.architecture_node",
         "smt": "derived:cpu.thread_math_no_smt",
         "unlocked": "derived:cpu.value_line_locked",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -993005,9 +992585,6 @@
         "watt": 65,
         "integrated_graphics": "No",
         "graphics": "No",
-        "max_memory_gb": 128,
-        "max_memory": 128,
-        "maximum_memory": 128,
         "ecc_support": "Yes",
         "ecc": "Yes",
         "includes_cooler": "No",
@@ -993205,7 +992782,7 @@
         "l3_cache_mb": 16.0,
         "tdp_w": 65,
         "integrated_graphics": "No",
-        "max_memory_gb": 128,
+        "max_memory_gb": null,
         "ecc_support": true,
         "includes_cooler": false,
         "packaging": "tray",
@@ -993235,8 +992812,7 @@
         "unlocked": "derived:cpu.amd_lineup_unlocked",
         "lithography_nm": "derived:cpu.architecture_node",
         "core_family": "derived:cpu.amd_family_is_uarch",
-        "includes_cooler": "derived:cpu.tray_packaging",
-        "max_memory_gb": "derived:cpu.socket_memory_platform"
+        "includes_cooler": "derived:cpu.tray_packaging"
       }
     },
     {
@@ -999613,7 +999189,7 @@
         "chipset": "vendor",
         "memory_bus_bit": "catalog",
         "core_clock_mhz": "catalog",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "vendor",
         "max_displays": "catalog",
         "directx": "vendor",
@@ -1002051,7 +1001627,7 @@
         "color": "White"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "interface": "catalog",
@@ -1002876,7 +1002452,7 @@
         "color": "White"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1003339,7 +1002915,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1003783,7 +1003359,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "interface": "catalog",
@@ -1004240,7 +1003816,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1005942,7 +1005518,7 @@
       "spec_sources": {
         "manufacturer": "vendor",
         "model": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "vendor",
         "chipset": "vendor",
         "boost_clock_mhz": "vendor",
@@ -1006328,7 +1005904,7 @@
       "spec_sources": {
         "manufacturer": "vendor",
         "model": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "boost_clock_mhz": "vendor",
@@ -1008067,7 +1007643,7 @@
         "color": "White"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1008487,7 +1008063,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1008872,7 +1008448,7 @@
         "color": "White"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1009684,7 +1009260,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1010076,7 +1009652,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "memory_bus_bit": "catalog",
@@ -1010730,7 +1010306,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "memory_bus_bit": "catalog",
@@ -1011368,7 +1010944,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "memory_bus_bit": "catalog",
@@ -1011639,7 +1011215,7 @@
       "spec_sources": {
         "chipset": "vendor",
         "memory_speed_gbps": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "memory_bus_bit": "catalog",
         "max_displays": "catalog",
@@ -1012005,7 +1011581,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "memory_bus_bit": "catalog",
         "length_mm": "reference",
@@ -1012428,7 +1012004,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "interface": "catalog",
@@ -1012859,7 +1012435,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1013292,7 +1012868,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "vendor",
         "chipset": "vendor",
         "interface": "vendor",
@@ -1013617,7 +1013193,7 @@
         "interface": "vendor",
         "max_resolution": "vendor",
         "manufacturer": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "part_numbers": "vendor",
         "core_clock_mhz": "vendor",
         "memory_speed_gbps": "vendor",
@@ -1015791,7 +1015367,7 @@
       "spec_sources": {
         "manufacturer": "vendor",
         "model": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "vendor",
         "chipset": "vendor",
         "boost_clock_mhz": "vendor",
@@ -1016185,7 +1015761,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "vendor",
         "memory_bus_bit": "vendor",
@@ -1017087,7 +1016663,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1017810,7 +1017386,7 @@
         "color": "Black"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "color": "vendor",
         "interface": "vendor",
@@ -1018935,7 +1018511,7 @@
       "spec_sources": {
         "manufacturer": "vendor",
         "model": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "memory_speed_gbps": "vendor",
@@ -1019921,7 +1019497,7 @@
         "manufacturer": "vendor",
         "chipset": "vendor",
         "chip_manufacturer": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "part_numbers": "vendor",
         "dp_outputs": "vendor",
         "hdmi_outputs": "vendor",
@@ -1020186,7 +1019762,7 @@
         "manufacturer": "vendor",
         "chipset": "vendor",
         "chip_manufacturer": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "part_numbers": "vendor",
         "dp_outputs": "vendor",
         "hdmi_outputs": "vendor",
@@ -1022932,7 +1022508,7 @@
         "color": "Black"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1023291,7 +1022867,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1023789,7 +1023365,7 @@
         "boost_clock_mhz": "vendor",
         "max_resolution": "vendor",
         "max_displays": "catalog",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "memory_bus_bit": "catalog",
         "opengl": "vendor",
@@ -1028872,7 +1028448,7 @@
         "interface": "vendor",
         "dp_outputs": "vendor",
         "hdmi_outputs": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chip_manufacturer": "vendor",
         "memory_type": "vendor",
         "model": "vendor",
@@ -1029460,7 +1029036,7 @@
         "hdmi_outputs": "vendor",
         "chip_manufacturer": "vendor",
         "chipset": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "interface": "vendor",
         "memory_type": "vendor",
         "part_numbers": "vendor",
@@ -1029871,7 +1029447,7 @@
         "color": "Black"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "color": "vendor",
         "interface": "vendor",
@@ -1030854,7 +1030430,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1031308,7 +1030884,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1031625,7 +1031201,7 @@
       "spec_sources": {
         "interface": "vendor",
         "memory_type": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "hdmi_outputs": "vendor",
         "manufacturer": "vendor",
         "model": "vendor",
@@ -1034643,7 +1034219,7 @@
       "spec_sources": {
         "manufacturer": "vendor",
         "model": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "vendor",
         "chipset": "vendor",
         "memory_bus_bit": "vendor",
@@ -1035576,7 +1035152,7 @@
       "spec_sources": {
         "manufacturer": "vendor",
         "model": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "boost_clock_mhz": "vendor",
@@ -1037863,7 +1037439,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "vendor",
         "core_clock_mhz": "vendor",
@@ -1038103,7 +1037679,7 @@
         "dp_outputs": "catalog",
         "hdmi_outputs": "catalog",
         "chipset": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "part_numbers": "vendor",
         "length_mm": "reference",
@@ -1038373,7 +1037949,7 @@
         "manufacturer": "vendor",
         "chipset": "vendor",
         "chip_manufacturer": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "model": "vendor",
         "part_numbers": "vendor",
         "dp_outputs": "vendor",
@@ -1039886,7 +1039462,7 @@
         "memory_bus_bit": "catalog",
         "length_mm": "reference",
         "core_clock_mhz": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "max_displays": "catalog",
         "directx": "vendor",
@@ -1040264,7 +1039840,7 @@
         "color": "Black"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "core_clock_mhz": "vendor",
         "boost_clock_mhz": "vendor",
@@ -1042621,7 +1042197,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "vendor",
         "chipset": "vendor",
         "max_resolution": "vendor",
@@ -1044161,7 +1043737,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "interface": "catalog",
@@ -1046317,7 +1045893,7 @@
       "spec_sources": {
         "manufacturer": "vendor",
         "model": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "vendor",
         "chipset": "vendor",
         "boost_clock_mhz": "vendor",
@@ -1046973,7 +1046549,7 @@
         "color": "White"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1048894,7 +1048470,7 @@
         "memory_speed_gbps": "vendor",
         "cooling": "vendor",
         "core_clock_mhz": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "max_displays": "catalog",
         "directx": "vendor",
@@ -1049616,7 +1049192,7 @@
         "interface": "catalog",
         "core_clock_mhz": "vendor",
         "memory_speed_gbps": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "memory_bus_bit": "catalog",
         "max_displays": "catalog",
@@ -1049897,7 +1049473,7 @@
         "chipset": "vendor",
         "core_clock_mhz": "vendor",
         "memory_speed_gbps": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "memory_bus_bit": "catalog",
         "max_displays": "catalog",
@@ -1050322,7 +1049898,7 @@
         "length_mm": "reference",
         "memory_speed_gbps": "vendor",
         "core_clock_mhz": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "max_displays": "catalog",
         "directx": "vendor",
@@ -1051158,7 +1050734,7 @@
       "spec_sources": {
         "manufacturer": "vendor",
         "model": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "boost_clock_mhz": "vendor",
@@ -1051610,7 +1051186,7 @@
         "color": "Black"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "interface": "catalog",
@@ -1053777,7 +1053353,7 @@
         "boost_clock_mhz": "vendor",
         "max_resolution": "vendor",
         "max_displays": "catalog",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "memory_bus_bit": "catalog",
         "directx": "vendor",
@@ -1054236,7 +1053812,7 @@
         "color": "Black"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "memory_bus_bit": "catalog",
@@ -1054808,7 +1054384,7 @@
         "color": "White"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "color": "vendor",
         "interface": "catalog",
@@ -1055201,7 +1054777,7 @@
       "spec_sources": {
         "manufacturer": "vendor",
         "model": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "boost_clock_mhz": "vendor",
@@ -1055589,7 +1055165,7 @@
         "boost_clock_mhz": "vendor",
         "max_resolution": "vendor",
         "max_displays": "catalog",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "memory_bus_bit": "catalog",
         "opengl": "vendor",
@@ -1057969,7 +1057545,7 @@
         "boost_clock_mhz": "vendor",
         "max_resolution": "vendor",
         "max_displays": "catalog",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "memory_bus_bit": "catalog",
         "opengl": "vendor",
@@ -1058982,7 +1058558,7 @@
         "color": "White"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "vendor",
         "color": "vendor",
@@ -1063124,7 +1062700,7 @@
         "color": null
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "model": "vendor",
         "interface": "catalog",
@@ -1063331,7 +1062907,7 @@
         "manufacturer": "vendor",
         "chipset": "vendor",
         "chip_manufacturer": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "vendor",
         "part_numbers": "vendor",
         "length_mm": "reference",
@@ -1068009,7 +1067585,7 @@
         "color": "Black"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "color": "vendor",
         "interface": "catalog",
@@ -1068595,7 +1068171,7 @@
         "color": "White"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "color": "vendor",
         "interface": "catalog",
@@ -1073943,7 +1073519,7 @@
         "chipset": "vendor",
         "memory_speed_gbps": "vendor",
         "core_clock_mhz": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "memory_bus_bit": "catalog",
         "max_displays": "catalog",
@@ -1074604,7 +1074180,7 @@
         "color": "Black"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "chipset": "override",
         "interface": "catalog",
@@ -1074991,7 +1074567,7 @@
         "color": "vendor",
         "memory_speed_gbps": "vendor",
         "core_clock_mhz": "catalog",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_type": "catalog",
         "memory_bus_bit": "catalog",
         "max_displays": "catalog",
@@ -1079426,7 +1079002,7 @@
       "spec_sources": {
         "model": "vendor",
         "interface": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "memory_speed_gbps": "vendor",
         "manufacturer": "vendor",
         "chipset": "vendor",
@@ -1612131,7 +1611707,7 @@
         "chip_manufacturer": "vendor",
         "manufacturer": "vendor",
         "chipset": "vendor",
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "interface": "catalog",
         "dp_outputs": "catalog",
         "hdmi_outputs": "catalog",
@@ -1613008,7 +1612584,7 @@
         "color": "Black / Silver"
       },
       "spec_sources": {
-        "memory_gb": "title",
+        "memory_gb": "reference",
         "chipset": "vendor",
         "interface": "catalog",
         "manufacturer": "vendor",
@@ -1639113,6 +1638689,110 @@
     {
       "kind": "variant_conflict",
       "category": "case_fan",
+      "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-black",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:221445",
+          "vendor": "1pc",
+          "vendor_sku": "12RTLLCD1F3B",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור 12RTLLCD1F3B",
+          "price": 602
+        },
+        {
+          "listing_key": "tms:12RTLLCD1F3B",
+          "vendor": "tms",
+          "vendor_sku": "12RTLLCD1F3B",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
+          "price": 538
+        }
+      ],
+      "model_code": "120mm-12rtllcd1f3b-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
+      "manufacturer_pn": [
+        "12RTLLCD1F3B"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
+      "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-black",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:221441",
+          "vendor": "1pc",
+          "vendor_sku": "12RTLLCD1F1B",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+          "price": 235
+        },
+        {
+          "listing_key": "tms:12RTLLCD1F1B",
+          "vendor": "tms",
+          "vendor_sku": "12RTLLCD1F1B",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+          "price": 213
+        }
+      ],
+      "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
+      "manufacturer_pn": [
+        "12RTLLCD1F1B"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
+      "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-white",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:221442",
+          "vendor": "1pc",
+          "vendor_sku": "12RTLLCD1F1W",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
+          "price": 241
+        },
+        {
+          "listing_key": "tms:12RTLLCD1F1W",
+          "vendor": "tms",
+          "vendor_sku": "12RTLLCD1F1W",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
+          "price": 218
+        }
+      ],
+      "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
+      "manufacturer_pn": [
+        "12RTLLCD1F1W"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
+      "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-white",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:221446",
+          "vendor": "1pc",
+          "vendor_sku": "12RTLLCD1F3W",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+          "price": 564
+        },
+        {
+          "listing_key": "tms:12RTLLCD1F3W",
+          "vendor": "tms",
+          "vendor_sku": "12RTLLCD1F3W",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+          "price": 548
+        }
+      ],
+      "model_code": "120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
+      "manufacturer_pn": [
+        "12RTLLCD1F3W"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
       "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-black",
       "vendor": "",
       "offers": [
@@ -1639372,110 +1639052,6 @@
       "model_code": "120mm-12rslin1f3w-3-blade-fan-flex-inf-pack-reverse-sl-uni",
       "manufacturer_pn": [
         "12RSLIN1F3W"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-black",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:221445",
-          "vendor": "1pc",
-          "vendor_sku": "12RTLLCD1F3B",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור 12RTLLCD1F3B",
-          "price": 602
-        },
-        {
-          "listing_key": "tms:12RTLLCD1F3B",
-          "vendor": "tms",
-          "vendor_sku": "12RTLLCD1F3B",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
-          "price": 538
-        }
-      ],
-      "model_code": "120mm-12rtllcd1f3b-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
-      "manufacturer_pn": [
-        "12RTLLCD1F3B"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-black",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:221441",
-          "vendor": "1pc",
-          "vendor_sku": "12RTLLCD1F1B",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
-          "price": 235
-        },
-        {
-          "listing_key": "tms:12RTLLCD1F1B",
-          "vendor": "tms",
-          "vendor_sku": "12RTLLCD1F1B",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
-          "price": 213
-        }
-      ],
-      "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
-      "manufacturer_pn": [
-        "12RTLLCD1F1B"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-white",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:221442",
-          "vendor": "1pc",
-          "vendor_sku": "12RTLLCD1F1W",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
-          "price": 241
-        },
-        {
-          "listing_key": "tms:12RTLLCD1F1W",
-          "vendor": "tms",
-          "vendor_sku": "12RTLLCD1F1W",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
-          "price": 218
-        }
-      ],
-      "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
-      "manufacturer_pn": [
-        "12RTLLCD1F1W"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-white",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:221446",
-          "vendor": "1pc",
-          "vendor_sku": "12RTLLCD1F3W",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
-          "price": 564
-        },
-        {
-          "listing_key": "tms:12RTLLCD1F3W",
-          "vendor": "tms",
-          "vendor_sku": "12RTLLCD1F3W",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
-          "price": 548
-        }
-      ],
-      "model_code": "120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
-      "manufacturer_pn": [
-        "12RTLLCD1F3W"
       ]
     },
     {
@@ -1640034,65 +1639610,6 @@
     {
       "kind": "variant_conflict",
       "category": "case_fan",
-      "product_id": "model:case_fan:3-3x120mm-core-icue-node-pack-ql120-rgb-series-triple-120mm-3-rgb-black",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "tms:CO-9050098-WW",
-          "vendor": "tms",
-          "vendor_sku": "CO-9050098-WW",
-          "title": "Corsair iCUE QL120 RGB 120mm PWM Single Fan 3 Pack",
-          "price": null
-        },
-        {
-          "listing_key": "yahav:5509",
-          "vendor": "yahav",
-          "vendor_sku": "CO-9050098-WW",
-          "title": "סט 3 מאווררים חברת Corsair דגם QL120 iCue Series with Node Core RGB 3X120MM Triple Pack",
-          "price": 530
-        }
-      ],
-      "model_code": "3-3x120mm-core-icue-node-pack-ql120-rgb-series-triple",
-      "manufacturer_pn": [
-        "CO9050098WW"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:9050097-co-icue-ql120-ww-120mm-1-rgb-black",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:75966",
-          "vendor": "1pc",
-          "vendor_sku": "CO-9050097-WW",
-          "title": "מאוורר RGB Corsair iCUE QL120 120mm CO-9050097-WW",
-          "price": 219
-        },
-        {
-          "listing_key": "tms:CO-9050097-WW",
-          "vendor": "tms",
-          "vendor_sku": "CO-9050097-WW",
-          "title": "Corsair iCUE QL120 RGB 120mm PWM Single Fan",
-          "price": null
-        },
-        {
-          "listing_key": "yahav:6018",
-          "vendor": "yahav",
-          "vendor_sku": "CO-9050097-WW",
-          "title": "מאוורר חברת Corsair דגם QL120 iCue Series with Node Core RGB Single Pack צבע שחור",
-          "price": 180
-        }
-      ],
-      "model_code": "9050097-co-icue-ql120-ww",
-      "manufacturer_pn": [
-        "CO9050097WW"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
       "product_id": "model:case_fan:3-bl066-pwm-shadow-wings-120mm-black",
       "vendor": "",
       "offers": [
@@ -1640206,6 +1639723,65 @@
       "model_code": "4-pwm-silent-wings",
       "manufacturer_pn": [
         "BL096"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
+      "product_id": "model:case_fan:3-3x120mm-core-icue-node-pack-ql120-rgb-series-triple-120mm-3-rgb-black",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "tms:CO-9050098-WW",
+          "vendor": "tms",
+          "vendor_sku": "CO-9050098-WW",
+          "title": "Corsair iCUE QL120 RGB 120mm PWM Single Fan 3 Pack",
+          "price": null
+        },
+        {
+          "listing_key": "yahav:5509",
+          "vendor": "yahav",
+          "vendor_sku": "CO-9050098-WW",
+          "title": "סט 3 מאווררים חברת Corsair דגם QL120 iCue Series with Node Core RGB 3X120MM Triple Pack",
+          "price": 530
+        }
+      ],
+      "model_code": "3-3x120mm-core-icue-node-pack-ql120-rgb-series-triple",
+      "manufacturer_pn": [
+        "CO9050098WW"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
+      "product_id": "model:case_fan:9050097-co-icue-ql120-ww-120mm-1-rgb-black",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:75966",
+          "vendor": "1pc",
+          "vendor_sku": "CO-9050097-WW",
+          "title": "מאוורר RGB Corsair iCUE QL120 120mm CO-9050097-WW",
+          "price": 219
+        },
+        {
+          "listing_key": "tms:CO-9050097-WW",
+          "vendor": "tms",
+          "vendor_sku": "CO-9050097-WW",
+          "title": "Corsair iCUE QL120 RGB 120mm PWM Single Fan",
+          "price": null
+        },
+        {
+          "listing_key": "yahav:6018",
+          "vendor": "yahav",
+          "vendor_sku": "CO-9050097-WW",
+          "title": "מאוורר חברת Corsair דגם QL120 iCue Series with Node Core RGB Single Pack צבע שחור",
+          "price": 180
+        }
+      ],
+      "model_code": "9050097-co-icue-ql120-ww",
+      "manufacturer_pn": [
+        "CO9050097WW"
       ]
     },
     {
@@ -1640834,140 +1640410,133 @@
     {
       "kind": "variant_conflict",
       "category": "gpu",
-      "product_id": "model:gpu:12g-12gd-5070-eagle-gv-ice-ice-n5070eagleoc-oc-rtx-sff-12gb",
+      "product_id": "model:gpu:1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx-8gb",
       "vendor": "",
       "offers": [
         {
-          "listing_key": "1pc:183317",
-          "vendor": "1pc",
-          "vendor_sku": "N5070EAGLEOCICE12GD",
-          "title": "כרטיס מסך Gigabyte RTX 5070 EAGLE OC ICE SFF 12G GV-N5070EAGLEOC ICE-12GD",
-          "price": 4234
-        },
-        {
-          "listing_key": "ksp:378814",
-          "vendor": "ksp",
-          "vendor_sku": "378814",
-          "title": "כרטיס מסך GIGABYTE RTX 5070 EAGLE OC ICE SFF 12GB GDDR7",
-          "price": 4150
-        },
-        {
-          "listing_key": "tms:N5070EAGLEOCICE12GD",
-          "vendor": "tms",
-          "vendor_sku": "N5070EAGLEOCICE12GD",
-          "title": "Gigabyte RTX 5070 EAGLE OC ICE SFF 12G GV-N5070EAGLEOC ICE-12GD",
-          "price": 4221
-        },
-        {
-          "listing_key": "yahav:10437",
+          "listing_key": "yahav:10598",
           "vendor": "yahav",
-          "vendor_sku": "GV-N5070EAGLEOC-ICE-12GD",
-          "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5070 EAGLE OC ICE SFF 12GB GDDR7 1xHDMI 3xDP בצבע לבן",
-          "price": 3970
+          "vendor_sku": "GV-N5060EAGLEOC-ICE-8GD",
+          "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5060 EAGLE ICE OC 8GB GDDR7 1xHDMI 3xDP",
+          "price": 2350
         }
       ],
-      "model_code": "12g-12gd-5070-eagle-gv-ice-ice-n5070eagleoc-oc-rtx-sff",
+      "model_code": "1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx",
       "manufacturer_pn": [
-        "N5070EAGLEOCICE12GD"
+        "N5060EAGLEOCICE8GD"
       ]
     },
     {
       "kind": "variant_conflict",
       "category": "gpu",
-      "product_id": "model:gpu:12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff-12gb",
+      "product_id": "model:gpu:5060-8g-8gd-eagle-geforce-gv-n5060eagle-oc-oc-rtx-8gb",
       "vendor": "",
       "offers": [
         {
-          "listing_key": "1pc:184584",
+          "listing_key": "1pc:199757",
           "vendor": "1pc",
-          "vendor_sku": "N5070EAGLEOC12GD",
-          "title": "כרטיס מסך Gigabyte RTX 5070 EAGLE OC SFF 12G GV-N5070EAGLE OC-12GD",
-          "price": 4168
+          "vendor_sku": "N5060EAGLEOC8GD",
+          "title": "כרטיס מסך Gigabyte GeForce RTX 5060 EAGLE OC 8G GV-N5060EAGLE OC-8GD",
+          "price": 2387
         },
         {
-          "listing_key": "ksp:378818",
+          "listing_key": "ksp:398500",
           "vendor": "ksp",
-          "vendor_sku": "378818",
-          "title": "כרטיס מסך GIGABYTE RTX 5070 EAGLE OC SFF 12GB GDDR7",
-          "price": 3950
+          "vendor_sku": "398500",
+          "title": "כרטיס מסך GIGABYTE RTX 5060 EAGLE OC 8GB GDDR7",
+          "price": 2370
         },
         {
-          "listing_key": "tms:N5070EAGLEOC12GD",
+          "listing_key": "tms:N5060EAGLEOC8GD",
           "vendor": "tms",
-          "vendor_sku": "N5070EAGLEOC12GD",
-          "title": "Gigabyte RTX 5070 EAGLE OC SFF 12G GV-N5070EAGLE OC-12GD",
-          "price": 4177
+          "vendor_sku": "N5060EAGLEOC8GD",
+          "title": "Gigabyte GeForce RTX 5060 EAGLE OC 8G GV-N5060EAGLE OC-8GD",
+          "price": 2286
         },
         {
-          "listing_key": "yahav:10435",
+          "listing_key": "yahav:10619",
           "vendor": "yahav",
-          "vendor_sku": "GV-N5070EAGLE-OC-12GD",
-          "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5070 EAGLE OC SFF 12GB GDDR7 1xHDMI 3xDP",
-          "price": 3920
+          "vendor_sku": "GV-N5060EAGLE-OC-8GD",
+          "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5060 EAGLE OC 8GB GDDR7 1xHDMI 3xDP",
+          "price": 2290
         }
       ],
-      "model_code": "12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff",
+      "model_code": "1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-oc-rtx",
       "manufacturer_pn": [
-        "N5070EAGLEOC12GD"
+        "N5060EAGLEOC8GD"
       ]
     },
     {
       "kind": "variant_conflict",
       "category": "gpu",
-      "product_id": "model:gpu:16g-16gd-5070-eagle-geforce-gv-ice-ice-n507teagleoc-oc-rtx-sff-ti-16gb",
+      "product_id": "model:gpu:16g-9060-gaming-gv-oc-r9060xtgaming-radeon-rx-xt-16gb",
       "vendor": "",
       "offers": [
         {
-          "listing_key": "1pc:180839",
+          "listing_key": "1pc:199758",
           "vendor": "1pc",
-          "vendor_sku": "N507TEAGLEOCICE16GD",
-          "title": "כרטיס מסך Gigabyte GeForce RTX 5070 Ti EAGLE OC ICE SFF 16G",
-          "price": 6554
+          "vendor_sku": "R9060XTGAMINGOC16GD",
+          "title": "כרטיס מסך Gigabyte Radeon™ RX 9060 XT GAMING OC 16G",
+          "price": 3130
         },
         {
-          "listing_key": "ksp:397145",
+          "listing_key": "ksp:396276",
           "vendor": "ksp",
-          "vendor_sku": "397145",
-          "title": "כרטיס מסך GIGABYTE RTX 5070 Ti EAGLE OC ICE SFF 16GB",
-          "price": 6090
+          "vendor_sku": "396276",
+          "title": "כרטיס מסך GIGABYTE RX 9060 XT GAMING OC 16GB GDDR6",
+          "price": 3120
         },
         {
-          "listing_key": "tms:N507TEAGLEOCICE16GD",
+          "listing_key": "tms:R9060XTGAMINGOC16GD",
           "vendor": "tms",
-          "vendor_sku": "N507TEAGLEOCICE16GD",
-          "title": "Gigabyte GeForce RTX 5070 Ti EAGLE OC ICE SFF 16G GV-N507TEAGLEOC ICE-16GD",
-          "price": 6419
+          "vendor_sku": "R9060XTGAMINGOC16GD",
+          "title": "Gigabyte Radeon RX 9060 XT GAMING OC 16G GV-R9060XTGAMING",
+          "price": 3258
+        },
+        {
+          "listing_key": "yahav:10631",
+          "vendor": "yahav",
+          "vendor_sku": "GV-R9060XTGAMING-OC-16GD",
+          "title": "כרטיס מסך חברת Gigabyte דגם Radeon RX 9060 XT Gaming OC 16GB GDDR6 1xHDMI 2xDP",
+          "price": 2850
         }
       ],
-      "model_code": "16g-16gd-5070-eagle-geforce-gv-ice-ice-n507teagleoc-oc-rtx-sff-ti",
+      "model_code": "16g-9060-gaming-gv-oc-r9060xtgaming-radeon-rx-xt",
       "manufacturer_pn": [
-        "N507TEAGLEOCICE16GD"
+        "R9060XTGAMINGOC16GD"
       ]
     },
     {
       "kind": "variant_conflict",
       "category": "gpu",
-      "product_id": "model:gpu:16g-16gd-5070-eagle-geforce-gv-n507teagle-oc-oc-rtx-sff-ti-16gb",
+      "product_id": "model:gpu:16g-9060-gaming-ice-oc-radeon-rx-xt-16gb",
       "vendor": "",
       "offers": [
         {
-          "listing_key": "1pc:180840",
+          "listing_key": "1pc:209976",
           "vendor": "1pc",
-          "vendor_sku": "N507TEAGLEOC16GD",
-          "title": "כרטיס מסך Gigabyte GeForce RTX 5070 Ti EAGLE OC SFF 16G",
-          "price": 5855
+          "vendor_sku": "R906XGAMINGOCICE16GD",
+          "title": "כרטיס מסך Gigabyte Radeon RX 9060 XT GAMING OC ICE 16G",
+          "price": 3397
         },
         {
-          "listing_key": "tms:N507TEAGLEOC16GD",
+          "listing_key": "ksp:491305",
+          "vendor": "ksp",
+          "vendor_sku": "491305",
+          "title": "כרטיס מסך GIGABYTE Radeon RX 9060 XT GAMING OC ICE 16GB",
+          "price": 3370
+        },
+        {
+          "listing_key": "tms:R906XGAMINGOCICE16GD",
           "vendor": "tms",
-          "vendor_sku": "N507TEAGLEOC16GD",
-          "title": "Gigabyte GeForce RTX 5070 Ti EAGLE OC SFF 16G GV-N507TEAGLE OC-16GD",
-          "price": 6375
+          "vendor_sku": "R906XGAMINGOCICE16GD",
+          "title": "Gigabyte Radeon RX 9060 XT GAMING OC ICE 16G",
+          "price": 3319
         }
       ],
-      "model_code": "16g-16gd-5070-eagle-geforce-gv-n507teagle-oc-oc-rtx-sff-ti",
+      "model_code": "16g-9060-gaming-ice-oc-radeon-rx-xt",
       "manufacturer_pn": [
-        "N507TEAGLEOC16GD"
+        "R906XGAMINGOCICE16GD"
       ]
     },
     {
@@ -1641053,133 +1640622,140 @@
     {
       "kind": "variant_conflict",
       "category": "gpu",
-      "product_id": "model:gpu:16g-9060-gaming-gv-oc-r9060xtgaming-radeon-rx-xt-16gb",
+      "product_id": "model:gpu:16g-16gd-5070-eagle-geforce-gv-ice-ice-n507teagleoc-oc-rtx-sff-ti-16gb",
       "vendor": "",
       "offers": [
         {
-          "listing_key": "1pc:199758",
+          "listing_key": "1pc:180839",
           "vendor": "1pc",
-          "vendor_sku": "R9060XTGAMINGOC16GD",
-          "title": "כרטיס מסך Gigabyte Radeon™ RX 9060 XT GAMING OC 16G",
-          "price": 3130
+          "vendor_sku": "N507TEAGLEOCICE16GD",
+          "title": "כרטיס מסך Gigabyte GeForce RTX 5070 Ti EAGLE OC ICE SFF 16G",
+          "price": 6554
         },
         {
-          "listing_key": "ksp:396276",
+          "listing_key": "ksp:397145",
           "vendor": "ksp",
-          "vendor_sku": "396276",
-          "title": "כרטיס מסך GIGABYTE RX 9060 XT GAMING OC 16GB GDDR6",
-          "price": 3120
+          "vendor_sku": "397145",
+          "title": "כרטיס מסך GIGABYTE RTX 5070 Ti EAGLE OC ICE SFF 16GB",
+          "price": 6090
         },
         {
-          "listing_key": "tms:R9060XTGAMINGOC16GD",
+          "listing_key": "tms:N507TEAGLEOCICE16GD",
           "vendor": "tms",
-          "vendor_sku": "R9060XTGAMINGOC16GD",
-          "title": "Gigabyte Radeon RX 9060 XT GAMING OC 16G GV-R9060XTGAMING",
-          "price": 3258
-        },
-        {
-          "listing_key": "yahav:10631",
-          "vendor": "yahav",
-          "vendor_sku": "GV-R9060XTGAMING-OC-16GD",
-          "title": "כרטיס מסך חברת Gigabyte דגם Radeon RX 9060 XT Gaming OC 16GB GDDR6 1xHDMI 2xDP",
-          "price": 2850
+          "vendor_sku": "N507TEAGLEOCICE16GD",
+          "title": "Gigabyte GeForce RTX 5070 Ti EAGLE OC ICE SFF 16G GV-N507TEAGLEOC ICE-16GD",
+          "price": 6419
         }
       ],
-      "model_code": "16g-9060-gaming-gv-oc-r9060xtgaming-radeon-rx-xt",
+      "model_code": "16g-16gd-5070-eagle-geforce-gv-ice-ice-n507teagleoc-oc-rtx-sff-ti",
       "manufacturer_pn": [
-        "R9060XTGAMINGOC16GD"
+        "N507TEAGLEOCICE16GD"
       ]
     },
     {
       "kind": "variant_conflict",
       "category": "gpu",
-      "product_id": "model:gpu:16g-9060-gaming-ice-oc-radeon-rx-xt-16gb",
+      "product_id": "model:gpu:16g-16gd-5070-eagle-geforce-gv-n507teagle-oc-oc-rtx-sff-ti-16gb",
       "vendor": "",
       "offers": [
         {
-          "listing_key": "1pc:209976",
+          "listing_key": "1pc:180840",
           "vendor": "1pc",
-          "vendor_sku": "R906XGAMINGOCICE16GD",
-          "title": "כרטיס מסך Gigabyte Radeon RX 9060 XT GAMING OC ICE 16G",
-          "price": 3397
+          "vendor_sku": "N507TEAGLEOC16GD",
+          "title": "כרטיס מסך Gigabyte GeForce RTX 5070 Ti EAGLE OC SFF 16G",
+          "price": 5855
         },
         {
-          "listing_key": "ksp:491305",
-          "vendor": "ksp",
-          "vendor_sku": "491305",
-          "title": "כרטיס מסך GIGABYTE Radeon RX 9060 XT GAMING OC ICE 16GB",
-          "price": 3370
-        },
-        {
-          "listing_key": "tms:R906XGAMINGOCICE16GD",
+          "listing_key": "tms:N507TEAGLEOC16GD",
           "vendor": "tms",
-          "vendor_sku": "R906XGAMINGOCICE16GD",
-          "title": "Gigabyte Radeon RX 9060 XT GAMING OC ICE 16G",
-          "price": 3319
+          "vendor_sku": "N507TEAGLEOC16GD",
+          "title": "Gigabyte GeForce RTX 5070 Ti EAGLE OC SFF 16G GV-N507TEAGLE OC-16GD",
+          "price": 6375
         }
       ],
-      "model_code": "16g-9060-gaming-ice-oc-radeon-rx-xt",
+      "model_code": "16g-16gd-5070-eagle-geforce-gv-n507teagle-oc-oc-rtx-sff-ti",
       "manufacturer_pn": [
-        "R906XGAMINGOCICE16GD"
+        "N507TEAGLEOC16GD"
       ]
     },
     {
       "kind": "variant_conflict",
       "category": "gpu",
-      "product_id": "model:gpu:1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx-8gb",
+      "product_id": "model:gpu:12g-12gd-5070-eagle-gv-ice-ice-n5070eagleoc-oc-rtx-sff-12gb",
       "vendor": "",
       "offers": [
         {
-          "listing_key": "yahav:10598",
+          "listing_key": "1pc:183317",
+          "vendor": "1pc",
+          "vendor_sku": "N5070EAGLEOCICE12GD",
+          "title": "כרטיס מסך Gigabyte RTX 5070 EAGLE OC ICE SFF 12G GV-N5070EAGLEOC ICE-12GD",
+          "price": 4234
+        },
+        {
+          "listing_key": "ksp:378814",
+          "vendor": "ksp",
+          "vendor_sku": "378814",
+          "title": "כרטיס מסך GIGABYTE RTX 5070 EAGLE OC ICE SFF 12GB GDDR7",
+          "price": 4150
+        },
+        {
+          "listing_key": "tms:N5070EAGLEOCICE12GD",
+          "vendor": "tms",
+          "vendor_sku": "N5070EAGLEOCICE12GD",
+          "title": "Gigabyte RTX 5070 EAGLE OC ICE SFF 12G GV-N5070EAGLEOC ICE-12GD",
+          "price": 4221
+        },
+        {
+          "listing_key": "yahav:10437",
           "vendor": "yahav",
-          "vendor_sku": "GV-N5060EAGLEOC-ICE-8GD",
-          "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5060 EAGLE ICE OC 8GB GDDR7 1xHDMI 3xDP",
-          "price": 2350
+          "vendor_sku": "GV-N5070EAGLEOC-ICE-12GD",
+          "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5070 EAGLE OC ICE SFF 12GB GDDR7 1xHDMI 3xDP בצבע לבן",
+          "price": 3970
         }
       ],
-      "model_code": "1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx",
+      "model_code": "12g-12gd-5070-eagle-gv-ice-ice-n5070eagleoc-oc-rtx-sff",
       "manufacturer_pn": [
-        "N5060EAGLEOCICE8GD"
+        "N5070EAGLEOCICE12GD"
       ]
     },
     {
       "kind": "variant_conflict",
       "category": "gpu",
-      "product_id": "model:gpu:5060-8g-8gd-eagle-geforce-gv-n5060eagle-oc-oc-rtx-8gb",
+      "product_id": "model:gpu:12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff-12gb",
       "vendor": "",
       "offers": [
         {
-          "listing_key": "1pc:199757",
+          "listing_key": "1pc:184584",
           "vendor": "1pc",
-          "vendor_sku": "N5060EAGLEOC8GD",
-          "title": "כרטיס מסך Gigabyte GeForce RTX 5060 EAGLE OC 8G GV-N5060EAGLE OC-8GD",
-          "price": 2387
+          "vendor_sku": "N5070EAGLEOC12GD",
+          "title": "כרטיס מסך Gigabyte RTX 5070 EAGLE OC SFF 12G GV-N5070EAGLE OC-12GD",
+          "price": 4168
         },
         {
-          "listing_key": "ksp:398500",
+          "listing_key": "ksp:378818",
           "vendor": "ksp",
-          "vendor_sku": "398500",
-          "title": "כרטיס מסך GIGABYTE RTX 5060 EAGLE OC 8GB GDDR7",
-          "price": 2370
+          "vendor_sku": "378818",
+          "title": "כרטיס מסך GIGABYTE RTX 5070 EAGLE OC SFF 12GB GDDR7",
+          "price": 3950
         },
         {
-          "listing_key": "tms:N5060EAGLEOC8GD",
+          "listing_key": "tms:N5070EAGLEOC12GD",
           "vendor": "tms",
-          "vendor_sku": "N5060EAGLEOC8GD",
-          "title": "Gigabyte GeForce RTX 5060 EAGLE OC 8G GV-N5060EAGLE OC-8GD",
-          "price": 2286
+          "vendor_sku": "N5070EAGLEOC12GD",
+          "title": "Gigabyte RTX 5070 EAGLE OC SFF 12G GV-N5070EAGLE OC-12GD",
+          "price": 4177
         },
         {
-          "listing_key": "yahav:10619",
+          "listing_key": "yahav:10435",
           "vendor": "yahav",
-          "vendor_sku": "GV-N5060EAGLE-OC-8GD",
-          "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5060 EAGLE OC 8GB GDDR7 1xHDMI 3xDP",
-          "price": 2290
+          "vendor_sku": "GV-N5070EAGLE-OC-12GD",
+          "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5070 EAGLE OC SFF 12GB GDDR7 1xHDMI 3xDP",
+          "price": 3920
         }
       ],
-      "model_code": "1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-oc-rtx",
+      "model_code": "12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff",
       "manufacturer_pn": [
-        "N5060EAGLEOC8GD"
+        "N5070EAGLEOC12GD"
       ]
     },
     {
@@ -1641298,6 +1640874,268 @@
       "model_code": "b650e-gaming-max-wifi",
       "manufacturer_pn": [
         "90MB1LD0M0EAY0"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-ice-pro-x3d-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207707",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSPROX3DICE",
+          "title": "לוח אם Gigabyte X870E AORUS PRO X3D ICE",
+          "price": 1651
+        },
+        {
+          "listing_key": "tms:GX870EAORUSPROX3DICE",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSPROX3DICE",
+          "title": "Gigabyte X870E AORUS PRO X3D ICE",
+          "price": null
+        },
+        {
+          "listing_key": "yahav:10918",
+          "vendor": "yahav",
+          "vendor_sku": "X870E-AORUS-PRO-X3D-ICE",
+          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+          "price": 1850
+        }
+      ],
+      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-pro-wifi-x3d-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSPROX3DICE"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207718",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSMASTERX3DI",
+          "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
+          "price": 2592
+        },
+        {
+          "listing_key": "tms:GX870EAORUSMASTERX3DI",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSMASTERX3DI",
+          "title": "Gigabyte X870E AORUS MASTER X3D ICE",
+          "price": null
+        },
+        {
+          "listing_key": "yahav:10919",
+          "vendor": "yahav",
+          "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
+          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+          "price": 2190
+        }
+      ],
+      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSMASTERX3DI"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:216436",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSMASTERX3D",
+          "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
+          "price": 2545
+        },
+        {
+          "listing_key": "tms:GX870EAORUSMASTERX3D",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSMASTERX3D",
+          "title": "Gigabyte X870E AORUS MASTER X3D",
+          "price": null
+        }
+      ],
+      "model_code": "aorus-master-x3d-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSMASTERX3D"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:170330",
+          "vendor": "1pc",
+          "vendor_sku": "GX870AORUSELITEWIFI7",
+          "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
+          "price": 1360
+        },
+        {
+          "listing_key": "tms:GX870AORUSELITEWIFI7",
+          "vendor": "tms",
+          "vendor_sku": "GX870AORUSELITEWIFI7",
+          "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
+          "price": null
+        }
+      ],
+      "model_code": "aorus-elite-ice-wifi7-x870",
+      "manufacturer_pn": [
+        "GX870AORUSELITEWIFI7"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:170331",
+          "vendor": "1pc",
+          "vendor_sku": "GX870AORUSELITEWIFI",
+          "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
+          "price": 1360
+        },
+        {
+          "listing_key": "tms:GX870AORUSELITEWIFI",
+          "vendor": "tms",
+          "vendor_sku": "GX870AORUSELITEWIFI",
+          "title": "Gigabyte X870 AORUS ELITE WIFI7",
+          "price": null
+        }
+      ],
+      "model_code": "aorus-elite-wifi7-x870",
+      "manufacturer_pn": [
+        "GX870AORUSELITEWIFI"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207716",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSELITEWIFI7I",
+          "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
+          "price": 1561
+        },
+        {
+          "listing_key": "tms:GX870EAORUSELITEWIFI7I",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSELITEWIFI7I",
+          "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
+          "price": null
+        }
+      ],
+      "model_code": "aorus-elite-ice-wifi7-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSELITEWIFI7I"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:170329",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSELITEWIFI7",
+          "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
+          "price": 1308
+        },
+        {
+          "listing_key": "tms:GX870EAORUSELITEWIFI7",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSELITEWIFI7",
+          "title": "Gigabyte X870E AORUS ELITE WiFi7",
+          "price": 1438
+        },
+        {
+          "listing_key": "yahav:10175",
+          "vendor": "yahav",
+          "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
+          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+          "price": 1380
+        }
+      ],
+      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSELITEWIFI7"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:177652",
+          "vendor": "1pc",
+          "vendor_sku": "GB850MAORUSELTWF6EICE",
+          "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
+          "price": 875
+        },
+        {
+          "listing_key": "tms:GB850MAORUSELTWF6EICE",
+          "vendor": "tms",
+          "vendor_sku": "GB850MAORUSELTWF6EICE",
+          "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
+          "price": 989
+        },
+        {
+          "listing_key": "yahav:10288",
+          "vendor": "yahav",
+          "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
+          "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
+          "price": 1130
+        }
+      ],
+      "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
+      "manufacturer_pn": [
+        "GB850MAORUSELTWF6EICE"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207713",
+          "vendor": "1pc",
+          "vendor_sku": "GB850MAORUSELTWF6E",
+          "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
+          "price": 1110
+        },
+        {
+          "listing_key": "tms:GB850MAORUSELTWF6E",
+          "vendor": "tms",
+          "vendor_sku": "GB850MAORUSELTWF6E",
+          "title": "Gigabyte B850M AORUS ELITE WiFi6E",
+          "price": 945
+        }
+      ],
+      "model_code": "aorus-b850m-elite-wifi6e",
+      "manufacturer_pn": [
+        "GB850MAORUSELTWF6E"
       ]
     },
     {
@@ -1641423,268 +1641261,6 @@
       "model_code": "aorus-b850-stealth",
       "manufacturer_pn": [
         "GB850AORUSSTEALTH"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:177652",
-          "vendor": "1pc",
-          "vendor_sku": "GB850MAORUSELTWF6EICE",
-          "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
-          "price": 875
-        },
-        {
-          "listing_key": "tms:GB850MAORUSELTWF6EICE",
-          "vendor": "tms",
-          "vendor_sku": "GB850MAORUSELTWF6EICE",
-          "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
-          "price": 989
-        },
-        {
-          "listing_key": "yahav:10288",
-          "vendor": "yahav",
-          "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
-          "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
-          "price": 1130
-        }
-      ],
-      "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
-      "manufacturer_pn": [
-        "GB850MAORUSELTWF6EICE"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207713",
-          "vendor": "1pc",
-          "vendor_sku": "GB850MAORUSELTWF6E",
-          "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
-          "price": 1110
-        },
-        {
-          "listing_key": "tms:GB850MAORUSELTWF6E",
-          "vendor": "tms",
-          "vendor_sku": "GB850MAORUSELTWF6E",
-          "title": "Gigabyte B850M AORUS ELITE WiFi6E",
-          "price": 945
-        }
-      ],
-      "model_code": "aorus-b850m-elite-wifi6e",
-      "manufacturer_pn": [
-        "GB850MAORUSELTWF6E"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:170330",
-          "vendor": "1pc",
-          "vendor_sku": "GX870AORUSELITEWIFI7",
-          "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
-          "price": 1360
-        },
-        {
-          "listing_key": "tms:GX870AORUSELITEWIFI7",
-          "vendor": "tms",
-          "vendor_sku": "GX870AORUSELITEWIFI7",
-          "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
-          "price": null
-        }
-      ],
-      "model_code": "aorus-elite-ice-wifi7-x870",
-      "manufacturer_pn": [
-        "GX870AORUSELITEWIFI7"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:170331",
-          "vendor": "1pc",
-          "vendor_sku": "GX870AORUSELITEWIFI",
-          "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
-          "price": 1360
-        },
-        {
-          "listing_key": "tms:GX870AORUSELITEWIFI",
-          "vendor": "tms",
-          "vendor_sku": "GX870AORUSELITEWIFI",
-          "title": "Gigabyte X870 AORUS ELITE WIFI7",
-          "price": null
-        }
-      ],
-      "model_code": "aorus-elite-wifi7-x870",
-      "manufacturer_pn": [
-        "GX870AORUSELITEWIFI"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207716",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSELITEWIFI7I",
-          "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
-          "price": 1561
-        },
-        {
-          "listing_key": "tms:GX870EAORUSELITEWIFI7I",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSELITEWIFI7I",
-          "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
-          "price": null
-        }
-      ],
-      "model_code": "aorus-elite-ice-wifi7-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSELITEWIFI7I"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:170329",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSELITEWIFI7",
-          "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
-          "price": 1308
-        },
-        {
-          "listing_key": "tms:GX870EAORUSELITEWIFI7",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSELITEWIFI7",
-          "title": "Gigabyte X870E AORUS ELITE WiFi7",
-          "price": 1438
-        },
-        {
-          "listing_key": "yahav:10175",
-          "vendor": "yahav",
-          "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
-          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-          "price": 1380
-        }
-      ],
-      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSELITEWIFI7"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207718",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSMASTERX3DI",
-          "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
-          "price": 2592
-        },
-        {
-          "listing_key": "tms:GX870EAORUSMASTERX3DI",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSMASTERX3DI",
-          "title": "Gigabyte X870E AORUS MASTER X3D ICE",
-          "price": null
-        },
-        {
-          "listing_key": "yahav:10919",
-          "vendor": "yahav",
-          "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
-          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-          "price": 2190
-        }
-      ],
-      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSMASTERX3DI"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:216436",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSMASTERX3D",
-          "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
-          "price": 2545
-        },
-        {
-          "listing_key": "tms:GX870EAORUSMASTERX3D",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSMASTERX3D",
-          "title": "Gigabyte X870E AORUS MASTER X3D",
-          "price": null
-        }
-      ],
-      "model_code": "aorus-master-x3d-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSMASTERX3D"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-ice-pro-x3d-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207707",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSPROX3DICE",
-          "title": "לוח אם Gigabyte X870E AORUS PRO X3D ICE",
-          "price": 1651
-        },
-        {
-          "listing_key": "tms:GX870EAORUSPROX3DICE",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSPROX3DICE",
-          "title": "Gigabyte X870E AORUS PRO X3D ICE",
-          "price": null
-        },
-        {
-          "listing_key": "yahav:10918",
-          "vendor": "yahav",
-          "vendor_sku": "X870E-AORUS-PRO-X3D-ICE",
-          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-          "price": 1850
-        }
-      ],
-      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-pro-wifi-x3d-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSPROX3DICE"
       ]
     },
     {

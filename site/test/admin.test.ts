@@ -243,6 +243,19 @@ describe("admin change filters", () => {
 });
 
 describe("admin open problems", () => {
+  it("shows the collection pause on Nights and vendor cards rather than a missed deadline", () => {
+    const d = data();
+    d.status.vendors[0].paused = "Recovery failed; timers disabled";
+    d.status.crawls = {};
+    const markup = tonightView(d, NOW).value;
+    expect(markup).toContain("KSP collection paused");
+    expect(markup).toContain("Recovery failed; timers disabled");
+    expect(markup).toContain("vcard--paused");
+    expect(markup).toContain(">Paused</span>");
+    expect(markup).not.toContain("Not scraped");
+    expect(markup).not.toContain('class="nb__due"');
+  });
+
   it("includes the newest Nano failure per phase and open Worker alerts", () => {
     const d = data({
       runs: [

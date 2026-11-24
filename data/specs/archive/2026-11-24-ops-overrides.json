@@ -1,0 +1,19 @@
+{
+  "archived_at": "2026-11-24",
+  "reason": "Owner-approved removal of an unreachable, now redundant override. No current QA decisions were dismissed.",
+  "products": {
+    "model:gpu:4000-blackwell-pro-rtx-24gb": {
+      "memory_type": "GDDR7"
+    }
+  },
+  "evidence": {
+    "live_product_id": "model:gpu:24gb-4000-4xmini-blackwell-dp-ecc-gddr7-pro-rtx-24gb",
+    "listing_key": "yahav:11623",
+    "mpn": "VCNRTXPRO4000-SB",
+    "source_url": "https://www.yahavpc.co.il/product/11623",
+    "memory_type": "GDDR7",
+    "spec_source": "vendor",
+    "rebuilt_without_override": "GDDR7",
+    "rebuilt_with_rekeyed_override": "GDDR7"
+  }
+}

@@ -29,6 +29,7 @@ const STATE_LABEL: Record<string, string> = {
   partial: "Partial",
   late: "Running",
   missing: "Not scraped",
+  paused: "Paused",
   dropped: "Dropped",
 };
 
@@ -102,7 +103,9 @@ function nightPanel(health: VendorHealth[], crawls: Record<string, OpsCrawl[]>, 
     });
     let empty: Html = html``;
     if (!mine.length) {
-      if (now.getTime() < due.getTime()) {
+      if (h.state === "paused") {
+        empty = html`<span class="nb__miss" title="${h.vendor.paused}">Paused</span>`;
+      } else if (now.getTime() < due.getTime()) {
         empty = html`<span class="nb__pill nb__pill--pending nb__pill--${dueAt > 62 ? "end" : "start"}" style="${`--at:${dueAt}%`}">due ${ilTime(due.toISOString())}</span>`;
       } else {
         empty = html`<span class="nb__miss">Not scraped</span>`;
@@ -111,7 +114,7 @@ function nightPanel(health: VendorHealth[], crawls: Record<string, OpsCrawl[]>, 
     return html`<div class="nb__row">
       <span class="nb__name">${h.vendor.label}</span>
       <span class="nb__track" style="${`height:${Math.max(1, mine.length) * 1.75}rem`}">
-        <span class="nb__due" style="${`--at:${dueAt}%`}" title="${`Due by ${ilTime(due.toISOString())}`}" aria-hidden="true"></span>
+        ${h.state !== "paused" ? html`<span class="nb__due" style="${`--at:${dueAt}%`}" title="${`Due by ${ilTime(due.toISOString())}`}" aria-hidden="true"></span>` : ""}
         ${pills}${empty}
       </span>
     </div>`;

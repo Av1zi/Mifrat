@@ -79,6 +79,7 @@ export type VendorState =
   | "partial"
   | "late"
   | "missing"
+  | "paused"
   | "dropped";
 
 export interface VendorHealth {
@@ -170,6 +171,11 @@ export function vendorHealth(status: OpsStatus, vendor: OpsVendor, now: Date): V
   if (!vendor.active) {
     return { vendor, state: "dropped", last, tonight: null, ageHours, staleInCatalog, notes };
   }
+  if (vendor.paused) {
+    notes.push(vendor.paused);
+    if (staleInCatalog) notes.push(`Catalog retains ${catalogVendor!.stale} stale offers from ${catalogVendor!.last_seen}.`);
+    return { vendor, state: "paused", last, tonight: null, ageHours, staleInCatalog, notes };
+  }
 
   // The newest crawl since the expected night began. Between 21:00 UTC and
   // a vendor's due time that includes a crawl of the night now running
@@ -245,7 +251,7 @@ export function evaluate(status: OpsStatus, now: Date, live: LiveFacts = {}): Fi
   }
 
   const health = allVendorHealth(status, now).filter((h) => h.vendor.active);
-  const home = health.filter((h) => h.vendor.host === "home");
+  const home = health.filter((h) => h.vendor.host === "home" && h.state !== "paused");
   const homeAllMissing = home.length > 0 && home.every((h) => h.state === "missing");
   if (homeAllMissing) {
     findings.push({
@@ -260,6 +266,12 @@ export function evaluate(status: OpsStatus, now: Date, live: LiveFacts = {}): Fi
 
   for (const h of health) {
     const label = h.vendor.label;
+    if (h.state === "paused") {
+      findings.push({ key: `paused:${h.vendor.id}`, severity: "warn", vendor: h.vendor.id,
+        title: `${label} collection paused`,
+        detail: `${h.vendor.paused} Last recorded crawl ${ago(h.ageHours)}` +
+          `${h.last ? ` (${h.last.keys} items)` : ""}. Prices remain stale, not refreshed.` });
+    }
     if (h.state === "missing" && !(homeAllMissing && h.vendor.host === "home")) {
       findings.push({
         key: `missing:${h.vendor.id}`,
@@ -294,8 +306,8 @@ export function evaluate(status: OpsStatus, now: Date, live: LiveFacts = {}): Fi
         key: `delist-spike:${h.vendor.id}:${h.tonight.start.slice(0, 10)}`,
         severity: "warn",
         vendor: h.vendor.id,
-        title: `${label} delisted ${h.tonight.gone} items at once`,
-        detail: `${((100 * h.tonight.gone) / keys).toFixed(1)}% of its ${keys} listings: a catalog change or a broken parser.`,
+        title: `${label}: ${h.tonight.gone} listings confirmed absent from the source`,
+        detail: `${((100 * h.tonight.gone) / keys).toFixed(1)}% of its ${keys} listings; absent from valid crawls spanning at least 36 hours. A source catalog change or incomplete collection still needs investigation.`,
       });
     }
   }

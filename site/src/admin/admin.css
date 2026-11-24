@@ -462,6 +462,7 @@
   }
 
   .vcard--partial,
+  .vcard--paused,
   .vcard--late { border-top-color: var(--warn); }
   .vcard--missing { border-top-color: var(--err); }
   .vcard--dropped { border-top-color: var(--line-strong); }
@@ -483,6 +484,7 @@
   }
 
   .vcard--partial .vcard__state,
+  .vcard--paused .vcard__state,
   .vcard--late .vcard__state { color: var(--warn); }
   .vcard--missing .vcard__state { color: var(--err); }
 

@@ -29,6 +29,9 @@ function crawlTime(iso: string): string {
 function vendorLine(h: VendorHealth): { ok: boolean; text: string } {
   const label = h.vendor.label.padEnd(7);
   const c = h.tonight;
+  if (h.state === "paused") {
+    return { ok: false, text: `⚠️ ${label} paused · ${h.vendor.paused}` };
+  }
   if (h.state === "missing" || h.state === "late") {
     const last = h.last
       ? `last ${israelParts(new Date(h.last.start)).date.slice(5)} ${crawlTime(h.last.start)} (${count(h.last.keys)})`
