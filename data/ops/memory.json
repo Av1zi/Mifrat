@@ -943,7 +943,7 @@
 "1pc:178606":"model:motherboard:b850m-gaming-tuf-microatx",
 "1pc:178608":"model:motherboard:a-b860m-csm-prime-atx",
 "1pc:178609":"model:motherboard:b860m-k-prime-microatx",
-"1pc:178610":"model:motherboard:b860-prime-wifi-atx",
+"1pc:178610":"model:motherboard:b860-plus-prime-wifi-atx",
 "1pc:178611":"model:motherboard:b860-csm-prime-atx",
 "1pc:178612":"model:motherboard:a-h810m-prime-wifi-microatx",
 "1pc:178613":"model:motherboard:a-csm-h810m-prime-microatx",
@@ -2973,7 +2973,7 @@
 "ivory:129531":"model:gpu:5080-core-gaming-geforce-rtx-solid-16gb",
 "ivory:129633":"model:gpu:16g-16gd-5080-geforce-gv-n5080wf3oc-oc-rtx-sff-windforce-16gb",
 "ivory:130776":"model:motherboard:a-b860-gaming-rog-strix-wifi-atx",
-"ivory:130779":"mpn:motherboard:90mb1jl0m0eay0",
+"ivory:130779":"model:motherboard:b860-gaming-plus-tuf-atx",
 "ivory:130782":"model:motherboard:b860m-k-prime-microatx",
 "ivory:130785":"model:motherboard:b860m-gaming-tuf-wifi-microatx",
 "ivory:130788":"model:motherboard:b860m-gaming-tuf-wifi-microatx-2",
@@ -3590,8 +3590,9 @@
 "ivory:79655":"model:aio:5v-h150-lga1700-ready-support-360mm",
 "ivory:80024":"model:cooler_air:air-chromatic-cooler-cpu-t120-120mm",
 "ivory:80270":"model:cpu:14700k-tray",
+"ivory:80273":"model:cpu:14700kb",
 "ivory:80276":"model:cpu:14900kf-tray",
-"ivory:80279":"mpn:cpu:i914900kfb",
+"ivory:80279":"model:cpu:14900kf",
 "ivory:80282":"model:cpu:14900k-tray-2",
 "ivory:80285":"model:cpu:14900k",
 "ivory:80666":"model:aio:h115i-icue-link-rgb-280mm-black",
@@ -4084,7 +4085,7 @@
 "ksp:367823":"model:case:mk6-rgb-white",
 "ksp:368049":"model:memory:16-kf560c36bbe2a-16gb-x1-6000mhz-cl36-rgb-dimm",
 "ksp:368079":"model:motherboard:b860-ds3h-lga1851-microatx",
-"ksp:368106":"model:motherboard:b860-lga1851-prime-wifi-atx",
+"ksp:368106":"model:motherboard:b860-plus-prime-wifi-atx",
 "ksp:368258":"model:motherboard:a-b860m-prime-wifi-microatx",
 "ksp:368551":"model:cpu:265",
 "ksp:368564":"model:cpu:265f",
@@ -4123,7 +4124,7 @@
 "ksp:376634":"model:motherboard:a-am5-b840m-prime-wifi-microatx",
 "ksp:376649":"model:motherboard:am5-b850-prime-wifi-atx",
 "ksp:376663":"model:motherboard:a-b840m-csm-prime-microatx",
-"ksp:376671":"model:motherboard:am5-b850-gaming-tuf-wifi-atx",
+"ksp:376671":"model:motherboard:b850-gaming-plus-tuf-wifi-atx",
 "ksp:376700":"model:motherboard:am5-b840-prime-wifi-atx",
 "ksp:378814":"model:gpu:12g-12gd-5070-eagle-gv-ice-ice-n5070eagleoc-oc-rtx-sff-12gb",
 "ksp:378818":"model:gpu:12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff-12gb",
@@ -4256,7 +4257,7 @@
 "ksp:397908":"model:cooler_air:8i-co-freezer-black",
 "ksp:397944":"model:cooler_air:8a-amd-freezer-black",
 "ksp:398028":"model:cooler_air:8a-amd-co-freezer-black",
-"ksp:39823":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
+"ksp:39823":"model:storage:240g-a400-sa400s37-240gb-sata-25",
 "ksp:39824":"model:storage:480g-a400-sa400s37-480gb-sata-25inch",
 "ksp:398280":"model:cooler_air:50-freezer-tr-120mm",
 "ksp:398486":"model:gpu:12g-12gd-5070-aero-gv-n5070aero-oc-oc-rtx-12gb",
@@ -7460,7 +7461,7 @@
 "tms:90MB1K00-M0EAYC":"model:motherboard:a-b860m-csm-prime-atx",
 "tms:90MB1K20-M0EAY0":"model:motherboard:gaming-h-rog-strix-wifi-z890-atx",
 "tms:90MB1K30-M0EAY0":"model:motherboard:b850-gaming-i-rog-strix-wifi-miniitx",
-"tms:90MB1K50-M0EAY0":"model:motherboard:b860-prime-wifi-atx",
+"tms:90MB1K50-M0EAY0":"model:motherboard:b860-plus-prime-wifi-atx",
 "tms:90MB1KA0-M0EAYC":"model:motherboard:b860-csm-prime-atx",
 "tms:90MB1KG0-M0EAY0":"model:motherboard:btf-hero-maximus-rog-wifi-z890-atx",
 "tms:90MB1KJ0-M0EAY0":"model:motherboard:a-h810m-prime-wifi-microatx",
@@ -9233,7 +9234,7 @@
 "tms:RX9070XT16G-LOCREVA":"model:gpu:16gb-9070-gddr6-hellhound-radeon-reva-rx-xt-16gb",
 "tms:RX9070XT16G-LOCWHITE":"model:gpu:16gb-9070-alphyn-am10-gddr6-hellhound-rx-spectral-white-xt-16gb",
 "tms:SA16G16ECR":"model:memory:1600-ecc-reg-16gb-x1-1600mhz-cl9-black",
-"tms:SA400S37-240G":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
+"tms:SA400S37-240G":"model:storage:a400-256gb-sata-25",
 "tms:SA8G16ECR":"model:memory:1600-bulk-ecc-reg-8gb-x1-1600mhz-cl9",
 "tms:SF-1000F14GE":"model:psu:1-atx3-iii-leadex-1000w",
 "tms:SF-1000F14SP":"model:psu:1-atx3-leadex-pro-viii-1000w-black",
@@ -10010,7 +10011,7 @@
 "yahav:11575":"model:psu:ice-p650ss-650w-white",
 "yahav:11577":"model:motherboard:1xdp-1xhdmi-am5-b650m-d3hp-microatx",
 "yahav:11579":"model:case:901-base-bgw50-dark-pro-black",
-"yahav:11580":"model:psu:1-1-1200w-3-5-active-atx-full-modular-ne1200p-neoeco-pcie-pfc-platinum-ready-1200w-full",
+"yahav:11580":"manual:psu:1pc-221403-tms-ne1200p",
 "yahav:11581":"model:case:c2m-case-black",
 "yahav:11583":"model:motherboard:1851-b860m-displayport-e-hdmi-lga-pro-microatx",
 "yahav:11584":"model:motherboard:b860m-eagle-v2-microatx",
@@ -10132,7 +10133,7 @@
 "yahav:11809":"model:memory:16gb-6000mhz-amd-cl38-ddr5-expo-intel-nox-pack-rgb-single-support-xmp-16gb-6000mhz-cl38-rgb-black",
 "yahav:11812":"model:storage:10-exceria-g4-series-2000gb-m2pcie-m2",
 "yahav:11813":"model:motherboard:am5-b850-hdmi-ii-mag-max-tomahawk-wifi-atx",
-"yahav:11814":"model:storage:14-800mbps-fury-g5-renegade-series-4096gb-pcie5-m2",
+"yahav:11814":"model:storage:14-800mbps-fury-g5-renegade-series-4000gb-pciem2-m2",
 "yahav:2001":"mpn:accessories:bxatxsbc",
 "yahav:289":"model:gpu:1030-2g-2gl-d4-gt-gv-low-n1030d4-profile-2gb",
 "yahav:3279":"model:case_fan:120mm-1800rpm-led-red-sickleflow-120mm-rgb-red",
@@ -10305,6 +10306,7 @@
 "yahav:7879":"model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
 "yahav:7906":"model:case:3x120mm-4000d-airflow-airflow-fans-glass-included-mid-rgb-rgb-series-tempered-tower-white",
 "yahav:7989":"model:case_fan:120-3-3x120mm-controller-fan-inf-infinity-pack-rgb-rgb-series-sl-triple-uni-uni-white-120mm-3-rgb-white",
+"yahav:7991":"model:case_fan:120-120mm-fan-inf-infinity-pack-rgb-rgb-series-single-sl-uni-uni-white-120mm-1-rgb-white",
 "yahav:7994":"model:case_fan:120mm-argb-bulk-fan-oem-120mm-rgb",
 "yahav:7999":"mpn:accessories:nx410temperedglassonly",
 "yahav:8008":"model:case:3x120mm-fans-included-mid-no-p20ce-tower-window-black",
@@ -11162,7 +11164,7 @@
 "psu"
 ],
 "manual:psu:1pc-221403-tms-ne1200p":[
-"Antec NE1200 Neoeco ATX3.1 NE1200P 1200W 80 PLUS Platinum",
+"Antec Neoeco NE1200P 3.1 Pcie 1200W 80 PLUS Platinum Black",
 "psu"
 ],
 "manual:psu:1pc-222371-ivory-113511":[
@@ -15249,6 +15251,10 @@
 "Jonsbo XA-120W 120mm PWM ARGB White",
 "case_fan"
 ],
+"model:case_fan:120-120mm-fan-inf-infinity-pack-rgb-rgb-series-single-sl-uni-uni-white-120mm-1-rgb-white":[
+"Lian Li UNI SL-INF Infinity 120mm RGB White",
+"case_fan"
+],
 "model:case_fan:120-1in1-1st-b-fan-player-pwm-x-xf7-120mm-black":[
 "1stPlayer 1ST Player XF7 120mm PWM ARGB Black",
 "case_fan"
@@ -18561,6 +18567,10 @@
 "Intel Core i7 14700K Tray",
 "cpu"
 ],
+"model:cpu:14700kb":[
+"Intel Core i7 14700KB Box",
+"cpu"
+],
 "model:cpu:14700kf":[
 "Intel Core i7 14700KF Box",
 "cpu"
@@ -20254,7 +20264,7 @@
 "gpu"
 ],
 "model:gpu:5070-geforce-phoenix-rtx-s-ti-16gb":[
-"Gainward Phoenix GeForce RTX 5070 Ti 16GB (NE7507T019T2-GB2031K)",
+"Gainward Phoenix GeForce RTX 5070 Ti 16GB",
 "gpu"
 ],
 "model:gpu:5070-oc-rtx-ti-16gb":[
@@ -20290,7 +20300,7 @@
 "gpu"
 ],
 "model:gpu:5080-geforce-gs-phoenix-rtx-16gb":[
-"Gainward Phoenix GeForce RTX 5080 16GB (NE75080S19T2-GB2031X)",
+"Gainward Phoenix GeForce RTX 5080 16GB",
 "gpu"
 ],
 "model:gpu:5080-geforce-phoenix-rtx-16gb":[
@@ -23565,10 +23575,6 @@
 "ASUS TUF Gaming B850-PRO W WIFI7",
 "motherboard"
 ],
-"model:motherboard:am5-b850-gaming-tuf-wifi-atx":[
-"ASUS TUF Gaming B850-Plus WiFi",
-"motherboard"
-],
 "model:motherboard:am5-b850-hdmi-ii-mag-max-tomahawk-wifi-atx":[
 "MSI B850 MAG Tomahawk MAX II WiFi (MAG-B850-TOMAHAWK-MAX-WIFI-II)",
 "motherboard"
@@ -24797,10 +24803,6 @@
 "Gigabyte B860 Gaming X WIFI6E",
 "motherboard"
 ],
-"model:motherboard:b860-lga1851-prime-wifi-atx":[
-"ASUS Prime B860-Plus WiFi",
-"motherboard"
-],
 "model:motherboard:b860-mag-tomahawk-wifi-atx":[
 "MSI B860 MAG Tomahawk WiFi",
 "motherboard"
@@ -24814,10 +24816,6 @@
 "motherboard"
 ],
 "model:motherboard:b860-plus-prime-wifi-atx":[
-"ASUS Prime B860-Plus WIFI6E",
-"motherboard"
-],
-"model:motherboard:b860-prime-wifi-atx":[
 "ASUS Prime B860-Plus WIFI6E",
 "motherboard"
 ],
@@ -25599,10 +25597,6 @@
 ],
 "model:psu:1-1-1200w-135mm-3-5-active-atx-full-hcg1200-modular-pcie-pfc-platinum-pro-1200w-full-black":[
 "Antec HCG1200 PRO 3.1 Pcie 1200W 80 PLUS Platinum Black",
-"psu"
-],
-"model:psu:1-1-1200w-3-5-active-atx-full-modular-ne1200p-neoeco-pcie-pfc-platinum-ready-1200w-full":[
-"Antec Neoeco NE1200P 3.1 Pcie 1200W 80 PLUS Platinum",
 "psu"
 ],
 "model:psu:1-1-120mm-3-5-650w-active-atx-fully-gold-modular-pcie-pfc-rm650e-rme-series-650w-full-black":[
@@ -27213,7 +27207,7 @@
 "Crucial T710 GEN 500MB S 4TB NVMe Gen5 M.2-2280",
 "storage"
 ],
-"model:storage:14-800mbps-fury-g5-renegade-series-4096gb-pcie5-m2":[
+"model:storage:14-800mbps-fury-g5-renegade-series-4000gb-pciem2-m2":[
 "Kingston Fury Renegade G5 800MBPS 4TB NVMe Gen5 M.2",
 "storage"
 ],
@@ -27657,6 +27651,10 @@
 "WD 4TB 5400 128MB 3.5 SATA3 Purple HDD",
 "storage"
 ],
+"model:storage:240g-a400-sa400s37-240gb-sata-25":[
+"Kingston A400 SA400S37 III 240GB SATA SSD 2.5''",
+"storage"
+],
 "model:storage:240g-a400-sa400s37-240gb-sata-25inch":[
 "Kingston A400 SA400S37 III 240GB SATA SSD 2.5\"",
 "storage"
@@ -27951,6 +27949,10 @@
 ],
 "model:storage:990-pro-4000gb-m2-m22280":[
 "Samsung SSD 4TB 990 PRO NVMe M.2 (MZ-V9P4T0BW)",
+"storage"
+],
+"model:storage:a400-256gb-sata-25":[
+"Kingston A400 III 256GB SATA SSD 2.5\"",
 "storage"
 ],
 "model:storage:ai-s300-surveillance-8000gb-sata-35":[
@@ -31581,10 +31583,6 @@
 "Intel Intel UHD Graphics 730 Tray",
 "cpu"
 ],
-"mpn:cpu:i914900kfb":[
-"Intel Core i9 14900KFB",
-"cpu"
-],
 "mpn:cpu:pk8071305081500-tray":[
 "Sapphire Xeon W9 3495X Tray",
 "cpu"
@@ -33987,10 +33985,6 @@
 ],
 "mpn:motherboard:90mb1ic0m0eay1":[
 "ASUS ROG Strix Z890-I Gaming WiFi",
-"motherboard"
-],
-"mpn:motherboard:90mb1jl0m0eay0":[
-"ASUS TUF Gaming B860-Plus WIFI7",
 "motherboard"
 ],
 "mpn:motherboard:90mb1k30m0eay0":[

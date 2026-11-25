@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T00:22:30.262869+00:00",
+  "generated_at": "2026-11-25T04:18:43.334602+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 98,
+      "count": 99,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "manual:cpu:1pc-105172-tms-c6700t",
@@ -282,26 +282,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 24,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-sn5100-wd-wds100t5b0e-1000gb-pciegen40-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 24,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-sn5100-wd-wds100t5b0e-1000gb-pciegen40-m22280"
-      ]
-    },
-    {
       "category": "aio",
       "label": "מידות משאבה",
       "count": 24,
@@ -329,6 +309,26 @@
         "manual:psu:1pc-222371-ivory-113511",
         "manual:psu:1pc-222372-ivory-86640",
         "model:psu:1200p3-gaming-rog-thor-1200w-black"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 23,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-sn5100-wd-wds100t5b0e-1000gb-pciegen40-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 23,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-sn5100-wd-wds100t5b0e-1000gb-pciegen40-m22280"
       ]
     },
     {
@@ -382,16 +382,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
-      "count": 22,
-      "products": [
-        "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:225",
-        "model:cpu:225-tray"
-      ]
-    },
-    {
       "category": "case",
       "label": "מערכת קירור",
       "count": 22,
@@ -399,6 +389,16 @@
         "model:case:300r-airflow-gungnir-mpg-black",
         "model:case:306-7g03m21-809-black",
         "model:case:306-7g20r21-809-black"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מהירות זכרון נתמכת",
+      "count": 21,
+      "products": [
+        "cpu:amd:ryzen-9-9950x3d-tray",
+        "model:cpu:225",
+        "model:cpu:225-tray"
       ]
     },
     {
@@ -439,16 +439,6 @@
         "model:storage:0-3-nm610-pro-500gb-nvme-m22280",
         "model:storage:2-m-nm790-1000gb-pciegen4x4-m22280",
         "model:storage:2-m-nvme-pcie-vi3000-1000gb-pciexpressgen3singleportx4lanes-m2"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "תכונות נוספות",
-      "count": 19,
-      "products": [
-        "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:5500-tray",
-        "model:cpu:5700x-tray"
       ]
     },
     {
@@ -559,6 +549,16 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תכונות נוספות",
+      "count": 17,
+      "products": [
+        "cpu:amd:ryzen-9-9950x3d-tray",
+        "model:cpu:5500-tray",
+        "model:cpu:5800x3d"
       ]
     },
     {

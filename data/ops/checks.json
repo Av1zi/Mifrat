@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-25T00:26:19+00:00",
+ "generated_at": "2026-11-25T04:21:26+00:00",
  "night": "2026-11-25",
  "suite": "publish",
  "escalate_nights": 3,
@@ -12,7 +12,7 @@
    "title": "Spec schema <-> frontend drift",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -23,7 +23,7 @@
    "title": "Manufacturer data at the schema version",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -45,7 +45,7 @@
    "title": "TMS detail-page parser (fixtures)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.6,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -67,7 +67,7 @@
    "title": "Active regressions and quarantined rule diagnostics",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.6,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -78,7 +78,7 @@
    "title": "QA enrichment identity and workbench rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.3,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -89,7 +89,7 @@
    "title": "Evidence-backed QA automation (offline pipeline corpus)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 0.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -100,7 +100,7 @@
    "title": "Category assignment fixtures",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -122,7 +122,7 @@
    "title": "Identity evidence survives variant splits",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -166,7 +166,7 @@
    "title": "KSP listing-tag mapper",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -177,7 +177,7 @@
    "title": "KSP detail parser",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -188,7 +188,7 @@
    "title": "KSP component stream protocol",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.3,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -199,7 +199,7 @@
    "title": "KSP stream transport offline integration",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.6,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -221,7 +221,7 @@
    "title": "Scrape block stops and runner outcomes",
    "status": "pass",
    "exit": 0,
-   "seconds": 4.2,
+   "seconds": 3.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -232,7 +232,7 @@
    "title": "Population loss attribution",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.3,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -254,7 +254,7 @@
    "title": "Eilat price parsers, attach and history rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -276,7 +276,7 @@
    "title": "Cloud detail runner isolation and outcomes",
    "status": "pass",
    "exit": 0,
-   "seconds": 8.2,
+   "seconds": 6.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -287,7 +287,7 @@
    "title": "Saved-page parsers",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -298,7 +298,7 @@
    "title": "AI-extraction verifier and client",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -309,7 +309,7 @@
    "title": "Ledger rules self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.2,
+   "seconds": 1.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -331,7 +331,7 @@
    "title": "Spec invariants self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -342,7 +342,7 @@
    "title": "Photo pipeline rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.5,
+   "seconds": 0.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -353,7 +353,7 @@
    "title": "Ops report rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.9,
+   "seconds": 1.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -375,7 +375,7 @@
    "title": "Check levels and carry-over",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -397,7 +397,7 @@
    "title": "Nano KSP phase state and push recovery",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.0,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -408,7 +408,7 @@
    "title": "Catalog not empty, no category collapsed",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.4,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -419,7 +419,7 @@
    "title": "Shipped text hygiene",
    "status": "pass",
    "exit": 0,
-   "seconds": 2.7,
+   "seconds": 1.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -430,7 +430,7 @@
    "title": "Cover corpus (format, size, borders)",
    "status": "pass",
    "exit": 0,
-   "seconds": 22.0,
+   "seconds": 13.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -441,7 +441,7 @@
    "title": "Site is not a wall of placeholder covers",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.1,
+   "seconds": 0.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -463,7 +463,7 @@
    "title": "Ops report files",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.3,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -474,7 +474,7 @@
    "title": "Publish set coherence",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -485,7 +485,7 @@
    "title": "Category reduction from source absences",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.0,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -496,7 +496,7 @@
    "title": "Spec golden fixtures",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.3,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -507,7 +507,7 @@
    "title": "Identity-merge invariants",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.2,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -518,7 +518,7 @@
    "title": "One maker PN per category, is-a words",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.0,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -529,7 +529,7 @@
    "title": "One maker per product, every product branded",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 0.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -540,7 +540,7 @@
    "title": "Repeated snapshot rows",
    "status": "pass",
    "exit": 0,
-   "seconds": 11.8,
+   "seconds": 8.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -551,7 +551,7 @@
    "title": "Extract store reach",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.0,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -562,10 +562,10 @@
    "title": "Ledgers point at live data",
    "status": "warn",
    "exit": 1,
-   "seconds": 8.5,
+   "seconds": 6.0,
    "since": "2026-11-24T21:49:12+00:00",
    "nights": 1,
-   "detail": "      variant_conflict|model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white|\n      variant_conflict|model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-white|\n      variant_conflict|model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-black|\n      variant_conflict|model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-black|\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx-2|\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx|\n  image blocklist entries matching nothing      1 (budget 3)\n  enrichment entries no listing reaches      1565 (budget 1700)\n  detail ledger drift                           9 (budget 40)\n  cover files no listing uses                  17 (budget 900)\n  [fail] qa_dismissed keys with no case: 13 > budget 10\n[check-ledgers] 1 failure(s)"
+   "detail": "      variant_conflict|model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white|\n      variant_conflict|model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-white|\n      variant_conflict|model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-black|\n      variant_conflict|model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-black|\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx-2|\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx|\n  image blocklist entries matching nothing      1 (budget 3)\n  enrichment entries no listing reaches      1561 (budget 1700)\n  detail ledger drift                           9 (budget 40)\n  cover files no listing uses                  25 (budget 900)\n  [fail] qa_dismissed keys with no case: 16 > budget 10\n[check-ledgers] 1 failure(s)"
   },
   {
    "name": "backtest",
@@ -573,7 +573,7 @@
    "title": "Inference-rule backtest",
    "status": "pass",
    "exit": 0,
-   "seconds": 7.2,
+   "seconds": 4.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -584,10 +584,10 @@
    "title": "Spec coverage floors",
    "status": "warn",
    "exit": 1,
-   "seconds": 1.0,
+   "seconds": 0.7,
    "since": "2026-11-24T14:13:52+00:00",
    "nights": 2,
-   "detail": "[spec-coverage] FAIL — 2 trip(s):\n  - cpu: core applicable fill 89.40% below floor 91%\n  - cpu: 73.60% of products at >= 90% applicable fill, below floor 76%"
+   "detail": "[spec-coverage] FAIL — 2 trip(s):\n  - cpu: core applicable fill 89.20% below floor 91%\n  - cpu: 73.80% of products at >= 90% applicable fill, below floor 76%"
   },
   {
    "name": "spec_invariants",
@@ -595,7 +595,7 @@
    "title": "Spec invariants",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -606,7 +606,7 @@
    "title": "Site image resolvability (2% budget)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.1,
+   "seconds": 0.0,
    "since": null,
    "nights": 0,
    "detail": ""

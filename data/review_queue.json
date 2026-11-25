@@ -1412,14 +1412,14 @@
         "listing_key": "yahav:10654",
         "vendor_sku": "ROG-ASTRAL-RTX5090-O32G-GAMING-PC",
         "title": "כרטיס מסך חברת Asus דגם ROG Astral OC Gaming GeForce RTX 5090 32GB GDDR7 2xHDMI 3xDP - מבצע ברכישה עם מחשב שלם",
-        "price": 26350,
+        "price": 27300,
         "alias_of": "yahav:10655"
       },
       {
         "listing_key": "yahav:10655",
         "vendor_sku": "ROG-ASTRAL-RTX5090-O32G-GAMING",
         "title": "כרטיס מסך חברת Asus דגם ROG Astral OC Gaming GeForce RTX 5090 32GB GDDR7 2xHDMI 3xDP",
-        "price": 26500
+        "price": 27800
       }
     ]
   },
@@ -7210,6 +7210,29 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
+    "product_id": "model:cpu:14900kf",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:80279",
+        "vendor": "ivory",
+        "vendor_sku": "I9-14900KFB",
+        "title": "מעבד Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Box",
+        "price": 1799
+      },
+      {
+        "listing_key": "ksp:280968",
+        "vendor": "ksp",
+        "vendor_sku": "280968",
+        "title": "מעבד אינטל Intel Core i9 14900KF 3.2GHz 36MB Cache s1700 - Box",
+        "price": 1799
+      }
+    ],
+    "model_code": "14900kf"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
     "product_id": "model:cpu:14900ks-tray",
     "vendor": "",
     "offers": [
@@ -7569,13 +7592,6 @@
         "vendor_sku": "100-000000926",
         "title": "מעבד AMD Ryzen 7 5700X AM4 צבע טריי",
         "price": 668
-      },
-      {
-        "listing_key": "ivory:178252",
-        "vendor": "ivory",
-        "vendor_sku": "100-000000926",
-        "title": "מעבד AMD Ryzen 7 5700X | תושבת AM4 | בעל 8 ליבות | אריזת Tray",
-        "price": 639
       },
       {
         "listing_key": "tms:100-000000926",
@@ -8094,13 +8110,6 @@
         "vendor_sku": "100-000001405",
         "title": "מעבד חברת AMD דגם Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler",
         "price": 990
-      },
-      {
-        "listing_key": "ivory:109058",
-        "vendor": "ivory",
-        "vendor_sku": "100-000001405",
-        "title": "מעבד AMD Ryzen 5 9600X | ארכיטקטורת Zen 5 | בעל 6 ליבות | אריזת Tray",
-        "price": 757
       }
     ],
     "model_code": "9600x"
@@ -9876,6 +9885,13 @@
     "vendor": "",
     "offers": [
       {
+        "listing_key": "ivory:88467",
+        "vendor": "ivory",
+        "vendor_sku": "90MB1FI0-M1EAY0",
+        "title": "לוח אם ASUS PRIME B760M-K 1700 DDR5 mATX",
+        "price": 499
+      },
+      {
         "listing_key": "ksp:290121",
         "vendor": "ksp",
         "vendor_sku": "290121",
@@ -11087,7 +11103,7 @@
         "vendor": "yahav",
         "vendor_sku": "MZ-VAP8T0BW",
         "title": "כונן SSD חברת Samsung דגם MZ-VAP8T0BW 9100 Pro Series 14800MB 8TB Gen5 8192GB M.2 NVMe",
-        "price": 9150
+        "price": 9580
       }
     ],
     "model_code": "0-5-9100-pro",
@@ -12134,13 +12150,6 @@
         "vendor_sku": "100-000001405",
         "title": "מעבד חברת AMD דגם Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler",
         "price": 990
-      },
-      {
-        "listing_key": "ivory:109058",
-        "vendor": "ivory",
-        "vendor_sku": "100-000001405",
-        "title": "מעבד AMD Ryzen 5 9600X | ארכיטקטורת Zen 5 | בעל 6 ליבות | אריזת Tray",
-        "price": 757
       }
     ],
     "model_code": "9600x",
@@ -12846,31 +12855,6 @@
       }
     ],
     "model_code": "7700x",
-    "resolved": false,
-    "reason": "price/spec tags disagree"
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
-    "product_id": "model:cpu:9600x",
-    "vendor": "ivory",
-    "offers": [
-      {
-        "listing_key": "ivory:105818",
-        "vendor": "ivory",
-        "vendor_sku": "100-100001405WOF",
-        "title": "מעבד AMD Ryzen 5 9600X Box",
-        "price": 899
-      },
-      {
-        "listing_key": "ivory:109058",
-        "vendor": "ivory",
-        "vendor_sku": "100-000001405",
-        "title": "מעבד AMD Ryzen 5 9600X | ארכיטקטורת Zen 5 | בעל 6 ליבות | אריזת Tray",
-        "price": 757
-      }
-    ],
-    "model_code": "9600x",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
@@ -14819,6 +14803,40 @@
     "manufacturer_pn": [
       "CW9060094WW"
     ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "aio",
+    "product_id": "model:aio:3000rpm-360mm-77cfm-argb-cooling-freezer-iii-liquid-pro-white-360mm-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:135498",
+        "vendor": "ivory",
+        "vendor_sku": "ACFRE00184A",
+        "title": "קירור נוזלי למעבד ARCTIC Liquid Freezer III Pro | תאורת A-RGB | רדיאטור 360 מ\"מ | צבע שחור",
+        "price": 445
+      }
+    ],
+    "model_code": "360-a-freezer-iii-liquid-pro-rgb",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "aio",
+    "product_id": "model:aio:360-a-freezer-iii-liquid-pro-360mm-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ksp:398991",
+        "vendor": "ksp",
+        "vendor_sku": "398991",
+        "title": "קירור נוזלי למעבד Liquid Freezer III Pro 360 A-RGB מבית Arctic - צבע לבן",
+        "price": 479
+      }
+    ],
+    "model_code": "360-a-freezer-iii-liquid-pro",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
@@ -18435,6 +18453,13 @@
         "vendor_sku": "90MB1MD0-M0EAY0",
         "title": "לוח אם ASUS TUF GAMING B850M-PLUS WIFI7 צבע לבן",
         "price": 1405
+      },
+      {
+        "listing_key": "ivory:153952",
+        "vendor": "ivory",
+        "vendor_sku": "90MB1MD0-M0EAY0",
+        "title": "לוח אם לבן ASUS TUF GAMING B850M-PLUS WIFI7 W mATX AM5 AMD",
+        "price": 985
       },
       {
         "listing_key": "ksp:435425",
