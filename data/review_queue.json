@@ -5843,7 +5843,7 @@
         "listing_key": "tms:BL078",
         "vendor": "tms",
         "vendor_sku": "BL078",
-        "title": "be quiet! Light Wings 140mm PWM 3 Pack",
+        "title": "be quiet! Light Wings 140mm PWM ערכת 3 מאווררים",
         "price": null
       }
     ],
@@ -8508,6 +8508,58 @@
   {
     "kind": "variant_conflict",
     "category": "memory",
+    "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:210599",
+        "vendor": "1pc",
+        "vendor_sku": "KF560C30BWEAK2-32",
+        "title": "קיט זיכרון Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע לבן",
+        "price": 2547
+      },
+      {
+        "listing_key": "tms:KF560C30BWEAK2-32",
+        "vendor": "tms",
+        "vendor_sku": "KF560C30BWEAK2-32",
+        "title": "Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
+        "price": 2594
+      },
+      {
+        "listing_key": "yahav:10209",
+        "vendor": "yahav",
+        "vendor_sku": "KF560C30BWEAK2-32",
+        "title": "זיכרון חברת Kingston דגם Kingston FURY Beast RGB White DDR5 32GB 16GBX2 6000MHZ CL30",
+        "price": 2400
+      }
+    ],
+    "model_code": "0-2x16gb-3-6000-beast-cl30-expo-fury-xmp",
+    "manufacturer_pn": [
+      "KF560C30BWEAK232"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:KF560C30BWEK2-32",
+        "vendor": "tms",
+        "vendor_sku": "KF560C30BWEK2-32",
+        "title": "Kingston FURY Beast DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
+        "price": 2858
+      }
+    ],
+    "model_code": "0-2x16gb-3-6000-beast-cl30-expo-fury-xmp",
+    "manufacturer_pn": [
+      "KF560C30BWEK232"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
     "product_id": "model:memory:0-2x16gb-3-6000-cl30-ripjaws-s5-xmp-32gb-x2-6000mhz-cl30-black",
     "vendor": "",
     "offers": [
@@ -8890,7 +8942,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOG432GB3200C16BDC",
         "title": "GeIL DDR4 32GB (2x16GB) 3200 CL16 ORION Edition Gray",
-        "price": 1112
+        "price": 1099
       }
     ],
     "model_code": "2x16gb-3200-cl16-orion",
@@ -8909,7 +8961,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOSG432GB3200C16BDC",
         "title": "GEIL DDR4 32GB (2x16GB) 3200 CL16 ORION RGB מהדורת בצבע אפור",
-        "price": 1152
+        "price": 1134
       }
     ],
     "model_code": "2x16gb-3200-cl16-orion",
@@ -8977,6 +9029,40 @@
       }
     ],
     "model_code": "2x16gb-6000-bolt-cl30-v"
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:6000J3038F16GX2-TZ5NR",
+        "vendor": "tms",
+        "vendor_sku": "6000J3038F16GX2-TZ5NR",
+        "title": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+        "price": null
+      }
+    ],
+    "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:201770",
+        "vendor": "1pc",
+        "vendor_sku": "6000J3038F16GX2-TZ5N",
+        "title": "זיכרון G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 בצבע שחור",
+        "price": 2993
+      }
+    ],
+    "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
@@ -9064,7 +9150,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOG416GB3200C16BDC",
         "title": "GEIL DDR4 16GB (2x8GB) 3200 CL16 ORION מהדורת בצבע אפור",
-        "price": 598
+        "price": 585
       },
       {
         "listing_key": "1pc:222244",
@@ -9090,7 +9176,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOSG416GB3200C16BDC",
         "title": "GEIL DDR4 16GB (2x8GB) 3200 CL16 ORION RGB מהדורת בצבע אפור",
-        "price": 633
+        "price": 624
       }
     ],
     "model_code": "2x8gb-3200-cl16-orion",
@@ -17070,7 +17156,7 @@
         "vendor": "tms",
         "vendor_sku": "12CL1W3B",
         "title": "Lian-Li 120mm UNI FAN CL Wireless Black x3 Fans",
-        "price": 233
+        "price": 215
       },
       {
         "listing_key": "yahav:10977",

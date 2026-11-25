@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T04:18:43.334602+00:00",
+  "generated_at": "2026-11-25T22:55:25.226276+00:00",
   "gaps": [
     {
       "category": "case",
@@ -402,16 +402,6 @@
       ]
     },
     {
-      "category": "cooler_air",
-      "label": "פרופיל קירור",
-      "count": 20,
-      "products": [
-        "model:cooler_air:1700-coolermaster-i70c-lga-70mm-120mm",
-        "model:cooler_air:17xx-cooler-cpu-l9i-nh-40mm-92mm",
-        "model:cooler_air:1u-775-cl-low-p0172-passive-profile-black"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "צריכת חשמל",
       "count": 20,
@@ -439,6 +429,16 @@
         "model:storage:0-3-nm610-pro-500gb-nvme-m22280",
         "model:storage:2-m-nm790-1000gb-pciegen4x4-m22280",
         "model:storage:2-m-nvme-pcie-vi3000-1000gb-pciexpressgen3singleportx4lanes-m2"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "פרופיל קירור",
+      "count": 19,
+      "products": [
+        "model:cooler_air:17xx-cooler-cpu-l9i-nh-40mm-92mm",
+        "model:cooler_air:1u-775-cl-low-p0172-passive-profile-black",
+        "model:cooler_air:am4-am4-black-chromax-cooler-cpu-l9a-low-nh-profile-40mm-92mm-black"
       ]
     },
     {
