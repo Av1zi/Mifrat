@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-25T23:05:10.728792+00:00",
+  "generated_at": "2026-11-25T23:54:43.653697+00:00",
   "gaps": [
     {
       "category": "case",
       "label": "ממשק",
-      "count": 102,
+      "count": 101,
       "products": [
         "case:lian-li:a4-h2o-silver",
         "model:case:0-4-mitx-ridge-white",
@@ -24,7 +24,7 @@
     {
       "category": "gpu",
       "label": "רזולוציה",
-      "count": 74,
+      "count": 73,
       "products": [
         "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
         "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
@@ -234,7 +234,7 @@
     {
       "category": "memory",
       "label": "ערוצים",
-      "count": 28,
+      "count": 27,
       "products": [
         "memory:ksp:ksp-313458",
         "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
@@ -249,16 +249,6 @@
         "manual:case:ksp-471940-ksp-471964",
         "manual:case:ksp-471964",
         "manual:case:ksp-483224-ksp-483225"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ממשק זיכרון",
-      "count": 26,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -289,6 +279,16 @@
         "model:aio:240-a-freezer-iii-liquid-240mm-white",
         "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
         "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ממשק זיכרון",
+      "count": 24,
+      "products": [
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -402,26 +402,6 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "צריכת חשמל",
-      "count": 20,
-      "products": [
-        "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "משקל",
-      "count": 20,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
-      ]
-    },
-    {
       "category": "storage",
       "label": "R/W Speed",
       "count": 20,
@@ -439,16 +419,6 @@
         "model:cooler_air:17xx-cooler-cpu-l9i-nh-40mm-92mm",
         "model:cooler_air:1u-775-cl-low-p0172-passive-profile-black",
         "model:cooler_air:am4-am4-black-chromax-cooler-cpu-l9a-low-nh-profile-40mm-92mm-black"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ספק כח מומלץ",
-      "count": 19,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -523,6 +493,26 @@
     },
     {
       "category": "gpu",
+      "label": "צריכת חשמל",
+      "count": 18,
+      "products": [
+        "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "משקל",
+      "count": 18,
+      "products": [
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "תכונות",
       "count": 18,
       "products": [
@@ -539,6 +529,16 @@
         "model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
         "model:memory:0-2x16gb-3-6400-cl32-vengeance-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
         "model:memory:0-3-4x16gb-5600-cl36-dominator-expo-xmp-64gb-x4-5600mhz-cl36-rgb-grey-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "גובה",
+      "count": 18,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
+        "model:memory:2-64b300g-kd5agua80-32gb-x2-6400mhz-cl30-rgb-black"
       ]
     },
     {
@@ -569,6 +569,16 @@
         "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
         "model:case:110r-mag-pano-pz-white"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ספק כח מומלץ",
+      "count": 17,
+      "products": [
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -642,36 +652,6 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "גובה",
-      "count": 16,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
-        "model:memory:2666mhz-2x8gb-aegis-cl19-ddr4-g-kit-16gb-x2-2666mhz-cl19-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מק\"ט יצרן",
-      "count": 16,
-      "products": [
-        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
-        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black",
-        "model:memory:2-32-kf568c34bbek2-32gb-x2-6800mhz-cl34-black-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תדר שעון",
-      "count": 16,
-      "products": [
-        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
-        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black",
-        "model:memory:2-32-kf568c34bbek2-32gb-x2-6800mhz-cl34-black-dimm"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "SATA III",
       "count": 16,
@@ -712,36 +692,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "מפרט",
-      "count": 16,
-      "products": [
-        "model:storage:0-4-p400-p400vp1tbm28h-v4-1000gb-pciecard-m22280",
-        "model:storage:0-5-9100-pro-1000gb-nvme-m22280",
-        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "נפח זיכרון",
-      "count": 16,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "ממשק",
-      "count": 16,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850"
-      ]
-    },
-    {
       "category": "aio",
       "label": "מאווררים",
       "count": 15,
@@ -773,7 +723,17 @@
     },
     {
       "category": "memory",
-      "label": "נפח זיכרון מודול",
+      "label": "מק\"ט יצרן",
+      "count": 15,
+      "products": [
+        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
+        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black",
+        "model:memory:2-32-kf568c34bbek2-32gb-x2-6800mhz-cl34-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תדר שעון",
       "count": 15,
       "products": [
         "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
@@ -819,26 +779,6 @@
         "model:psu:1-atx3-gsk750-750w-full",
         "model:psu:500-e1-helios-pro-black",
         "model:psu:600-e1-helios-pro-black"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "מעבד",
-      "count": 15,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "סוג זכרון",
-      "count": 15,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
       ]
     },
     {
@@ -952,6 +892,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "נפח זיכרון מודול",
+      "count": 14,
+      "products": [
+        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
+        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black",
+        "model:memory:2-32-kf568c34bbek2-32gb-x2-6800mhz-cl34-black-dimm"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "HDMI",
       "count": 14,
@@ -1033,22 +983,32 @@
     },
     {
       "category": "storage",
-      "label": "צבע",
+      "label": "מפרט",
       "count": 14,
       "products": [
-        "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25",
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:2-2048gb-2t-2tb-7400mb-agammixs70b-blade-cs-gammix-gen4-m-nvme-s70-ssd-2000gb-pciegen4x4-m22280"
+        "model:storage:0-4-p400-p400vp1tbm28h-v4-1000gb-pciecard-m22280",
+        "model:storage:0-5-9100-pro-1000gb-nvme-m22280",
+        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280"
       ]
     },
     {
-      "category": "other",
-      "label": "סוג האחסון",
+      "category": "storage",
+      "label": "ביצועים",
       "count": 14,
       "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554"
+        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
+        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
+        "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Shock Resistance",
+      "count": 14,
+      "products": [
+        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
+        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
+        "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
       ]
     },
     {
@@ -1199,46 +1159,6 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "ביצועים",
-      "count": 13,
-      "products": [
-        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
-        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
-        "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Shock Resistance",
-      "count": 13,
-      "products": [
-        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
-        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
-        "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "מעבד גרפי",
-      "count": 13,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "נפח אחסון",
-      "count": 13,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555"
       ]
     },
     {
@@ -1442,56 +1362,6 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "HDMI",
-      "count": 12,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "DisplayPort",
-      "count": 12,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ממשק חיבור",
-      "count": 12,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ליבות מעבד גרפי",
-      "count": 12,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תמיכה ברזולוציה",
-      "count": 12,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
       "category": "memory",
       "label": "נפח אחסון",
       "count": 12,
@@ -1563,7 +1433,7 @@
     },
     {
       "category": "gpu",
-      "label": "תמיכה ב G-SYNC",
+      "label": "HDMI",
       "count": 11,
       "products": [
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
@@ -1573,22 +1443,12 @@
     },
     {
       "category": "gpu",
-      "label": "dvi",
+      "label": "DisplayPort",
       "count": 11,
       "products": [
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
         "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "חיבור לספק כח",
-      "count": 11,
-      "products": [
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb",
-        "model:gpu:16g-2x-5060-geforce-oc-plus-rtx-shadow-ti-16gb"
       ]
     },
     {
@@ -1702,13 +1562,13 @@
       ]
     },
     {
-      "category": "other",
-      "label": "כרטיס רשת",
+      "category": "storage",
+      "label": "צבע",
       "count": 11,
       "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-206632"
+        "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25",
+        "model:storage:2-2048gb-2t-2tb-7400mb-agammixs70b-blade-cs-gammix-gen4-m-nvme-s70-ssd-2000gb-pciegen4x4-m22280",
+        "model:storage:2280-5-t710-1000gb-nvme-m22280"
       ]
     },
     {
@@ -1773,7 +1633,47 @@
     },
     {
       "category": "gpu",
-      "label": "D-SUB",
+      "label": "ממשק חיבור",
+      "count": 10,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ליבות מעבד גרפי",
+      "count": 10,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ב G-SYNC",
+      "count": 10,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ברזולוציה",
+      "count": 10,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "dvi",
       "count": 10,
       "products": [
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
@@ -2053,6 +1953,26 @@
     },
     {
       "category": "gpu",
+      "label": "D-SUB",
+      "count": 9,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "חיבור לספק כח",
+      "count": 9,
+      "products": [
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb",
+        "model:gpu:16g-2x-5060-geforce-oc-plus-rtx-shadow-ti-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "Cooling type",
       "count": 9,
       "products": [
@@ -2079,6 +1999,16 @@
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
         "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
         "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "רוחב",
+      "count": 9,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
+        "model:memory:2-64b300g-kd5agua80-32gb-x2-6400mhz-cl30-rgb-black"
       ]
     },
     {
@@ -2113,26 +2043,6 @@
     },
     {
       "category": "motherboard",
-      "label": "רוחב",
-      "count": 9,
-      "products": [
-        "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
-        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
-        "model:motherboard:a-b550m-pro-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "עומק",
-      "count": 9,
-      "products": [
-        "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
-        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
-        "model:motherboard:a-b550m-pro-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "תכונות LED",
       "count": 9,
       "products": [
@@ -2149,16 +2059,6 @@
         "model:psu:500-e1-helios-pro-black",
         "model:psu:600-e1-helios-pro-black",
         "model:psu:a1000gl-mag-pcie5-white"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "כרטיס גרפי",
-      "count": 9,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206634"
       ]
     },
     {
@@ -2262,6 +2162,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "עומק",
+      "count": 8,
+      "products": [
+        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
+        "model:memory:2-64b300g-kd5agua80-32gb-x2-6400mhz-cl30-rgb-black",
+        "model:memory:2x16gb-6000-bolt-cl30-v-32gb-x2-6000mhz-cl30-rgb-grey"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "נפח אחסון",
       "count": 8,
@@ -2269,6 +2179,26 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:b860-gaming-wifi6e-x-atx",
         "model:motherboard:b860m-ds3h-wifi6e-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "רוחב",
+      "count": 8,
+      "products": [
+        "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
+        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
+        "model:motherboard:a-b550m-pro-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "עומק",
+      "count": 8,
+      "products": [
+        "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
+        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
+        "model:motherboard:a-b550m-pro-microatx"
       ]
     },
     {
@@ -2319,46 +2249,6 @@
         "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
         "model:psu:1200g-gaming-modular-tuf-tuf-1200w",
         "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "חיבורי תקשורת",
-      "count": 8,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "אחסון",
-      "count": 8,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "יציאות וחיבורים",
-      "count": 8,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "זיכרון",
-      "count": 8,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
       ]
     },
     {
@@ -2503,16 +2393,6 @@
     },
     {
       "category": "memory",
-      "label": "רוחב",
-      "count": 7,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
-        "model:memory:2x16gb-6000-bolt-cl30-v-32gb-x2-6000mhz-cl30-rgb-grey"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "זמן השהייה",
       "count": 7,
       "products": [
@@ -2632,66 +2512,6 @@
       ]
     },
     {
-      "category": "other",
-      "label": "חיבור גרפי",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206610"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "כרטיס קול משולב",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206610"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "USB Type-C",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206610"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "חריצי זיכרון",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206610"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "סוג דיסק",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206610"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "USB 3.2",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206610"
-      ]
-    },
-    {
       "category": "case",
       "label": "חיבורי 2.0 USB",
       "count": 6,
@@ -2763,12 +2583,12 @@
     },
     {
       "category": "memory",
-      "label": "עומק",
+      "label": "מהירות זיכרון בסיסית",
       "count": 6,
       "products": [
-        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
         "model:memory:2x16gb-6000-bolt-cl30-v-32gb-x2-6000mhz-cl30-rgb-grey",
-        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black"
+        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black",
+        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-white"
       ]
     },
     {
@@ -2899,46 +2719,6 @@
         "mpn:accessories:co9051065ww",
         "mpn:accessories:co9051066ww",
         "mpn:accessories:co9051067ww"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "רזולוציה",
-      "count": 6,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-216327",
-        "other:1pc:1pc-216337"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "קישוריות",
-      "count": 6,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-216327",
-        "other:1pc:1pc-216337"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "משקל המוצר",
-      "count": 6,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-216327",
-        "other:1pc:1pc-216337"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "סדרת מעבד (CPU)",
-      "count": 6,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-206610",
-        "other:1pc:1pc-206632"
       ]
     },
     {
@@ -3082,28 +2862,8 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "מהירות זיכרון בסיסית",
-      "count": 5,
-      "products": [
-        "model:memory:2x16gb-6000-bolt-cl30-v-32gb-x2-6000mhz-cl30-rgb-grey",
-        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black",
-        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-white"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "מחברי USB 3.2 Gen 1 (3.1 Gen 1)",
-      "count": 5,
-      "products": [
-        "model:motherboard:a-b550m-pro-microatx",
-        "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:b550-eagle-x-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מספר יציאות HDMI",
       "count": 5,
       "products": [
         "model:motherboard:a-b550m-pro-microatx",
@@ -3183,26 +2943,6 @@
     },
     {
       "category": "storage",
-      "label": "מהירות כתיבה רציפה",
-      "count": 5,
-      "products": [
-        "model:storage:0-2280-4-p310-tray-2000gb-pcie4-m22280",
-        "model:storage:960gb-s270-spatium-960gb-sata",
-        "model:storage:lns100-1000gb-sata-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה רציפה",
-      "count": 5,
-      "products": [
-        "model:storage:0-2280-4-p310-tray-2000gb-pcie4-m22280",
-        "model:storage:960gb-s270-spatium-960gb-sata",
-        "model:storage:lns100-1000gb-sata-25"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "זיכרון פלאש",
       "count": 5,
       "products": [
@@ -3259,46 +2999,6 @@
         "mpn:accessories:900149332502000",
         "mpn:accessories:co9051065ww",
         "mpn:accessories:co9051066ww"
-      ]
-    },
-    {
-      "category": "accessories",
-      "label": "סוג קירור",
-      "count": 5,
-      "products": [
-        "mpn:accessories:clssdv1",
-        "mpn:accessories:clssdv3b",
-        "mpn:accessories:cw9061029ww"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "USB 2.0",
-      "count": 5,
-      "products": [
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206632",
-        "other:1pc:1pc-206634"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "חיבורים",
-      "count": 5,
-      "products": [
-        "other:1pc:1pc-206610",
-        "other:1pc:1pc-206632",
-        "other:1pc:1pc-206634"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "ערכת שבבים",
-      "count": 5,
-      "products": [
-        "other:1pc:1pc-216327",
-        "other:1pc:1pc-216337",
-        "other:1pc:1pc-216340"
       ]
     },
     {
@@ -3833,6 +3533,16 @@
     },
     {
       "category": "motherboard",
+      "label": "מספר יציאות HDMI",
+      "count": 4,
+      "products": [
+        "model:motherboard:a-b550m-pro-microatx",
+        "model:motherboard:a620am-b-evo-pro-microatx",
+        "model:motherboard:b550-eagle-x-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "משפחת ערכות השבבים של לוח האם",
       "count": 4,
       "products": [
@@ -3959,26 +3669,6 @@
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
         "model:motherboard:a620am-b-evo-pro-microatx",
         "model:motherboard:b550-eagle-x-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מספר יציאות USB 3.2 Gen 1 (3.1 Gen 1) Type-A",
-      "count": 4,
-      "products": [
-        "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:b550-eagle-x-atx",
-        "model:motherboard:b550-gaming-mpg-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "גרסת HDMI",
-      "count": 4,
-      "products": [
-        "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:b550m-pro-vdh-microatx",
-        "model:motherboard:b850-creator-neo-proart-wifi-atx"
       ]
     },
     {
@@ -4153,66 +3843,6 @@
     },
     {
       "category": "storage",
-      "label": "Operational conditions - Operating temperature (T-T)",
-      "count": 4,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:32261-usb-m2",
-        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Operational conditions - Storage temperature (T-T)",
-      "count": 4,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:32261-usb-m2",
-        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Operational conditions - Operating relative humidity (H-H)",
-      "count": 4,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:32261-usb-m2",
-        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Weight & dimensions - Width",
-      "count": 4,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:32261-usb-m2",
-        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Weight & dimensions - Depth",
-      "count": 4,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:32261-usb-m2",
-        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Weight & dimensions - Height",
-      "count": 4,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:32261-usb-m2",
-        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "טמפרטורת הפעלה",
       "count": 4,
       "products": [
@@ -4253,6 +3883,26 @@
     },
     {
       "category": "storage",
+      "label": "מהירות קריאה רציפה",
+      "count": 4,
+      "products": [
+        "model:storage:960gb-s270-spatium-960gb-sata",
+        "model:storage:lns100-1000gb-sata-25",
+        "model:storage:p210-512gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה רציפה",
+      "count": 4,
+      "products": [
+        "model:storage:960gb-s270-spatium-960gb-sata",
+        "model:storage:lns100-1000gb-sata-25",
+        "model:storage:p210-512gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "רוחב",
       "count": 4,
       "products": [
@@ -4289,16 +3939,6 @@
         "mpn:accessories:co9051065ww",
         "mpn:accessories:co9051066ww",
         "mpn:accessories:co9051067ww"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "כרטיס מסך",
-      "count": 4,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206632"
       ]
     },
     {
@@ -4681,6 +4321,16 @@
     },
     {
       "category": "memory",
+      "label": "סוג חציצה בזיכרון",
+      "count": 3,
+      "products": [
+        "model:memory:2x16gb-6000-bolt-cl30-v-32gb-x2-6000mhz-cl30-rgb-grey",
+        "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white",
+        "model:memory:2x16gb-6000-cl30-fit-v-32gb-x2-6000mhz-cl30-white"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "מהירות שנבדקה",
       "count": 3,
       "products": [
@@ -4881,16 +4531,6 @@
     },
     {
       "category": "motherboard",
-      "label": "תקני Wi-Fi",
-      "count": 3,
-      "products": [
-        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
-        "model:motherboard:b850-creator-neo-proart-wifi-atx",
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "יצרן המעבד",
       "count": 3,
       "products": [
@@ -5001,12 +4641,22 @@
     },
     {
       "category": "motherboard",
-      "label": "לוח אם צ'יפסט",
+      "label": "מספר יציאות USB 3.2 Gen 1 (3.1 Gen 1) Type-A",
       "count": 3,
       "products": [
         "model:motherboard:a620am-b-evo-pro-microatx",
         "model:motherboard:b550-eagle-x-atx",
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+        "model:motherboard:b550-gaming-mpg-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "גרסת HDMI",
+      "count": 3,
+      "products": [
+        "model:motherboard:a620am-b-evo-pro-microatx",
+        "model:motherboard:b550m-pro-vdh-microatx",
+        "model:motherboard:b850-creator-neo-proart-wifi-atx"
       ]
     },
     {
@@ -5221,32 +4871,12 @@
     },
     {
       "category": "storage",
-      "label": "Weight & dimensions - Weight",
-      "count": 3,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:32261-usb-m2",
-        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "תאימות",
       "count": 3,
       "products": [
         "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
         "model:storage:2-5-s270-sata-spatium-960gb-sata-25",
         "model:storage:p210-512gb-sata-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "טמפרטורה",
-      "count": 3,
-      "products": [
-        "model:storage:2t00-g26-sdssde30-2000gb-usb",
-        "model:storage:nv3-s-series-500gb-pcie4-m22280",
-        "model:storage:ssd225s-ts250gssd225s-250gb-sata-25"
       ]
     },
     {
@@ -5291,22 +4921,12 @@
     },
     {
       "category": "accessories",
-      "label": "יציאות קדמיות",
+      "label": "סוג קירור",
       "count": 3,
       "products": [
-        "mpn:accessories:akfc08at",
-        "mpn:accessories:cl9011109ww",
-        "mpn:accessories:mfxacbnnnunnr1"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "מידות",
-      "count": 3,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:tms:tms-sys-420gp-tnr",
-        "other:tms:tms-sys-740gp-tnrt"
+        "mpn:accessories:cw9061029ww",
+        "mpn:accessories:cw9061030ww",
+        "mpn:accessories:galga1700"
       ]
     },
     {
@@ -6246,6 +5866,15 @@
     },
     {
       "category": "memory",
+      "label": "משקל",
+      "count": 2,
+      "products": [
+        "model:memory:2-24gb-48gb-ax5cu9200c4224g-cudimm-dclacrsg-ddr5-grey-lancer-rgb-silver-xpg-48gb-8400mhz-rgb-silver-dimm",
+        "model:memory:2x16gb-6000-cl30-fit-v-32gb-x2-6000mhz-cl30-white"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "Features",
       "count": 2,
       "products": [
@@ -6255,11 +5884,11 @@
     },
     {
       "category": "memory",
-      "label": "סוג חציצה בזיכרון",
+      "label": "תקנים ואישורים",
       "count": 2,
       "products": [
         "model:memory:2x16gb-6000-bolt-cl30-v-32gb-x2-6000mhz-cl30-rgb-grey",
-        "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white"
+        "model:memory:2x16gb-6000-cl30-fit-v-32gb-x2-6000mhz-cl30-white"
       ]
     },
     {
@@ -6471,15 +6100,6 @@
     },
     {
       "category": "motherboard",
-      "label": "גרסת Bluetooth",
-      "count": 2,
-      "products": [
-        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "יציאות USB-C 3.2 Gen 2",
       "count": 2,
       "products": [
@@ -6490,6 +6110,15 @@
     {
       "category": "motherboard",
       "label": "מתאם רשת אלחוטי",
+      "count": 2,
+      "products": [
+        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
+        "model:motherboard:b850-creator-neo-proart-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תקני Wi-Fi",
       "count": 2,
       "products": [
         "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
@@ -6512,15 +6141,6 @@
       "products": [
         "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
         "model:motherboard:e-h810m-pro-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מחברי תאורה",
-      "count": 2,
-      "products": [
-        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
       ]
     },
     {
@@ -6813,15 +6433,6 @@
     },
     {
       "category": "motherboard",
-      "label": "תקן ה-Wi-Fi המתקדם ביותר",
-      "count": 2,
-      "products": [
-        "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "מערכות הפעלה Windows נתמכות",
       "count": 2,
       "products": [
@@ -6832,6 +6443,15 @@
     {
       "category": "motherboard",
       "label": "HDMI version",
+      "count": 2,
+      "products": [
+        "model:motherboard:a620am-b-evo-pro-microatx",
+        "model:motherboard:b550-eagle-x-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "לוח אם צ'יפסט",
       "count": 2,
       "products": [
         "model:motherboard:a620am-b-evo-pro-microatx",
@@ -7016,15 +6636,6 @@
       "products": [
         "model:motherboard:b550-gaming-mpg-atx",
         "model:motherboard:b550m-pro-vdh-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "צבע המוצר",
-      "count": 2,
-      "products": [
-        "model:motherboard:b550-gaming-mpg-atx",
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
       ]
     },
     {
@@ -7351,24 +6962,6 @@
     },
     {
       "category": "storage",
-      "label": "Ports & interfaces - USB version",
-      "count": 2,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Packaging content - Cables included",
-      "count": 2,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "P/N",
       "count": 2,
       "products": [
@@ -7468,24 +7061,6 @@
     },
     {
       "category": "storage",
-      "label": "חיבור",
-      "count": 2,
-      "products": [
-        "model:storage:2t00-g26-sdssde30-2000gb-usb",
-        "model:storage:sa53p-3840gb-sata-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "רעידות",
-      "count": 2,
-      "products": [
-        "model:storage:2t00-g26-sdssde30-2000gb-usb",
-        "model:storage:nv3-s-series-500gb-pcie4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "Features - Component for",
       "count": 2,
       "products": [
@@ -7514,6 +7089,60 @@
     {
       "category": "storage",
       "label": "Features - Certification",
+      "count": 2,
+      "products": [
+        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
+        "model:storage:4xb7a90874-hs-thinksystem-v2-960gb-serialataiii-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Weight & dimensions - Width",
+      "count": 2,
+      "products": [
+        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
+        "model:storage:4xb7a90874-hs-thinksystem-v2-960gb-serialataiii-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Weight & dimensions - Depth",
+      "count": 2,
+      "products": [
+        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
+        "model:storage:4xb7a90874-hs-thinksystem-v2-960gb-serialataiii-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Weight & dimensions - Height",
+      "count": 2,
+      "products": [
+        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
+        "model:storage:4xb7a90874-hs-thinksystem-v2-960gb-serialataiii-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Operational conditions - Operating temperature (T-T)",
+      "count": 2,
+      "products": [
+        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
+        "model:storage:4xb7a90874-hs-thinksystem-v2-960gb-serialataiii-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Operational conditions - Storage temperature (T-T)",
+      "count": 2,
+      "products": [
+        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
+        "model:storage:4xb7a90874-hs-thinksystem-v2-960gb-serialataiii-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Operational conditions - Operating relative humidity (H-H)",
       "count": 2,
       "products": [
         "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
@@ -7602,12 +7231,30 @@
       ]
     },
     {
+      "category": "storage",
+      "label": "טמפרטורה",
+      "count": 2,
+      "products": [
+        "model:storage:nv3-s-series-500gb-pcie4-m22280",
+        "model:storage:ssd225s-ts250gssd225s-250gb-sata-25"
+      ]
+    },
+    {
       "category": "accessories",
       "label": "מידות",
       "count": 2,
       "products": [
         "mpn:accessories:011de4w",
         "mpn:accessories:011de4x"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "יציאות קדמיות",
+      "count": 2,
+      "products": [
+        "mpn:accessories:akfc08at",
+        "mpn:accessories:cl9011109ww"
       ]
     },
     {
@@ -7621,56 +7268,11 @@
     },
     {
       "category": "accessories",
-      "label": "ממשק",
-      "count": 2,
-      "products": [
-        "mpn:accessories:cw9061029ww",
-        "mpn:accessories:sstfs204bus"
-      ]
-    },
-    {
-      "category": "accessories",
       "label": "משקל",
       "count": 2,
       "products": [
         "mpn:accessories:mgzndsgn15mr2",
         "mpn:accessories:nth2"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "תכונות נוספות",
-      "count": 2,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "ממדי המוצר",
-      "count": 2,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "דגם מעבד",
-      "count": 2,
-      "products": [
-        "other:1pc:1pc-206634",
-        "other:1pc:1pc-209884"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "גודל מסך מסונן",
-      "count": 2,
-      "products": [
-        "other:1pc:1pc-216337",
-        "other:1pc:1pc-216346"
       ]
     },
     {
@@ -7694,6 +7296,15 @@
     {
       "category": "other",
       "label": "Hard Drive 2.5",
+      "count": 2,
+      "products": [
+        "other:tms:tms-sys-420gp-tnr",
+        "other:tms:tms-sys-740gp-tnrt"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "מידות",
       "count": 2,
       "products": [
         "other:tms:tms-sys-420gp-tnr",
@@ -8398,6 +8009,14 @@
     },
     {
       "category": "cpu",
+      "label": "Spec / Specifications / Processor Series (CPU)",
+      "count": 1,
+      "products": [
+        "model:cpu:285-tray"
+      ]
+    },
+    {
+      "category": "cpu",
       "label": "מספר דגם",
       "count": 1,
       "products": [
@@ -8770,38 +8389,6 @@
       "count": 1,
       "products": [
         "model:gpu:2gd5-brk-evo-gt710-sl-2gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מידות mm",
-      "count": 1,
-      "products": [
-        "model:gpu:2x-5050-8g-geforce-oc-rtx-shadow-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מספר תצוגות מקסימלי",
-      "count": 1,
-      "products": [
-        "model:gpu:2x-5050-8g-geforce-oc-rtx-shadow-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "חיבורים",
-      "count": 1,
-      "products": [
-        "model:gpu:2x-5050-8g-geforce-oc-rtx-shadow-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "שטח תצוגה פעיל (mm)",
-      "count": 1,
-      "products": [
-        "model:gpu:2x-5050-8g-geforce-oc-rtx-shadow-8gb"
       ]
     },
     {
@@ -9366,22 +8953,6 @@
     },
     {
       "category": "memory",
-      "label": "משקל",
-      "count": 1,
-      "products": [
-        "model:memory:2-24gb-48gb-ax5cu9200c4224g-cudimm-dclacrsg-ddr5-grey-lancer-rgb-silver-xpg-48gb-8400mhz-rgb-silver-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תקנים ואישורים",
-      "count": 1,
-      "products": [
-        "model:memory:2x16gb-6000-bolt-cl30-v-32gb-x2-6000mhz-cl30-rgb-grey"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "הערה חשובה",
       "count": 1,
       "products": [
@@ -9846,6 +9417,14 @@
     },
     {
       "category": "motherboard",
+      "label": "גרסת Bluetooth",
+      "count": 1,
+      "products": [
+        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "דגם / קוד יצרן",
       "count": 1,
       "products": [
@@ -9911,6 +9490,14 @@
     {
       "category": "motherboard",
       "label": "מחברי מאווררים",
+      "count": 1,
+      "products": [
+        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מחברי תאורה",
       "count": 1,
       "products": [
         "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx"
@@ -10119,6 +9706,14 @@
     {
       "category": "motherboard",
       "label": "מספר יציאות VGA (D-Sub)",
+      "count": 1,
+      "products": [
+        "model:motherboard:a620am-b-evo-pro-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תקן ה-Wi-Fi המתקדם ביותר",
       "count": 1,
       "products": [
         "model:motherboard:a620am-b-evo-pro-microatx"
@@ -10510,6 +10105,14 @@
     },
     {
       "category": "motherboard",
+      "label": "צבע המוצר",
+      "count": 1,
+      "products": [
+        "model:motherboard:b550-gaming-mpg-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "נפח זיכרון גרפי מרבי של כרטיס מסך",
       "count": 1,
       "products": [
@@ -10754,222 +10357,6 @@
       "count": 1,
       "products": [
         "model:motherboard:b850-gaming-max-plus-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מספר יציאות Ethernet LAN (RJ-45)",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מיועד עבור",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מערכות הפעלה נתמכות של Windows",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תאימות למעבדים",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "שיתוף נתיבים",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מערכי RAID ל-NVMe",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "יציאת HDMI",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "יציאות USB-A אחוריות",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "יציאות USB-C אחוריות",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תמיכה ב-USB קדמי",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "בקר Ethernet",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מודול אלחוטי",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מגבלות אלחוטיות",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תכונות שמע",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "נפח זיכרון מרבי",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מחברי קירור",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מחברי חשמל",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תכונות אבחון והתקנה",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "התקנת M.2 וכרטיס גרפי",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מעגל מודפס ותכנון אספקת חשמל",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "פרופילי זיכרון",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "קיבולת ROM של BIOS",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חריצי הרחבה PCIe",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חריץ גרפי התלוי במעבד",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "אחסון M.2",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "גדלים נתמכים לכונני M.2",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "אחסון SATA",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
       ]
     },
     {
@@ -11242,6 +10629,14 @@
       "count": 1,
       "products": [
         "model:motherboard:e-h810m-pro-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Spec / Specifications / מעבדי Intel® Core™",
+      "count": 1,
+      "products": [
+        "model:motherboard:h610m-ii-pro-s-microatx"
       ]
     },
     {
@@ -11694,178 +11089,10 @@
     },
     {
       "category": "storage",
-      "label": "Solid state drive - Read speed",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Solid state drive - Write speed",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Ports & interfaces - Thunderbolt technology",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Ports & interfaces - USB connector",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Ports & interfaces - Wi-Fi",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Ports & interfaces - Data transfer rate",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Features - Housing material",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Features - Product colour",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Features - Protection features",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Features - Windows operating systems supported",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Security - Hardware encryption",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Security - Password protection",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Packaging data - Package width",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Packaging data - Package depth",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Packaging data - Package height",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Packaging data - Package weight",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Packaging content - Quick start guide",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Packaging content - Bundled software",
-      "count": 1,
-      "products": [
-        "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "דור",
       "count": 1,
       "products": [
         "model:storage:2230-vp4000-2000gb-gen4x4-m22230"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "תושבת מעבד (Socket)",
-      "count": 1,
-      "products": [
-        "model:storage:2t00-g26-sdssde30-2000gb-usb"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "זעזועים",
-      "count": 1,
-      "products": [
-        "model:storage:2t00-g26-sdssde30-2000gb-usb"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מידדים",
-      "count": 1,
-      "products": [
-        "model:storage:2t00-g26-sdssde30-2000gb-usb"
       ]
     },
     {
@@ -11882,134 +11109,6 @@
       "count": 1,
       "products": [
         "model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Storage - Number of storage drives supported",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Storage - Storage drive size",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Storage - Supported storage drive interfaces",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Storage - Supported storage drive lengths",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Ports & interfaces - USB connectivity",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Ports & interfaces - USB connector gender",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Ports & interfaces - USB ports quantity",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Ports & interfaces - Integrated USB cable",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Design - Product colour",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Design - Material",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Performance - Data transfer rate",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Performance - UASP support",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Performance - TRIM support",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Power - External power adapter",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Packaging content - Packaging content",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Technical details - USB powered",
-      "count": 1,
-      "products": [
-        "model:storage:32261-usb-m2"
       ]
     },
     {
@@ -12063,6 +11162,14 @@
     {
       "category": "storage",
       "label": "Power - Power consumption (write)",
+      "count": 1,
+      "products": [
+        "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Weight & dimensions - Weight",
       "count": 1,
       "products": [
         "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25"
@@ -12350,6 +11457,14 @@
     },
     {
       "category": "storage",
+      "label": "רעידות",
+      "count": 1,
+      "products": [
+        "model:storage:nv3-s-series-500gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "גורם צורה",
       "count": 1,
       "products": [
@@ -12438,6 +11553,14 @@
     },
     {
       "category": "storage",
+      "label": "חיבור",
+      "count": 1,
+      "products": [
+        "model:storage:sa53p-3840gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "סוג אריזה",
       "count": 1,
       "products": [
@@ -12478,10 +11601,10 @@
     },
     {
       "category": "accessories",
-      "label": "Hard Drive 2.5",
+      "label": "ממשק",
       "count": 1,
       "products": [
-        "mpn:accessories:fdabrkt001"
+        "mpn:accessories:cw9061029ww"
       ]
     },
     {
@@ -12506,110 +11629,6 @@
       "count": 1,
       "products": [
         "mpn:accessories:mgzndsgn15mr2"
-      ]
-    },
-    {
-      "category": "accessories",
-      "label": "סוג חיבור - ממשק",
-      "count": 1,
-      "products": [
-        "mpn:accessories:sstfs204bus"
-      ]
-    },
-    {
-      "category": "accessories",
-      "label": "סוג דיסק",
-      "count": 1,
-      "products": [
-        "mpn:accessories:sstfs204bus"
-      ]
-    },
-    {
-      "category": "accessories",
-      "label": "סוג אחסון",
-      "count": 1,
-      "products": [
-        "mpn:accessories:sstfs204bus"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "מיקרופון",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-133260"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "חיבור יחידת ממוחשבת",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-133260"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "קצב רענון",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "גודל תצוגה",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "רזולוציית תצוגה",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "רמקולים",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-192554"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "Thunderbolt",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-206634"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "Flash Card Slot",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-206634"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "גודל זיכרון (RAM)",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-215610"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "מסך מגע",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-216327"
       ]
     },
     {

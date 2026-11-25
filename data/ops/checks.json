@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-25T23:07:37+00:00",
+ "generated_at": "2026-11-25T23:57:45+00:00",
  "night": "2026-11-26",
  "suite": "publish",
  "escalate_nights": 3,
@@ -45,7 +45,7 @@
    "title": "TMS detail-page parser (fixtures)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.6,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -67,7 +67,7 @@
    "title": "Active regressions and quarantined rule diagnostics",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.5,
+   "seconds": 0.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -89,7 +89,7 @@
    "title": "Evidence-backed QA automation (offline pipeline corpus)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.6,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -100,7 +100,7 @@
    "title": "Category assignment fixtures",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -177,7 +177,7 @@
    "title": "KSP detail parser",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -199,7 +199,7 @@
    "title": "KSP stream transport offline integration",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.2,
+   "seconds": 1.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -221,7 +221,7 @@
    "title": "Scrape block stops and runner outcomes",
    "status": "pass",
    "exit": 0,
-   "seconds": 3.6,
+   "seconds": 3.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -232,7 +232,7 @@
    "title": "Population loss attribution",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -397,7 +397,7 @@
    "title": "Nano KSP phase state and push recovery",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -408,7 +408,7 @@
    "title": "Catalog not empty, no category collapsed",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.1,
+   "seconds": 1.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -419,7 +419,7 @@
    "title": "Shipped text hygiene",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.7,
+   "seconds": 2.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -430,7 +430,7 @@
    "title": "Cover corpus (format, size, borders)",
    "status": "pass",
    "exit": 0,
-   "seconds": 13.3,
+   "seconds": 17.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -441,7 +441,7 @@
    "title": "Site is not a wall of placeholder covers",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.0,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -474,7 +474,7 @@
    "title": "Publish set coherence",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -483,12 +483,12 @@
    "name": "source_churn",
    "level": "quality",
    "title": "Category reduction from source absences",
-   "status": "pass",
-   "exit": 0,
-   "seconds": 0.7,
-   "since": null,
-   "nights": 0,
-   "detail": ""
+   "status": "warn",
+   "exit": 1,
+   "seconds": 0.9,
+   "since": "2026-11-25T23:57:45+00:00",
+   "nights": 1,
+   "detail": "[source-churn] other: 19 -> 2, 17 products absent from vendor input (not confirmed gone)"
   },
   {
    "name": "golden",
@@ -496,7 +496,7 @@
    "title": "Spec golden fixtures",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.1,
+   "seconds": 1.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -507,7 +507,7 @@
    "title": "Identity-merge invariants",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 0.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -518,7 +518,7 @@
    "title": "One maker PN per category, is-a words",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -540,7 +540,7 @@
    "title": "Repeated snapshot rows",
    "status": "pass",
    "exit": 0,
-   "seconds": 7.8,
+   "seconds": 9.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -551,7 +551,7 @@
    "title": "Extract store reach",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -562,10 +562,10 @@
    "title": "Ledgers point at live data",
    "status": "warn",
    "exit": 1,
-   "seconds": 5.6,
+   "seconds": 6.6,
    "since": "2026-11-24T21:49:12+00:00",
    "nights": 2,
-   "detail": "      spec_conflict|model:memory:0-2-3600-cl18-lpx-vengeance-xmp-16gb-x1-3600mhz-cl18-black|speed_mhz\n      spec_conflict|model:memory:0-2-3600-cl18-lpx-vengeance-xmp-16gb-x1-3600mhz-cl18-black|voltage_v\n      spec_conflict|model:motherboard:1851-atx-b860-ddr5-displayport-fi-gaming-hdmi-lga-plus-thunderbolt-wi-atx|ethernet\n      spec_conflict|model:motherboard:1851-atx-b860-ddr5-displayport-fi-gaming-hdmi-lga-plus-thunderbolt-wi-atx|wireless\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx-2|\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx|\n  image blocklist entries matching nothing      1 (budget 3)\n  enrichment entries no listing reaches      1565 (budget 1700)\n  detail ledger drift                           9 (budget 40)\n  cover files no listing uses                  31 (budget 900)\n  [fail] qa_dismissed keys with no case: 13 > budget 10\n[check-ledgers] 1 failure(s)"
+   "detail": "      spec_conflict|model:memory:0-2x16gb-3-5600-cl36-dominator-xmp-32gb-x2-5600mhz-cl36-rgb-silver|color\n      spec_conflict|model:motherboard:1851-atx-b860-ddr5-displayport-fi-gaming-hdmi-lga-plus-thunderbolt-wi-atx|ethernet\n      spec_conflict|model:motherboard:1851-atx-b860-ddr5-displayport-fi-gaming-hdmi-lga-plus-thunderbolt-wi-atx|wireless\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx-2|\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx|\n  image blocklist entries matching nothing      1 (budget 3)\n  enrichment entries no listing reaches      1569 (budget 1700)\n  detail ledger drift                           9 (budget 40)\n  cover files no listing uses                  86 (budget 900)\n  [fail] override model:storage:gp-vsd1tb-1000gb-usb reaches no product\n  [fail] qa_dismissed keys with no case: 14 > budget 10\n[check-ledgers] 2 failure(s)"
   },
   {
    "name": "backtest",
@@ -573,7 +573,7 @@
    "title": "Inference-rule backtest",
    "status": "pass",
    "exit": 0,
-   "seconds": 4.4,
+   "seconds": 5.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -584,7 +584,7 @@
    "title": "Spec coverage floors",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -595,7 +595,7 @@
    "title": "Spec invariants",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.5,
+   "seconds": 0.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -606,7 +606,7 @@
    "title": "Site image resolvability (2% budget)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.0,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""

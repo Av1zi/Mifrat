@@ -2659,6 +2659,13 @@
     "vendor": "",
     "offers": [
       {
+        "listing_key": "1pc:171576",
+        "vendor": "1pc",
+        "vendor_sku": "FLUX-PRO",
+        "title": "מארז מחשב Antec FLUX PRO",
+        "price": 909
+      },
+      {
         "listing_key": "yahav:10034",
         "vendor": "yahav",
         "vendor_sku": "FLUX-PRO",
@@ -4238,7 +4245,7 @@
         "vendor": "1pc",
         "vendor_sku": "0-761345-10240-7",
         "title": "מארז מחשב Antec AX1000 ARGB בצבע שחור",
-        "price": 326
+        "price": 303
       },
       {
         "listing_key": "yahav:10912",
@@ -4256,6 +4263,29 @@
       }
     ],
     "model_code": "ax1000"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:ax67-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:0-761345-10207-0",
+        "vendor": "tms",
+        "vendor_sku": "0-761345-10207-0",
+        "title": "מארז מחשב Antec AX67 ARGB",
+        "price": 166
+      },
+      {
+        "listing_key": "1pc:207637",
+        "vendor": "1pc",
+        "vendor_sku": "207637",
+        "title": "מארז מחשב Antec AX67 ARGB בצבע שחור",
+        "price": 183
+      }
+    ],
+    "model_code": "ax67"
   },
   {
     "kind": "identity_merge",
@@ -4538,6 +4568,29 @@
     ],
     "model_code": "cx300",
     "manufacturer_pn": []
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:cx800-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:0-761345-10170-7",
+        "vendor": "tms",
+        "vendor_sku": "0-761345-10170-7",
+        "title": "מארז מחשב Antec CX800 ARGB Black",
+        "price": 255
+      },
+      {
+        "listing_key": "1pc:207636",
+        "vendor": "1pc",
+        "vendor_sku": "207636",
+        "title": "מארז מחשב Antec CX800 ARGB בצבע שחור",
+        "price": 272
+      }
+    ],
+    "model_code": "cx800"
   },
   {
     "kind": "identity_merge",
@@ -5829,16 +5882,9 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:3-light-pwm-wings-140mm-3-rgb-black-2",
+    "product_id": "model:case_fan:3-light-pwm-wings-140mm-rgb-black",
     "vendor": "",
     "offers": [
-      {
-        "listing_key": "1pc:109599",
-        "vendor": "1pc",
-        "vendor_sku": "BL078",
-        "title": "מאוורר be quiet! Light Wings 140mm PWM 3 Pack בצבע שחור",
-        "price": 388
-      },
       {
         "listing_key": "tms:BL078",
         "vendor": "tms",
@@ -7371,6 +7417,29 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
+    "product_id": "model:cpu:285-tray",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:189659",
+        "vendor": "1pc",
+        "vendor_sku": "C285T",
+        "title": "מעבד Intel Core Ultra 9 285 1851 Tray",
+        "price": 2659
+      },
+      {
+        "listing_key": "tms:C285T",
+        "vendor": "tms",
+        "vendor_sku": "C285T",
+        "title": "Intel Core Ultra 9 285 / 1851 Tray",
+        "price": 2570
+      }
+    ],
+    "model_code": "285"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
     "product_id": "model:cpu:285k",
     "vendor": "",
     "offers": [
@@ -7591,7 +7660,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000926",
         "title": "מעבד AMD Ryzen 7 5700X AM4 צבע טריי",
-        "price": 668
+        "price": 693
       },
       {
         "listing_key": "tms:100-000000926",
@@ -8935,7 +9004,7 @@
         "vendor": "1pc",
         "vendor_sku": "GAOG432GB3200C16BDC",
         "title": "זיכרון למחשב GeIL ORION AMD Edition DDR4 32GB (2x16GB) 3200 CL16 אפור",
-        "price": 1150
+        "price": 1136
       },
       {
         "listing_key": "tms:GAOG432GB3200C16BDC",
@@ -9157,7 +9226,7 @@
         "vendor": "1pc",
         "vendor_sku": "222244",
         "title": "זיכרון למחשב נייח GeIL ORION RGB DDR4 16GB (2x8GB) 3200 CL16 אפור",
-        "price": 691
+        "price": 681
       }
     ],
     "model_code": "2x8gb-3200-cl16-orion",
@@ -10740,6 +10809,52 @@
   {
     "kind": "identity_merge",
     "category": "psu",
+    "product_id": "model:psu:1-atx3-full-gsk-modular-v2-750w-full",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:GSK750V2",
+        "vendor": "tms",
+        "vendor_sku": "GSK750V2",
+        "title": "Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular",
+        "price": 369
+      },
+      {
+        "listing_key": "1pc:221404",
+        "vendor": "1pc",
+        "vendor_sku": "221404",
+        "title": "Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular",
+        "price": 427
+      }
+    ],
+    "model_code": "1-atx3-full-gsk-modular-v2"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:1-atx3-fully-mega-modular-850w-full",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:MEGA850",
+        "vendor": "tms",
+        "vendor_sku": "MEGA850",
+        "title": "Antec PSU 850W MEGA ATX3.1 80+ Gold Fully Modular",
+        "price": 385
+      },
+      {
+        "listing_key": "1pc:217737",
+        "vendor": "1pc",
+        "vendor_sku": "217737",
+        "title": "ספק כוח Antec MEGA 850W ATX3.1 80+ Gold Fully Modular",
+        "price": 402
+      }
+    ],
+    "model_code": "1-atx3-fully-mega-modular"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
     "product_id": "model:psu:10-power-system-850w",
     "vendor": "",
     "offers": [
@@ -11234,7 +11349,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT2000T710SSD8",
         "title": "כונן SSD Crucial T710 2TB NVMe M.2 PCIe Gen5 בצבע שחור CT2000T710SSD8",
-        "price": 1636
+        "price": 1651
       },
       {
         "listing_key": "ivory:173788",
@@ -11456,7 +11571,7 @@
         "vendor": "1pc",
         "vendor_sku": "152798",
         "title": "כונן VERBATIM Vi550 S3 2.5\" SSD 1TB",
-        "price": 1028
+        "price": 1038
       },
       {
         "listing_key": "ksp:281494",
@@ -11512,7 +11627,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT4000T705SSD5",
         "title": "כונן SSD Crucial T705 4TB PCIe Gen5 NVMe M.2 עם גוף קירור",
-        "price": 2481
+        "price": 2503
       },
       {
         "listing_key": "tms:CT4000T705SSD5",
@@ -11538,7 +11653,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000910",
         "title": "מעבד AMD Ryzen 7 7800X3D AM5 צבע שחור",
-        "price": 1255
+        "price": 1275
       },
       {
         "listing_key": "tms:100-000000910",
@@ -14586,7 +14701,7 @@
         "vendor": "1pc",
         "vendor_sku": "C14900KT",
         "title": "מעבד Intel Core i9 14900K / 1700 Tray",
-        "price": 2015
+        "price": 2703
       }
     ],
     "model_code": "14900k",
@@ -15475,23 +15590,6 @@
       }
     ],
     "model_code": "argb-cx800",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:cx800-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:0-761345-10170-7",
-        "vendor": "tms",
-        "vendor_sku": "0-761345-10170-7",
-        "title": "מארז מחשב Antec CX800 ARGB Black",
-        "price": 255
-      }
-    ],
-    "model_code": "cx800",
     "manufacturer_pn": []
   },
   {
@@ -17149,7 +17247,7 @@
         "vendor": "1pc",
         "vendor_sku": "12CL1W3B",
         "title": "מאווררי Lian-Li UNI FAN CL Wireless 120mm x3 בצבע שחור",
-        "price": 235
+        "price": 222
       },
       {
         "listing_key": "tms:12CL1W3B",
@@ -18079,13 +18177,6 @@
     "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
     "vendor": "",
     "offers": [
-      {
-        "listing_key": "1pc:207713",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 1110
-      },
       {
         "listing_key": "tms:GB850MAORUSELTWF6E",
         "vendor": "tms",
