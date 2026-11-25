@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T22:55:25.226276+00:00",
+  "generated_at": "2026-11-25T23:05:10.728792+00:00",
   "gaps": [
     {
       "category": "case",
@@ -6273,6 +6273,15 @@
     },
     {
       "category": "memory",
+      "label": "יבואן",
+      "count": 2,
+      "products": [
+        "model:memory:3200-3rd-cl22-k4a8g085wr-u16gb32-16gb-x1-3200mhz-cl22",
+        "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "תוכנת גיבוי אוטומטי",
       "count": 2,
       "products": [
@@ -9601,14 +9610,6 @@
       "count": 1,
       "products": [
         "model:memory:lpx-vengeance-16gb-x1-3600mhz-cl18-black"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "יבואן",
-      "count": 1,
-      "products": [
-        "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2"
       ]
     },
     {

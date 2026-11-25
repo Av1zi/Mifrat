@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T22:55:25.226276+00:00",
+  "generated_at": "2026-11-25T23:05:10.728792+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -311353,7 +311353,7 @@
         "cpu_generation": "Ryzen 9000"
       },
       "eilat_price_ils": 1790,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -315127,7 +315127,7 @@
         "color": "Black",
         "colour": "Black"
       },
-      "eilat_price_ils": 198,
+      "eilat_price_ils": 182,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -337246,7 +337246,7 @@
         "expansion_slots": "Trusted Platform Module (TPM) | PCIe 4.0 x16, mode x4 | PCIe 5.0 x16 slot | PCIe 3.0 x16, mode x1"
       },
       "eilat_price_ils": 771,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -341948,7 +341948,7 @@
         "power_connectors": "1x16-pin",
         "length": "304 mm"
       },
-      "eilat_price_ils": 7564,
+      "eilat_price_ils": 7638,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -342346,102 +342346,6 @@
         }
       },
       "product_id": "model:gpu:5070-gddr7-geforce-oc-prime-rtx-12gb"
-    },
-    {
-      "vendor_id": "tms",
-      "vendor_sku": "90YV0M1G-M0NA00",
-      "url": "https://tms.co.il/nvidia-cards/asus-90yv0m1g-m0na00",
-      "title_raw": "כרטיס מסך Asus T1 RTX 5070 12GB GDDR7 OC Edition",
-      "price_ils": null,
-      "in_stock": false,
-      "tile_parser": 2,
-      "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/catalog/products/90YV0M1G-M0NA00/n4OC0OXnjG.jpg",
-      "scraped_at": "2026-11-24T21:34:21.725330+00:00",
-      "_eilat_stale": false,
-      "eilat_price_ils": 3465,
-      "eilat_in_stock": false,
-      "eilat_stale": false,
-      "eilat_only": true,
-      "last_seen": "2026-11-25",
-      "seen_day": "2026-11-24",
-      "stale": false,
-      "listing_key": "tms:90YV0M1G-M0NA00",
-      "price_ils_raw": null,
-      "category_normalized": "gpu",
-      "match_text": "90YV0M1G-M0NA00 Asus T1 RTX 5070 12GB GDDR7 OC Edition",
-      "brand": "ASUS",
-      "mpn": "90YV0M1G-M0NA00",
-      "bundle_only": false,
-      "new_pc_deal": false,
-      "attributes": {
-        "manufacturer": "ASUS",
-        "brand": "ASUS",
-        "maker": "ASUS",
-        "vendor_brand": "ASUS",
-        "model": "T1 RTX 5070 GDDR7 OC Edition",
-        "model_name": "T1 RTX 5070 GDDR7 OC Edition",
-        "part_numbers": "90YV0M1G-M0NA00",
-        "part_number": "90YV0M1G-M0NA00",
-        "mpn": "90YV0M1G-M0NA00",
-        "chipset": "GeForce RTX 5070",
-        "gpu_chip": "GeForce RTX 5070",
-        "gpu_chipset": "GeForce RTX 5070",
-        "graphics_processor": "GeForce RTX 5070",
-        "memory_gb": 12,
-        "vram_gb": 12,
-        "memory": "12GB",
-        "video_memory": 12,
-        "memory_type": "GDDR7",
-        "vram_type": "GDDR7",
-        "gddr": "GDDR7",
-        "memory_speed_gbps": 28,
-        "vram_speed": 28,
-        "memory_data_rate": 28,
-        "memory_bus_bit": 192,
-        "memory_bus_width": 192,
-        "vram_bus_width": 192,
-        "core_clock_mhz": 2572,
-        "core_clock": 2572,
-        "base_clock_mhz": 2572,
-        "directx": "12 Ultimate",
-        "directx_version": "12 Ultimate",
-        "opengl": "4.6",
-        "opengl_version": "4.6",
-        "interface": "PCIe 5.0 x16",
-        "bus_interface": "PCIe 5.0 x16",
-        "max_displays": 4,
-        "maximum_displays": 4,
-        "multi_display": 4,
-        "length_mm": 305,
-        "gpu_length_mm": 305,
-        "card_length_mm": 305,
-        "recommended_psu_w": 750,
-        "minimum_psu_w": 750,
-        "psu_requirement_w": 750,
-        "external_power": "1x16-pin",
-        "power_connections": "1x16-pin",
-        "power_connectors": "1x16-pin",
-        "length": "305 mm"
-      },
-      "vendor_meta": {
-        "detail_specs": {
-          "מעבד גרפי": "NVIDIA RTX 5070",
-          "מהירות ליבה": "2572MHz",
-          "מהירות זכרון": "28Gbps",
-          "גודל זכרון כרטיס מסך": "12GB",
-          "סוג זכרון גרפי": "GDDR7",
-          "רוחב פס זכרון": "192bit",
-          "כמות מסכים מקסימלית": "4",
-          "מימדים": "305x126x50mm",
-          "גרסת DirectX": "12 Ultimate",
-          "גרסת OpenGL": "4.6",
-          "חיבור גרפי": "HDMI | DisplayPort",
-          "ממשק כרטיס מסך": "PCIe 5.0 x16",
-          "Recommended PSU": "750W with Power Connectors 1x16-pin"
-        }
-      },
-      "product_id": "model:gpu:5070-gddr7-oc-rtx-t1-12gb"
     },
     {
       "vendor_id": "tms",
@@ -345987,6 +345891,9 @@
         "minimum_psu_w": 300,
         "psu_requirement_w": 300
       },
+      "eilat_price_ils": 671,
+      "eilat_in_stock": false,
+      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "מעבד גרפי": "NVIDIA GTX 1650",
@@ -351878,7 +351785,7 @@
         "colour": "White"
       },
       "eilat_price_ils": 66,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -356560,7 +356467,7 @@
         "cpu_tier": "I5"
       },
       "eilat_price_ils": 875,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -359518,7 +359425,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 288,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -376532,7 +376439,7 @@
         "molex": 1
       },
       "eilat_price_ils": 507,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -379634,7 +379541,7 @@
         "family": "MP700"
       },
       "eilat_price_ils": 1379,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -384296,7 +384203,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 194,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -385411,7 +385318,7 @@
         "colour": "Green",
         "memory": "16GB"
       },
-      "eilat_price_ils": 440,
+      "eilat_price_ils": 436,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -385618,7 +385525,7 @@
         "cl": 46,
         "memory": "16GB"
       },
-      "eilat_price_ils": 853,
+      "eilat_price_ils": 868,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -395511,7 +395418,7 @@
         "colour": "Gray",
         "memory": "16GB"
       },
-      "eilat_price_ils": 507,
+      "eilat_price_ils": 496,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -395588,7 +395495,7 @@
         "colour": "Gray",
         "memory": "32GB"
       },
-      "eilat_price_ils": 943,
+      "eilat_price_ils": 932,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -395667,7 +395574,7 @@
         "colour": "Gray",
         "memory": "16GB"
       },
-      "eilat_price_ils": 537,
+      "eilat_price_ils": 529,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -395747,7 +395654,7 @@
         "colour": "Gray",
         "memory": "32GB"
       },
-      "eilat_price_ils": 976,
+      "eilat_price_ils": 961,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -395825,7 +395732,7 @@
         "colour": "Black",
         "memory": "16GB"
       },
-      "eilat_price_ils": 458,
+      "eilat_price_ils": 451,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -399584,14 +399491,14 @@
       "tile_parser": 2,
       "category_guess": "motherboard",
       "image_url": "https://tms.co.il/image/catalog/products/GB650EAGLEAX/4WOVVb3dnK.jpg",
-      "scraped_at": "2026-11-24T21:38:41.065264+00:00",
+      "scraped_at": "2026-11-25T22:56:23.260078+00:00",
       "_eilat_stale": false,
       "eilat_price_ils": 596,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "eilat_only": true,
-      "last_seen": "2026-11-25",
-      "seen_day": "2026-11-24",
+      "last_seen": "2026-11-26",
+      "seen_day": "2026-11-26",
       "stale": false,
       "listing_key": "tms:GB650EAGLEAX",
       "price_ils_raw": null,
@@ -400834,7 +400741,7 @@
         "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x1"
       },
       "eilat_price_ils": 510,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -401999,7 +401906,7 @@
         "expansion_slots": "PCIe 3.0 x16, mode x1 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
       },
       "eilat_price_ils": 551,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -405750,7 +405657,7 @@
         "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
       },
       "eilat_price_ils": 1091,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -406458,7 +406365,7 @@
         "expansion_slots": "PCIe 5.0 x16 slot | PCIe 3.0 x16, mode x1 | Trusted Platform Module (TPM)"
       },
       "eilat_price_ils": 682,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -407400,7 +407307,7 @@
         "expansion_slots": "PCIe 5.0 x16 slot | PCIe 3.0 x16, mode x4 | Trusted Platform Module (TPM)"
       },
       "eilat_price_ils": 738,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -412096,7 +412003,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 1139,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -415281,7 +415188,7 @@
         "molex": 4
       },
       "eilat_price_ils": 347,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -426201,6 +426108,9 @@
         "colour": "White",
         "memory": "32GB"
       },
+      "eilat_price_ils": 2198,
+      "eilat_in_stock": true,
+      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "סוג זכרון": "DDR5",
@@ -426992,7 +426902,7 @@
         "color": "Black",
         "colour": "Black"
       },
-      "eilat_price_ils": 378,
+      "eilat_price_ils": 369,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -430697,7 +430607,7 @@
       "price_ils_raw": 514,
       "category_normalized": "memory",
       "match_text": "MEM6919 Samsung DDR4 16GB 3200 CL22 3rd (K4A8G085WR-U16GB32)",
-      "brand": null,
+      "brand": "Samsung",
       "mpn": "MEM6919",
       "bundle_only": false,
       "new_pc_deal": false,
@@ -430716,18 +430626,43 @@
         "speed_rating_mhz": 3200,
         "speed_rating": 3200,
         "memory_speed_mhz": 3200,
+        "module_count": 1,
+        "modules": "1x16GB",
+        "modules_count": 1,
+        "number_of_modules": 1,
+        "module_size_gb": 16,
+        "module_capacity_gb": 16,
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
-        "kit": 16,
+        "kit": "1x16GB",
         "first_word_latency_ns": 13.8,
         "first_word_latency": "13.8 ns",
         "cas_latency": 22,
         "cas": 22,
         "cl": 22,
+        "voltage_v": 1.2,
+        "voltage": "1.2V",
+        "memory_voltage": 1.2,
         "memory": "16GB"
       },
-      "product_id": "model:memory:3200-3rd-cl22-k4a8g085wr-samsung-u16gb32-16gb-3200mhz-cl22"
+      "eilat_price_ils": 436,
+      "eilat_in_stock": false,
+      "eilat_stale": false,
+      "vendor_meta": {
+        "detail_specs": {
+          "סוג זכרון": "DDR4",
+          "גודל זיכרון (RAM)": "16GB",
+          "ערכת זיכרון": "1x16GB",
+          "מהירות זיכרון (Max)": "3200",
+          "זמן איחזור": "CL22",
+          "מתח זיכרון": "1.2V",
+          "צבע": "לא ידוע",
+          "יבואן": "סי.די.לוג בע\"מ",
+          "אחריות": "3 שנים"
+        }
+      },
+      "product_id": "model:memory:3200-3rd-cl22-k4a8g085wr-u16gb32-16gb-x1-3200mhz-cl22"
     },
     {
       "vendor_id": "tms",
@@ -448408,8 +448343,8 @@
         "power_connections": "1x16-pin",
         "power_connectors": "1x16-pin"
       },
-      "eilat_price_ils": 8011,
-      "eilat_in_stock": true,
+      "eilat_price_ils": 8160,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -448495,7 +448430,7 @@
         "power_connectors": "1x16-pin",
         "length": "360 mm"
       },
-      "eilat_price_ils": 8011,
+      "eilat_price_ils": 8160,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -448673,7 +448608,7 @@
         "power_connectors": "1x16-pin",
         "length": "340 mm"
       },
-      "eilat_price_ils": 7676,
+      "eilat_price_ils": 7750,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -450055,7 +449990,7 @@
         "molex": 4
       },
       "eilat_price_ils": 590,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -450991,7 +450926,7 @@
         "power_connectors": "1x16-pin",
         "length": "332 mm"
       },
-      "eilat_price_ils": 7079,
+      "eilat_price_ils": 7266,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -451085,7 +451020,7 @@
         "power_connectors": "1x16-pin",
         "length": "332 mm"
       },
-      "eilat_price_ils": 7079,
+      "eilat_price_ils": 7266,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -463224,7 +463159,7 @@
         "molex4_connectors": 2,
         "molex": 2
       },
-      "eilat_price_ils": 226,
+      "eilat_price_ils": 216,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -463297,7 +463232,7 @@
         "molex4_connectors": 2,
         "molex": 2
       },
-      "eilat_price_ils": 268,
+      "eilat_price_ils": 254,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -468051,7 +467986,7 @@
         "molex": 1
       },
       "eilat_price_ils": 173,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -477643,7 +477578,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 129,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -569582,7 +569517,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 1139,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -644686,7 +644621,7 @@
             "colour": "Black"
           },
           "model_code": null,
-          "eilat_price_ils": 378,
+          "eilat_price_ils": 369,
           "eilat_in_stock": true,
           "eilat_stale": false
         },
@@ -644850,7 +644785,7 @@
           "colour": "Black"
         },
         "model_code": null,
-        "eilat_price_ils": 378,
+        "eilat_price_ils": 369,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -681833,7 +681768,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 288,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -681971,7 +681906,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 288,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -725915,7 +725850,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 129,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -725977,7 +725912,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 129,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -745208,7 +745143,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 194,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -745272,7 +745207,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 194,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -816819,7 +816754,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 66,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         }
       ],
@@ -816864,7 +816799,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 66,
-        "eilat_in_stock": false,
+        "eilat_in_stock": true,
         "eilat_stale": false
       },
       "specs": {
@@ -864538,7 +864473,7 @@
             "colour": "Black"
           },
           "model_code": null,
-          "eilat_price_ils": 198,
+          "eilat_price_ils": 182,
           "eilat_in_stock": true,
           "eilat_stale": false
         },
@@ -864645,7 +864580,7 @@
           "colour": "Black"
         },
         "model_code": null,
-        "eilat_price_ils": 198,
+        "eilat_price_ils": 182,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -984053,7 +983988,7 @@
           "model_code": null,
           "packaging_basis": "title",
           "eilat_price_ils": 1790,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -987365,7 +987300,7 @@
           "model_code": null,
           "packaging_basis": "title",
           "eilat_price_ils": 875,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1000839,7 +1000774,10 @@
             "minimum_psu_w": 300,
             "psu_requirement_w": 300
           },
-          "model_code": null
+          "model_code": null,
+          "eilat_price_ils": 671,
+          "eilat_in_stock": false,
+          "eilat_stale": false
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/AKN1650D6S4GH1/dhssugT0F8.jpg",
@@ -1000913,7 +1000851,10 @@
           "minimum_psu_w": 300,
           "psu_requirement_w": 300
         },
-        "model_code": null
+        "model_code": null,
+        "eilat_price_ils": 671,
+        "eilat_in_stock": false,
+        "eilat_stale": false
       },
       "specs": {
         "manufacturer": "ARKTEK",
@@ -1009904,7 +1009845,7 @@
             "length": "360 mm"
           },
           "model_code": "GV-N5080AORUSM ICE-16GD",
-          "eilat_price_ils": 8011,
+          "eilat_price_ils": 8160,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1009973,7 +1009914,7 @@
           "length": "360 mm"
         },
         "model_code": "GV-N5080AORUSM ICE-16GD",
-        "eilat_price_ils": 8011,
+        "eilat_price_ils": 8160,
         "eilat_in_stock": false,
         "eilat_stale": false
       },
@@ -1010873,7 +1010814,7 @@
             "length": "340 mm"
           },
           "model_code": "GV-N5080GAMING OC-16GD",
-          "eilat_price_ils": 7676,
+          "eilat_price_ils": 7750,
           "eilat_in_stock": false,
           "eilat_stale": false
         },
@@ -1016426,8 +1016367,8 @@
             "power_connectors": "1x16-pin"
           },
           "model_code": null,
-          "eilat_price_ils": 8011,
-          "eilat_in_stock": true,
+          "eilat_price_ils": 8160,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1058380,221 +1058321,6 @@
       }
     },
     {
-      "product_id": "model:gpu:5070-gddr7-oc-rtx-t1-12gb",
-      "canonical_name": "ASUS GeForce RTX 5070 12GB OC (90YV0M1G-M0NA00)",
-      "description": null,
-      "category": "gpu",
-      "brand": "ASUS",
-      "model": "T1 RTX 5070 GDDR7 OC Edition",
-      "attributes": {
-        "manufacturer": "ASUS",
-        "brand": "ASUS",
-        "maker": "ASUS",
-        "vendor_brand": "ASUS",
-        "model": "T1 RTX 5070 GDDR7 OC Edition",
-        "model_name": "T1 RTX 5070 GDDR7 OC Edition",
-        "part_numbers": "90YV0M1G-M0NA00",
-        "part_number": "90YV0M1G-M0NA00",
-        "mpn": "90YV0M1G-M0NA00",
-        "chipset": "GeForce RTX 5070",
-        "gpu_chip": "GeForce RTX 5070",
-        "gpu_chipset": "GeForce RTX 5070",
-        "graphics_processor": "GeForce RTX 5070",
-        "chip_manufacturer": "NVIDIA",
-        "gpu_chip_vendor": "NVIDIA",
-        "chip_vendor": "NVIDIA",
-        "memory_gb": 12,
-        "vram_gb": 12,
-        "memory": "12GB",
-        "video_memory": 12,
-        "memory_type": "GDDR7",
-        "vram_type": "GDDR7",
-        "gddr": "GDDR7",
-        "memory_speed_gbps": 28,
-        "vram_speed": 28,
-        "memory_data_rate": 28,
-        "memory_bus_bit": 192,
-        "memory_bus_width": 192,
-        "vram_bus_width": 192,
-        "core_clock_mhz": 2572,
-        "core_clock": 2572,
-        "base_clock_mhz": 2572,
-        "directx": "12 Ultimate",
-        "directx_version": "12 Ultimate",
-        "opengl": "4.6",
-        "opengl_version": "4.6",
-        "interface": "PCIe 5.0 x16",
-        "bus_interface": "PCIe 5.0 x16",
-        "max_displays": 4,
-        "maximum_displays": 4,
-        "multi_display": 4,
-        "max_resolution": "7680x4320",
-        "maximum_resolution": "7680x4320",
-        "digital_max_resolution": "7680x4320",
-        "length_mm": 305,
-        "gpu_length_mm": 305,
-        "card_length_mm": 305,
-        "tdp_w": 250,
-        "tdp": "250W",
-        "power_consumption": 250,
-        "recommended_psu_w": 750,
-        "minimum_psu_w": 750,
-        "psu_requirement_w": 750,
-        "cooling": "Air",
-        "cooler_type": "Air",
-        "fan_count": 3,
-        "fans": 3,
-        "external_power": "1x16-pin",
-        "power_connections": "1x16-pin",
-        "power_connectors": "1x16-pin",
-        "dp_outputs": "3x DisplayPort",
-        "displayport_ports": "3x DisplayPort",
-        "dp_ports": "3x DisplayPort",
-        "hdmi_outputs": "1x HDMI",
-        "hdmi_ports": "1x HDMI",
-        "length": "305 mm"
-      },
-      "matched_by": "identity",
-      "vendor_count": 1,
-      "offers": [
-        {
-          "vendor_id": "tms",
-          "vendor_sku": "90YV0M1G-M0NA00",
-          "listing_key": "tms:90YV0M1G-M0NA00",
-          "url": "https://tms.co.il/nvidia-cards/asus-90yv0m1g-m0na00",
-          "price_ils": null,
-          "in_stock": false,
-          "last_seen": "2026-11-25",
-          "seen_day": "2026-11-24",
-          "stale": false,
-          "title_raw": "כרטיס מסך Asus T1 RTX 5070 12GB GDDR7 OC Edition",
-          "category_guess": "gpu",
-          "category_normalized": "gpu",
-          "brand": "ASUS",
-          "mpn": "90YV0M1G-M0NA00",
-          "image_url": "https://tms.co.il/image/catalog/products/90YV0M1G-M0NA00/n4OC0OXnjG.jpg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "ASUS",
-            "brand": "ASUS",
-            "maker": "ASUS",
-            "vendor_brand": "ASUS",
-            "model": "T1 RTX 5070 GDDR7 OC Edition",
-            "model_name": "T1 RTX 5070 GDDR7 OC Edition",
-            "part_numbers": "90YV0M1G-M0NA00",
-            "part_number": "90YV0M1G-M0NA00",
-            "mpn": "90YV0M1G-M0NA00",
-            "chipset": "GeForce RTX 5070",
-            "gpu_chip": "GeForce RTX 5070",
-            "gpu_chipset": "GeForce RTX 5070",
-            "graphics_processor": "GeForce RTX 5070",
-            "memory_gb": 12,
-            "vram_gb": 12,
-            "memory": "12GB",
-            "video_memory": 12,
-            "memory_type": "GDDR7",
-            "vram_type": "GDDR7",
-            "gddr": "GDDR7",
-            "memory_speed_gbps": 28,
-            "vram_speed": 28,
-            "memory_data_rate": 28,
-            "memory_bus_bit": 192,
-            "memory_bus_width": 192,
-            "vram_bus_width": 192,
-            "core_clock_mhz": 2572,
-            "core_clock": 2572,
-            "base_clock_mhz": 2572,
-            "directx": "12 Ultimate",
-            "directx_version": "12 Ultimate",
-            "opengl": "4.6",
-            "opengl_version": "4.6",
-            "interface": "PCIe 5.0 x16",
-            "bus_interface": "PCIe 5.0 x16",
-            "max_displays": 4,
-            "maximum_displays": 4,
-            "multi_display": 4,
-            "length_mm": 305,
-            "gpu_length_mm": 305,
-            "card_length_mm": 305,
-            "recommended_psu_w": 750,
-            "minimum_psu_w": 750,
-            "psu_requirement_w": 750,
-            "external_power": "1x16-pin",
-            "power_connections": "1x16-pin",
-            "power_connectors": "1x16-pin",
-            "length": "305 mm"
-          },
-          "model_code": null,
-          "eilat_price_ils": 3465,
-          "eilat_in_stock": false,
-          "eilat_stale": false,
-          "eilat_only": true
-        }
-      ],
-      "image_url": "https://tms.co.il/image/catalog/products/90YV0M1G-M0NA00/n4OC0OXnjG.jpg",
-      "best_offer": null,
-      "specs": {
-        "manufacturer": "ASUS",
-        "model": "T1 RTX 5070 GDDR7 OC Edition",
-        "part_numbers": [
-          "90YV0M1G-M0NA00"
-        ],
-        "chipset": "GeForce RTX 5070",
-        "chip_manufacturer": "NVIDIA",
-        "memory_gb": 12,
-        "memory_type": "GDDR7",
-        "memory_speed_gbps": 28,
-        "memory_bus_bit": 192,
-        "core_clock_mhz": 2572,
-        "boost_clock_mhz": null,
-        "directx": "12 Ultimate",
-        "opengl": "4.6",
-        "interface": "PCIe 5.0 x16",
-        "max_displays": 4,
-        "max_resolution": "7680x4320",
-        "length_mm": 305,
-        "tdp_w": 250,
-        "recommended_psu_w": 750,
-        "cooling": "Air",
-        "fan_count": 3,
-        "external_power": [
-          "1x16-pin"
-        ],
-        "dp_outputs": {
-          "DisplayPort": 3
-        },
-        "hdmi_outputs": {
-          "HDMI": 1
-        },
-        "color": null
-      },
-      "spec_sources": {
-        "chipset": "vendor",
-        "core_clock_mhz": "vendor",
-        "memory_speed_gbps": "vendor",
-        "memory_gb": "title",
-        "memory_type": "catalog",
-        "memory_bus_bit": "catalog",
-        "max_displays": "catalog",
-        "length_mm": "vendor",
-        "directx": "vendor",
-        "opengl": "vendor",
-        "interface": "catalog",
-        "external_power": "catalog",
-        "recommended_psu_w": "vendor",
-        "manufacturer": "vendor",
-        "model": "vendor",
-        "part_numbers": "vendor",
-        "fan_count": "catalog",
-        "hdmi_outputs": "catalog",
-        "dp_outputs": "catalog",
-        "chip_manufacturer": "derived:gpu.chipset_maker",
-        "tdp_w": "derived:gpu.chipset_table",
-        "max_resolution": "derived:gpu.chipset_table",
-        "cooling": "derived:gpu.fans_mean_air"
-      }
-    },
-    {
       "product_id": "model:gpu:5070-geforce-ichill-rtx-x3-12gb",
       "canonical_name": "Inno3D iChill GeForce RTX 5070 12GB",
       "description": null,
@@ -1061371,7 +1061097,7 @@
             "length": "332 mm"
           },
           "model_code": null,
-          "eilat_price_ils": 7079,
+          "eilat_price_ils": 7266,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1061455,7 +1061181,7 @@
           "length": "332 mm"
         },
         "model_code": null,
-        "eilat_price_ils": 7079,
+        "eilat_price_ils": 7266,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1061655,7 +1061381,7 @@
             "length": "332 mm"
           },
           "model_code": null,
-          "eilat_price_ils": 7079,
+          "eilat_price_ils": 7266,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1061729,7 +1061455,7 @@
           "length": "332 mm"
         },
         "model_code": null,
-        "eilat_price_ils": 7079,
+        "eilat_price_ils": 7266,
         "eilat_in_stock": false,
         "eilat_stale": false
       },
@@ -1061994,7 +1061720,7 @@
             "length": "304 mm"
           },
           "model_code": null,
-          "eilat_price_ils": 7564,
+          "eilat_price_ils": 7638,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1062098,7 +1061824,7 @@
           "length": "304 mm"
         },
         "model_code": null,
-        "eilat_price_ils": 7564,
+        "eilat_price_ils": 7638,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1084413,7 +1084139,10 @@
             "colour": "White",
             "memory": "32GB"
           },
-          "model_code": null
+          "model_code": null,
+          "eilat_price_ils": 2198,
+          "eilat_in_stock": true,
+          "eilat_stale": false
         },
         {
           "vendor_id": "yahav",
@@ -1123940,7 +1123669,7 @@
             "memory": "32GB"
           },
           "model_code": null,
-          "eilat_price_ils": 943,
+          "eilat_price_ils": 932,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1124012,7 +1123741,7 @@
           "memory": "32GB"
         },
         "model_code": null,
-        "eilat_price_ils": 943,
+        "eilat_price_ils": 932,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1124175,7 +1123904,7 @@
             "memory": "32GB"
           },
           "model_code": null,
-          "eilat_price_ils": 976,
+          "eilat_price_ils": 961,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1124239,7 +1123968,7 @@
           "memory": "32GB"
         },
         "model_code": null,
-        "eilat_price_ils": 976,
+        "eilat_price_ils": 961,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1147976,7 +1147705,7 @@
             "memory": "16GB"
           },
           "model_code": null,
-          "eilat_price_ils": 537,
+          "eilat_price_ils": 529,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1148040,7 +1147769,7 @@
           "memory": "16GB"
         },
         "model_code": null,
-        "eilat_price_ils": 537,
+        "eilat_price_ils": 529,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1148261,7 +1147990,7 @@
             "memory": "16GB"
           },
           "model_code": null,
-          "eilat_price_ils": 507,
+          "eilat_price_ils": 496,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1148333,7 +1148062,7 @@
           "memory": "16GB"
         },
         "model_code": null,
-        "eilat_price_ils": 507,
+        "eilat_price_ils": 496,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1154389,13 +1154118,17 @@
       }
     },
     {
-      "product_id": "model:memory:3200-3rd-cl22-k4a8g085wr-samsung-u16gb32-16gb-3200mhz-cl22",
-      "canonical_name": "Samsung 16GB DDR4 3200MHz CL22",
+      "product_id": "model:memory:3200-3rd-cl22-k4a8g085wr-u16gb32-16gb-x1-3200mhz-cl22",
+      "canonical_name": "Samsung 16GB DDR4 (1x16GB) 3200MHz CL22",
       "description": null,
       "category": "memory",
       "brand": "Samsung",
       "model": "Samsung 3200 CL22 3rd K4A8G085WR-U16GB32",
       "attributes": {
+        "manufacturer": "Samsung",
+        "brand": "Samsung",
+        "maker": "Samsung",
+        "vendor_brand": "Samsung",
         "model": "Samsung 3200 CL22 3rd K4A8G085WR-U16GB32",
         "model_name": "Samsung 3200 CL22 3rd K4A8G085WR-U16GB32",
         "part_numbers": "MEM6919",
@@ -1154413,20 +1154146,31 @@
         "form_factor": "DIMM",
         "dimm_type": "DIMM",
         "memory_form_factor": "DIMM",
+        "module_count": 1,
+        "modules": "1x16GB",
+        "modules_count": 1,
+        "number_of_modules": 1,
+        "module_size_gb": 16,
+        "module_capacity_gb": 16,
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
-        "kit": 16,
+        "kit": "1x16GB",
         "first_word_latency_ns": 13.8,
         "first_word_latency": "13.8 ns",
         "cas_latency": 22,
         "cas": 22,
         "cl": 22,
+        "voltage_v": 1.2,
+        "voltage": "1.2V",
+        "memory_voltage": 1.2,
         "ecc": "No",
         "ecc_support": "No",
         "registered": "No",
         "ecc_registered": "No",
         "buffered": "No",
+        "lighting": "No",
+        "rgb_lighting": "No",
         "memory": "16GB"
       },
       "matched_by": "identity",
@@ -1154445,7 +1154189,7 @@
           "title_raw": "Samsung DDR4 16GB 3200 CL22 3rd (K4A8G085WR-U16GB32)",
           "category_guess": "ram",
           "category_normalized": "memory",
-          "brand": null,
+          "brand": "Samsung",
           "mpn": "MEM6919",
           "image_url": "https://tms.co.il/image/cache/placeholder-228x228.png",
           "bundle_only": false,
@@ -1154464,18 +1154208,30 @@
             "speed_rating_mhz": 3200,
             "speed_rating": 3200,
             "memory_speed_mhz": 3200,
+            "module_count": 1,
+            "modules": "1x16GB",
+            "modules_count": 1,
+            "number_of_modules": 1,
+            "module_size_gb": 16,
+            "module_capacity_gb": 16,
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
-            "kit": 16,
+            "kit": "1x16GB",
             "first_word_latency_ns": 13.8,
             "first_word_latency": "13.8 ns",
             "cas_latency": 22,
             "cas": 22,
             "cl": 22,
+            "voltage_v": 1.2,
+            "voltage": "1.2V",
+            "memory_voltage": 1.2,
             "memory": "16GB"
           },
-          "model_code": null
+          "model_code": null,
+          "eilat_price_ils": 436,
+          "eilat_in_stock": false,
+          "eilat_stale": false
         }
       ],
       "best_offer": {
@@ -1154491,7 +1154247,7 @@
         "title_raw": "Samsung DDR4 16GB 3200 CL22 3rd (K4A8G085WR-U16GB32)",
         "category_guess": "ram",
         "category_normalized": "memory",
-        "brand": null,
+        "brand": "Samsung",
         "mpn": "MEM6919",
         "image_url": "https://tms.co.il/image/cache/placeholder-228x228.png",
         "bundle_only": false,
@@ -1154510,21 +1154266,33 @@
           "speed_rating_mhz": 3200,
           "speed_rating": 3200,
           "memory_speed_mhz": 3200,
+          "module_count": 1,
+          "modules": "1x16GB",
+          "modules_count": 1,
+          "number_of_modules": 1,
+          "module_size_gb": 16,
+          "module_capacity_gb": 16,
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
-          "kit": 16,
+          "kit": "1x16GB",
           "first_word_latency_ns": 13.8,
           "first_word_latency": "13.8 ns",
           "cas_latency": 22,
           "cas": 22,
           "cl": 22,
+          "voltage_v": 1.2,
+          "voltage": "1.2V",
+          "memory_voltage": 1.2,
           "memory": "16GB"
         },
-        "model_code": null
+        "model_code": null,
+        "eilat_price_ils": 436,
+        "eilat_in_stock": false,
+        "eilat_stale": false
       },
       "specs": {
-        "manufacturer": null,
+        "manufacturer": "Samsung",
         "model": "Samsung 3200 CL22 3rd K4A8G085WR-U16GB32",
         "part_numbers": [
           "MEM6919"
@@ -1154533,30 +1154301,35 @@
         "speed": "DDR4-3200",
         "speed_mhz": 3200,
         "form_factor": "DIMM",
-        "module_count": null,
-        "module_size_gb": null,
+        "module_count": 1,
+        "module_size_gb": 16,
         "total_gb": 16,
         "first_word_latency_ns": 13.8,
         "cas_latency": 22,
-        "voltage_v": null,
+        "voltage_v": 1.2,
         "ecc": false,
         "registered": false,
         "heat_spreader": null,
-        "lighting": null,
+        "lighting": "No",
         "color": null
       },
       "spec_sources": {
         "memory_type": "vendor",
         "total_gb": "vendor",
+        "module_count": "vendor",
+        "module_size_gb": "vendor",
         "speed_mhz": "vendor",
-        "speed": "vendor",
         "cas_latency": "vendor",
+        "voltage_v": "vendor",
+        "speed": "vendor",
         "first_word_latency_ns": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
+        "manufacturer": "vendor",
         "form_factor": "derived:memory.no_laptop_marker",
         "ecc": "derived:memory.no_ecc_marker",
-        "registered": "derived:memory.no_registered_marker"
+        "registered": "derived:memory.no_registered_marker",
+        "lighting": "derived:memory.no_lighting_mention"
       }
     },
     {
@@ -1154899,7 +1154672,7 @@
             "memory": "16GB"
           },
           "model_code": null,
-          "eilat_price_ils": 440,
+          "eilat_price_ils": 436,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1154962,7 +1154735,7 @@
           "memory": "16GB"
         },
         "model_code": null,
-        "eilat_price_ils": 440,
+        "eilat_price_ils": 436,
         "eilat_in_stock": false,
         "eilat_stale": false
       },
@@ -1157015,7 +1156788,7 @@
             "memory": "16GB"
           },
           "model_code": null,
-          "eilat_price_ils": 458,
+          "eilat_price_ils": 451,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1157077,7 +1156850,7 @@
           "memory": "16GB"
         },
         "model_code": null,
-        "eilat_price_ils": 458,
+        "eilat_price_ils": 451,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1162421,7 +1162194,7 @@
             "memory": "16GB"
           },
           "model_code": null,
-          "eilat_price_ils": 853,
+          "eilat_price_ils": 868,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1162487,7 +1162260,7 @@
           "memory": "16GB"
         },
         "model_code": null,
-        "eilat_price_ils": 853,
+        "eilat_price_ils": 868,
         "eilat_in_stock": false,
         "eilat_stale": false
       },
@@ -1263211,7 +1262984,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 771,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         }
       ],
@@ -1263390,7 +1263163,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 771,
-        "eilat_in_stock": false,
+        "eilat_in_stock": true,
         "eilat_stale": false
       },
       "specs": {
@@ -1274071,7 +1273844,7 @@
           },
           "model_code": "B850 AORUS ELITE X3D",
           "eilat_price_ils": 1091,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1274193,7 +1273966,7 @@
         },
         "model_code": "B850 AORUS ELITE X3D",
         "eilat_price_ils": 1091,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1295380,8 +1295153,8 @@
           "url": "https://tms.co.il/computer-hardware-components/motherboards/gigabyte-b650-eagle-ax",
           "price_ils": null,
           "in_stock": false,
-          "last_seen": "2026-11-25",
-          "seen_day": "2026-11-24",
+          "last_seen": "2026-11-26",
+          "seen_day": "2026-11-26",
           "stale": false,
           "title_raw": "Gigabyte B650 EAGLE AX",
           "category_guess": "motherboard",
@@ -1297475,7 +1297248,7 @@
           },
           "model_code": "B650M D3HP AX",
           "eilat_price_ils": 510,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1332965,7 +1332738,7 @@
           },
           "model_code": "B760 GAMING X DDR4 GEN5",
           "eilat_price_ils": 551,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1367551,7 +1367324,7 @@
           },
           "model_code": "B850 GAMING WIFI6",
           "eilat_price_ils": 682,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1375039,7 +1374812,7 @@
           },
           "model_code": "B850M EAGLE WIFI6E ICE",
           "eilat_price_ils": 738,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1461931,7 +1461704,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 590,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1461991,7 +1461764,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 590,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1469413,7 +1469186,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 347,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1469533,7 +1469306,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 347,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1480585,7 +1480358,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 507,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1480645,7 +1480418,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 507,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1506062,7 +1505835,7 @@
             "molex": 2
           },
           "model_code": null,
-          "eilat_price_ils": 226,
+          "eilat_price_ils": 216,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1506118,7 +1505891,7 @@
           "molex": 2
         },
         "model_code": null,
-        "eilat_price_ils": 226,
+        "eilat_price_ils": 216,
         "eilat_in_stock": false,
         "eilat_stale": false
       },
@@ -1506249,7 +1506022,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 173,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1506296,7 +1506069,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 173,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1509706,7 +1509479,7 @@
             "molex": 2
           },
           "model_code": null,
-          "eilat_price_ils": 268,
+          "eilat_price_ils": 254,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1509762,7 +1509535,7 @@
           "molex": 2
         },
         "model_code": null,
-        "eilat_price_ils": 268,
+        "eilat_price_ils": 254,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1586044,7 +1585817,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 1379,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1586113,7 +1585886,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 1379,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1618765,7 +1618538,6 @@
     "model:memory:viper-venom-rgb-32gb-x2-6400mhz-cl32-rgb": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm",
     "model:motherboard:prime-b760m-a-wifi-ii-microatx": "model:motherboard:a-b760m-ii-prime-wifi-microatx",
     "model:gpu:prime-rx-9070-evo-oc-gddr6-16gb": "model:gpu:9070-evo-gddr6-oc-prime-rx-16gb",
-    "model:gpu:t1-rtx-5070-gddr7-oc-12gb": "model:gpu:5070-gddr7-oc-rtx-t1-12gb",
     "memory:1pc:1pc-222765": "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
     "model:memory:signature-line-psd532g56002-32gb": "model:memory:line-psd532g56002-signature-32gb-dimm",
     "model:motherboard:h610m-k-2-0-microatx": "model:motherboard:0-2-h610m-k-microatx",
@@ -1622254,7 +1622026,6 @@
     "mpn:memory:pvvr532g640c32k": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm",
     "mpn:motherboard:90mb1nf0m0eay0": "model:motherboard:a-b760m-ii-prime-wifi-microatx",
     "mpn:gpu:90yv0mq0m0na00": "model:gpu:9070-evo-gddr6-oc-prime-rx-16gb",
-    "mpn:gpu:90yv0m1gm0na00": "model:gpu:5070-gddr7-oc-rtx-t1-12gb",
     "memory:1pc:1pc-222778": "model:memory:line-psd532g56002-signature-32gb-dimm",
     "motherboard:1pc:1pc-222802": "model:motherboard:0-2-h610m-k-microatx",
     "mpn:gpu:n5050wf2oc8gd": "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb",
@@ -1641612,7 +1641383,7 @@
       },
       "tms": {
         "state": "fresh",
-        "last_seen": "2026-11-24"
+        "last_seen": "2026-11-26"
       },
       "1pc": {
         "state": "no_store",
