@@ -291,9 +291,21 @@ def check_history() -> None:
            set(eilat.spider_names()) & set(build_price_history.SNAPSHOT_VENDORS), set())
 
 
+def check_site_meta() -> None:
+    vendors = eilat.site_meta({"ivory": {"state": eilat.MISSING, "last_seen": None},
+                               "tms": {"state": eilat.FRESH, "last_seen": "2026-11-24"}})["vendors"]
+    reason = vendors["ivory"].get("dropped") or ""
+    expect("retired Eilat channel keeps a dated reason", "2026-11-25" in reason, True)
+    expect("retired Eilat channel is not paused", "paused" in vendors["ivory"], False)
+    expect("retired channel stays missing, not no_store", vendors["ivory"]["state"], eilat.MISSING)
+    expect("active Eilat state is preserved", vendors["tms"],
+           {"state": eilat.FRESH, "last_seen": "2026-11-24"})
+    expect("no-store vendors stay explicit", vendors["yahav"]["state"], "no_store")
+
+
 def main() -> int:
     for check in (check_ivory, check_ksp, check_tms, check_attach, check_inline, check_site_row, check_matching,
-                  check_history):
+                  check_history, check_site_meta):
         try:
             check()
         except Exception as exc:  # a crashed case is a failed case

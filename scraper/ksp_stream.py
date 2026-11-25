@@ -175,6 +175,76 @@ def category_payload(body: bytes | str) -> dict:
     return data
 
 
+MAX_SHAPE_DEPTH = 4
+SHAPE_FIELDS = frozenset({
+    "result", "data", "items", "products_total", "next", "uin", "price",
+    "eilat_price", "is_eilat", "status", "statusCode",
+})
+
+
+def _shape_type(value) -> str:
+    if value is None:
+        return "null"
+    if isinstance(value, bool):
+        return "bool"
+    if isinstance(value, (int, float)):
+        return "number"
+    if isinstance(value, str):
+        return "string"
+    if isinstance(value, list):
+        return "list"
+    if isinstance(value, dict):
+        return "dict"
+    raise StreamError("shape input is not JSON")
+
+
+def shape_summary(value, depth: int = 0) -> dict:
+    """Sanitized structure of a vendor payload: never its values.
+
+    Only fixed public protocol field names, types and counts may leave this
+    helper. Arbitrary dictionary keys can themselves contain credentials;
+    never copy them, product ids, text or header values into diagnostics.
+    """
+    summary = {"type": _shape_type(value)}
+    if depth >= MAX_SHAPE_DEPTH:
+        return {**summary, "truncated": True}
+    if isinstance(value, str):
+        summary["length"] = len(value)
+        if len(value) > MAX_STREAM_BYTES:
+            raise StreamError("shape string exceeds byte limit")
+        try:
+            decoded = json.loads(value)
+        except (ValueError, TypeError, RecursionError):
+            summary["json"] = False
+        else:
+            summary["json"] = True
+            summary["decoded"] = shape_summary(decoded, depth + 1)
+    elif isinstance(value, list):
+        summary["length"] = len(value)
+        summary["items"] = [shape_summary(item, depth + 1) for item in value[:3]]
+    elif isinstance(value, dict):
+        numeric = [key for key in value if isinstance(key, str) and key.isascii() and key.isdigit()]
+        known = sorted(key for key in value if key in SHAPE_FIELDS)
+        summary.update({"key_count": len(value), "numeric_keys": len(numeric),
+                        "unknown_keys": len(value) - len(numeric) - len(known),
+                        "fields": {key: shape_summary(value[key], depth + 1) for key in known},
+                        "numeric_values": [shape_summary(value[key], depth + 1) for key in numeric[:3]]})
+    return summary
+
+
+def price_stream_shape(body: bytes | str) -> dict:
+    """Offline diagnostic only; JSON strings remain invalid price batches.
+
+    No request, file write, marker change or parser acceptance is performed.
+    Inspect a captured native response in memory; return sanitized shape only.
+    """
+    try:
+        payload = parse_stream(body, [PRICE_COMPONENT])[0].data
+    except RecursionError:
+        raise StreamError("shape input exceeds nesting limit") from None
+    return {"component": PRICE_COMPONENT, "payload": shape_summary(payload)}
+
+
 def prices_payload(body: bytes | str, expected_uins: list[str]) -> dict:
     """Complete current-price batch, including items not sold in Eilat.
 

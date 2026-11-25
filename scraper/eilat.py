@@ -15,6 +15,9 @@ Legacy snapshots remain supported: data/raw/<night>/<vendor>_eilat.jsonl, with
                from the Claris widget's Eilat branch. Lists Eilat-only items.
   ivory_eilat  Ivory category pages, whose tiles print the Eilat price next to
                the regular one. Only items with an Eilat price get a row.
+               Retired 2026-11-25 after the pages returned 13x403 and never
+               produced a snapshot; parser and spider stay for a future
+               permitted source.
   ksp_eilat    KSP's live-price call (/m_action/api/bms/<uins>) for the uins of
                tonight's KSP snapshot. Only items sold in Eilat get a row.
 
@@ -71,9 +74,14 @@ MAX_RATIO = 1.0
 
 # Vendor freshness states shipped to the site (meta.json `eilat_vendors`).
 FRESH, STALE, PARTIAL, MISSING = "fresh", "stale", "partial", "missing"
-# Scheduled fetch suspended after an observed block; existing prices remain
-# eligible for stale-forwarding. This is not a "no Eilat store" claim.
-PAUSED = {"ivory": "Category pages returned HTTP 403 on 2026-11-17; scheduled Eilat fetch paused."}
+# Channels retired after an observed block or a missing source. The dated reason
+# is shipped for transparency but no longer raises a daily warning; legacy
+# prices stay eligible for stale-forwarding, and the spider/parser stay for a
+# future permitted path. This is not a "no Eilat store" claim.
+DROPPED = {
+    "ivory": "Eilat category pages returned 13x403 on 2026-11-17 and never produced a snapshot; "
+             "channel retired 2026-11-25. Regular Ivory prices are unaffected.",
+}
 
 
 def spider_names() -> list[str]:
@@ -237,8 +245,8 @@ def site_meta(states: dict[str, dict]) -> dict:
     """meta.json `eilat`: per-vendor Eilat data state for the site."""
     vendors = {vendor: {"state": s.get("state", MISSING), "last_seen": s.get("last_seen")}
                for vendor, s in sorted(states.items())}
-    for vendor, reason in PAUSED.items():
-        vendors.setdefault(vendor, {"state": MISSING, "last_seen": None})["paused"] = reason
+    for vendor, reason in DROPPED.items():
+        vendors.setdefault(vendor, {"state": MISSING, "last_seen": None})["dropped"] = reason
     for vendor in NO_EILAT_STORE:
         vendors[vendor] = {"state": "no_store", "last_seen": None}
     return {"vendors": vendors}

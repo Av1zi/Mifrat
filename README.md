@@ -35,8 +35,16 @@ a separate cron; Cloudflare builds every `main` push.
 **KSP remains paused** after the failed Nov 22 recovery. Its consumed one-shot
 timer must not be reinstalled or re-armed; the fixed header update did not
 restore end-to-end prices. Read [KSP status](docs/ksp-stream-transport.md)
-before any request. **Ivory Eilat is paused** after Nov 17 blocks; its regular
-builder feed remains active. Plonter is unscheduled, with code/history retained.
+before any request. One sanitized native-browser diagnostic is approved for
+Nov 25–26; it does not authorize a full crawl or timer changes.
+**Ivory Eilat is retired (2026-11-25)**; its regular builder feed remains
+active. The builder JSON API carries one regular price. Eilat prices appear
+only on separate public category pages, which returned 13×403 on Nov 17 and
+never produced a snapshot; regular Ivory success is not Eilat success. The
+dated reason stays in the ops status, but the channel no longer raises a
+daily warning. A future attempt needs a permitted source carrying both
+prices, not VAT arithmetic or a second request to the blocked pages; the
+spider and parser stay for that path, like Plonter's unscheduled code.
 
 ## Scraping rules
 

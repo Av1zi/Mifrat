@@ -63,7 +63,8 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
   in the existing run table. A successful regular snapshot cannot clear an
   optional phase's block. Crawler results, not Scrapy's process exit status,
   identify blocks/crashes. The report also shows missing/stale/partial Eilat
-  prices and Ivory's paused Eilat source; neither means regular prices failed.
+  prices; neither means regular prices failed. Ivory's Eilat channel is retired
+  (2026-11-25), so its dated reason stays visible without a daily warning.
 - Immediate block-event ingestion updates that alert only. Unrelated open
   alerts are resolved only by the cron's full health evaluation.
   Neither ingestion nor evaluation sends individual phone notifications.

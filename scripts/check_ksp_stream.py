@@ -7,12 +7,14 @@ from copy import deepcopy
 import json
 from pathlib import Path
 import sys
+import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scraper.ksp_stream import (CATEGORY_COMPONENT, PRICE_COMPONENT, MAX_STREAM_BYTES, MAX_ENVELOPE_DEPTH,
-                               StreamError, category_payload, parse_stream, prices_payload, unwrap)
+                               StreamError, category_payload, parse_stream, prices_payload,
+                               price_stream_shape, shape_summary, unwrap)
 from scraper.spiders.ksp import KspSpider
 
 FIXTURE = ROOT / "scraper/fixtures/ksp/cpu_stream.json"
@@ -135,6 +137,52 @@ def main():
             assertions += 1
             if "SECRET_FIXTURE" in str(error):
                 failures.append("price-batch response content leaked into error")
+    # Structure-only diagnostics must not echo arbitrary dictionary keys:
+    # credential text can be a key as well as a value. Serialized JSON is
+    # diagnosed, but is NEVER made valid for the production price parser.
+    sensitive = {
+        "SECRET_KEY_FIXTURE": "SECRET_VALUE_FIXTURE",
+        "cookie": "SECRET_COOKIE_FIXTURE",
+        "987654": {"uin": "987654", "price": 777777,
+                   "authorization": "SECRET_AUTH_FIXTURE"},
+        "result": {"price": "SECRET_KNOWN_FIELD_FIXTURE"},
+    }
+    for value in (sensitive, json.dumps(sensitive), [sensitive], None, True, 42):
+        shape = json.dumps(shape_summary(value))
+        equal("shape contains no credential keys/values", "SECRET" in shape, False)
+        equal("shape contains no product ids", "987654" in shape, False)
+        equal("shape contains no price values", "777777" in shape, False)
+        equal("shape contains no private field names", "authorization" in shape or "cookie" in shape, False)
+    equal("numeric price map structure", shape_summary(sensitive)["numeric_keys"], 1)
+    serialized = {**prices, "data": {"result": json.dumps(sensitive)}}
+    diagnostic_body = stream(("partial", serialized), ("done", done))
+    shape = price_stream_shape(diagnostic_body)["payload"]
+    equal("price string remains a string", shape["type"], "string")
+    equal("diagnostic detects encoded JSON", shape["decoded"]["type"], "dict")
+    try:
+        prices_payload(diagnostic_body, uins)
+        failures.append("shape diagnostics relaxed production string rejection")
+    except StreamError:
+        assertions += 1
+    nested = {}
+    for _ in range(100):
+        nested = {"result": nested}
+    equal("shape traversal is bounded", len(json.dumps(shape_summary(nested))) < 1000, True)
+    equal("plain text is never echoed", shape_summary("SECRET_TEXT_FIXTURE"),
+          {"type": "string", "length": 19, "json": False})
+    # The real diagnostic CLI is offline, stdout-only, and stops on blocks.
+    for diagnostic, expected in (
+        (diagnostic_body, 0),
+        ("SECRET_NOT_SSE_FIXTURE", 1),
+        (stream(("partial", {**prices, "ok": False, "error": {"status": 403,
+                  "message": "SECRET_BLOCK_FIXTURE"}}), ("done", done)), 3),
+        ("x" * (MAX_STREAM_BYTES + 1), 1),
+        ("event: partial\ndata: " + "[" * 2000 + "0" + "]" * 2000 + "\n\n", 1),
+    ):
+        result = subprocess.run([sys.executable, "-B", str(ROOT / "scripts/ksp_price_shape.py"),
+                                 "--stdin"], input=diagnostic.encode(), capture_output=True)
+        equal("shape CLI outcome", result.returncode, expected)
+        equal("shape CLI no raw input", b"SECRET" in result.stdout + result.stderr, False)
     # This capture is data only. No opaque request credentials entered git.
     def private_fields(value):
         if isinstance(value, dict):

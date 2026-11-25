@@ -376,6 +376,23 @@ describe("findings", () => {
     expect(pending.map((f) => f.key)).not.toContain("eilat:ksp");
   });
 
+  it("a retired Eilat channel keeps its reason but raises no daily warning", () => {
+    const s = status(
+      {},
+      {
+        catalog: catalog({
+          eilat: {
+            ivory: { state: "missing", last_seen: null, dropped: "13x403; retired 2026-11-25" },
+            ksp: { state: "missing", last_seen: null },
+          },
+        }),
+      }
+    );
+    const findings = evaluate(s, TEN_AM);
+    expect(findings.map((f) => f.key)).toEqual(["eilat:ksp"]);
+    expect(dailyReport(s, findings, TEN_AM).message).not.toContain("Ivory Eilat");
+  });
+
   it("site down and API flood are urgent; deploy lag is high", () => {
     const keys = evaluate(status(), TEN_AM, {
       siteOk: false,

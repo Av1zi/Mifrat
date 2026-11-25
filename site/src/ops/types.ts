@@ -65,7 +65,17 @@ export interface OpsCatalog {
   qa: Record<string, number>;
   spec_counts: Record<string, number>;
   /** Optional channels are distinct from regular listing health. */
-  eilat?: Record<string, { state: string; last_seen: string | null; paused?: string }>;
+  eilat?: Record<
+    string,
+    {
+      state: string;
+      last_seen: string | null;
+      /** Still scheduled/awaited; the daily report warns while it is paused. */
+      paused?: string;
+      /** Retired channel: dated reason kept, but no daily warning. */
+      dropped?: string;
+    }
+  >;
 }
 
 export interface OpsStatus {

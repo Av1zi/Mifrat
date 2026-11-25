@@ -317,7 +317,9 @@ export function evaluate(status: OpsStatus, now: Date, live: LiveFacts = {}): Fi
   }
   for (const [vendor, channel] of Object.entries(status.catalog.eilat ?? {})) {
     const regular = health.find((h) => h.vendor.id === vendor);
-    if (!regular || channel.state === "no_store") continue;
+    // A retired channel keeps its dated reason in status.json but is no
+    // longer a nightly expectation, so it never raises a daily warning.
+    if (!regular || channel.state === "no_store" || channel.dropped) continue;
     if (channel.paused || (regular.state === "fresh" &&
         now.getTime() >= dueAt(regular.vendor, nightStart(now)).getTime() &&
         ["missing", "partial", "stale"].includes(channel.state))) {

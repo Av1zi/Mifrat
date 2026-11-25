@@ -17,6 +17,32 @@ configuration change, not automatic identity rotation. First
 403/429/challenge still stops the run and persists the pause; no cookies,
 dynamic `tt`, CAPTCHA, fallback or retry against rejection.
 
+### One approved diagnostic: Nov 25–26
+
+The owner approved one sanitized native-browser observation in this window,
+not a full recovery crawl. Observe one normal CPU-category navigation during
+the home night window (21:00–04:00 UTC). Atomically create the fixed local
+marker `ksp-native-diagnostic-2026-11-25.attempted` **before** navigation;
+use this same marker across the entire Nov 25–26 window and stop if it exists.
+Retain it even on a crash or rejection.
+Do not delete any earlier attempt/block marker, clear `ksp.paused`, reinstall
+the consumed recovery timer, or enable listing/detail timers.
+
+Capture status codes, whether `cf-mitigated` says `challenge`, the response
+media type, and price-payload structure only. Never export raw headers, HAR,
+request bodies, cookies, dynamic `tt`, response strings or arbitrary JSON keys.
+`scripts/ksp_price_shape.py --stdin` sanitizes a captured price response in
+memory: only fixed public field names, types and counts leave it. It performs
+no network request or file write; success means the diagnostic parsed, **not**
+that prices passed the production parser. An encoded JSON string remains an
+invalid production price batch.
+
+First HTTP/component 403, 429 or challenge ends the attempt. Keep/reassert the
+pause and make no reload, fallback endpoint, profile change or second attempt
+on the following night. If login/CAPTCHA is required, stop for the owner. Review
+sanitized evidence offline before considering any parser or recovery change.
+This window is not installed as a timer or an unattended browser task.
+
 ## Evidence
 
 Nov 22 PC diagnostics (not a published snapshot): cookie-free POSTs with
@@ -95,7 +121,9 @@ The integration check also pins the approved UA/hint versions on actual
 robots, warmup, listing and price requests, and verifies the fixed TLS profile.
 This catches configuration regressions; it cannot predict vendor acceptance.
 
-The parser currently passes 44 assertions. Integration includes a real
+The parser and diagnostic checks include a real
+offline sanitizer CLI, bounded shape traversal, secret-bearing keys/values,
+encoded JSON rejection, and component blocks. Integration includes a real
 Scrapy engine with an in-memory downloader and the normal enrichment/matching
 path. A component-level rejection inside an HTTP-200 stream is still a block,
 not a partial crawl. The response never leaks into an exception message.

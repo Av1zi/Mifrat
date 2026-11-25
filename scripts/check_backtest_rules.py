@@ -14,6 +14,36 @@ sys.path.insert(0, str(ROOT))
 
 def main() -> int:
     failures = []
+    # Diagnostic visibility alone is not enough: real inference must never
+    # fill a per-SKU memory ceiling from socket/generation, including unknown
+    # SKUs that happen to match an old platform table entry.
+    from scraper.specs import derive
+
+    platforms = [
+        ("Intel", "Intel Core Ultra 5 225", "LGA1851"),
+        ("Intel", "Intel Core i7 14700K", "LGA1700"),
+        ("Intel", "Intel Core i7 10700", "LGA1200"),
+        ("Intel", "Intel Core i7 6700", "LGA1151"),
+        ("Intel", "Intel Core i7 9700", "LGA1151"),
+        ("Intel", "Intel Core i7 9800X", "LGA2066"),
+        ("AMD", "AMD Ryzen 7 5800X", "AM4"),
+        ("AMD", "AMD Ryzen 7 9700X", "AM5"),
+    ]
+    with patch.object(derive, "cpu_memory_platform_candidate") as candidate:
+        for brand, model, socket in platforms:
+            specs = {"brand": brand, "model": model, "socket": socket}
+            sources = {}
+            derive.infer_specs("cpu", specs, sources)
+            if specs.get("max_memory_gb") is not None or "max_memory_gb" in sources:
+                failures.append(f"platform guess re-enabled for {model}")
+        if candidate.called:
+            failures.append("real inference called the quarantined platform candidate")
+    specs = {"brand": "Intel", "model": "Intel Core Ultra 5 225",
+             "socket": "LGA1851", "max_memory_gb": 256}
+    sources = {"max_memory_gb": "vendor"}
+    derive.infer_specs("cpu", specs, sources)
+    if specs["max_memory_gb"] != 256 or sources["max_memory_gb"] != "vendor":
+        failures.append("quarantine changed a sourced CPU memory limit")
     cases = [
         ("quarantined CPU candidate", "cpu", {
             "brand": "Intel", "model": "Intel Core Ultra 5 225",

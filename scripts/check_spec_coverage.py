@@ -215,12 +215,19 @@ CORE_FLOORS = {
 # listing tags carry a case's form factor and a PSU's wattage/efficiency but
 # not the missing core fields (case dimensions, PSU connector counts), and its
 # 946 KSP-only products have no detail feed to fill them from.
+#
+# 2026-11-24 owner-approved recalibration: cpu 91 -> 87, measured 89.40
+# after removing 106 unsourced socket/generation `max_memory_gb` guesses.
+# The old baseline counted fabricated facts. All 13 sourced Core Ultra
+# overlaps contradict the old 192 GB guess (256 GB); Intel ARK/intel.com
+# returned 403, leaving 109 Intel limits unsourced. Unknowns stay unknown;
+# check_backtest_rules.py guards against re-enabling platform inference.
 CORE_APPLICABLE_FLOORS = {
     "aio": 90,
     "case": 75,
     "case_fan": 64,
     "cooler_air": 82,
-    "cpu": 91,
+    "cpu": 87,
     "gpu": 81,
     "memory": 85,
     "motherboard": 84,
@@ -247,13 +254,18 @@ CORE_APPLICABLE_FLOORS = {
 # memory 43.8 -> 40, motherboard 24.3 -> 21, psu 20.7 -> 17. Categories KSP
 # does not sell, or where it adds only merged CPU offers, did not move
 # (aio 12.0, cooler_air 16.0, cpu 79.5, storage 1.4 already cleared).
+#
+# 2026-11-24 owner-approved recalibration: cpu 76 -> 70, measured 73.60
+# after the same 106 fabricated memory values were removed. Apply the usual
+# 3pp headroom (rounded down); retain the 90% per-product target and every
+# other category's floor. No guessed values are restored to meet the target.
 PRODUCT_TARGET_FLOORS: dict[str, float] = {
     "accessories": 2,
     "aio": 11,
     "case": 21,
     "case_fan": 16,
     "cooler_air": 12,
-    "cpu": 76,
+    "cpu": 70,
     "gpu": 24,
     "memory": 40,
     "motherboard": 21,
