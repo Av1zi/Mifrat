@@ -83,6 +83,7 @@
 "1pc:108922":"model:cooler_air:1700-1700-a30-a30-125mm-92mm",
 "1pc:108932":"model:psu:850-afba-fully-g1-modular-rs-v850-wo-850w-full",
 "1pc:108933":"model:memory:1600-ecc-reg-16gb-x1-1600mhz",
+"1pc:109018":"model:cpu:corei512400-tray",
 "1pc:109256":"model:storage:cooling-mc1-pro-nvme-m2",
 "1pc:109579":"model:cpu:corei712700f",
 "1pc:109580":"model:cpu:12700-tray",
@@ -246,7 +247,7 @@
 "1pc:138340":"model:psu:650w-80-bronze-csk-psu-650w",
 "1pc:138341":"model:case:3x120mm-fans-included-mid-no-p20ce-tower-window-black",
 "1pc:138342":"model:case:p20c-black",
-"1pc:138346":"model:case:ax61-elite-black",
+"1pc:138346":"model:case:ax61-ax61elite-elite-black",
 "1pc:138359":"model:case_fan:elite-icue-performance-pwm-sp120-120mm-1-rgb-black",
 "1pc:139894":"mpn:accessories:fdabrkt001",
 "1pc:139915":"model:memory:0-1-3-5600-bulk-cl36-stick-vengeance-xmp-32gb-x1-5600mhz-cl36-black",
@@ -401,7 +402,7 @@
 "1pc:154854":"model:cpu:ryzen57500f-tray",
 "1pc:155069":"model:motherboard:b650m-s2h-microatx",
 "1pc:155070":"model:motherboard:b760-ds3h-atx-2",
-"1pc:155072":"model:case_fan:9050157-af120-co-elite-fan-icue-pwm-ww-120mm-rgb-white",
+"1pc:155072":"model:case_fan:af120-elite-fan-icue-pwm-120mm-rgb-white",
 "1pc:155075":"model:case_fan:9050168-ar120-co-digital-fan-icue-pwm-ww-120mm-1-rgb-white",
 "1pc:155125":"model:motherboard:b550m-gaming-ii-tuf-wifi-microatx",
 "1pc:155236":"model:case:800-base-bgw60-shadow-black",
@@ -426,7 +427,7 @@
 "1pc:156762":"model:motherboard:aero-b650-g-atx",
 "1pc:156763":"model:motherboard:aorus-ax-b650-elite-ice-atx",
 "1pc:156764":"model:motherboard:aorus-ax-b650m-elite-ice-microatx",
-"1pc:156765":"model:motherboard:b650m-d3hp-microatx",
+"1pc:156765":"model:motherboard:1xdp-1xhdmi-am5-b650m-d3hp-microatx",
 "1pc:156993":"model:storage:mp600-pro-s-series-xt-4000gb-m2pcie-m2",
 "1pc:156995":"model:case_fan:3-bl105-pure-pwm-wings-120mm-black",
 "1pc:156996":"model:cooler_air:bk037-dark-elite-rock-165mm-135mm-black",
@@ -1110,7 +1111,7 @@
 "1pc:189443":"model:storage:0-5-9100-pro-4000gb-usb-m22280",
 "1pc:189444":"model:gpu:3-5060-geforce-infinity-rtx-ti-16gb",
 "1pc:189473":"model:motherboard:b650e-gaming-max-wifi-atx",
-"1pc:189503":"model:gpu:5060-8g-8gd-aero-geforce-gv-n506taero-oc-oc-rtx-ti-8gb",
+"1pc:189503":"model:gpu:5060-8gd-aero-geforce-gv-n506taero-oc-rtx-ti-8gb",
 "1pc:189505":"model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
 "1pc:189506":"model:gpu:5060-8g-8gd-geforce-gv-n506twf2oc-oc-rtx-ti-windforce-8gb",
 "1pc:189507":"model:gpu:5060-8gd-eagle-geforce-gv-ice-n506teagleoc-oc-rtx-ti-8gb",
@@ -1431,7 +1432,7 @@
 "1pc:206332":"model:psu:0-5-ai-modular-pg5-top-ud1600pm-1600w",
 "1pc:206333":"model:motherboard:b840m-eagle-wifi6-microatx",
 "1pc:206362":"model:memory:cl46-48gb-x1-5600mhz-cl46",
-"1pc:206381":"model:case:4000d-frame-modular-rs-black-2",
+"1pc:206381":"model:case:4000d-frame-modular-rs-black-3",
 "1pc:206382":"model:case:4000d-frame-modular-rs-white-2",
 "1pc:206383":"model:case:4500x-frame-rs-white",
 "1pc:206384":"model:case:4500x-frame-link-lx-black",
@@ -1547,6 +1548,7 @@
 "1pc:207692":"model:motherboard:b850m-challenger-wifi-microatx",
 "1pc:207693":"model:motherboard:b850m-challenger-k-microatx",
 "1pc:207694":"model:motherboard:b650m-ice-terminator-wifi-microatx",
+"1pc:207695":"model:motherboard:b650m-b650mwifiice-cha-challenger-ice-ms-wifi-microatx",
 "1pc:207696":"model:motherboard:b650m-terminator-wifi6-microatx",
 "1pc:207697":"model:motherboard:b650m-challenger-v2-wifi-microatx",
 "1pc:207698":"model:motherboard:b650m-challenger-v2-microatx",
@@ -2344,12 +2346,12 @@
 "1pc:222402":"model:psu:1200w-fully-modular-rm1200e-rme-series-1200w-full",
 "1pc:222403":"model:case_fan:icue-icue-link-link-qx140-rgb-140mm-rgb-white",
 "1pc:222407":"manual:case:1pc-222407-ksp-448641",
-"1pc:222408":"case:1pc:1pc-222408",
+"1pc:222408":"model:case:4000d-frame-lcd-premium-rs-white",
 "1pc:222411":"model:aio:360-aio-icue-lcd-link-rx-titan-360mm-black",
 "1pc:222414":"case:1pc:1pc-222414",
 "1pc:222415":"model:case:4000d-frame-white",
 "1pc:222416":"model:psu:650w-rm650e-rme-series-650w",
-"1pc:222418":"case:1pc:1pc-222418",
+"1pc:222418":"model:case:4000d-frame-modular-rs-black-2",
 "1pc:222419":"model:case:4000d-frame-modular-rs-white",
 "1pc:222421":"model:case_fan:120mm-3-argb-pcs-pwm-r-rs120-120mm-3-rgb-black",
 "1pc:222422":"model:case_fan:120mm-3-argb-pcs-pwm-r-rs120-120mm-3-rgb-white",
@@ -2695,7 +2697,7 @@
 "1pc:85277":"model:cpu:ryzen73700x-tray",
 "1pc:85304":"model:psu:1300w-135mm-30th-active-anniversary-full-modular-pfc-platinum-v1300-vanguard-1300w-full-black",
 "1pc:85307":"model:psu:signature-sp1300-1300w",
-"1pc:85310":"model:cooler_air:22fp-blizzard-r1-rr-t2-t2-140mm-92mm",
+"1pc:85310":"model:cooler_air:blizzard-coolermaster-t2-140mm-92mm",
 "1pc:85311":"model:cooler_air:coolermaster-g200p-masterair-40mm-92mm-black",
 "1pc:88474":"mpn:accessories:900149332502000",
 "1pc:88487":"model:case:coolermaster-masterbox-nr600p-black",
@@ -3105,7 +3107,7 @@
 "ivory:141914":"model:storage:500g-g28-sdssda-500gb-sata-25inch",
 "ivory:141917":"model:storage:250g-g28-sdssda-250gb-sata-25",
 "ivory:142115":"model:gpu:5060-8g-eagle-geforce-max-oc-rtx-ti-8gb",
-"ivory:142118":"model:gpu:5060-8g-8gd-aero-geforce-gv-n506taero-oc-oc-rtx-ti-8gb",
+"ivory:142118":"model:gpu:5060-8gd-aero-geforce-gv-n506taero-oc-rtx-ti-8gb",
 "ivory:142121":"mpn:gpu:n506teaglemaxoc16",
 "ivory:142127":"model:gpu:geforce-rtx-5080-windforce-sff-16g-16gb",
 "ivory:142292":"model:case_fan:elite-icue-performance-pwm-sp120-120mm-1-rgb-white",
@@ -5066,7 +5068,7 @@
 "plonter:AX5U6400C3216G-SAMRBKx2":"mpn:memory:ax5u6400c3216gsamrbkx2",
 "plonter:AX5U6400C3216G-SLABRBKx2":"sku:memory:ax5u6400c3216gslabrbkx2",
 "plonter:AX5U6400C3232G-CLARWHx2":"mpn:memory:ax5u6400c3232gclarwhx2",
-"plonter:AX61-Elite":"model:case:ax61-elite-black",
+"plonter:AX61-Elite":"model:case:ax61-ax61elite-elite-black",
 "plonter:AX83-RGB-Extreme":"mpn:case:ax83rgbextreme",
 "plonter:AX85-ARGB":"model:case:ax85-black",
 "plonter:Alpha2-A24-WHITE":"mpn:aio:alpha2a24white",
@@ -7590,7 +7592,7 @@
 "tms:AU-500FL":"model:psu:500fl-au-aurum-pfc-xilenser-500w",
 "tms:AX1000ARGBLILE":"model:case:ax1000-lite-black",
 "tms:AX20ELITE":"model:case:ax20-elite-black",
-"tms:AX61ELITE":"model:case:ax61-elite-black",
+"tms:AX61ELITE":"model:case:ax61-ax61elite-elite-black",
 "tms:AX65ARGB":"model:case:ax65-black",
 "tms:AX83RGBELITE":"model:case:ax83-ax83rgbelite-elite-black",
 "tms:AX85-ARGB":"model:case:ax85-black",
@@ -7835,7 +7837,7 @@
 "tms:CC-9011308-WW":"model:case:5000d-frame-rs-white",
 "tms:CC-9011309-WW":"model:case:5000d-frame-rs-black-2",
 "tms:CC-9011310-WW":"model:case:5000d-frame-rs-white-2",
-"tms:CC-9011312-WW":"model:case:4000d-frame-modular-rs-black-2",
+"tms:CC-9011312-WW":"model:case:4000d-frame-modular-rs-black-3",
 "tms:CC-9011313-WW":"model:case:4000d-frame-modular-rs-white-2",
 "tms:CC-9011314-WW":"model:case:4500x-frame-rs-black",
 "tms:CC-9011315-WW":"model:case:4500x-frame-rs-white",
@@ -7984,7 +7986,7 @@
 "tms:CO-9050119-WW":"model:case_fan:elite-icue-ml140-premium-pwm-140mm-rgb-white-2",
 "tms:CO-9050136-WW":"model:case_fan:elite-icue-performance-pwm-sp120-120mm-1-rgb-white",
 "tms:CO-9050138-WW":"model:case_fan:elite-icue-performance-pwm-sp140-140mm-rgb-white",
-"tms:CO-9050157-WW":"model:case_fan:9050157-af120-co-elite-fan-icue-pwm-ww-120mm-rgb-white",
+"tms:CO-9050157-WW":"model:case_fan:af120-elite-fan-icue-pwm-120mm-rgb-white",
 "tms:CO-9050168-WW":"model:case_fan:9050168-ar120-co-digital-fan-icue-pwm-ww-120mm-1-rgb-white",
 "tms:CO-9050180-WW":"model:case_fan:led-pwm-rs120-support-120mm-rgb-black",
 "tms:CO-9050181-WW":"model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-black",
@@ -8388,7 +8390,7 @@
 "tms:GB650IAX":"model:motherboard:ax-b650i-miniitx",
 "tms:GB650MAORUSELITE":"model:motherboard:aorus-b650m-elite-microatx",
 "tms:GB650MAORUSELITEAXICE":"model:motherboard:aorus-ax-b650m-elite-ice-microatx",
-"tms:GB650MD3HP":"model:motherboard:b650m-d3hp-microatx",
+"tms:GB650MD3HP":"model:motherboard:1xdp-1xhdmi-am5-b650m-d3hp-microatx",
 "tms:GB650MD3HPAX":"model:motherboard:ax-b650m-d3hp-microatx",
 "tms:GB650MGAMINGPLUSWIFI":"model:motherboard:b650m-gaming-wifi-microatx",
 "tms:GB650MGAMINGWIFI6E":"model:motherboard:b650m-gaming-wifi6e-microatx",
@@ -8807,7 +8809,7 @@
 "tms:MS-CHA-B650MK":"model:motherboard:b650m-challenger-k-microatx",
 "tms:MS-CHA-B650MKWIFI":"model:motherboard:b650m-challenger-k-wifi-microatx",
 "tms:MS-CHA-B650MV2":"model:motherboard:b650m-challenger-v2-microatx",
-"tms:MS-CHA-B650MWIFIICE":"model:motherboard:b650m-challenger-ice-wifi-microatx",
+"tms:MS-CHA-B650MWIFIICE":"model:motherboard:b650m-b650mwifiice-cha-challenger-ice-ms-wifi-microatx",
 "tms:MS-CHA-B650MWIFIICEV2":"model:motherboard:b650m-challenger-ice-v2-wifi-microatx",
 "tms:MS-CHA-B650MWIFIV2":"model:motherboard:b650m-challenger-v2-wifi-microatx",
 "tms:MS-CHA-B760ITXD5WIFI":"model:motherboard:b760itx-challenger-d5-wifi-miniitx",
@@ -8922,7 +8924,7 @@
 "tms:N5060WF2MAXOCV28GD":"model:gpu:5060-8gd-gv-n5060wf2max-ocv2-rtx-8gb",
 "tms:N5060WF2OC8GD":"model:gpu:5060-8g-8gd-geforce-gv-n5060wf2oc-oc-rtx-windforce-8gb",
 "tms:N506TAEROOC16GD":"model:gpu:16g-16gd-5060-aero-geforce-gv-n506taero-oc-oc-rtx-ti-16gb",
-"tms:N506TAEROOC8GD":"model:gpu:5060-8g-8gd-aero-geforce-gv-n506taero-oc-oc-rtx-ti-8gb",
+"tms:N506TAEROOC8GD":"model:gpu:5060-8gd-aero-geforce-gv-n506taero-oc-rtx-ti-8gb",
 "tms:N506TEAGLEMAXOC8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb",
 "tms:N506TEAGLEOC16GD":"model:gpu:16g-16gd-5060-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-16gb",
 "tms:N506TEAGLEOC8GD":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
@@ -9201,7 +9203,7 @@
 "tms:RR-H410-20PC-R1":"model:cooler_air:h410r-hyper-140mm-92mm-black",
 "tms:RR-I7C7-18PA-R1":"model:cooler_air:1700-coolermaster-i70c-lga-70mm-120mm",
 "tms:RR-S4KK-20PA-R1":"model:cooler_air:20pa-212-coolermaster-halo-hyper-r1-rr-s4kk-155mm-120mm-black",
-"tms:RR-T2-22FP-R1":"model:cooler_air:22fp-blizzard-r1-rr-t2-t2-140mm-92mm",
+"tms:RR-T2-22FP-R1":"model:cooler_air:blizzard-coolermaster-t2-140mm-92mm",
 "tms:RR-T200-22PK-R1":"model:cooler_air:coolermaster-hyper-t200-140mm-112mm-black",
 "tms:RS-850-AFBA-G1-WO":"model:psu:850-afba-fully-g1-modular-rs-v850-wo-850w-full",
 "tms:RS-A00-AFBA-G1-WO":"model:psu:coolermaster-fully-modular-v1000-1000w-full",
@@ -9695,7 +9697,7 @@
 "yahav:10562":"model:case_fan:3x140mm-argb-black-chain-daisy-fan-pwm-storm-support-t3-140mm-3-rgb-black",
 "yahav:10563":"model:cooler_air:212-duo-hyper-tdp-x-120mm-black",
 "yahav:10566":"model:gpu:5060-8g-eagle-geforce-ice-oc-rtx-ti-8gb",
-"yahav:10567":"model:gpu:5060-8g-8gd-aero-geforce-gv-n506taero-oc-oc-rtx-ti-8gb",
+"yahav:10567":"model:gpu:5060-8gd-aero-geforce-gv-n506taero-oc-rtx-ti-8gb",
 "yahav:10568":"model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
 "yahav:10570":"model:psu:750dc-csk-modular-non-750w-no-white",
 "yahav:10573":"mpn:gpu:vcg507012tfxxpb1o",
@@ -10006,7 +10008,7 @@
 "yahav:11573":"model:case:1x120mm-1x240mm-argb-argb-argb-c2m-constellation-fans-mini-series-tower-white-white",
 "yahav:11574":"model:psu:1-1-3-5-full-modular-support-ud750gm-750w-full-white",
 "yahav:11575":"model:psu:ice-p650ss-650w-white",
-"yahav:11577":"model:motherboard:b650m-d3hp-microatx",
+"yahav:11577":"model:motherboard:1xdp-1xhdmi-am5-b650m-d3hp-microatx",
 "yahav:11579":"model:case:901-base-bgw50-dark-pro-black",
 "yahav:11580":"model:psu:1-1-1200w-3-5-active-atx-full-modular-ne1200p-neoeco-pcie-pfc-platinum-ready-1200w-full",
 "yahav:11581":"model:case:c2m-case-black",
@@ -10855,16 +10857,8 @@
 "Corsair 3500X",
 "case"
 ],
-"case:1pc:1pc-222408":[
-"Corsair Frame 4000D LCD RS White",
-"case"
-],
 "case:1pc:1pc-222414":[
 "Corsair Frame 4000D Black",
-"case"
-],
-"case:1pc:1pc-222418":[
-"Corsair Frame 4000D RS ARGB Black",
 "case"
 ],
 "case:antec:df700-flux":[
@@ -13236,10 +13230,14 @@
 "case"
 ],
 "model:case:4000d-frame-modular-rs-black":[
-"Corsair Frame 4000D RS ARGB Black",
+"Corsair Frame 4000D RS ARGB Black (CC-9011296-WW)",
 "case"
 ],
 "model:case:4000d-frame-modular-rs-black-2":[
+"Corsair Frame 4000D RS ARGB Black",
+"case"
+],
+"model:case:4000d-frame-modular-rs-black-3":[
 "Corsair Frame 4000D RS Modular Black",
 "case"
 ],
@@ -14187,8 +14185,8 @@
 "Antec AX27 RGB Elite Black",
 "case"
 ],
-"model:case:ax61-elite-black":[
-"Antec AX61 Elite Black",
+"model:case:ax61-ax61elite-elite-black":[
+"Antec AX61 Elite AX61ELITE Black",
 "case"
 ],
 "model:case:ax65-black":[
@@ -16611,10 +16609,6 @@
 "Corsair QL120 120mm PWM ARGB White",
 "case_fan"
 ],
-"model:case_fan:9050157-af120-co-elite-fan-icue-pwm-ww-120mm-rgb-white":[
-"Corsair AF120 Elite 120mm PWM ARGB White",
-"case_fan"
-],
 "model:case_fan:9050168-ar120-co-digital-fan-icue-pwm-ww-120mm-1-rgb-white":[
 "Corsair AR120 Digital 120mm PWM ARGB White",
 "case_fan"
@@ -16817,6 +16811,10 @@
 ],
 "model:case_fan:af120-air-led-series-triple-120mm-3-rgb-white":[
 "Corsair AIR AF120 120mm RGB x3 White",
+"case_fan"
+],
+"model:case_fan:af120-elite-fan-icue-pwm-120mm-rgb-white":[
+"Corsair AF120 Elite 120mm PWM ARGB White",
 "case_fan"
 ],
 "model:case_fan:af120-elite-icue-series-single-120mm-1-rgb":[
@@ -17747,10 +17745,6 @@
 "Cooler Master MAP-T6PN-225PK-R1",
 "cooler_air"
 ],
-"model:cooler_air:22fp-blizzard-r1-rr-t2-t2-140mm-92mm":[
-"CoolerMaster BLIZZARD T2",
-"cooler_air"
-],
 "model:cooler_air:275w-bk-cooler-cpu-p60t-performance-v2-160mm-120mm":[
 "Coolleo P60T Performance BK V2",
 "cooler_air"
@@ -18169,6 +18163,10 @@
 ],
 "model:cooler_air:black-chromax-nh-u9s-125mm-92mm-black":[
 "Noctua NH-U9S Chromax.black",
+"cooler_air"
+],
+"model:cooler_air:blizzard-coolermaster-t2-140mm-92mm":[
+"Cooler Master Blizzard T2",
 "cooler_air"
 ],
 "model:cooler_air:c14s-cooler-cpu-nh-145mm-140mm":[
@@ -20055,10 +20053,6 @@
 "Gigabyte Aero GeForce RTX 5060 8GB",
 "gpu"
 ],
-"model:gpu:5060-8g-8gd-aero-geforce-gv-n506taero-oc-oc-rtx-ti-8gb":[
-"Gigabyte Aero GeForce RTX 5060 Ti 8GB",
-"gpu"
-],
 "model:gpu:5060-8g-8gd-aorus-e-elite-geforce-gv-n5060aorus-rtx-8gb":[
 "Gigabyte Aorus GeForce RTX 5060 8GB",
 "gpu"
@@ -20121,6 +20115,10 @@
 ],
 "model:gpu:5060-8gb-gddr7-geforce-oc-prime-rtx-ti-8gb":[
 "ASUS Prime GeForce RTX 5060 Ti 8GB OC",
+"gpu"
+],
+"model:gpu:5060-8gd-aero-geforce-gv-n506taero-oc-rtx-ti-8gb":[
+"Gigabyte Aero GeForce RTX 5060 Ti 8GB",
 "gpu"
 ],
 "model:gpu:5060-8gd-ari-gv-n5060aorus-rtx-8gb":[
@@ -20984,7 +20982,7 @@
 "memory"
 ],
 "model:memory:1-1v-262pin-blister-cl46-sodimm-8gb-5600mhz-cl46-sodimm":[
-"Lexar 8GB DDR5 (1x8GB) 5600MHz CL46",
+"Lexar 8GB DDR5 (1x8GB) 5600MHz CL46 (LD5S08G56C46ST-BGS)",
 "memory"
 ],
 "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm":[
@@ -21704,7 +21702,7 @@
 "memory"
 ],
 "model:memory:2x32gb-6000-cl30-cras-v-64gb-x2-6000mhz-cl30-rgb-black":[
-"Klevv ARGB 64GB DDR5 (2x32GB) 6000MT/s CL30",
+"Klevv ARGB 6000MT DDR5 64GB (2x32GB) 6000MT/s CL30",
 "memory"
 ],
 "model:memory:2x32gb-6000-cl30-dominator-titanium-64gb-x2-6000mhz-cl30-rgb-white":[
@@ -22999,6 +22997,10 @@
 "MSI PRO B850-S 6E 1XHDMI WIFI6E",
 "motherboard"
 ],
+"model:motherboard:1xdp-1xhdmi-am5-b650m-d3hp-microatx":[
+"Gigabyte B650M D3HP",
+"motherboard"
+],
 "model:motherboard:1xhdmi-1xtype-7-c-gaming-tuf-wifi-x870-atx":[
 "ASUS X870 TUF Gaming Plus 1XHDMI WIFI7",
 "motherboard"
@@ -24087,16 +24089,16 @@
 "Maxsun Esport B650ITX ICE WIFI6",
 "motherboard"
 ],
+"model:motherboard:b650m-b650mwifiice-cha-challenger-ice-ms-wifi-microatx":[
+"Maxsun Challenger B650M ICE WiFi",
+"motherboard"
+],
 "model:motherboard:b650m-cafe-i-microatx":[
 "Maxsun B650M I-Cafe",
 "motherboard"
 ],
 "model:motherboard:b650m-challenger-ice-v2-wifi-microatx":[
 "Maxsun Challenger B650M ICE WIFI6",
-"motherboard"
-],
-"model:motherboard:b650m-challenger-ice-wifi-microatx":[
-"Maxsun Challenger B650M ICE WiFi",
 "motherboard"
 ],
 "model:motherboard:b650m-challenger-k-microatx":[
@@ -24113,10 +24115,6 @@
 ],
 "model:motherboard:b650m-challenger-v2-wifi-microatx":[
 "Maxsun Challenger B650M WIFI6",
-"motherboard"
-],
-"model:motherboard:b650m-d3hp-microatx":[
-"Gigabyte B650M D3HP",
 "motherboard"
 ],
 "model:motherboard:b650m-e-gaming-tuf-microatx":[
@@ -25668,7 +25666,7 @@
 "psu"
 ],
 "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black":[
-"COOLER MASTER MPE 8506 ACAG BWO",
+"Cooler Master MWE V3 3.1 Pcie 850W 80 PLUS Gold Black",
 "psu"
 ],
 "model:psu:1-1-3-5-ack-750w":[
