@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-25T23:54:43.653697+00:00",
+  "generated_at": "2026-11-26T03:53:56.897382+00:00",
   "gaps": [
     {
       "category": "case",
       "label": "ממשק",
-      "count": 101,
+      "count": 102,
       "products": [
         "case:lian-li:a4-h2o-silver",
         "model:case:0-4-mitx-ridge-white",
@@ -24,7 +24,7 @@
     {
       "category": "gpu",
       "label": "רזולוציה",
-      "count": 73,
+      "count": 74,
       "products": [
         "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
         "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
@@ -113,22 +113,22 @@
     },
     {
       "category": "case",
+      "label": "מפרט",
+      "count": 39,
+      "products": [
+        "manual:case:1pc-157901-tms-c8",
+        "model:case:0-3-761345-80100-flux-p10",
+        "model:case:01-7-c-compact-def7c-define-fd-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "תכונות",
       "count": 39,
       "products": [
         "model:case:100r-mag-pano-pz-black",
         "model:case:1m-performance-black",
         "model:case:1m-performance-green"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מפרט",
-      "count": 38,
-      "products": [
-        "manual:case:1pc-157901-tms-c8",
-        "model:case:0-3-761345-80100-flux-p10",
-        "model:case:01-7-c-compact-def7c-define-fd-black"
       ]
     },
     {
@@ -242,6 +242,16 @@
       ]
     },
     {
+      "category": "aio",
+      "label": "מידות משאבה",
+      "count": 27,
+      "products": [
+        "model:aio:240-a-freezer-iii-liquid-240mm-white",
+        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
+        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white"
+      ]
+    },
+    {
       "category": "case",
       "label": "הערה",
       "count": 26,
@@ -269,16 +279,6 @@
         "model:motherboard:a-am5-b840m-prime-wifi-microatx",
         "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
         "model:motherboard:a-b760m-csm-prime-microatx-2"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מידות משאבה",
-      "count": 24,
-      "products": [
-        "model:aio:240-a-freezer-iii-liquid-240mm-white",
-        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
-        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white"
       ]
     },
     {
@@ -394,7 +394,7 @@
     {
       "category": "cpu",
       "label": "מהירות זכרון נתמכת",
-      "count": 21,
+      "count": 20,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:225",
@@ -439,6 +439,16 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תכונות נוספות",
+      "count": 18,
+      "products": [
+        "cpu:amd:ryzen-9-9950x3d-tray",
+        "model:cpu:5500-tray",
+        "model:cpu:5800x3d"
       ]
     },
     {
@@ -552,16 +562,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "תכונות נוספות",
-      "count": 17,
-      "products": [
-        "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:5500-tray",
-        "model:cpu:5800x3d"
-      ]
-    },
-    {
       "category": "case",
       "label": "תמיכה בספק mm",
       "count": 17,
@@ -589,6 +589,16 @@
         "model:gpu:12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-12gb",
         "model:gpu:16g-16gd-5070-gaming-gv-n507tgaming-oc-oc-rtx-ti-16gb",
         "model:gpu:16g-5070-geforce-oc-rtx-sff-ti-windforce-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "כרטיס גרפי",
+      "count": 17,
+      "products": [
+        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
+        "model:gpu:2gd3h-4hdmi-710-gt-2gb",
+        "model:gpu:2x-5060-8g-geforce-plus-rtx-ti-ventus-8gb"
       ]
     },
     {
@@ -709,16 +719,6 @@
         "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
         "model:case:130r-mag-midi-pano-pz-tower-white"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "כרטיס גרפי",
-      "count": 15,
-      "products": [
-        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
-        "model:gpu:2x-5060-8g-geforce-plus-rtx-ti-ventus-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
@@ -2693,16 +2693,6 @@
     },
     {
       "category": "storage",
-      "label": "מהירות",
-      "count": 6,
-      "products": [
-        "model:storage:0gbps-256mb-3-5-5400rpm-6-6tb-cache-sata-skyhawk-st6000vx009-6000gb-sata-35",
-        "model:storage:0gbps-256mb-3-5-6-7200rpm-7e10-8tb-enterprise-exos-sata-st8000nm017b-8000gb-sata-35",
-        "model:storage:0gbps-6-barracuda-st20000dm001-20000gb-sata-35"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "תצורה",
       "count": 6,
       "products": [
@@ -2939,6 +2929,16 @@
         "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
         "model:psu:1200g-gaming-modular-tuf-tuf-1200w",
         "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות",
+      "count": 5,
+      "products": [
+        "model:storage:0gbps-256mb-3-5-5400rpm-6-6tb-cache-sata-skyhawk-st6000vx009-6000gb-sata-35",
+        "model:storage:0gbps-6-barracuda-st20000dm001-20000gb-sata-35",
+        "model:storage:0gbps-6-barracuda-st4000dm004-4000gb-sata-35"
       ]
     },
     {
@@ -3459,6 +3459,36 @@
         "model:memory:2x16gb-cl30-neo-trident-z5-32gb-x2-6400mhz-cl30-rgb-black-dimm",
         "model:memory:2x16gb-cl30-neo-trident-z5-32gb-x2-6400mhz-cl30-rgb-white-dimm",
         "model:memory:2x16gb-cl38-neo-trident-z5-32gb-x2-8000mhz-cl38-rgb-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "השהיית CAS",
+      "count": 4,
+      "products": [
+        "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:k4a8g085wr-u16gb32-16gb-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מספר חלק",
+      "count": 4,
+      "products": [
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:hmcg88agbua081n-sk-32gb-green-dimm",
+        "model:memory:k4a8g085wr-u16gb32-16gb-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "קצב נתונים",
+      "count": 4,
+      "products": [
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
+        "model:memory:hmcg88agbua081n-sk-32gb-green-dimm"
       ]
     },
     {
@@ -4367,16 +4397,6 @@
         "model:memory:3200-3rd-party-16gb-3200mhz-black",
         "model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm",
         "model:memory:ct32g4dfd832a-dimm-32gb-3200mhz-black-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "השהיית CAS",
-      "count": 3,
-      "products": [
-        "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
-        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -5970,24 +5990,6 @@
       "products": [
         "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
         "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מספר חלק",
-      "count": 2,
-      "products": [
-        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
-        "model:memory:line-psd532g56002-signature-32gb-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "קצב נתונים",
-      "count": 2,
-      "products": [
-        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
-        "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm"
       ]
     },
     {
@@ -8377,6 +8379,14 @@
     },
     {
       "category": "gpu",
+      "label": "מעבד",
+      "count": 1,
+      "products": [
+        "model:gpu:2gd3h-4hdmi-710-gt-2gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "CUDA Core",
       "count": 1,
       "products": [
@@ -9133,6 +9143,30 @@
       "count": 1,
       "products": [
         "model:memory:addu1600w8g11-dimm-s-u-8gb-1600mhz-cl11-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "דירוג",
+      "count": 1,
+      "products": [
+        "model:memory:hmcg88agbua081n-sk-32gb-green-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "ECC מערכת",
+      "count": 1,
+      "products": [
+        "model:memory:hmcg88agbua081n-sk-32gb-green-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "קיבולת RAM",
+      "count": 1,
+      "products": [
+        "model:memory:k4a8g085wr-u16gb32-16gb-black-dimm"
       ]
     },
     {

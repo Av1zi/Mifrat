@@ -623,7 +623,7 @@
 "1pc:167956":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
 "1pc:167972":"model:motherboard:b760m-d3hp-microatx-ddr4",
 "1pc:167982":"model:case:c8-wood-black",
-"1pc:168326":"model:gpu:4gd3v2-n730",
+"1pc:168326":"model:gpu:4gd3v2-n730-4gb",
 "1pc:168334":"model:memory:ad5s560032g-dimm-s-so-32gb-5600mhz-cl46-sodimm",
 "1pc:168358":"model:memory:addu1600w8g11-dimm-s-u-8gb-1600mhz-cl11-dimm",
 "1pc:168470":"model:memory:dominator-rgb-titanium-64gb-x2-6000mhz-cl30-rgb-white",
@@ -759,7 +759,7 @@
 "1pc:172028":"model:case_fan:120mm-light-lx-pack-pwm-triple-wings-120mm-3-rgb-black",
 "1pc:172030":"model:case:900-base-dx-light-black",
 "1pc:172032":"model:case_fan:p14-140mm-rgb-black",
-"1pc:172041":"model:gpu:2gd3h-4hdmi-710-gt",
+"1pc:172041":"model:gpu:2gd3h-4hdmi-710-gt-2gb",
 "1pc:172042":"mpn:motherboard:4711377253536",
 "1pc:172045":"model:motherboard:e-h610m-pro-microatx",
 "1pc:172059":"model:case_fan:1203-aeolus-p2-120mm",
@@ -1133,7 +1133,7 @@
 "1pc:190004":"mpn:gpu:n5070212d7195064n",
 "1pc:190006":"mpn:gpu:ne75080019t2gb2031a",
 "1pc:190022":"mpn:gpu:n5080316d7x17605211",
-"1pc:190071":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
+"1pc:190071":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
 "1pc:190072":"model:cpu:coreultra7265f-tray",
 "1pc:191687":"model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb",
 "1pc:191771":"mpn:gpu:dpz4cwwp01",
@@ -1353,7 +1353,7 @@
 "1pc:204037":"model:case_fan:120mm-3-3x-fans-led-pack-pwm-r-reverse-rgb-rs120-support-120mm-3-rgb-black",
 "1pc:204039":"model:case_fan:120mm-3-3x-fans-led-pack-pwm-r-reverse-rgb-rs120-support-120mm-3-rgb-white",
 "1pc:204043":"model:case_fan:2x-fans-icue-link-lx140-pwm-starter-140mm-2-rgb-white",
-"1pc:204044":"model:gpu:2xdp-2xhdmi-5050-8gb-gddr7-geforce-low-oc-profile-rtx-8gb",
+"1pc:204044":"model:gpu:5050-8gl-gv-low-n5050oc-oc-profile-rtx-8gb",
 "1pc:204045":"model:motherboard:aorus-b850-ice-stealth-atx",
 "1pc:204046":"model:gpu:5060-8g-8gd-aorus-e-elite-geforce-gv-n5060aorus-rtx-8gb",
 "1pc:204048":"model:storage:0-2230-4-nv3-2000gb-usb-m22230",
@@ -1957,7 +1957,7 @@
 "1pc:216219":"model:storage:0gbps-6-barracuda-st8000dm004-8000gb-sata-35",
 "1pc:216220":"model:storage:16tb-256mb-7200-enterprise-exos-sata3-16000gb-sata-35",
 "1pc:216221":"model:storage:enterprise-exos-x-20000gb-sata-35",
-"1pc:216222":"model:storage:0gbps-256mb-3-5-6-7200rpm-7e10-8tb-enterprise-exos-sata-st8000nm017b-8000gb-sata-35",
+"1pc:216222":"model:storage:256mb-7200-7e10-8tb-enterprise-exos-sata3-8000gb-sata-35",
 "1pc:216223":"model:storage:purple-wd-4000gb-sata-35",
 "1pc:216224":"model:storage:256mb-3-4tb-5-5400-hdd-sata3-skyhawk-4000gb-sata-35",
 "1pc:216226":"model:storage:purple-wd-6000gb-sata-35",
@@ -2015,7 +2015,7 @@
 "1pc:216306":"model:psu:650-csk-dc-650w-no-black",
 "1pc:216307":"model:case:flux-m-black",
 "1pc:216308":"mpn:psu:gsk850v2",
-"1pc:216309":"model:psu:850-gsk-v2-850w-full",
+"1pc:216309":"model:psu:1-850-atx3-full-gsk-modular-v2-850w-full-white",
 "1pc:216315":"other:1pc:1pc-216315",
 "1pc:216327":"other:1pc:1pc-216327",
 "1pc:216337":"other:1pc:1pc-216337",
@@ -2169,7 +2169,7 @@
 "1pc:218800":"model:motherboard:b850-gaming-max-wifi-atx",
 "1pc:218804":"model:memory:3200-cl22-sodimm-16gb-x1-3200mhz-cl22-sodimm",
 "1pc:218805":"model:gpu:16gd-5080-gv-infinity-n5080aorusif-rtx-wd-wood-16gb",
-"1pc:218806":"model:gpu:16gd-5080-gv-if-n5080aorus-rtx-16gb",
+"1pc:218806":"model:gpu:16gb-3xdp-5080-aorus-gddr7-hdmi-hyperburst-infinity-rtx-windforce-16gb",
 "1pc:218921":"mpn:cooler_air:4711514503111",
 "1pc:219034":"model:motherboard:aorus-b850-elite-x3d-atx",
 "1pc:219119":"model:case:case-pb8-white",
@@ -2539,8 +2539,8 @@
 "1pc:223498":"model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black",
 "1pc:223513":"model:cooler_air:360-argb-matrix-omni-black",
 "1pc:223523":"model:gpu:730-geforce-gt-4gb",
-"1pc:223581":"model:memory:k4a8g085wr-samsung-u16gb32-16gb-black",
-"1pc:223582":"model:memory:hmcg88agbua081n-hynix-sk-32gb",
+"1pc:223581":"model:memory:k4a8g085wr-u16gb32-16gb-black-dimm",
+"1pc:223582":"model:memory:hmcg88agbua081n-sk-32gb-green-dimm",
 "1pc:2836":"model:cooler_air:002-e41997",
 "1pc:32632":"manual:cpu:1pc-32632-tms-g4400t",
 "1pc:32633":"manual:cpu:1pc-32633-tms-c7100t",
@@ -2824,7 +2824,7 @@
 "ivory:112839":"model:memory:kvr56u46bd8-32-32gb-5600mhz-cl46-green-dimm",
 "ivory:112907":"model:psu:1-3-850-focus-gx-v4-850w-black",
 "ivory:112909":"model:psu:1-1000-3-focus-gx-v4-1000w-full-black",
-"ivory:112965":"mpn:motherboard:90mb1ga0m0eay0",
+"ivory:112965":"model:motherboard:h610m-k-prime-microatx",
 "ivory:113155":"mpn:case:cmt192w",
 "ivory:113309":"model:cpu:285k-tray",
 "ivory:113311":"model:cpu:285k",
@@ -3037,8 +3037,10 @@
 "ivory:134865":"model:motherboard:gaming-max-wifi7-x870-atx",
 "ivory:134868":"manual:motherboard:ivory-134868-ksp-393815",
 "ivory:134937":"model:aio:360-frozen-pro-warframe-360mm-black",
-"ivory:134943":"sku:cooler_air:814256003759",
-"ivory:134958":"sku:cooler_air:814256018227",
+"ivory:134943":"model:cooler_air:120-assassin-peerless-se-155mm-120mm-blacksilver",
+"ivory:134946":"model:cooler_air:120-2-assassin-peerless-se-160mm-120mm-black",
+"ivory:134952":"model:cooler_air:120-2-evo-phantom-spirit-160mm-120mm-black",
+"ivory:134958":"model:cooler_air:120-2-knight-royal-se-160mm-120mm-blacksilver",
 "ivory:134970":"model:motherboard:b850-gaming-wifi6-atx",
 "ivory:134976":"model:motherboard:b850-edge-mpg-ti-wifi-atx",
 "ivory:135057":"mpn:gpu:4711377308175",
@@ -3079,7 +3081,7 @@
 "ivory:138150":"model:case_fan:120mm-fan-lcd-pack-rgb-single-sl-uni-white-wireless-120mm-1-rgb-white",
 "ivory:138156":"mpn:case_fan:slinf1203w",
 "ivory:138231":"model:gpu:5060-8g-geforce-rtx-ti-windforce-8gb",
-"ivory:138237":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
+"ivory:138237":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
 "ivory:138951":"model:gpu:16gb-5070-gaming-gddr7-geforce-oc-rtx-ti-tuf-white-16gb",
 "ivory:138984":"model:memory:cl46-elite-ted532g5600c4601-32gb-5600mhz-cl46-black",
 "ivory:139062":"model:memory:2x32gb-5600mhz-cl38-ddr5-delta-force-rgb-t-64gb-x2-5600mhz-cl38-rgb-white",
@@ -3095,16 +3097,24 @@
 "ivory:140966":"model:motherboard:esport-gank-h810m-wifi-microatx",
 "ivory:14180":"model:cooler_air:140-d15-nh-170mm-140mm-brown",
 "ivory:141806":"model:aio:240-aqua-argb-black-elite-v6-240mm-black",
-"ivory:141812":"sku:aio:814256020909",
+"ivory:141809":"model:aio:240-240-aqua-elite-v6-240mm-white",
+"ivory:141812":"model:aio:360-aqua-argb-black-elite-v6-360mm-black",
+"ivory:141815":"model:aio:360-360-aqua-elite-v6-360mm-white",
 "ivory:141818":"model:aio:240-argb-black-core-matrix-vision-240mm-black",
 "ivory:141821":"model:aio:240-argb-core-matrix-vision-white-240mm-white",
 "ivory:141824":"sku:aio:814256021517",
 "ivory:141827":"model:aio:360-argb-core-matrix-vision-white-360mm-white",
 "ivory:141830":"sku:aio:814256018418",
 "ivory:141833":"model:aio:360-argb-frozen-se-v2-warframe-white-360mm-white",
+"ivory:141836":"model:aio:360-360-stream-vision-360mm-black",
 "ivory:141839":"model:aio:360-stream-vision-white-360mm-white",
 "ivory:141845":"model:aio:360-argb-black-trofeo-vision-360mm-black",
 "ivory:141851":"sku:aio:814256021197",
+"ivory:141860":"model:aio:360-360-turbo-vision-wonder-360mm-black",
+"ivory:141863":"model:aio:360-360-turbo-vision-wonder-360mm-white",
+"ivory:141866":"model:cooler_air:120-2-assassin-peerless-se-v3-160mm-120mm-blacksilver",
+"ivory:141869":"model:cooler_air:120-2-assassin-peerless-se-160mm-120mm-black-rgb",
+"ivory:141872":"model:cooler_air:120-2-assassin-peerless-se-160mm-120mm-white",
 "ivory:141878":"model:cooler_air:120-black-digital-knight-royal-162mm-120mm-black",
 "ivory:141881":"model:cooler_air:120-digital-knight-royal-white-162mm-120mm-white",
 "ivory:141884":"model:cooler_air:130-pretor-royal-158mm-120mm-blacksilver",
@@ -3222,7 +3232,9 @@
 "ivory:154594":"mpn:cooler_air:acfre00191a",
 "ivory:154759":"model:memory:32-kf556c36bbe2a-32gb-5600mhz-cl36-rgb-black-dimm",
 "ivory:155059":"model:memory:vulcan-z-8gb-3200mhz-cl16-grey",
-"ivory:155068":"sku:aio:814256021920",
+"ivory:155062":"model:aio:360-360-levita-vision-360mm-black",
+"ivory:155065":"model:aio:360-360-levita-vision-360mm-white",
+"ivory:155068":"model:aio:360-argb-magic-qube-360mm-black",
 "ivory:155071":"model:aio:360-argb-magic-qube-360mm-white",
 "ivory:155080":"sku:cooler_air:814256022132",
 "ivory:155083":"model:cooler_air:120-argb-assassin-max-peerless-vision-white-164mm-120mm-white",
@@ -3232,7 +3244,9 @@
 "ivory:155095":"model:case:a70-white",
 "ivory:155098":"model:case:a70-argb-black",
 "ivory:155101":"model:case:a70-argb-white",
-"ivory:155107":"sku:case:814256022323",
+"ivory:155104":"model:case:a70-vision-black",
+"ivory:155107":"model:case:a70-vision-white",
+"ivory:155110":"model:case:m10-tl-black",
 "ivory:155113":"mpn:case:tlm10w",
 "ivory:155116":"model:case:m10-tl-white",
 "ivory:155122":"model:case:m10-tl-vision-black",
@@ -3345,7 +3359,7 @@
 "ivory:161395":"model:cooler_air:1000v3-argb-cr-pro-white-159mm-120mm-white",
 "ivory:161401":"model:cooler_air:1000max-cr-standard-v2-157mm-120mm-black",
 "ivory:161527":"model:cpu:9950x3d2-tray",
-"ivory:161530":"model:cpu:ryzen99950x3d2",
+"ivory:161530":"model:cpu:9950x3d2",
 "ivory:162061":"model:motherboard:evo-pro-s-wifi-x870e-atx",
 "ivory:162085":"model:motherboard:b-b840m-pro-microatx",
 "ivory:162139":"model:case:m-o11-vision-black",
@@ -3462,6 +3476,8 @@
 "ivory:173740":"model:storage:5100-optimus-500gb-pciegen40-m22280",
 "ivory:173785":"mpn:storage:lnm620x001trnnng",
 "ivory:173788":"model:storage:2280-5-t710-2000gb-m2pcie-m22280",
+"ivory:173812":"model:case:a70-vision-black-2",
+"ivory:173815":"model:case:a70-vision-white-2",
 "ivory:175075":"model:motherboard:aero-wood-x3d-x870e-atx",
 "ivory:175087":"model:gpu:5070-geforce-oc-rtx-twin-x2-12gb",
 "ivory:175090":"model:gpu:12gd-5070-gv-if-infinity-n5070aorus-rtx-12gb",
@@ -3598,7 +3614,7 @@
 "ivory:79655":"model:aio:5v-h150-lga1700-ready-support-360mm",
 "ivory:80024":"model:cooler_air:air-chromatic-cooler-cpu-t120-120mm",
 "ivory:80270":"model:cpu:14700k-tray",
-"ivory:80273":"model:cpu:14700kb",
+"ivory:80273":"model:cpu:14700k",
 "ivory:80276":"model:cpu:14900kf-tray",
 "ivory:80279":"model:cpu:14900kf",
 "ivory:80282":"model:cpu:14900k-tray-2",
@@ -4187,7 +4203,7 @@
 "ksp:387228":"model:gpu:5060-dual-fan-oc-rtx-ti-16gb",
 "ksp:387614":"model:case:4000d-frame-modular-rs-black",
 "ksp:387881":"model:case_fan:3-rs120-120mm-3-black",
-"ksp:387926":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
+"ksp:387926":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
 "ksp:389384":"model:gpu:9060-amd-oc-pulse-radeon-rx-xt-16gb",
 "ksp:389643":"model:gpu:o16g-prime-rx9060xt-16gb",
 "ksp:390235":"model:gpu:5060-8g-geforce-rtx-ti-windforce-8gb",
@@ -4265,7 +4281,7 @@
 "ksp:397908":"model:cooler_air:8i-co-freezer-black",
 "ksp:397944":"model:cooler_air:8a-amd-freezer-black",
 "ksp:398028":"model:cooler_air:8a-amd-co-freezer-black",
-"ksp:39823":"model:storage:240g-a400-sa400s37-240gb-sata-25",
+"ksp:39823":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
 "ksp:39824":"model:storage:480g-a400-sa400s37-480gb-sata-25inch",
 "ksp:398280":"model:cooler_air:50-freezer-tr-120mm",
 "ksp:398486":"model:gpu:12g-12gd-5070-aero-gv-n5070aero-oc-oc-rtx-12gb",
@@ -4311,7 +4327,7 @@
 "ksp:408989":"model:motherboard:crosshair-extreme-rog-x870e-eatx",
 "ksp:408991":"model:motherboard:b850m-e-gaming-tuf-wifi-microatx",
 "ksp:409001":"model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
-"ksp:409002":"model:gpu:2xdp-2xhdmi-5050-8gb-gddr7-geforce-low-oc-profile-rtx-8gb",
+"ksp:409002":"model:gpu:5050-8gl-gv-low-n5050oc-oc-profile-rtx-8gb",
 "ksp:409003":"model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb",
 "ksp:410551":"motherboard:ksp:ksp-410551",
 "ksp:411135":"model:gpu:5070-dual-gddr7-geforce-oc-rtx-12gb",
@@ -4499,7 +4515,7 @@
 "ksp:459088":"model:cpu:250k-tray",
 "ksp:459092":"model:cpu:250kf-tray",
 "ksp:459096":"model:cpu:250kf",
-"ksp:460130":"model:cpu:ryzen99950x3d2",
+"ksp:460130":"model:cpu:9950x3d2",
 "ksp:460154":"model:cpu:270k-tray",
 "ksp:460237":"accessories:ksp:ksp-460237",
 "ksp:460251":"accessories:ksp:ksp-460251",
@@ -4632,7 +4648,7 @@
 "ksp:491358":"model:gpu:12g-9070-gaming-gre-oc-radeon-rx-12gb",
 "ksp:491362":"model:gpu:radeon-rx-9060-xt-gaming-16gb",
 "ksp:491364":"model:gpu:16g-5060-geforce-max-oc-rtx-ti-windforce-16gb",
-"ksp:491366":"model:gpu:16gb-1xhdmi-3xdp-5060ti-eagle-gddr7-geforce-max-oc-rtx-16gb",
+"ksp:491366":"model:gpu:16gd-gv-n506teaglemax-oc-16gb",
 "ksp:491368":"model:motherboard:aero-wood-x3d-x870e-atx",
 "ksp:491372":"model:motherboard:aero-wood-x3d-x870e-atx",
 "ksp:491422":"model:gpu:9070-gaming-radeon-rx-xt-16gb",
@@ -4886,7 +4902,7 @@
 "plonter:100-100001764WOF":"mpn:cpu:100100001764wof",
 "plonter:100-100001904":"model:cpu:7500x3d",
 "plonter:100-100001973WOF":"model:cpu:ryzen79850x3d",
-"plonter:100-100001978WOF":"model:cpu:ryzen99950x3d2",
+"plonter:100-100001978WOF":"model:cpu:9950x3d2",
 "plonter:100-300000006":"sku:gpu:100300000006",
 "plonter:100-300000075":"sku:gpu:100300000075",
 "plonter:100-300000077":"sku:gpu:100300000077",
@@ -5786,7 +5802,7 @@
 "plonter:GV-N3050OC-6GL":"mpn:gpu:n3050oc6gl",
 "plonter:GV-N3050WF2OCV2-6GD":"model:gpu:3050-6g-6gd-geforce-gv-n3050wf2ocv2-oc-rtx-v2-windforce-6gb",
 "plonter:GV-N5050GAMING-OC-8GD":"model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
-"plonter:GV-N5050OC-8GL":"model:gpu:2xdp-2xhdmi-5050-8gb-gddr7-geforce-low-oc-profile-rtx-8gb",
+"plonter:GV-N5050OC-8GL":"model:gpu:5050-8gl-gv-low-n5050oc-oc-profile-rtx-8gb",
 "plonter:GV-N5050WF2OC-8GD":"model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb",
 "plonter:GV-N5060AERO-OC-8GD":"model:gpu:5060-8g-8gd-aero-geforce-gv-n5060aero-oc-oc-rtx-8gb",
 "plonter:GV-N5060EAGLE-OC-8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n5060eagle-oc-oc-rtx-8gb",
@@ -5798,7 +5814,7 @@
 "plonter:GV-N5060WF2MAX-OCV2-8GD":"model:gpu:5060-8gd-gv-n5060wf2max-ocv2-rtx-8gb",
 "plonter:GV-N5060WF2OC-8GD":"model:gpu:5060-8g-8gd-geforce-gv-n5060wf2oc-oc-rtx-windforce-8gb",
 "plonter:GV-N506TEAGLEMAX-OC-8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb",
-"plonter:GV-N506TEAGLEOC-8GD":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
+"plonter:GV-N506TEAGLEOC-8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
 "plonter:GV-N506TEAGLEOC-ICE-8GD":"model:gpu:5060-8g-eagle-geforce-ice-oc-rtx-ti-8gb",
 "plonter:GV-N506TGAMING-OC-8GD":"model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
 "plonter:GV-N506TWF2OC-8GD":"model:gpu:5060-8g-8gd-geforce-gv-n506twf2oc-oc-rtx-ti-windforce-8gb",
@@ -6911,7 +6927,7 @@
 "plonter:VCNRTX5000ADA-SB":"model:gpu:32gb-4xmini-5000-ada-dp-ecc-gddr6-generation-rtx-32gb",
 "plonter:VCNRTX5880ADA-SB":"mpn:gpu:vcnrtx5880adasb",
 "plonter:VCNRTX6000ADA-SB":"model:gpu:48gb-4xmini-6000-ada-dp-ecc-gddr6-generation-rtx-48gb",
-"plonter:VCNRTXA1000-SB":"model:gpu:4xmini-8gb-a1000-dp-gddr6-low-profile-rtx-8gb",
+"plonter:VCNRTXA1000-SB":"model:gpu:4xmini-8gb-a1000-bulk-dp-gddr6-low-profile-rtx-8gb",
 "plonter:VCNRTXA5500-SB":"mpn:gpu:vcnrtxa5500sb",
 "plonter:VCNRTXPRO6000-SB":"mpn:gpu:vcnrtxpro6000sb",
 "plonter:VCNT400-4GB-SB":"mpn:gpu:vcnt4004gbsb",
@@ -8937,7 +8953,7 @@
 "tms:N506TAEROOC8GD":"model:gpu:5060-8gd-aero-geforce-gv-n506taero-oc-rtx-ti-8gb",
 "tms:N506TEAGLEMAXOC8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb",
 "tms:N506TEAGLEOC16GD":"model:gpu:16g-16gd-5060-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-16gb",
-"tms:N506TEAGLEOC8GD":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
+"tms:N506TEAGLEOC8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
 "tms:N506TEAGLEOCICE8G":"model:gpu:5060-8gd-eagle-geforce-gv-ice-n506teagleoc-oc-rtx-ti-8gb",
 "tms:N506TGAMINGOC16GD":"mpn:gpu:n506tgamingoc16gd",
 "tms:N506TGAMINGOC8GD":"model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
@@ -9243,7 +9259,7 @@
 "tms:RX9070XT16G-LOCREVA":"model:gpu:16gb-9070-gddr6-hellhound-radeon-reva-rx-xt-16gb",
 "tms:RX9070XT16G-LOCWHITE":"model:gpu:16gb-9070-alphyn-am10-gddr6-hellhound-rx-spectral-white-xt-16gb",
 "tms:SA16G16ECR":"model:memory:1600-ecc-reg-16gb-x1-1600mhz-cl9-black",
-"tms:SA400S37-240G":"model:storage:a400-256gb-sata-25",
+"tms:SA400S37-240G":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
 "tms:SA8G16ECR":"model:memory:1600-bulk-ecc-reg-8gb-x1-1600mhz-cl9",
 "tms:SF-1000F14GE":"model:psu:1-atx3-iii-leadex-1000w",
 "tms:SF-1000F14SP":"model:psu:1-atx3-leadex-pro-viii-1000w-black",
@@ -9400,7 +9416,7 @@
 "tms:ST4000VX016":"model:storage:256mb-3-4tb-5-5400-hdd-sata3-skyhawk-4000gb-sata-35",
 "tms:ST6000VX009":"model:storage:0gbps-256mb-3-5-5400rpm-6-6tb-cache-sata-skyhawk-st6000vx009-6000gb-sata-35",
 "tms:ST8000DM004":"model:storage:0gbps-6-barracuda-st8000dm004-8000gb-sata-35",
-"tms:ST8000NM017B":"model:storage:0gbps-256mb-3-5-6-7200rpm-7e10-8tb-enterprise-exos-sata-st8000nm017b-8000gb-sata-35",
+"tms:ST8000NM017B":"model:storage:256mb-7200-7e10-8tb-enterprise-exos-sata3-8000gb-sata-35",
 "tms:ST8000NT001":"model:storage:24-7-ironwolf-nas-8000gb-sata-25",
 "tms:ST8000VE001":"model:storage:ai-skyhawk-8000gb-sata-35",
 "tms:ST8000VN002":"model:storage:24-7-ironwolf-nas-8000gb-sata-35",
@@ -9864,7 +9880,7 @@
 "yahav:11037":"model:motherboard:b650-dp-edge-hdmi-lga1700-mpg-wifi-atx",
 "yahav:11042":"model:gpu:5060-8g-8gd-geforce-gv-max-n5060wf2max-oc-oc-rtx-windforce-8gb",
 "yahav:11047":"model:cpu:ryzen59500f-tray",
-"yahav:11048":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
+"yahav:11048":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
 "yahav:11050":"model:storage:1024gb-1tb-2-7200mb-basic-exceria-gen4-m-nvme-series-ssd-1000gb-pciem2-m2",
 "yahav:11053":"manual:gpu:1pc-221469-yahav-11053",
 "yahav:11063":"model:case:501-base-lx-pure-white",
@@ -9876,7 +9892,7 @@
 "yahav:11078":"model:case:3-ambience-clear-meshify-pro-tg-tint-white",
 "yahav:11079":"model:case:3-3x140mm-ambience-black-clear-fans-included-meshify-mid-momentum-pro-rgb-rgb-tg-tint-tower-black",
 "yahav:11083":"model:storage:0gbps-256mb-3-5-5400rpm-6-6tb-cache-sata-skyhawk-st6000vx009-6000gb-sata-35",
-"yahav:11085":"model:storage:0gbps-256mb-3-5-6-7200rpm-7e10-8tb-enterprise-exos-sata-st8000nm017b-8000gb-sata-35",
+"yahav:11085":"model:storage:256mb-7200-7e10-8tb-enterprise-exos-sata3-8000gb-sata-35",
 "yahav:11087":"model:storage:0gbps-6-barracuda-st20000dm001-20000gb-sata-35",
 "yahav:11090":"model:storage:250g-g28-sdssda-250gb-sata-25",
 "yahav:11097":"model:case:501-base-dx-pure-black",
@@ -9904,10 +9920,11 @@
 "yahav:11249":"mpn:gpu:n5090aorusxw32gdpc",
 "yahav:11251":"model:gpu:1xhdmi-3xdp-5060-8gb-dual-fan-gddr7-geforce-oc-rtx-8gb",
 "yahav:11253":"model:psu:1-1-1000w-3-5-active-atx-full-gold-modular-ne1000gm-neoeco-pcie-pfc-ready-1000w-full-black",
-"yahav:11257":"model:gpu:4xmini-8gb-a1000-dp-gddr6-low-profile-rtx-8gb",
+"yahav:11257":"model:gpu:4xmini-8gb-a1000-bulk-dp-gddr6-low-profile-rtx-8gb",
 "yahav:11258":"model:motherboard:2xtype-7000-9000-c-mb-pro-pro-sage-se-series-str5-threadripper-wrx90-wrx90e-ws-wx-ssieeb",
 "yahav:11261":"model:aio:100-28cfm-2dba-35-420-420mm-amd-chione-digital-dual-e4-infinite-intel-mirror-rgb-420mm",
 "yahav:11265":"model:gpu:16gb-1xhdmi-3x-3xdp-5070ti-fan-gddr7-oc-rtx-shadow-triple-16gb",
+"yahav:11266":"model:gpu:16gb-1xhdmi-3x-3xdp-5070ti-fan-gddr7-oc-rtx-triple-ventus-16gb",
 "yahav:11268":"mpn:gpu:4711377301541",
 "yahav:11270":"storage:msi:spatium-s270-480gb",
 "yahav:11276":"model:storage:0-5-9100-pro-8000gb-nvme-m22280",
@@ -9960,7 +9977,7 @@
 "yahav:11436":"model:case:2x120mm-3x120mm-aorus-c700-fans-tg-black",
 "yahav:11438":"model:cooler_air:2000rpm-250w-2x120mm-3-61-8cfm-argb-bk043-black-lx-pro-pure-rock-tdp-155mm-120mm-black",
 "yahav:11440":"model:cpu:9950x3d2-tray",
-"yahav:11441":"model:cpu:ryzen99950x3d2",
+"yahav:11441":"model:cpu:9950x3d2",
 "yahav:11446":"model:psu:1-1-3-active-modular-pcie5-pfc-sx1200p-1200w-white",
 "yahav:11447":"model:psu:1-1-3-active-modular-pcie5-pfc-sx1200p-1200w-black",
 "yahav:11448":"model:psu:sfx-sp1000p-1000w-white",
@@ -10026,7 +10043,7 @@
 "yahav:11584":"model:motherboard:b860m-eagle-v2-microatx",
 "yahav:11585":"model:motherboard:b860m-gaming-wifi6-microatx",
 "yahav:11587":"model:gpu:12gd-5070-gv-if-infinity-n5070aorus-rtx-12gb",
-"yahav:11588":"mpn:gpu:n5080aorusif16gd",
+"yahav:11588":"model:gpu:16gb-3xdp-5080-aorus-gddr7-hdmi-hyperburst-infinity-rtx-windforce-16gb",
 "yahav:11589":"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-black",
 "yahav:11590":"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-white",
 "yahav:11591":"model:aio:1cfm-2800rpm-2k-360mm-360tl-6-60hz-67-90-curved-hydroshift-ii-oled-360mm-black",
@@ -10124,12 +10141,12 @@
 "yahav:11756":"model:motherboard:aorus-elite-wifi7-x870m-microatx",
 "yahav:11757":"model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black",
 "yahav:11758":"model:storage:4-bulk-p310-series-1000gb-m2pcie-m2",
-"yahav:11759":"model:gpu:16gb-1xhdmi-3xdp-5060ti-eagle-gddr7-geforce-max-oc-rtx-16gb",
+"yahav:11759":"model:gpu:16gd-gv-n506teaglemax-oc-16gb",
 "yahav:1176":"model:case_fan:120mm-air-blue-high-led-pressure-series-sp120-static-120mm-rgb-blue",
 "yahav:11760":"model:case_fan:120mm-fan-flex-inf-lcd-sl-uni-120mm-1-rgb-black",
 "yahav:11762":"model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
 "yahav:11763":"model:gpu:5060-8gd-gv-n5060wf2max-ocv2-rtx-8gb",
-"yahav:11764":"model:gpu:2xdp-2xhdmi-5050-8gb-gddr7-geforce-low-oc-profile-rtx-8gb",
+"yahav:11764":"model:gpu:5050-8gl-gv-low-n5050oc-oc-profile-rtx-8gb",
 "yahav:11789":"model:memory:3-32gbx2-6000mhz-64gb-beast-certified-cl30-ddr5-expo-fury-rgb-xmp-64gb-6000mhz-cl30-rgb",
 "yahav:11792":"model:memory:2x16gb-cl46-desktop-dr5-udimm-32gb-x2-5600mhz-cl46-black-dimm",
 "yahav:11793":"model:motherboard:1851-1xdisplayport-atx-ax-b860m-ddr5-gaming-lga-max-micro-wifi-microatx",
@@ -10143,6 +10160,9 @@
 "yahav:11812":"model:storage:10-exceria-g4-series-2000gb-m2pcie-m2",
 "yahav:11813":"model:motherboard:am5-b850-hdmi-ii-mag-max-tomahawk-wifi-atx",
 "yahav:11814":"model:storage:14-800mbps-fury-g5-renegade-series-4000gb-pciem2-m2",
+"yahav:11815":"model:gpu:16gb-1xhdmi-3xdp-9070xt-amd-fan-gddr6-radeon-rx-swift-triple-16gb",
+"yahav:11816":"model:gpu:3xdp-5070ti-eagle-gddr7-hdmi-oc-rtx-sff-16gb",
+"yahav:11817":"model:gpu:16gb-3xdp-5070ti-eagle-gddr7-hdmi-ice-oc-rtx-sff-16gb",
 "yahav:2001":"mpn:accessories:bxatxsbc",
 "yahav:289":"model:gpu:1030-2g-2gl-d4-gt-gv-low-n1030d4-profile-2gb",
 "yahav:3279":"model:case_fan:120mm-1800rpm-led-red-sickleflow-120mm-rgb-red",
@@ -11416,6 +11436,10 @@
 "THERMALRIGHT Aqua Elite 240 ARGB BLACK V6 240",
 "aio"
 ],
+"model:aio:240-240-aqua-elite-v6-240mm-white":[
+"Thermalright Aqua Elite White V6 240mm ARGB",
+"aio"
+],
 "model:aio:240-a-freezer-iii-liquid-240mm-white":[
 "ARCTIC Liquid Freezer III A-RGB 240mm White",
 "aio"
@@ -11676,6 +11700,30 @@
 "Cooler Master Masterliquid Core 4 Black 360mm ARGB LCD",
 "aio"
 ],
+"model:aio:360-360-aqua-elite-v6-360mm-white":[
+"Thermalright Aqua Elite White V6 360mm ARGB",
+"aio"
+],
+"model:aio:360-360-levita-vision-360mm-black":[
+"Thermalright Levita Vision Black 360mm ARGB",
+"aio"
+],
+"model:aio:360-360-levita-vision-360mm-white":[
+"Thermalright Levita Vision White 360mm ARGB",
+"aio"
+],
+"model:aio:360-360-stream-vision-360mm-black":[
+"Thermalright Stream Vision Black 360mm",
+"aio"
+],
+"model:aio:360-360-turbo-vision-wonder-360mm-black":[
+"Thermalright Wonder Vision Turbo Black 360mm ARGB",
+"aio"
+],
+"model:aio:360-360-turbo-vision-wonder-360mm-white":[
+"Thermalright Wonder Vision Turbo White 360mm ARGB",
+"aio"
+],
 "model:aio:360-360scb-tf3-360mm-black":[
 "Jonsbo TF3-360SCB 360mm ARGB Black",
 "aio"
@@ -11820,6 +11868,10 @@
 "Coolleo ICE Apex Vision 360 WT",
 "aio"
 ],
+"model:aio:360-aqua-argb-black-elite-v6-360mm-black":[
+"Thermalright Aqua Elite Black V6 360mm ARGB",
+"aio"
+],
 "model:aio:360-argb-black-trofeo-vision-360mm-black":[
 "Thermalright Trofeo Vision Black 360mm ARGB",
 "aio"
@@ -11830,6 +11882,10 @@
 ],
 "model:aio:360-argb-frozen-se-v2-warframe-white-360mm-white":[
 "Thermalright Frozen Warframe SE White V2 360mm ARGB",
+"aio"
+],
+"model:aio:360-argb-magic-qube-360mm-black":[
+"Thermalright Magic Qube Black 360mm ARGB",
 "aio"
 ],
 "model:aio:360-argb-magic-qube-360mm-white":[
@@ -13892,6 +13948,22 @@
 "Thermalright A70 Black",
 "case"
 ],
+"model:case:a70-vision-black":[
+"Thermalright A70 Vision Black",
+"case"
+],
+"model:case:a70-vision-black-2":[
+"Thermalright A70 Vision Black",
+"case"
+],
+"model:case:a70-vision-white":[
+"Thermalright A70 Vision White",
+"case"
+],
+"model:case:a70-vision-white-2":[
+"Thermalright A70 Vision White",
+"case"
+],
 "model:case:a70-white":[
 "Thermalright A70 White",
 "case"
@@ -14838,6 +14910,10 @@
 ],
 "model:case:m-o11-vision-white-midtower":[
 "Lian Li O11 Vision-M White (O11VMX-WHITE)",
+"case"
+],
+"model:case:m10-tl-black":[
+"Thermalright TL-M10 Black",
 "case"
 ],
 "model:case:m10-tl-vision-black":[
@@ -17536,8 +17612,36 @@
 "Noctua NH-U12A RAM Brown",
 "cooler_air"
 ],
+"model:cooler_air:120-2-assassin-peerless-se-160mm-120mm-black":[
+"Thermalright Peerless Assassin 120 SE 2 ARGB Black",
+"cooler_air"
+],
+"model:cooler_air:120-2-assassin-peerless-se-160mm-120mm-black-rgb":[
+"Thermalright Peerless Assassin 120 SE Black",
+"cooler_air"
+],
+"model:cooler_air:120-2-assassin-peerless-se-160mm-120mm-white":[
+"Thermalright Peerless Assassin 120 SE White ARGB",
+"cooler_air"
+],
+"model:cooler_air:120-2-assassin-peerless-se-v3-160mm-120mm-blacksilver":[
+"Thermalright Peerless Assassin 120 SE V3 Black",
+"cooler_air"
+],
+"model:cooler_air:120-2-evo-phantom-spirit-160mm-120mm-black":[
+"Thermalright Phantom Spirit 120 EVO 2 ARGB Black",
+"cooler_air"
+],
+"model:cooler_air:120-2-knight-royal-se-160mm-120mm-blacksilver":[
+"Thermalright Royal Knight 120 SE 2 Black",
+"cooler_air"
+],
 "model:cooler_air:120-argb-assassin-max-peerless-vision-white-164mm-120mm-white":[
 "Thermalright Peerless Assassin 120 Vision MAX ARGB White",
+"cooler_air"
+],
+"model:cooler_air:120-assassin-peerless-se-155mm-120mm-blacksilver":[
+"Thermalright Peerless Assassin 120 SE 2 Black",
 "cooler_air"
 ],
 "model:cooler_air:120-black-chromax-nh-ram-u12s-158mm-120mm-black":[
@@ -18576,10 +18680,6 @@
 "Intel Core i7 14700K Tray",
 "cpu"
 ],
-"model:cpu:14700kb":[
-"Intel Core i7 14700KB Box",
-"cpu"
-],
 "model:cpu:14700kf":[
 "Intel Core i7 14700KF Box",
 "cpu"
@@ -19120,6 +19220,10 @@
 "AMD Ryzen 9 9950X3D Box",
 "cpu"
 ],
+"model:cpu:9950x3d2":[
+"AMD Ryzen 9 9950X3D2 Box",
+"cpu"
+],
 "model:cpu:9950x3d2-tray":[
 "AMD Ryzen 9 9950X3D2 Tray",
 "cpu"
@@ -19336,10 +19440,6 @@
 "AMD Ryzen 9 9950X3D Tray (100-000000719)",
 "cpu"
 ],
-"model:cpu:ryzen99950x3d2":[
-"AMD Ryzen 9 9950X3D2 Box",
-"cpu"
-],
 "model:cpu:threadripper7960x-tray":[
 "AMD Threadripper 7960X Tray",
 "cpu"
@@ -19497,7 +19597,7 @@
 "gpu"
 ],
 "model:gpu:16g-16gd-5070-aorus-geforce-gv-m-master-n507taorus-rtx-ti-16gb":[
-"Gigabyte Aorus GeForce RTX 5070 Ti 16GB HDMI XDP",
+"Gigabyte Aorus GeForce RTX 5070 Ti 16GB",
 "gpu"
 ],
 "model:gpu:16g-16gd-5070-eagle-geforce-gv-ice-ice-n507teagleoc-oc-rtx-sff-ti-16gb":[
@@ -19509,7 +19609,7 @@
 "gpu"
 ],
 "model:gpu:16g-16gd-5070-gaming-gv-n507tgaming-oc-oc-rtx-ti-16gb":[
-"Gigabyte GeForce RTX 5070 Ti 16GB HDMI XDP",
+"Gigabyte GeForce RTX 5070 Ti 16GB (N507TGAMINGOC16GD)",
 "gpu"
 ],
 "model:gpu:16g-16gd-5080-aero-geforce-gv-n5080aero-oc-oc-rtx-sff-16gb":[
@@ -19593,11 +19693,11 @@
 "gpu"
 ],
 "model:gpu:16g-5070-geforce-oc-rtx-sff-ti-windforce-16gb":[
-"Gigabyte Windforce GeForce RTX 5070 Ti 16GB (N507TWF3OC16GD)",
+"Gigabyte Windforce GeForce RTX 5070 Ti 16GB HDMI XDP",
 "gpu"
 ],
 "model:gpu:16g-5070-geforce-oc-rtx-ti-v2-windforce-16gb":[
-"Gigabyte Windforce GeForce RTX 5070 Ti 16GB (N507TWF3OCV216GD)",
+"Gigabyte Windforce GeForce RTX 5070 Ti 16GB",
 "gpu"
 ],
 "model:gpu:16g-5080-aorus-geforce-master-n5080aorusm16gd-rtx-16gb":[
@@ -19632,16 +19732,16 @@
 "MSI Shadow GeForce RTX 5070 Ti 16GB",
 "gpu"
 ],
+"model:gpu:16gb-1xhdmi-3x-3xdp-5070ti-fan-gddr7-oc-rtx-triple-ventus-16gb":[
+"MSI Ventus 3X GeForce RTX 5070 Ti 16GB",
+"gpu"
+],
 "model:gpu:16gb-1xhdmi-3xdp-5060ti-dual-fan-gddr7-geforce-rtx-16gb":[
 "PNY GeForce RTX 5060 Ti 16GB",
 "gpu"
 ],
 "model:gpu:16gb-1xhdmi-3xdp-5060ti-eagle-gddr7-geforce-ice-oc-rtx-16gb":[
 "Gigabyte Eagle GeForce RTX 5060 Ti 16GB (GV-N506TEAGLE OC ICE-16GD)",
-"gpu"
-],
-"model:gpu:16gb-1xhdmi-3xdp-5060ti-eagle-gddr7-geforce-max-oc-rtx-16gb":[
-"Gigabyte Eagle GeForce RTX 5060 Ti 16GB (GV-N506TEAGLEMAX OC-16GD)",
 "gpu"
 ],
 "model:gpu:16gb-1xhdmi-3xdp-5070ti-epic-fan-gddr7-gpu-overclocked-rgb-rtx-triple-x-16gb":[
@@ -19670,6 +19770,14 @@
 ],
 "model:gpu:16gb-2xdp-9060-gddr6-hdmi-hellhound-radeon-rx-spectral-white-xt-16gb":[
 "PowerColor Hellhound Radeon RX 9060 XT 16GB HDMI XDP",
+"gpu"
+],
+"model:gpu:16gb-3xdp-5070ti-eagle-gddr7-hdmi-ice-oc-rtx-sff-16gb":[
+"Gigabyte Eagle GeForce RTX 5070 Ti 16GB HDMI XDP",
+"gpu"
+],
+"model:gpu:16gb-3xdp-5080-aorus-gddr7-hdmi-hyperburst-infinity-rtx-windforce-16gb":[
+"Gigabyte Aorus GeForce RTX 5080 16GB HDMI XDP",
 "gpu"
 ],
 "model:gpu:16gb-4-d-dl-dp1-dvi-gp100-gp10016g-quadro-x1-x4-16gb":[
@@ -19757,15 +19865,15 @@
 "gpu"
 ],
 "model:gpu:16gd-5070-gv-if-infinity-n507taorus-rtx-ti-16gb":[
-"Gigabyte GeForce RTX 5070 Ti 16GB",
-"gpu"
-],
-"model:gpu:16gd-5080-gv-if-n5080aorus-rtx-16gb":[
-"Gigabyte GeForce RTX 5080 16GB (N5080AORUSIF16GD)",
+"Gigabyte GeForce RTX 5070 Ti 16GB (GV-N507TAORUS IF-16GD)",
 "gpu"
 ],
 "model:gpu:16gd-5080-gv-infinity-n5080aorusif-rtx-wd-wood-16gb":[
-"Gigabyte GeForce RTX 5080 16GB (N5080AORUSIFWD16GD)",
+"Gigabyte GeForce RTX 5080 16GB",
+"gpu"
+],
+"model:gpu:16gd-gv-n506teaglemax-oc-16gb":[
+"Gigabyte Eagle GeForce RTX 5060 Ti 16GB",
 "gpu"
 ],
 "model:gpu:1sdv-710-e3bx-geforce-gt-lp-n710-sddr3-2gb":[
@@ -19798,10 +19906,6 @@
 ],
 "model:gpu:1xhdmi-3xdp-5060ti-8gb-click-gddr7-geforce-oc-one-rtx-white-8gb":[
 "GALAX GeForce RTX 5060 Ti 8GB",
-"gpu"
-],
-"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb":[
-"Gigabyte Eagle GeForce RTX 5060 Ti 8GB (N506TEAGLEOC8GD)",
 "gpu"
 ],
 "model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb":[
@@ -19868,8 +19972,8 @@
 "ASUS GeForce GT 1030 2GB Low Profile (90YV0AT0-M0NA00)",
 "gpu"
 ],
-"model:gpu:2gd3h-4hdmi-710-gt":[
-"MSI GeForce GT 710",
+"model:gpu:2gd3h-4hdmi-710-gt-2gb":[
+"MSI GeForce GT 710 2GB",
 "gpu"
 ],
 "model:gpu:2gd5-4h-730-geforce-gt-gt730-sl-2gb":[
@@ -19932,10 +20036,6 @@
 "Gigabyte Windforce GeForce RTX 5050 8GB",
 "gpu"
 ],
-"model:gpu:2xdp-2xhdmi-5050-8gb-gddr7-geforce-low-oc-profile-rtx-8gb":[
-"Gigabyte GeForce RTX 5050 8GB Low Profile",
-"gpu"
-],
 "model:gpu:3-5060-geforce-infinity-oc-rtx-ti-16gb":[
 "Palit Infinity GeForce RTX 5060 Ti 16GB (NE7506TS19T1-GB2061S)",
 "gpu"
@@ -19985,7 +20085,7 @@
 "gpu"
 ],
 "model:gpu:32g-32gd-5090-gv-ice-ice-master-n5090aorusm-rtx-32gb":[
-"Gigabyte Aorus GeForce RTX 5090 32GB (N5090AORUSMICE32GD)",
+"Gigabyte Aorus GeForce RTX 5090 32GB XDP HDMI",
 "gpu"
 ],
 "model:gpu:32g-5090-aorus-geforce-rtx-waterforce-xtreme-32gb":[
@@ -20025,7 +20125,7 @@
 "gpu"
 ],
 "model:gpu:3x-5070-geforce-oc-rtx-ti-ventus-16gb":[
-"MSI Ventus 3X GeForce RTX 5070 Ti 16GB",
+"MSI Ventus 3X GeForce RTX 5070 Ti 16GB (V531-092R)",
 "gpu"
 ],
 "model:gpu:3x-5080-gddr7-oc-rtx-ventus-16gb":[
@@ -20034,6 +20134,10 @@
 ],
 "model:gpu:3x-5090-gddr7-oc-rtx-ventus-32gb":[
 "MSI Ventus 3X GeForce RTX 5090 32GB (912-V530-091)",
+"gpu"
+],
+"model:gpu:3xdp-5070ti-eagle-gddr7-hdmi-oc-rtx-sff-16gb":[
+"Gigabyte Eagle GeForce RTX 5070 Ti 16GB HDMI XDP",
 "gpu"
 ],
 "model:gpu:4000-blackwell-pro-rtx-24gb":[
@@ -20052,7 +20156,7 @@
 "PNY RTX 6000 Ada 48GB ECC",
 "gpu"
 ],
-"model:gpu:4gd3v2-n730":[
+"model:gpu:4gd3v2-n730-4gb":[
 "MSI GeForce GT 730 4GB",
 "gpu"
 ],
@@ -20064,12 +20168,16 @@
 "PNY RTX PRO 6000 Blackwell Max-Q 48GB ECC",
 "gpu"
 ],
-"model:gpu:4xmini-8gb-a1000-dp-gddr6-low-profile-rtx-8gb":[
+"model:gpu:4xmini-8gb-a1000-bulk-dp-gddr6-low-profile-rtx-8gb":[
 "PNY GeForce RTX A1000 8GB Low Profile",
 "gpu"
 ],
 "model:gpu:5050-8gb-dual-gddr6-geforce-oc-rtx-8gb":[
 "ASUS Dual GeForce RTX 5050 8GB OC",
+"gpu"
+],
+"model:gpu:5050-8gl-gv-low-n5050oc-oc-profile-rtx-8gb":[
+"Gigabyte GeForce RTX 5050 8GB Low Profile",
 "gpu"
 ],
 "model:gpu:5050-dual-fan-gddr6-rtx-8gb":[
@@ -20094,6 +20202,10 @@
 ],
 "model:gpu:5060-8g-8gd-eagle-geforce-gv-n5060eagle-oc-oc-rtx-8gb":[
 "Gigabyte Eagle GeForce RTX 5060 8GB (N5060EAGLEOC8GD)",
+"gpu"
+],
+"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb":[
+"Gigabyte Eagle GeForce RTX 5060 Ti 8GB (N506TEAGLEOC8GD)",
 "gpu"
 ],
 "model:gpu:5060-8g-8gd-geforce-gv-max-n5060wf2max-oc-oc-rtx-windforce-8gb":[
@@ -22065,7 +22177,7 @@
 "memory"
 ],
 "model:memory:32gbx2-6000mhz-64gb-amd-beast-cl30-ddr5-dual-expo-fury-intel-packs-single-xmp-64gb-6000mhz-cl30-black":[
-"Kingston Fury Beast DDR5 64GB (2x32GB) 6000MHz CL30 (KF560C30BBE-32X2)",
+"Kingston Fury Beast DDR5 64GB (2x32GB) 6000MHz CL30",
 "memory"
 ],
 "model:memory:32gx2-5-6000-64g-cl30-cmk64gx5m2b6000c30-ddr-vengeance-64gb-6000mhz-cl30":[
@@ -22628,11 +22740,11 @@
 "Team Group ELITE DDR4 3200MHz 8GB",
 "memory"
 ],
-"model:memory:hmcg88agbua081n-hynix-sk-32gb":[
+"model:memory:hmcg88agbua081n-sk-32gb-green-dimm":[
 "SK hynix DDR5 32 GB",
 "memory"
 ],
-"model:memory:k4a8g085wr-samsung-u16gb32-16gb-black":[
+"model:memory:k4a8g085wr-u16gb32-16gb-black-dimm":[
 "Samsung DDR4 16 GB K4A8G085WR U16GB32",
 "memory"
 ],
@@ -26456,10 +26568,6 @@
 "CoolerMaster 850W V850 Gold Fully Modular",
 "psu"
 ],
-"model:psu:850-gsk-v2-850w-full":[
-"Antec GSK V2 850W White",
-"psu"
-],
 "model:psu:850g-ap-prime-850w-white":[
 "ASUS Prime AP-850G 850W 80 PLUS Gold White",
 "psu"
@@ -27136,10 +27244,6 @@
 "Seagate 6TB 256MB SATA3 Skyhawk HDD",
 "storage"
 ],
-"model:storage:0gbps-256mb-3-5-6-7200rpm-7e10-8tb-enterprise-exos-sata-st8000nm017b-8000gb-sata-35":[
-"Seagate 8TB 7200 256MB EXOS 7E10 Enterprise SATA3",
-"storage"
-],
 "model:storage:0gbps-6-barracuda-st20000dm001-20000gb-sata-35":[
 "Seagate ST20000DM001 Barracuda 7200RPM 256MB 20TB 3.5'' Hdd",
 "storage"
@@ -27688,10 +27792,6 @@
 "WD 4TB 5400 128MB 3.5 SATA3 Purple HDD",
 "storage"
 ],
-"model:storage:240g-a400-sa400s37-240gb-sata-25":[
-"Kingston A400 SA400S37 III 240GB SATA SSD 2.5''",
-"storage"
-],
 "model:storage:240g-a400-sa400s37-240gb-sata-25inch":[
 "Kingston A400 SA400S37 III 240GB SATA SSD 2.5\"",
 "storage"
@@ -27750,6 +27850,10 @@
 ],
 "model:storage:256mb-6tb-iii-purple-sata-surveillance-6000gb-sata-35":[
 "Western Digital Purple Surveillance 6TB 256MB SATA III",
+"storage"
+],
+"model:storage:256mb-7200-7e10-8tb-enterprise-exos-sata3-8000gb-sata-35":[
+"Seagate 256MB Exos 7E10 Enterprise 8TB 3.5\" Hdd",
 "storage"
 ],
 "model:storage:256mb-8tb-iii-purple-sata-surveillance-8000gb-sata-35":[
@@ -27986,10 +28090,6 @@
 ],
 "model:storage:990-pro-4000gb-m2-m22280":[
 "Samsung SSD 4TB 990 PRO NVMe M.2 (MZ-V9P4T0BW)",
-"storage"
-],
-"model:storage:a400-256gb-sata-25":[
-"Kingston A400 III 256GB SATA SSD 2.5\"",
 "storage"
 ],
 "model:storage:ai-s300-surveillance-8000gb-sata-35":[
@@ -36692,20 +36792,12 @@
 "Thermalright Frozen Warframe SE Black V2 360mm ARGB",
 "aio"
 ],
-"sku:aio:814256020909":[
-"Thermalright Aqua Elite Black V6 360mm ARGB",
-"aio"
-],
 "sku:aio:814256021197":[
 "Thermalright Trofeo Vision White 360mm ARGB",
 "aio"
 ],
 "sku:aio:814256021517":[
 "Thermalright Core Matrix Vision Black 360mm ARGB",
-"aio"
-],
-"sku:aio:814256021920":[
-"Thermalright Magic Qube Black 360mm ARGB",
 "aio"
 ],
 "sku:aio:aoruswaterforceii360ice":[
@@ -36786,10 +36878,6 @@
 ],
 "sku:case:0761345100885":[
 "Antec Performance FT Black",
-"case"
-],
-"sku:case:814256022323":[
-"Thermalright A70 Vision White",
 "case"
 ],
 "sku:case:asustpachassis":[
@@ -36907,14 +36995,6 @@
 "sku:case_fan:cmyaf":[
 "Corsair Vengeance Airflow 60mm",
 "case_fan"
-],
-"sku:cooler_air:814256003759":[
-"Thermalright Peerless Assassin SE 2 Black",
-"cooler_air"
-],
-"sku:cooler_air:814256018227":[
-"Thermalright Royal Knight SE 2 Black",
-"cooler_air"
 ],
 "sku:cooler_air:814256022132":[
 "Thermalright Peerless Assassin Vision MAX Black ARGB",

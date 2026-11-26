@@ -44,6 +44,17 @@
     "match_text_b": "435011 ASUS Dual Radeon RX 9060 XT 16GB GDDR6 -"
   },
   {
+    "score": 95,
+    "category": "gpu",
+    "brand": "Gigabyte",
+    "listing_a": "yahav:11816",
+    "listing_b": "yahav:11817",
+    "title_a": "כרטיס מסך חברת Gigabyte דגם Eagle OC SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP",
+    "title_b": "כרטיס מסך חברת Gigabyte דגם Eagle OC ICE SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP",
+    "match_text_a": "11816 Gigabyte Eagle OC SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP",
+    "match_text_b": "11817 Gigabyte Eagle OC ICE SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP"
+  },
+  {
     "score": 94,
     "category": "case",
     "brand": "ASUS",
@@ -130,6 +141,17 @@
     "title_b": "מציאון ועודפים - מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
     "match_text_a": "392918 Asus A23 PLUS ARGB Micro ATX -",
     "match_text_b": "511473 - Asus A23 PLUS ARGB Micro ATX -"
+  },
+  {
+    "score": 88,
+    "category": "gpu",
+    "brand": "Gigabyte",
+    "listing_a": "yahav:10409",
+    "listing_b": "yahav:11816",
+    "title_a": "כרטיס מסך חברת Gigabyte דגם Windforce RTX 5070Ti OC SFF 16GB GDDR7 HDMI 3xDP",
+    "title_b": "כרטיס מסך חברת Gigabyte דגם Eagle OC SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP",
+    "match_text_a": "GV-N507TWF3OC-16GD Gigabyte Windforce RTX 5070Ti OC SFF 16GB GDDR7 HDMI 3xDP",
+    "match_text_b": "11816 Gigabyte Eagle OC SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP"
   },
   {
     "score": 88,
@@ -899,14 +921,36 @@
         "listing_key": "yahav:11128",
         "vendor_sku": "VCG5070T16TFXXPB1-O-PC",
         "title": "כרטיס מסך חברת PNY דגם EPIC-X RGB™ Overclocked Triple Fan GPU RTX 5070Ti 16GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
-        "price": 5290,
+        "price": 5850,
         "alias_of": "yahav:11127"
       },
       {
         "listing_key": "yahav:11127",
         "vendor_sku": "VCG5070T16TFXXPB1-O",
         "title": "כרטיס מסך חברת PNY דגם EPIC-X RGB™ Overclocked Triple Fan GPU RTX 5070Ti 16GB GDDR7 1xHDMI 3xDP",
-        "price": 5350
+        "price": 5950
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:gpu:16gb-1xhdmi-3xdp-9070xt-amd-fan-gddr6-radeon-rx-swift-triple-16gb",
+    "category": "gpu",
+    "vendor": "yahav",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "yahav:11728",
+        "vendor_sku": "RX-97TSWF3B9",
+        "title": "כרטיס מסך חברת XFX דגם Swift AMD Radeon RX 9070XT 16GB Triple fan GDDR6 1xHDMI 3xDP בצבע שחור - ברכישת מחשב שלם בלבד",
+        "price": 3700,
+        "alias_of": "yahav:11815"
+      },
+      {
+        "listing_key": "yahav:11815",
+        "vendor_sku": "11815",
+        "title": "כרטיס מסך חברת XFX דגם Swift AMD Radeon RX 9070XT 16GB Triple fan GDDR6 1xHDMI 3xDP בצבע שחור",
+        "price": 3800
       }
     ]
   },
@@ -921,14 +965,14 @@
         "listing_key": "yahav:11722",
         "vendor_sku": "TUF-RTX5060-O8G-GAMING-PC",
         "title": "כרטיס מסך חברת Asus דגם TUF OC Gaming RTX 5060 8GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
-        "price": 2100,
+        "price": 2300,
         "alias_of": "yahav:11562"
       },
       {
         "listing_key": "yahav:11562",
         "vendor_sku": "TUF-RTX5060-O8G-GAMING",
         "title": "כרטיס מסך חברת Asus דגם TUF OC Gaming RTX 5060 8GB GDDR7 1xHDMI 3xDP",
-        "price": 2150
+        "price": 2350
       }
     ]
   },
@@ -1376,50 +1420,6 @@
         "title": "כונן WD Purple Pro בנפח 10TB מבית Western Digital דגם WD102PURP",
         "price": 2717,
         "alias_of": "1pc:216274"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "mpn:gpu:4711377301541",
-    "category": "gpu",
-    "vendor": "yahav",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "yahav:11459",
-        "vendor_sku": "GeForce-RTX-5070-Ti-16G-GAMING-TRIO-OC-PC",
-        "title": "כרטיס מסך חברת MSI דגם GAMING TRIO OC Triple Fan RTX 5070Ti 16GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
-        "price": 5450,
-        "alias_of": "yahav:11268"
-      },
-      {
-        "listing_key": "yahav:11268",
-        "vendor_sku": "GeForce-RTX-5070-Ti-16G-GAMING-TRIO-OC",
-        "title": "כרטיס מסך חברת MSI דגם GAMING TRIO OC Triple Fan RTX 5070Ti 16GB GDDR7 1xHDMI 3xDP",
-        "price": 5600
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "mpn:gpu:90yv0lw0m0na00",
-    "category": "gpu",
-    "vendor": "yahav",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "yahav:10654",
-        "vendor_sku": "ROG-ASTRAL-RTX5090-O32G-GAMING-PC",
-        "title": "כרטיס מסך חברת Asus דגם ROG Astral OC Gaming GeForce RTX 5090 32GB GDDR7 2xHDMI 3xDP - מבצע ברכישה עם מחשב שלם",
-        "price": 27300,
-        "alias_of": "yahav:10655"
-      },
-      {
-        "listing_key": "yahav:10655",
-        "vendor_sku": "ROG-ASTRAL-RTX5090-O32G-GAMING",
-        "title": "כרטיס מסך חברת Asus דגם ROG Astral OC Gaming GeForce RTX 5090 32GB GDDR7 2xHDMI 3xDP",
-        "price": 27800
       }
     ]
   },
@@ -4151,6 +4151,74 @@
     ]
   },
   {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:a70-vision-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:155104",
+        "vendor": "ivory",
+        "vendor_sku": "81425602231-6",
+        "title": "מארז מחשב THERMALRIGHT A70 VISION – עם מסך מורכב – פס תאורה ARGB – חלון צד – צבע שחור",
+        "price": 599
+      }
+    ],
+    "model_code": "a70-vision",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:a70-vision-black-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:173812",
+        "vendor": "ivory",
+        "vendor_sku": "81425602358-0",
+        "title": "מארז מחשב THERMALRIGHT A70 VISION – עם מסך ומאווררים מורכבים – פס תאורה ARGB – חלון צד – צבע שחור",
+        "price": 799
+      }
+    ],
+    "model_code": "a70-vision",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:a70-vision-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:155107",
+        "vendor": "ivory",
+        "vendor_sku": "81425602232-3",
+        "title": "מארז מחשב THERMALRIGHT A70 VISION – עם מסך מורכב – פס תאורה ARGB – חלון צד – צבע לבן",
+        "price": 599
+      }
+    ],
+    "model_code": "a70-vision",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:a70-vision-white-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:173815",
+        "vendor": "ivory",
+        "vendor_sku": "81425602359-7",
+        "title": "מארז מחשב THERMALRIGHT A70 VISION – עם מסך ומאווררים מורכבים – פס תאורה ARGB – חלון צד – צבע לבן",
+        "price": 799
+      }
+    ],
+    "model_code": "a70-vision",
+    "manufacturer_pn": []
+  },
+  {
     "kind": "identity_merge",
     "category": "case",
     "product_id": "model:case:airflow-rs-warthog-black",
@@ -4271,18 +4339,18 @@
     "vendor": "",
     "offers": [
       {
+        "listing_key": "1pc:207637",
+        "vendor": "1pc",
+        "vendor_sku": "0-761345-10207-0",
+        "title": "מארז מחשב Antec AX67 ARGB בצבע שחור",
+        "price": 183
+      },
+      {
         "listing_key": "tms:0-761345-10207-0",
         "vendor": "tms",
         "vendor_sku": "0-761345-10207-0",
         "title": "מארז מחשב Antec AX67 ARGB",
         "price": 166
-      },
-      {
-        "listing_key": "1pc:207637",
-        "vendor": "1pc",
-        "vendor_sku": "207637",
-        "title": "מארז מחשב Antec AX67 ARGB בצבע שחור",
-        "price": 183
       }
     ],
     "model_code": "ax67"
@@ -4576,18 +4644,18 @@
     "vendor": "",
     "offers": [
       {
+        "listing_key": "1pc:207636",
+        "vendor": "1pc",
+        "vendor_sku": "0-761345-10170-7",
+        "title": "מארז מחשב Antec CX800 ARGB בצבע שחור",
+        "price": 272
+      },
+      {
         "listing_key": "tms:0-761345-10170-7",
         "vendor": "tms",
         "vendor_sku": "0-761345-10170-7",
         "title": "מארז מחשב Antec CX800 ARGB Black",
         "price": 255
-      },
-      {
-        "listing_key": "1pc:207636",
-        "vendor": "1pc",
-        "vendor_sku": "207636",
-        "title": "מארז מחשב Antec CX800 ARGB בצבע שחור",
-        "price": 272
       }
     ],
     "model_code": "cx800"
@@ -6292,6 +6360,40 @@
     "model_code": "p9-silent"
   },
   {
+    "kind": "variant_conflict",
+    "category": "cooler_air",
+    "product_id": "model:cooler_air:120-2-assassin-peerless-se-160mm-120mm-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:134946",
+        "vendor": "ivory",
+        "vendor_sku": "81425600376-6",
+        "title": "קירור למעבד THERMALRIGHT Peerless Assassin 120 SE ARGB הכולל 2 מאווררים - צבע שחור",
+        "price": 245
+      }
+    ],
+    "model_code": "120-2-assassin-peerless-se",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "cooler_air",
+    "product_id": "model:cooler_air:120-2-assassin-peerless-se-160mm-120mm-black-rgb",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:141869",
+        "vendor": "ivory",
+        "vendor_sku": "81425601829-6",
+        "title": "קירור למעבד THERMALRIGHT Peerless Assassin 120 SE BLACK הכולל 2 מאווררים - צבע שחור",
+        "price": 265
+      }
+    ],
+    "model_code": "120-2-assassin-peerless-se",
+    "manufacturer_pn": []
+  },
+  {
     "kind": "identity_merge",
     "category": "cooler_air",
     "product_id": "model:cooler_air:1700-1700-a30-a30-125mm-92mm",
@@ -7199,6 +7301,13 @@
         "price": 1532
       },
       {
+        "listing_key": "ivory:80273",
+        "vendor": "ivory",
+        "vendor_sku": "I7-14700KB",
+        "title": "מעבד Intel Core i7-14700K up to 5.50GHz 33MB Cache Raptor Lake Box",
+        "price": 1670
+      },
+      {
         "listing_key": "ksp:280956",
         "vendor": "ksp",
         "vendor_sku": "280956",
@@ -7929,7 +8038,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-100000910TRAY",
         "title": "מעבד חברת AMD דגם Ryzen 7 7800X3D Boost 5.0Ghz 96MB Cache AM5 TRAY",
-        "price": 1240
+        "price": 1250
       },
       {
         "listing_key": "ivory:108908",
@@ -8179,6 +8288,13 @@
         "vendor_sku": "100-000001405",
         "title": "מעבד חברת AMD דגם Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler",
         "price": 990
+      },
+      {
+        "listing_key": "ivory:109058",
+        "vendor": "ivory",
+        "vendor_sku": "100-000001405",
+        "title": "מעבד AMD Ryzen 5 9600X | ארכיטקטורת Zen 5 | בעל 6 ליבות | אריזת Tray",
+        "price": 757
       }
     ],
     "model_code": "9600x"
@@ -8238,7 +8354,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-1000001084",
         "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
-        "price": 1690
+        "price": 1850
       }
     ],
     "model_code": "9800x3d"
@@ -8298,7 +8414,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-000000662",
         "title": "מעבד חברת AMD דגם Ryzen 9 9900X Boost 5.6Ghz 64MB L3 Cache AM5 Tray",
-        "price": 1440
+        "price": 1580
       },
       {
         "listing_key": "ksp:387026",
@@ -8387,6 +8503,13 @@
         "vendor_sku": "100-000001277",
         "title": "AMD Ryzen 9 9950X AM5 Tray",
         "price": 2113
+      },
+      {
+        "listing_key": "ivory:150286",
+        "vendor": "ivory",
+        "vendor_sku": "100-000001277",
+        "title": "מעבד AMD Ryzen 9 9950X Tray",
+        "price": 1960
       }
     ],
     "model_code": "9950x"
@@ -10586,6 +10709,13 @@
     "vendor": "",
     "offers": [
       {
+        "listing_key": "ivory:112965",
+        "vendor": "ivory",
+        "vendor_sku": "90MB1GA0-M0EAY0",
+        "title": "לוח אם ASUS Prime H610M-K mATX 1700 DDR5",
+        "price": 369
+      },
+      {
         "listing_key": "ksp:355804",
         "vendor": "ksp",
         "vendor_sku": "355804",
@@ -10828,29 +10958,6 @@
       }
     ],
     "model_code": "1-atx3-full-gsk-modular-v2"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "psu",
-    "product_id": "model:psu:1-atx3-fully-mega-modular-850w-full",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:MEGA850",
-        "vendor": "tms",
-        "vendor_sku": "MEGA850",
-        "title": "Antec PSU 850W MEGA ATX3.1 80+ Gold Fully Modular",
-        "price": 385
-      },
-      {
-        "listing_key": "1pc:217737",
-        "vendor": "1pc",
-        "vendor_sku": "217737",
-        "title": "ספק כוח Antec MEGA 850W ATX3.1 80+ Gold Fully Modular",
-        "price": 402
-      }
-    ],
-    "model_code": "1-atx3-fully-mega-modular"
   },
   {
     "kind": "identity_merge",
@@ -11667,7 +11774,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-100000910TRAY",
         "title": "מעבד חברת AMD דגם Ryzen 7 7800X3D Boost 5.0Ghz 96MB Cache AM5 TRAY",
-        "price": 1240
+        "price": 1250
       },
       {
         "listing_key": "ivory:108908",
@@ -11889,7 +11996,7 @@
         "vendor": "yahav",
         "vendor_sku": "VCG5060T8DFXPB1-O-PC",
         "title": "כרטיס מסך חברת PNY דגם Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
-        "price": 2400
+        "price": 2450
       },
       {
         "listing_key": "tms:VCG5060T8DFXPB1-O",
@@ -11956,7 +12063,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-1000001084",
         "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
-        "price": 1690
+        "price": 1850
       }
     ],
     "model_code": "9800x3d",
@@ -11998,29 +12105,6 @@
       }
     ],
     "model_code": "case-dynamic-o11-tower-v2"
-  },
-  {
-    "kind": "split_candidate",
-    "category": "cpu",
-    "product_id": "model:cpu:9950x3d2-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:161530",
-        "vendor": "ivory",
-        "vendor_sku": "100-100001978WOF",
-        "title": "מעבד AMD Ryzen 9 9950X3D2 Dual Edition | טכנולוגיית 3D V-Cache | תושבת AM5 | אריזת Box",
-        "price": 3877
-      },
-      {
-        "listing_key": "yahav:11441",
-        "vendor": "yahav",
-        "vendor_sku": "100-100001978WOF",
-        "title": "מעבד חברת AMD דגם Ryzen 9 9950X3D2 Dual Edition Boost 5.6Ghz 192MB L3 Cache 16 Cores 32 Threads AM5 BOX",
-        "price": 3520
-      }
-    ],
-    "model_code": "9950x3d2"
   },
   {
     "kind": "split_candidate",
@@ -12070,7 +12154,7 @@
         "vendor": "yahav",
         "vendor_sku": "SNV3S/2000G",
         "title": "כונן SSD חברת Kingston דגם NV3 Series 2TB 2048GB Gen4 6000MB\\s M.2 NVMe",
-        "price": 990
+        "price": 1100
       }
     ],
     "model_code": "0-2280-4-nv3"
@@ -12351,6 +12435,13 @@
         "vendor_sku": "100-000001405",
         "title": "מעבד חברת AMD דגם Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler",
         "price": 990
+      },
+      {
+        "listing_key": "ivory:109058",
+        "vendor": "ivory",
+        "vendor_sku": "100-000001405",
+        "title": "מעבד AMD Ryzen 5 9600X | ארכיטקטורת Zen 5 | בעל 6 ליבות | אריזת Tray",
+        "price": 757
       }
     ],
     "model_code": "9600x",
@@ -12488,7 +12579,7 @@
         "vendor": "yahav",
         "vendor_sku": "VCG507012TFXXPB1-O",
         "title": "כרטיס מסך חברת PNY דגם Geforce RTX 5070 ARGB EPIC-X RGB Triple Fan OC 12GB GDDR7 1xHDMI 3xDP",
-        "price": 3690
+        "price": 3990
       }
     ],
     "model_code": "12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x"
@@ -12862,6 +12953,31 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
+    "product_id": "model:cpu:14700k-tray",
+    "vendor": "ivory",
+    "offers": [
+      {
+        "listing_key": "ivory:80270",
+        "vendor": "ivory",
+        "vendor_sku": "I7-14700K",
+        "title": "מעבד Intel Core i7-14700K up to 5.50GHz 33MB Cache Raptor Lake Tray",
+        "price": 1449
+      },
+      {
+        "listing_key": "ivory:80273",
+        "vendor": "ivory",
+        "vendor_sku": "I7-14700KB",
+        "title": "מעבד Intel Core i7-14700K up to 5.50GHz 33MB Cache Raptor Lake Box",
+        "price": 1670
+      }
+    ],
+    "model_code": "14700k",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
     "product_id": "model:cpu:14900k-tray-2",
     "vendor": "ivory",
     "offers": [
@@ -13062,6 +13178,31 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
+    "product_id": "model:cpu:9600x",
+    "vendor": "ivory",
+    "offers": [
+      {
+        "listing_key": "ivory:105818",
+        "vendor": "ivory",
+        "vendor_sku": "100-100001405WOF",
+        "title": "מעבד AMD Ryzen 5 9600X Box",
+        "price": 899
+      },
+      {
+        "listing_key": "ivory:109058",
+        "vendor": "ivory",
+        "vendor_sku": "100-000001405",
+        "title": "מעבד AMD Ryzen 5 9600X | ארכיטקטורת Zen 5 | בעל 6 ליבות | אריזת Tray",
+        "price": 757
+      }
+    ],
+    "model_code": "9600x",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
     "product_id": "model:cpu:9900x",
     "vendor": "ivory",
     "offers": [
@@ -13087,25 +13228,25 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:9950x3d2-tray",
+    "product_id": "model:cpu:9950x",
     "vendor": "ivory",
     "offers": [
       {
-        "listing_key": "ivory:161527",
+        "listing_key": "ivory:105808",
         "vendor": "ivory",
-        "vendor_sku": "100-000001978",
-        "title": "מעבד למחשב AMD Ryzen 9 9950X3D2 Dual Edition | גרסת Tray | טכנולוגיית 3D V-Cache כפולה לגיימינג",
-        "price": 3890
+        "vendor_sku": "100-100001277WOF",
+        "title": "מעבד AMD Ryzen 9 9950X Box",
+        "price": 2356
       },
       {
-        "listing_key": "ivory:161530",
+        "listing_key": "ivory:150286",
         "vendor": "ivory",
-        "vendor_sku": "100-100001978WOF",
-        "title": "מעבד AMD Ryzen 9 9950X3D2 Dual Edition | טכנולוגיית 3D V-Cache | תושבת AM5 | אריזת Box",
-        "price": 3877
+        "vendor_sku": "100-000001277",
+        "title": "מעבד AMD Ryzen 9 9950X Tray",
+        "price": 1960
       }
     ],
-    "model_code": "9950x3d2",
+    "model_code": "9950x",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
@@ -17576,7 +17717,7 @@
         "vendor": "yahav",
         "vendor_sku": "GV-N5070EAGLEOC-ICE-12GD",
         "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5070 EAGLE OC ICE SFF 12GB GDDR7 1xHDMI 3xDP בצבע לבן",
-        "price": 3970
+        "price": 4270
       }
     ],
     "model_code": "12g-12gd-5070-eagle-gv-ice-ice-n5070eagleoc-oc-rtx-sff",
@@ -17616,7 +17757,7 @@
         "vendor": "yahav",
         "vendor_sku": "GV-N5070EAGLE-OC-12GD",
         "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5070 EAGLE OC SFF 12GB GDDR7 1xHDMI 3xDP",
-        "price": 3920
+        "price": 4170
       }
     ],
     "model_code": "12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff",
@@ -17715,7 +17856,7 @@
         "vendor": "yahav",
         "vendor_sku": "GV-R9070XTGAMING-OC-16GD",
         "title": "כרטיס מסך חברת Gigabyte דגם Radeon RX 9070XT GAMING OC 16GB GDDR6 2xHDMI 2xDP",
-        "price": 3850
+        "price": 4190
       }
     ],
     "model_code": "16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt",
@@ -17755,7 +17896,7 @@
         "vendor": "yahav",
         "vendor_sku": "R907XGAMINGOCICE16GD",
         "title": "כרטיס מסך חברת Gigabyte דגם AMD Radeon RX 9070XT GAMING OC ICE White GDDR6 1xHDMI 3xDP בצבע לבן",
-        "price": 4350
+        "price": 4650
       }
     ],
     "model_code": "16g-9070-gaming-ice-oc-radeon-rx-xt",
@@ -17795,7 +17936,7 @@
         "vendor": "yahav",
         "vendor_sku": "GV-R9060XTGAMING-OC-16GD",
         "title": "כרטיס מסך חברת Gigabyte דגם Radeon RX 9060 XT Gaming OC 16GB GDDR6 1xHDMI 2xDP",
-        "price": 2850
+        "price": 3250
       }
     ],
     "model_code": "16g-9060-gaming-gv-oc-r9060xtgaming-radeon-rx-xt",
@@ -17847,7 +17988,7 @@
         "vendor": "yahav",
         "vendor_sku": "GV-N5060EAGLEOC-ICE-8GD",
         "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5060 EAGLE ICE OC 8GB GDDR7 1xHDMI 3xDP",
-        "price": 2350
+        "price": 2410
       }
     ],
     "model_code": "1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx",
@@ -17887,7 +18028,7 @@
         "vendor": "yahav",
         "vendor_sku": "GV-N5060EAGLE-OC-8GD",
         "title": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5060 EAGLE OC 8GB GDDR7 1xHDMI 3xDP",
-        "price": 2290
+        "price": 2420
       }
     ],
     "model_code": "1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-oc-rtx",
