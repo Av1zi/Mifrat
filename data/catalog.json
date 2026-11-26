@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T21:58:47.129414+00:00",
+  "generated_at": "2026-11-26T22:10:20.448244+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -87202,7 +87202,7 @@
           "תקופת ותנאי האחריות": "חמש שנים"
         }
       },
-      "product_id": "model:aio:360-x-360mm-white"
+      "product_id": "model:aio:360-wh-x-360mm-white"
     },
     {
       "vendor_id": "1pc",
@@ -101263,7 +101263,7 @@
           "תקופת ותנאי האחריות": "שלוש שנים"
         }
       },
-      "product_id": "model:storage:d3-s4520-7680gb-sata-25"
+      "product_id": "model:storage:d3-s4520-solidigm-7680gb-sata-25"
     },
     {
       "vendor_id": "1pc",
@@ -103325,7 +103325,7 @@
           "Warranty / Warranty type": "5 years."
         }
       },
-      "product_id": "model:aio:360-x-360mm-black"
+      "product_id": "model:aio:360-bk-x-360mm"
     },
     {
       "vendor_id": "1pc",
@@ -310386,7 +310386,7 @@
         "cpu_generation": "Ryzen 5000"
       },
       "eilat_price_ils": 589,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -319275,9 +319275,6 @@
         "colour": "Black",
         "memory": "32GB"
       },
-      "eilat_price_ils": 1826,
-      "eilat_in_stock": true,
-      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "סוג זכרון": "DDR5",
@@ -319678,9 +319675,6 @@
         "colour": "Black",
         "memory": "32GB"
       },
-      "eilat_price_ils": 1826,
-      "eilat_in_stock": true,
-      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "סוג זכרון": "DDR5",
@@ -319762,9 +319756,6 @@
         "colour": "White",
         "memory": "32GB"
       },
-      "eilat_price_ils": 1826,
-      "eilat_in_stock": true,
-      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "סוג זכרון": "DDR5",
@@ -320251,7 +320242,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 2888,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -322714,9 +322705,6 @@
         "colour": "Black",
         "memory": "32GB"
       },
-      "eilat_price_ils": 1993,
-      "eilat_in_stock": true,
-      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "סוג זכרון": "DDR5",
@@ -336653,7 +336641,7 @@
         "expansion_slots": "Trusted Platform Module (TPM) | PCIe 4.0 x16, mode x4 | PCIe 5.0 x16 slot | PCIe 3.0 x16, mode x1"
       },
       "eilat_price_ils": 771,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -341236,7 +341224,7 @@
         "length": "304 mm"
       },
       "eilat_price_ils": 7638,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -341349,102 +341337,6 @@
         }
       },
       "product_id": "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
-    },
-    {
-      "vendor_id": "tms",
-      "vendor_sku": "90YV0M10-M0NA00",
-      "url": "https://tms.co.il/nvidia-cards/asus-90yv0m10-m0na00",
-      "title_raw": "Asus Prime RTX 5070 12GB GDDR7 OC Edition",
-      "price_ils": null,
-      "in_stock": false,
-      "tile_parser": 2,
-      "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/catalog/products/90YV0M10-M0NA00/DAaIxSBGIh.jpg",
-      "scraped_at": "2026-11-25T22:51:57.946772+00:00",
-      "_eilat_stale": false,
-      "eilat_price_ils": 3465,
-      "eilat_in_stock": false,
-      "eilat_stale": false,
-      "eilat_only": true,
-      "last_seen": "2026-11-26",
-      "seen_day": "2026-11-26",
-      "stale": false,
-      "listing_key": "tms:90YV0M10-M0NA00",
-      "price_ils_raw": null,
-      "category_normalized": "gpu",
-      "match_text": "90YV0M10-M0NA00 Asus Prime RTX 5070 12GB GDDR7 OC Edition",
-      "brand": "ASUS",
-      "mpn": "90YV0M10-M0NA00",
-      "bundle_only": false,
-      "new_pc_deal": false,
-      "attributes": {
-        "manufacturer": "ASUS",
-        "brand": "ASUS",
-        "maker": "ASUS",
-        "vendor_brand": "ASUS",
-        "model": "Prime RTX 5070 GDDR7 OC Edition",
-        "model_name": "Prime RTX 5070 GDDR7 OC Edition",
-        "part_numbers": "90YV0M10-M0NA00",
-        "part_number": "90YV0M10-M0NA00",
-        "mpn": "90YV0M10-M0NA00",
-        "chipset": "GeForce RTX 5070",
-        "gpu_chip": "GeForce RTX 5070",
-        "gpu_chipset": "GeForce RTX 5070",
-        "graphics_processor": "GeForce RTX 5070",
-        "memory_gb": 12,
-        "vram_gb": 12,
-        "memory": "12GB",
-        "video_memory": 12,
-        "memory_type": "GDDR7",
-        "vram_type": "GDDR7",
-        "gddr": "GDDR7",
-        "memory_speed_gbps": 28,
-        "vram_speed": 28,
-        "memory_data_rate": 28,
-        "memory_bus_bit": 192,
-        "memory_bus_width": 192,
-        "vram_bus_width": 192,
-        "core_clock_mhz": 2557,
-        "core_clock": 2557,
-        "base_clock_mhz": 2557,
-        "directx": "12 Ultimate",
-        "directx_version": "12 Ultimate",
-        "opengl": "4.6",
-        "opengl_version": "4.6",
-        "interface": "PCIe 5.0 x16",
-        "bus_interface": "PCIe 5.0 x16",
-        "max_displays": 4,
-        "maximum_displays": 4,
-        "multi_display": 4,
-        "length_mm": 304,
-        "gpu_length_mm": 304,
-        "card_length_mm": 304,
-        "recommended_psu_w": 750,
-        "minimum_psu_w": 750,
-        "psu_requirement_w": 750,
-        "external_power": "1x16-pin",
-        "power_connections": "1x16-pin",
-        "power_connectors": "1x16-pin",
-        "length": "304 mm"
-      },
-      "vendor_meta": {
-        "detail_specs": {
-          "מעבד גרפי": "NVIDIA RTX 5070",
-          "מהירות ליבה": "2557MHz",
-          "מהירות זכרון": "28Gbps",
-          "גודל זכרון כרטיס מסך": "12GB",
-          "סוג זכרון גרפי": "GDDR7",
-          "רוחב פס זכרון": "192bit",
-          "כמות מסכים מקסימלית": "4",
-          "מימדים": "304x126x50mm",
-          "גרסת DirectX": "12 Ultimate",
-          "גרסת OpenGL": "4.6",
-          "חיבור גרפי": "HDMI | DisplayPort",
-          "ממשק כרטיס מסך": "PCIe 5.0 x16",
-          "Recommended PSU": "750W with Power Connectors 1x16-pin"
-        }
-      },
-      "product_id": "model:gpu:12gb-5070-gddr7-geforce-oc-prime-rtx-12gb"
     },
     {
       "vendor_id": "tms",
@@ -346251,84 +346143,6 @@
         }
       },
       "product_id": "model:case:ax61-ax61elite-elite-black"
-    },
-    {
-      "vendor_id": "tms",
-      "vendor_sku": "AX65ARGB",
-      "url": "https://tms.co.il/desktop-pc-cases/antec-ax65argb",
-      "title_raw": "מארז מחשב Antec AX65 ARGB",
-      "price_ils": null,
-      "in_stock": false,
-      "tile_parser": 2,
-      "category_guess": "case",
-      "image_url": "https://tms.co.il/image/catalog/products/AX65ARGB/2L6sEka91d.jpg",
-      "scraped_at": "2026-11-25T22:52:30.703058+00:00",
-      "_eilat_stale": false,
-      "eilat_price_ils": 148,
-      "eilat_in_stock": false,
-      "eilat_stale": false,
-      "eilat_only": true,
-      "last_seen": "2026-11-26",
-      "seen_day": "2026-11-26",
-      "stale": false,
-      "listing_key": "tms:AX65ARGB",
-      "price_ils_raw": null,
-      "category_normalized": "case",
-      "match_text": "AX65ARGB Antec AX65 ARGB",
-      "brand": "Antec",
-      "mpn": "AX65ARGB",
-      "bundle_only": false,
-      "new_pc_deal": false,
-      "attributes": {
-        "manufacturer": "Antec",
-        "brand": "Antec",
-        "maker": "Antec",
-        "vendor_brand": "Antec",
-        "model": "AX65",
-        "model_name": "AX65",
-        "part_numbers": "AX65ARGB",
-        "part_number": "AX65ARGB",
-        "mpn": "AX65ARGB",
-        "type": "Mid Tower",
-        "form_factor": "Mid Tower",
-        "case_type": "Mid Tower",
-        "mb_form_factors": "ATX, Micro ATX, Mini ITX",
-        "supported_mb_form_factors": "ATX, Micro ATX, Mini ITX",
-        "motherboard_support": "ATX, Micro ATX, Mini ITX",
-        "max_cooler_height_mm": 160,
-        "cooler_max_height_mm": 160,
-        "drive_bays_35": 2,
-        "internal_35_bays": 2,
-        "drive_bays_25": 3,
-        "internal_25_bays": 3,
-        "front_usb": "USB 2.0, USB 3.0, Earphone/Mic",
-        "front_io": "USB 2.0, USB 3.0, Earphone/Mic",
-        "front_panel_usb": "USB 2.0, USB 3.0, Earphone/Mic",
-        "dimensions_mm": "W=200 H=449 D=400mm",
-        "dimensions": "W=200 H=449 D=400mm",
-        "volume_l": 35.9,
-        "external_volume_l": 35.9,
-        "external_volume": "35.9L",
-        "lighting": "ARGB",
-        "rgb_lighting": "ARGB",
-        "color": "Black",
-        "colour": "Black"
-      },
-      "vendor_meta": {
-        "detail_specs": {
-          "סוג מארז": "Mid Tower",
-          "תאימות ללוח אם": "ATX | Micro ATX | Mini ITX",
-          "סוג תאורה": "ARGB",
-          "Hard Drive 3.5": "2",
-          "Hard Drive 2.5": "1+2",
-          "גובה מקסימלי קירור למעבד (ממ)": "160",
-          "יציאות קדמיות": "USB 2.0 | USB 3.0 | Earphone/Mic",
-          "עיצוב תרמי": "Included ARGB Fans 3x120mm 3-pin",
-          "מידות": "W=200 H=449 D=400mm",
-          "צבע": "שחור"
-        }
-      },
-      "product_id": "model:case:ax65-black"
     },
     {
       "vendor_id": "tms",
@@ -375517,7 +375331,7 @@
         "pcie8_connectors": 6
       },
       "eilat_price_ils": 887,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -383037,7 +382851,7 @@
         "colour": "White"
       },
       "eilat_price_ils": 262,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -395457,7 +395271,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 1772,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -396713,7 +396527,7 @@
         "audio_chip": "3 port",
         "expansion_slots": "Trusted Platform Module (TPM) | PCIe 4.0 x16 | PCIe 3.0 x1 | PCIe 3.0 x16, mode x4"
       },
-      "eilat_price_ils": 402,
+      "eilat_price_ils": 428,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -396835,7 +396649,7 @@
         "audio_chip": "3 port",
         "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 3.0 x1 | PCIe 4.0 x16 | Trusted Platform Module (TPM)"
       },
-      "eilat_price_ils": 481,
+      "eilat_price_ils": 466,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -397069,7 +396883,7 @@
         "audio_chip": "3 port",
         "expansion_slots": "PCIe 3.0 x16, mode x4 | PCIe 3.0 x16, mode x1 | PCIe 4.0 x16 | Trusted Platform Module (TPM)"
       },
-      "eilat_price_ils": 369,
+      "eilat_price_ils": 388,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -397305,7 +397119,7 @@
         "audio_chip": "3 port",
         "expansion_slots": "Trusted Platform Module (TPM) | PCIe 4.0 x16 | PCIe 3.0 x1"
       },
-      "eilat_price_ils": 338,
+      "eilat_price_ils": 361,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -405397,7 +405211,7 @@
         "audio_chip": "3 port",
         "expansion_slots": "PCIe 5.0 x16 slot | PCIe 3.0 x16, mode x1 | Trusted Platform Module (TPM)"
       },
-      "eilat_price_ils": 682,
+      "eilat_price_ils": 663,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -406341,9 +406155,6 @@
         "audio_chip": "3 port",
         "expansion_slots": "PCIe 5.0 x16 slot | PCIe 3.0 x16, mode x4 | Trusted Platform Module (TPM)"
       },
-      "eilat_price_ils": 738,
-      "eilat_in_stock": false,
-      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "ערכת שבבים": "AMD B850",
@@ -406463,9 +406274,6 @@
         "audio_chip": "3 port",
         "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
       },
-      "eilat_price_ils": 727,
-      "eilat_in_stock": true,
-      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "ערכת שבבים": "AMD B850",
@@ -406696,9 +406504,6 @@
         "audio_chip": "3 port",
         "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
       },
-      "eilat_price_ils": 648,
-      "eilat_in_stock": false,
-      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "ערכת שבבים": "AMD B850",
@@ -406816,7 +406621,7 @@
         "audio_chip": "3 port",
         "expansion_slots": "PCIe 3.0 x16, mode x4 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
       },
-      "eilat_price_ils": 727,
+      "eilat_price_ils": 764,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -406974,14 +406779,14 @@
       "tile_parser": 2,
       "category_guess": "motherboard",
       "image_url": "https://tms.co.il/image/catalog/products/GB860DS3H/iRv6dfGFx0.jpg",
-      "scraped_at": "2026-11-25T22:56:23.249050+00:00",
+      "scraped_at": "2026-11-26T22:00:24.043945+00:00",
       "_eilat_stale": false,
       "eilat_price_ils": 596,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "eilat_only": true,
-      "last_seen": "2026-11-26",
-      "seen_day": "2026-11-26",
+      "last_seen": "2026-11-27",
+      "seen_day": "2026-11-27",
       "stale": false,
       "listing_key": "tms:GB860DS3H",
       "price_ils_raw": null,
@@ -417225,7 +417030,7 @@
         "audio_chip": "3 port",
         "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
       },
-      "eilat_price_ils": 1054,
+      "eilat_price_ils": 1002,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -421767,7 +421572,7 @@
         "molex": 3
       },
       "eilat_price_ils": 652,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -424501,7 +424306,7 @@
         "colour": "Gray",
         "memory": "32GB"
       },
-      "eilat_price_ils": 2068,
+      "eilat_price_ils": 2087,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -424582,7 +424387,7 @@
         "colour": "White",
         "memory": "32GB"
       },
-      "eilat_price_ils": 2161,
+      "eilat_price_ils": 2198,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -424663,7 +424468,7 @@
         "colour": "White",
         "memory": "32GB"
       },
-      "eilat_price_ils": 2128,
+      "eilat_price_ils": 2194,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -424744,7 +424549,7 @@
         "colour": "Black",
         "memory": "32GB"
       },
-      "eilat_price_ils": 2128,
+      "eilat_price_ils": 2194,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -424822,7 +424627,7 @@
         "colour": "Black",
         "memory": "32GB"
       },
-      "eilat_price_ils": 2198,
+      "eilat_price_ils": 2236,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -424902,7 +424707,7 @@
         "colour": "Black",
         "memory": "64GB"
       },
-      "eilat_price_ils": 4099,
+      "eilat_price_ils": 4546,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
@@ -437046,6 +436851,9 @@
         "audio_chip": "3 port",
         "expansion_slots": "PCIe 4.0 x4 | PCIe 5.0 x16 slot | PCIe 4.0 x1"
       },
+      "eilat_price_ils": 484,
+      "eilat_in_stock": false,
+      "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
           "ערכת שבבים": "Intel Z890",
@@ -446364,7 +446172,7 @@
         "length": "282 mm"
       },
       "eilat_price_ils": 3465,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -448971,87 +448779,6 @@
         }
       },
       "product_id": "manual:psu:1pc-221403-tms-ne1200p"
-    },
-    {
-      "vendor_id": "tms",
-      "vendor_sku": "NE1300GM-ATX3.0",
-      "url": "https://tms.co.il/desktop-psu/antec-ne1300gm-atx30",
-      "title_raw": "Antec PSU 1300W NE1300G M (ATX 3.0) NeoECO Gold Modular",
-      "price_ils": null,
-      "in_stock": false,
-      "tile_parser": 2,
-      "category_guess": "psu",
-      "image_url": "https://tms.co.il/image/catalog/products/NE1300GM-ATX3.0/p4qeRWuJOx.jpg",
-      "scraped_at": "2026-11-25T22:54:17.778243+00:00",
-      "_eilat_stale": false,
-      "eilat_price_ils": 590,
-      "eilat_in_stock": false,
-      "eilat_stale": false,
-      "eilat_only": true,
-      "last_seen": "2026-11-26",
-      "seen_day": "2026-11-26",
-      "stale": false,
-      "listing_key": "tms:NE1300GM-ATX3.0",
-      "price_ils_raw": null,
-      "category_normalized": "psu",
-      "match_text": "NE1300GM-ATX3.0 Antec PSU 1300W NE1300G M (ATX 3.0) NeoECO Gold Modular",
-      "brand": "Antec",
-      "mpn": "NE1300GM-ATX3.0",
-      "bundle_only": false,
-      "new_pc_deal": false,
-      "attributes": {
-        "manufacturer": "Antec",
-        "brand": "Antec",
-        "maker": "Antec",
-        "vendor_brand": "Antec",
-        "model": "NE1300G M 3.0 NeoECO Modular",
-        "model_name": "NE1300G M 3.0 NeoECO Modular",
-        "part_numbers": "NE1300GM-ATX3.0",
-        "part_number": "NE1300GM-ATX3.0",
-        "mpn": "NE1300GM-ATX3.0",
-        "type": "ATX",
-        "form_factor": "ATX",
-        "wattage_w": 1300,
-        "wattage": "1300W",
-        "power_consumption": 1300,
-        "series_wattage_range": "1200-3000W",
-        "wattage_range": "1200-3000W",
-        "series_power_range": "1200-3000W",
-        "efficiency": "80 PLUS Gold",
-        "efficiency_rating": "80+ Gold",
-        "80plus": "80+ Gold",
-        "atx_version": "ATX 3.0",
-        "atx_standard": "ATX 3.0",
-        "eps8_connectors": 2,
-        "cpu_power_connectors": 2,
-        "pcie16_connectors": 1,
-        "pcie16pin": 1,
-        "12v_2x6": 1,
-        "pcie12_connectors": 1,
-        "12vhpwr": 1,
-        "pcie8_connectors": 4,
-        "sata_connectors": 12,
-        "sata_power_connectors": 12,
-        "molex4_connectors": 4,
-        "molex": 4
-      },
-      "vendor_meta": {
-        "detail_specs": {
-          "תצורת ספק": "ATX",
-          "קבוצת הספק": "1200W - 3000W",
-          "הספק": "1300W",
-          "נצילות": "80+ Gold",
-          "PFC": "Active PFC",
-          "חיבורי SATA": "12",
-          "Molex 4 pin": "4",
-          "PCI-E Connectors 8 pin": "4",
-          "חיבורי 12VHPWR": "1",
-          "EPS 12V 8 pin": "2",
-          "אריזה": "Box - קופסה",
-          "הערות": "ספק כח זה מגיע ללא כבל חשמל."
-        }
-      },
-      "product_id": "model:psu:0-3-m-modular-ne1300g-neoeco-1300w"
     },
     {
       "vendor_id": "tms",
@@ -467234,7 +466961,7 @@
         "molex4_connectors": 4,
         "molex": 4
       },
-      "eilat_price_ils": 393,
+      "eilat_price_ils": 425,
       "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
@@ -468123,7 +467850,7 @@
         "family": "2280 PCIe"
       },
       "eilat_price_ils": 1140,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -469821,78 +469548,6 @@
         }
       },
       "product_id": "model:storage:750-series-400gb-pciex4-pciecard"
-    },
-    {
-      "vendor_id": "tms",
-      "vendor_sku": "SSDSC2KB076TZ01",
-      "url": "https://tms.co.il/ssd-drives/intel-ssdsc2kb076tz01",
-      "title_raw": "Intel 7.68TB D3-S4520 2.5\" SATA SSD",
-      "price_ils": null,
-      "in_stock": false,
-      "tile_parser": 2,
-      "category_guess": "ssd",
-      "image_url": "https://tms.co.il/image/catalog/products/SSDSC2KB076TZ01/GYZr9RYJ62.jpg",
-      "scraped_at": "2026-11-25T22:53:46.397984+00:00",
-      "_eilat_stale": false,
-      "eilat_price_ils": 8114,
-      "eilat_in_stock": false,
-      "eilat_stale": false,
-      "eilat_only": true,
-      "last_seen": "2026-11-26",
-      "seen_day": "2026-11-26",
-      "stale": false,
-      "listing_key": "tms:SSDSC2KB076TZ01",
-      "price_ils_raw": null,
-      "category_normalized": "storage",
-      "match_text": "SSDSC2KB076TZ01 Intel 7.68TB D3-S4520 2.5 SATA SSD",
-      "brand": "Intel",
-      "mpn": "SSDSC2KB076TZ01",
-      "bundle_only": false,
-      "new_pc_deal": false,
-      "attributes": {
-        "manufacturer": "Intel",
-        "brand": "Intel",
-        "maker": "Intel",
-        "vendor_brand": "Intel",
-        "model": "D3-S4520",
-        "model_name": "D3-S4520",
-        "part_numbers": "SSDSC2KB076TZ01",
-        "part_number": "SSDSC2KB076TZ01",
-        "mpn": "SSDSC2KB076TZ01",
-        "capacity_gb": 8000,
-        "capacity": "8TB",
-        "drive_capacity": 8000,
-        "total_capacity_gb": 8000,
-        "type": "SSD",
-        "drive_type": "SSD",
-        "form_factor": "2.5\"",
-        "drive_form_factor": "2.5\"",
-        "storage_form_factor": "2.5\"",
-        "interface": "SATA 6.0 Gb/s",
-        "connection_interface": "SATA 6.0 Gb/s",
-        "read_speed_mbs": 550,
-        "sequential_read_mbs": 550,
-        "max_read_mbs": 550,
-        "write_speed_mbs": 510,
-        "sequential_write_mbs": 510,
-        "max_write_mbs": 510,
-        "nand": "3D NAND",
-        "nand_type": "3D NAND"
-      },
-      "vendor_meta": {
-        "detail_specs": {
-          "סוג דיסק": "2.5\"",
-          "נפח דיסק": "8TB",
-          "ממשק אחסון": "SATA3",
-          "Storage Memory": "TLC | 3D/V NAND",
-          "מהירות קריאה": "550MB/s | 86000IOPS (4K Blocks)",
-          "מהירות כתיבה": "510MB/s | 30000IOPS (4K Blocks)",
-          "מאפיינים": "Data Protection",
-          "אריזה": "Retail - קופסה",
-          "הערות": "Use Conditions: Server/Enterprise"
-        }
-      },
-      "product_id": "model:storage:d3-s4520-7680gb-sata-25"
     },
     {
       "vendor_id": "tms",
@@ -478117,7 +477772,7 @@
         "led": "ARGB"
       },
       "eilat_price_ils": 175,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -478421,85 +478076,6 @@
     },
     {
       "vendor_id": "tms",
-      "vendor_sku": "V100RW",
-      "url": "https://tms.co.il/desktop-pc-cases/lian-li-v100rw",
-      "title_raw": "מארז מחשב Lian-Li Vector V100R White",
-      "price_ils": null,
-      "in_stock": false,
-      "tile_parser": 2,
-      "category_guess": "case",
-      "image_url": "https://tms.co.il/image/catalog/products/V100RW/0QERK2f3uN.jpg",
-      "scraped_at": "2026-11-25T22:54:39.131885+00:00",
-      "_eilat_stale": false,
-      "eilat_price_ils": 284,
-      "eilat_in_stock": false,
-      "eilat_stale": false,
-      "eilat_only": true,
-      "last_seen": "2026-11-26",
-      "seen_day": "2026-11-26",
-      "stale": false,
-      "listing_key": "tms:V100RW",
-      "price_ils_raw": null,
-      "category_normalized": "case",
-      "match_text": "V100RW Lian-Li Vector V100R White",
-      "brand": "Lian Li",
-      "mpn": "V100RW",
-      "bundle_only": false,
-      "new_pc_deal": false,
-      "attributes": {
-        "manufacturer": "Lian Li",
-        "brand": "Lian Li",
-        "maker": "Lian Li",
-        "vendor_brand": "Lian Li",
-        "model": "Lian-Li Vector V100R",
-        "model_name": "Lian-Li Vector V100R",
-        "part_numbers": "V100RW",
-        "part_number": "V100RW",
-        "mpn": "V100RW",
-        "type": "Mid Tower",
-        "form_factor": "Mid Tower",
-        "case_type": "Mid Tower",
-        "mb_form_factors": "ATX, Micro ATX, Mini ITX",
-        "supported_mb_form_factors": "ATX, Micro ATX, Mini ITX",
-        "motherboard_support": "ATX, Micro ATX, Mini ITX",
-        "max_cooler_height_mm": 175,
-        "cooler_max_height_mm": 175,
-        "drive_bays_35": 1,
-        "internal_35_bays": 1,
-        "drive_bays_25": 1,
-        "internal_25_bays": 1,
-        "front_usb": "Earphone/Mic, USB Type-C, USB 3.2",
-        "front_io": "Earphone/Mic, USB Type-C, USB 3.2",
-        "front_panel_usb": "Earphone/Mic, USB Type-C, USB 3.2",
-        "dimensions_mm": "W=236 H=485 D=446mm",
-        "dimensions": "W=236 H=485 D=446mm",
-        "volume_l": 51.0,
-        "external_volume_l": 51.0,
-        "external_volume": "51.0L",
-        "lighting": "ARGB",
-        "rgb_lighting": "ARGB",
-        "color": "White",
-        "colour": "White"
-      },
-      "vendor_meta": {
-        "detail_specs": {
-          "סוג מארז": "Mid Tower",
-          "תאימות ללוח אם": "ATX | Micro ATX | Mini ITX",
-          "סוג תאורה": "ARGB",
-          "Hard Drive 3.5": "1",
-          "Hard Drive 2.5": "1",
-          "גובה מקסימלי קירור למעבד (ממ)": "175",
-          "יציאות קדמיות": "Earphone/Mic | USB Type-C | USB 3.2",
-          "מידות": "W=236 H=485 D=446mm",
-          "צבע": "לבן",
-          "יבואן": "סי.די.לוג בע\"מ",
-          "אחריות": "שנה אחת"
-        }
-      },
-      "product_id": "model:case:v100r-vector-white"
-    },
-    {
-      "vendor_id": "tms",
       "vendor_sku": "V100RX",
       "url": "https://tms.co.il/desktop-pc-cases/lian-li-v100rx",
       "title_raw": "מארז מחשב Lian-Li Vector V100R Black",
@@ -478556,7 +478132,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 267,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -481173,71 +480749,6 @@
     },
     {
       "vendor_id": "tms",
-      "vendor_sku": "X-360-BK",
-      "url": "https://tms.co.il/cpu-cooling/1stplayer-x-360-bk",
-      "title_raw": "קירור נוזלי למעבד 1StPlayer X-360 Black",
-      "price_ils": null,
-      "in_stock": false,
-      "tile_parser": 2,
-      "category_guess": "cpu cooler",
-      "image_url": "https://tms.co.il/image/catalog/products/X-360-BK/UtCErYKYuu.jpg",
-      "scraped_at": "2026-11-25T22:55:17.399016+00:00",
-      "_eilat_stale": false,
-      "eilat_price_ils": 375,
-      "eilat_in_stock": false,
-      "eilat_stale": false,
-      "eilat_only": true,
-      "last_seen": "2026-11-26",
-      "seen_day": "2026-11-26",
-      "stale": false,
-      "listing_key": "tms:X-360-BK",
-      "price_ils_raw": null,
-      "category_normalized": "aio",
-      "match_text": "X-360-BK 1StPlayer X-360 Black",
-      "brand": "1stPlayer",
-      "mpn": "X-360-BK",
-      "bundle_only": false,
-      "new_pc_deal": false,
-      "attributes": {
-        "manufacturer": "1stPlayer",
-        "brand": "1stPlayer",
-        "maker": "1stPlayer",
-        "vendor_brand": "1stPlayer",
-        "model": "X-360",
-        "model_name": "X-360",
-        "part_numbers": "X-360-BK",
-        "part_number": "X-360-BK",
-        "mpn": "X-360-BK",
-        "radiator_size_mm": 360,
-        "supported_radiator_mm": 360,
-        "radiator_mm": 360,
-        "size": 360,
-        "fan_size_mm": 120,
-        "fan_size": 120,
-        "fan_count": 3,
-        "fans": 3,
-        "sockets": "LGA1155, LGA1150, LGA1151, AM4, LGA1200, LGA1700, AM5, LGA1851",
-        "socket_compat": "LGA1155, LGA1150, LGA1151, AM4, LGA1200, LGA1700, AM5, LGA1851",
-        "socket": "LGA1155, LGA1150, LGA1151, AM4, LGA1200, LGA1700, AM5, LGA1851",
-        "lighting": "ARGB | LCD",
-        "led": "ARGB | LCD",
-        "color": "Black",
-        "colour": "Black"
-      },
-      "vendor_meta": {
-        "detail_specs": {
-          "סוג קירור": "קירור מים",
-          "סוג תאורה": "ARGB | LCD",
-          "תושבת מעבד": "1155 | 1150 | 1151 | AM4 | 1200 | 1700 | AM5 | 1851",
-          "רדיאטורים": "3",
-          "מאוורר מובנה (ממ)": "120",
-          "הספק תרמי מירבי": "270W"
-        }
-      },
-      "product_id": "model:aio:360-x-360mm-black"
-    },
-    {
-      "vendor_id": "tms",
       "vendor_sku": "X-360-WH",
       "url": "https://tms.co.il/cpu-cooling/1stplayer-x-360-wh",
       "title_raw": "קירור נוזלי למעבד 1StPlayer X-360 White",
@@ -481297,7 +480808,7 @@
           "הספק תרמי מירבי": "270W"
         }
       },
-      "product_id": "model:aio:360-x-360mm-white"
+      "product_id": "model:aio:360-wh-x-360mm-white"
     },
     {
       "vendor_id": "tms",
@@ -566102,7 +565613,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 1140,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -596104,6 +595615,146 @@
       }
     },
     {
+      "product_id": "model:aio:360-bk-x-360mm",
+      "canonical_name": "1stPlayer X-360-BK 360mm Black",
+      "description": null,
+      "category": "aio",
+      "brand": "1stPlayer",
+      "model": "X-360-BK",
+      "attributes": {
+        "manufacturer": "1stPlayer",
+        "brand": "1stPlayer",
+        "maker": "1stPlayer",
+        "vendor_brand": "1stPlayer",
+        "model": "X-360-BK",
+        "model_name": "X-360-BK",
+        "part_numbers": "X-360-BK",
+        "part_number": "X-360-BK",
+        "mpn": "X-360-BK",
+        "radiator_size_mm": 360,
+        "supported_radiator_mm": 360,
+        "radiator_mm": 360,
+        "size": 360,
+        "fan_size_mm": 120,
+        "fan_size": 120,
+        "fan_count": 3,
+        "fans": 3,
+        "sockets": "LGA1851",
+        "socket_compat": "LGA1851",
+        "socket": "LGA1851"
+      },
+      "matched_by": "identity",
+      "vendor_count": 1,
+      "offers": [
+        {
+          "vendor_id": "1pc",
+          "vendor_sku": "X-360-BK",
+          "listing_key": "1pc:209282",
+          "url": "https://1pc.co.il/web/product/209282",
+          "price_ils": 451,
+          "in_stock": true,
+          "last_seen": "2026-11-26",
+          "seen_day": "2026-11-26",
+          "stale": false,
+          "title_raw": "קירור נוזלי למעבד 1StPlayer X-360-BK",
+          "category_guess": "cpu_cooling",
+          "category_normalized": "aio",
+          "brand": "1stPlayer",
+          "mpn": "X-360-BK",
+          "image_url": "https://1pc.co.il/media/pictures/294239.jpeg",
+          "bundle_only": false,
+          "attributes": {
+            "manufacturer": "1stPlayer",
+            "brand": "1stPlayer",
+            "maker": "1stPlayer",
+            "vendor_brand": "1stPlayer",
+            "model": "X-360-BK",
+            "model_name": "X-360-BK",
+            "part_numbers": "X-360-BK",
+            "part_number": "X-360-BK",
+            "mpn": "X-360-BK",
+            "radiator_size_mm": 360,
+            "supported_radiator_mm": 360,
+            "radiator_mm": 360,
+            "size": 360,
+            "sockets": "LGA1851",
+            "socket_compat": "LGA1851",
+            "socket": "LGA1851"
+          },
+          "model_code": null
+        }
+      ],
+      "image_url": "https://1pc.co.il/media/pictures/294239.jpeg",
+      "best_offer": {
+        "vendor_id": "1pc",
+        "vendor_sku": "X-360-BK",
+        "listing_key": "1pc:209282",
+        "url": "https://1pc.co.il/web/product/209282",
+        "price_ils": 451,
+        "in_stock": true,
+        "last_seen": "2026-11-26",
+        "seen_day": "2026-11-26",
+        "stale": false,
+        "title_raw": "קירור נוזלי למעבד 1StPlayer X-360-BK",
+        "category_guess": "cpu_cooling",
+        "category_normalized": "aio",
+        "brand": "1stPlayer",
+        "mpn": "X-360-BK",
+        "image_url": "https://1pc.co.il/media/pictures/294239.jpeg",
+        "bundle_only": false,
+        "attributes": {
+          "manufacturer": "1stPlayer",
+          "brand": "1stPlayer",
+          "maker": "1stPlayer",
+          "vendor_brand": "1stPlayer",
+          "model": "X-360-BK",
+          "model_name": "X-360-BK",
+          "part_numbers": "X-360-BK",
+          "part_number": "X-360-BK",
+          "mpn": "X-360-BK",
+          "radiator_size_mm": 360,
+          "supported_radiator_mm": 360,
+          "radiator_mm": 360,
+          "size": 360,
+          "sockets": "LGA1851",
+          "socket_compat": "LGA1851",
+          "socket": "LGA1851"
+        },
+        "model_code": null
+      },
+      "specs": {
+        "manufacturer": "1stPlayer",
+        "model": "X-360-BK",
+        "part_numbers": [
+          "X-360-BK"
+        ],
+        "radiator_size_mm": 360,
+        "radiator_length_mm": null,
+        "radiator_thickness_mm": null,
+        "fan_size_mm": 120,
+        "fan_count": 3,
+        "fan_rpm_min": null,
+        "fan_rpm_max": null,
+        "noise_db": null,
+        "airflow_cfm": null,
+        "sockets": [
+          "LGA1851"
+        ],
+        "connectors": null,
+        "lighting": null,
+        "color": null
+      },
+      "spec_sources": {
+        "sockets": "vendor",
+        "radiator_size_mm": "vendor",
+        "model": "vendor",
+        "part_numbers": "vendor",
+        "manufacturer": "vendor",
+        "fan_size_mm": "derived:aio.radiator_fan_size",
+        "fan_count": "derived:aio.radiator_fan_count"
+      }
+    },
+    {
       "product_id": "model:aio:360-chione-e4-360mm",
       "canonical_name": "GAMDIAS Chione E4-360 360mm ARGB",
       "description": null,
@@ -606704,7 +606355,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 175,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -606752,7 +606403,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 175,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -606805,224 +606456,7 @@
       }
     },
     {
-      "product_id": "model:aio:360-x-360mm-black",
-      "canonical_name": "1stPlayer X-360 Black 360mm",
-      "description": null,
-      "category": "aio",
-      "brand": "1stPlayer",
-      "model": "X-360-BK",
-      "attributes": {
-        "manufacturer": "1stPlayer",
-        "brand": "1stPlayer",
-        "maker": "1stPlayer",
-        "vendor_brand": "1stPlayer",
-        "model": "X-360-BK",
-        "model_name": "X-360-BK",
-        "part_numbers": "X-360-BK",
-        "part_number": "X-360-BK",
-        "mpn": "X-360-BK",
-        "radiator_size_mm": 360,
-        "supported_radiator_mm": 360,
-        "radiator_mm": 360,
-        "size": 360,
-        "fan_size_mm": 120,
-        "fan_size": 120,
-        "fan_count": 3,
-        "fans": 3,
-        "sockets": "LGA1851",
-        "socket_compat": "LGA1851",
-        "socket": "LGA1851",
-        "lighting": "ARGB | LCD",
-        "led": "ARGB | LCD",
-        "color": "Black",
-        "colour": "Black"
-      },
-      "matched_by": "identity",
-      "vendor_count": 2,
-      "offers": [
-        {
-          "vendor_id": "1pc",
-          "vendor_sku": "X-360-BK",
-          "listing_key": "1pc:209282",
-          "url": "https://1pc.co.il/web/product/209282",
-          "price_ils": 451,
-          "in_stock": true,
-          "last_seen": "2026-11-26",
-          "seen_day": "2026-11-26",
-          "stale": false,
-          "title_raw": "קירור נוזלי למעבד 1StPlayer X-360-BK",
-          "category_guess": "cpu_cooling",
-          "category_normalized": "aio",
-          "brand": "1stPlayer",
-          "mpn": "X-360-BK",
-          "image_url": "https://1pc.co.il/media/pictures/294239.jpeg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "1stPlayer",
-            "brand": "1stPlayer",
-            "maker": "1stPlayer",
-            "vendor_brand": "1stPlayer",
-            "model": "X-360-BK",
-            "model_name": "X-360-BK",
-            "part_numbers": "X-360-BK",
-            "part_number": "X-360-BK",
-            "mpn": "X-360-BK",
-            "radiator_size_mm": 360,
-            "supported_radiator_mm": 360,
-            "radiator_mm": 360,
-            "size": 360,
-            "sockets": "LGA1851",
-            "socket_compat": "LGA1851",
-            "socket": "LGA1851"
-          },
-          "model_code": null
-        },
-        {
-          "vendor_id": "tms",
-          "vendor_sku": "X-360-BK",
-          "listing_key": "tms:X-360-BK",
-          "url": "https://tms.co.il/cpu-cooling/1stplayer-x-360-bk",
-          "price_ils": null,
-          "in_stock": false,
-          "last_seen": "2026-11-26",
-          "seen_day": "2026-11-26",
-          "stale": false,
-          "title_raw": "קירור נוזלי למעבד 1StPlayer X-360 Black",
-          "category_guess": "cpu cooler",
-          "category_normalized": "aio",
-          "brand": "1stPlayer",
-          "mpn": "X-360-BK",
-          "image_url": "https://tms.co.il/image/catalog/products/X-360-BK/UtCErYKYuu.jpg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "1stPlayer",
-            "brand": "1stPlayer",
-            "maker": "1stPlayer",
-            "vendor_brand": "1stPlayer",
-            "model": "X-360",
-            "model_name": "X-360",
-            "part_numbers": "X-360-BK",
-            "part_number": "X-360-BK",
-            "mpn": "X-360-BK",
-            "radiator_size_mm": 360,
-            "supported_radiator_mm": 360,
-            "radiator_mm": 360,
-            "size": 360,
-            "fan_size_mm": 120,
-            "fan_size": 120,
-            "fan_count": 3,
-            "fans": 3,
-            "sockets": "LGA1155, LGA1150, LGA1151, AM4, LGA1200, LGA1700, AM5, LGA1851",
-            "socket_compat": "LGA1155, LGA1150, LGA1151, AM4, LGA1200, LGA1700, AM5, LGA1851",
-            "socket": "LGA1155, LGA1150, LGA1151, AM4, LGA1200, LGA1700, AM5, LGA1851",
-            "lighting": "ARGB | LCD",
-            "led": "ARGB | LCD",
-            "color": "Black",
-            "colour": "Black"
-          },
-          "model_code": null,
-          "eilat_price_ils": 375,
-          "eilat_in_stock": false,
-          "eilat_stale": false,
-          "eilat_only": true
-        }
-      ],
-      "image_url": "https://tms.co.il/image/catalog/products/X-360-BK/UtCErYKYuu.jpg",
-      "attribute_conflicts": {
-        "model": [
-          "X-360-BK",
-          "X-360"
-        ],
-        "model_name": [
-          "X-360-BK",
-          "X-360"
-        ],
-        "sockets": [
-          "LGA1851",
-          "LGA1155, LGA1150, LGA1151, AM4, LGA1200, LGA1700, AM5, LGA1851"
-        ],
-        "socket_compat": [
-          "LGA1851",
-          "LGA1155, LGA1150, LGA1151, AM4, LGA1200, LGA1700, AM5, LGA1851"
-        ],
-        "socket": [
-          "LGA1851",
-          "LGA1155, LGA1150, LGA1151, AM4, LGA1200, LGA1700, AM5, LGA1851"
-        ]
-      },
-      "best_offer": {
-        "vendor_id": "1pc",
-        "vendor_sku": "X-360-BK",
-        "listing_key": "1pc:209282",
-        "url": "https://1pc.co.il/web/product/209282",
-        "price_ils": 451,
-        "in_stock": true,
-        "last_seen": "2026-11-26",
-        "seen_day": "2026-11-26",
-        "stale": false,
-        "title_raw": "קירור נוזלי למעבד 1StPlayer X-360-BK",
-        "category_guess": "cpu_cooling",
-        "category_normalized": "aio",
-        "brand": "1stPlayer",
-        "mpn": "X-360-BK",
-        "image_url": "https://1pc.co.il/media/pictures/294239.jpeg",
-        "bundle_only": false,
-        "attributes": {
-          "manufacturer": "1stPlayer",
-          "brand": "1stPlayer",
-          "maker": "1stPlayer",
-          "vendor_brand": "1stPlayer",
-          "model": "X-360-BK",
-          "model_name": "X-360-BK",
-          "part_numbers": "X-360-BK",
-          "part_number": "X-360-BK",
-          "mpn": "X-360-BK",
-          "radiator_size_mm": 360,
-          "supported_radiator_mm": 360,
-          "radiator_mm": 360,
-          "size": 360,
-          "sockets": "LGA1851",
-          "socket_compat": "LGA1851",
-          "socket": "LGA1851"
-        },
-        "model_code": null
-      },
-      "specs": {
-        "manufacturer": "1stPlayer",
-        "model": "X-360-BK",
-        "part_numbers": [
-          "X-360-BK"
-        ],
-        "radiator_size_mm": 360,
-        "radiator_length_mm": null,
-        "radiator_thickness_mm": null,
-        "fan_size_mm": 120,
-        "fan_count": 3,
-        "fan_rpm_min": null,
-        "fan_rpm_max": null,
-        "noise_db": null,
-        "airflow_cfm": null,
-        "sockets": [
-          "LGA1851"
-        ],
-        "connectors": null,
-        "lighting": "ARGB | LCD",
-        "color": "Black"
-      },
-      "spec_sources": {
-        "sockets": "vendor",
-        "radiator_size_mm": "vendor",
-        "model": "vendor",
-        "part_numbers": "vendor",
-        "manufacturer": "vendor",
-        "lighting": "vendor",
-        "fan_count": "vendor",
-        "fan_size_mm": "vendor",
-        "color": "vendor"
-      }
-    },
-    {
-      "product_id": "model:aio:360-x-360mm-white",
+      "product_id": "model:aio:360-wh-x-360mm-white",
       "canonical_name": "1stPlayer X-360-WH 360mm White",
       "description": null,
       "category": "aio",
@@ -731160,197 +730594,6 @@
       }
     },
     {
-      "product_id": "model:case:ax65-black",
-      "canonical_name": "Antec AX65 ARGB Black",
-      "description": null,
-      "category": "case",
-      "brand": "Antec",
-      "model": "AX65",
-      "attributes": {
-        "manufacturer": "Antec",
-        "brand": "Antec",
-        "maker": "Antec",
-        "vendor_brand": "Antec",
-        "model": "AX65",
-        "model_name": "AX65",
-        "part_numbers": "AX65ARGB",
-        "part_number": "AX65ARGB",
-        "mpn": "AX65ARGB",
-        "type": "Mid Tower",
-        "form_factor": "Mid Tower",
-        "case_type": "Mid Tower",
-        "side_panel": "Windowed",
-        "psu_included": "Not included",
-        "power_supply": "Not included",
-        "psu": "Not included",
-        "mb_form_factors": "Mini ITX, Micro ATX, ATX",
-        "supported_mb_form_factors": "Mini ITX, Micro ATX, ATX",
-        "motherboard_support": "Mini ITX, Micro ATX, ATX",
-        "max_gpu_length_mm": 345,
-        "maximum_video_card_length": "345mm",
-        "gpu_max_length_mm": 345,
-        "max_cooler_height_mm": 160,
-        "cooler_max_height_mm": 160,
-        "drive_bays_35": 2,
-        "internal_35_bays": 2,
-        "drive_bays_25": 3,
-        "internal_25_bays": 3,
-        "expansion_slots": "7",
-        "front_usb": "USB 2.0, USB 3.0, Earphone/Mic",
-        "front_io": "USB 2.0, USB 3.0, Earphone/Mic",
-        "front_panel_usb": "USB 2.0, USB 3.0, Earphone/Mic",
-        "radiator_support": "1x 120 mm, 1x 240 mm, 1x 360 mm",
-        "supported_radiator_mm": 360,
-        "dimensions_mm": "W=200 H=449 D=400mm",
-        "dimensions": "W=200 H=449 D=400mm",
-        "volume_l": 35.9,
-        "external_volume_l": 35.9,
-        "external_volume": "35.9L",
-        "weight_kg": 4.59,
-        "weight": 4.59,
-        "fan_front": "3 x 120 mm",
-        "fan_top": "2 x 120 mm",
-        "fan_rear": "1 x 120 mm",
-        "fan_bottom": "2 x 120 mm",
-        "lighting": "ARGB",
-        "rgb_lighting": "ARGB",
-        "rackmount": "No",
-        "color": "Black",
-        "colour": "Black"
-      },
-      "matched_by": "identity",
-      "vendor_count": 1,
-      "offers": [
-        {
-          "vendor_id": "tms",
-          "vendor_sku": "AX65ARGB",
-          "listing_key": "tms:AX65ARGB",
-          "url": "https://tms.co.il/desktop-pc-cases/antec-ax65argb",
-          "price_ils": null,
-          "in_stock": false,
-          "last_seen": "2026-11-26",
-          "seen_day": "2026-11-26",
-          "stale": false,
-          "title_raw": "מארז מחשב Antec AX65 ARGB",
-          "category_guess": "case",
-          "category_normalized": "case",
-          "brand": "Antec",
-          "mpn": "AX65ARGB",
-          "image_url": "https://tms.co.il/image/catalog/products/AX65ARGB/2L6sEka91d.jpg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "Antec",
-            "brand": "Antec",
-            "maker": "Antec",
-            "vendor_brand": "Antec",
-            "model": "AX65",
-            "model_name": "AX65",
-            "part_numbers": "AX65ARGB",
-            "part_number": "AX65ARGB",
-            "mpn": "AX65ARGB",
-            "type": "Mid Tower",
-            "form_factor": "Mid Tower",
-            "case_type": "Mid Tower",
-            "mb_form_factors": "ATX, Micro ATX, Mini ITX",
-            "supported_mb_form_factors": "ATX, Micro ATX, Mini ITX",
-            "motherboard_support": "ATX, Micro ATX, Mini ITX",
-            "max_cooler_height_mm": 160,
-            "cooler_max_height_mm": 160,
-            "drive_bays_35": 2,
-            "internal_35_bays": 2,
-            "drive_bays_25": 3,
-            "internal_25_bays": 3,
-            "front_usb": "USB 2.0, USB 3.0, Earphone/Mic",
-            "front_io": "USB 2.0, USB 3.0, Earphone/Mic",
-            "front_panel_usb": "USB 2.0, USB 3.0, Earphone/Mic",
-            "dimensions_mm": "W=200 H=449 D=400mm",
-            "dimensions": "W=200 H=449 D=400mm",
-            "volume_l": 35.9,
-            "external_volume_l": 35.9,
-            "external_volume": "35.9L",
-            "lighting": "ARGB",
-            "rgb_lighting": "ARGB",
-            "color": "Black",
-            "colour": "Black"
-          },
-          "model_code": null,
-          "eilat_price_ils": 148,
-          "eilat_in_stock": false,
-          "eilat_stale": false,
-          "eilat_only": true
-        }
-      ],
-      "image_url": "https://tms.co.il/image/catalog/products/AX65ARGB/2L6sEka91d.jpg",
-      "best_offer": null,
-      "specs": {
-        "manufacturer": "Antec",
-        "model": "AX65",
-        "part_numbers": [
-          "AX65ARGB"
-        ],
-        "type": "Mid Tower",
-        "side_panel": "Windowed",
-        "psu_included": "Not included",
-        "mb_form_factors": [
-          "Mini ITX",
-          "Micro ATX",
-          "ATX"
-        ],
-        "max_gpu_length_mm": 345,
-        "max_cooler_height_mm": 160,
-        "drive_bays_35": 2,
-        "drive_bays_25": 3,
-        "expansion_slots": "7",
-        "front_usb": [
-          "USB 2.0",
-          "USB 3.0",
-          "Earphone/Mic"
-        ],
-        "radiator_support": {
-          "120 mm": 1,
-          "240 mm": 1,
-          "360 mm": 1
-        },
-        "dimensions_mm": "W=200 H=449 D=400mm",
-        "volume_l": 35.9,
-        "weight_kg": 4.59,
-        "fan_front": "3 x 120 mm",
-        "fan_top": "2 x 120 mm",
-        "fan_rear": "1 x 120 mm",
-        "fan_side": null,
-        "fan_bottom": "2 x 120 mm",
-        "lighting": "ARGB",
-        "rackmount": false,
-        "color": "Black"
-      },
-      "spec_sources": {
-        "type": "manufacturer",
-        "mb_form_factors": "manufacturer",
-        "lighting": "manufacturer",
-        "drive_bays_35": "vendor",
-        "drive_bays_25": "vendor",
-        "max_cooler_height_mm": "manufacturer",
-        "front_usb": "manufacturer",
-        "dimensions_mm": "manufacturer",
-        "color": "vendor",
-        "volume_l": "vendor",
-        "model": "vendor",
-        "part_numbers": "vendor",
-        "manufacturer": "vendor",
-        "max_gpu_length_mm": "manufacturer",
-        "side_panel": "manufacturer",
-        "weight_kg": "manufacturer",
-        "expansion_slots": "manufacturer",
-        "fan_front": "manufacturer",
-        "fan_top": "manufacturer",
-        "fan_rear": "manufacturer",
-        "fan_bottom": "manufacturer",
-        "radiator_support": "manufacturer",
-        "rackmount": "derived:case.type_rack",
-        "psu_included": "derived:case.no_psu_in_title"
-      }
-    },
-    {
       "product_id": "model:case:ax67-black",
       "canonical_name": "Antec AX67 ARGB Black",
       "description": null,
@@ -757732,7 +756975,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 262,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -757792,7 +757035,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 262,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -787720,7 +786963,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 267,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -787948,7 +787191,7 @@
         "colour": "White"
       },
       "matched_by": "identity",
-      "vendor_count": 3,
+      "vendor_count": 2,
       "offers": [
         {
           "vendor_id": "1pc",
@@ -788005,64 +787248,6 @@
           "model_code": null
         },
         {
-          "vendor_id": "tms",
-          "vendor_sku": "V100RW",
-          "listing_key": "tms:V100RW",
-          "url": "https://tms.co.il/desktop-pc-cases/lian-li-v100rw",
-          "price_ils": null,
-          "in_stock": false,
-          "last_seen": "2026-11-26",
-          "seen_day": "2026-11-26",
-          "stale": false,
-          "title_raw": "מארז מחשב Lian-Li Vector V100R White",
-          "category_guess": "case",
-          "category_normalized": "case",
-          "brand": "Lian Li",
-          "mpn": "V100RW",
-          "image_url": "https://tms.co.il/image/catalog/products/V100RW/0QERK2f3uN.jpg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "Lian Li",
-            "brand": "Lian Li",
-            "maker": "Lian Li",
-            "vendor_brand": "Lian Li",
-            "model": "Lian-Li Vector V100R",
-            "model_name": "Lian-Li Vector V100R",
-            "part_numbers": "V100RW",
-            "part_number": "V100RW",
-            "mpn": "V100RW",
-            "type": "Mid Tower",
-            "form_factor": "Mid Tower",
-            "case_type": "Mid Tower",
-            "mb_form_factors": "ATX, Micro ATX, Mini ITX",
-            "supported_mb_form_factors": "ATX, Micro ATX, Mini ITX",
-            "motherboard_support": "ATX, Micro ATX, Mini ITX",
-            "max_cooler_height_mm": 175,
-            "cooler_max_height_mm": 175,
-            "drive_bays_35": 1,
-            "internal_35_bays": 1,
-            "drive_bays_25": 1,
-            "internal_25_bays": 1,
-            "front_usb": "Earphone/Mic, USB Type-C, USB 3.2",
-            "front_io": "Earphone/Mic, USB Type-C, USB 3.2",
-            "front_panel_usb": "Earphone/Mic, USB Type-C, USB 3.2",
-            "dimensions_mm": "W=236 H=485 D=446mm",
-            "dimensions": "W=236 H=485 D=446mm",
-            "volume_l": 51.0,
-            "external_volume_l": 51.0,
-            "external_volume": "51.0L",
-            "lighting": "ARGB",
-            "rgb_lighting": "ARGB",
-            "color": "White",
-            "colour": "White"
-          },
-          "model_code": null,
-          "eilat_price_ils": 284,
-          "eilat_in_stock": false,
-          "eilat_stale": false,
-          "eilat_only": true
-        },
-        {
           "vendor_id": "yahav",
           "vendor_sku": "V100RW",
           "listing_key": "yahav:10967",
@@ -788104,7 +787289,7 @@
           "model_code": null
         }
       ],
-      "image_url": "https://tms.co.il/image/catalog/products/V100RW/0QERK2f3uN.jpg",
+      "image_url": "https://1pc.co.il/media/catalog/v1/62af204b090fbf0a0d7af1f822d85f613152c59f2561e479a78a51a24d6b72ad.webp",
       "attribute_conflicts": {
         "model": [
           "Lian-Li Vector V100R",
@@ -965830,7 +965015,7 @@
           "model_code": null,
           "packaging_basis": "title",
           "eilat_price_ils": 589,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1004577,7 +1003762,7 @@
           },
           "model_code": "GV-N5070WF3OC-12GD",
           "eilat_price_ils": 3465,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1006524,9 +1005709,6 @@
         "memory_bus_bit": 192,
         "memory_bus_width": 192,
         "vram_bus_width": 192,
-        "core_clock_mhz": 2557,
-        "core_clock": 2557,
-        "base_clock_mhz": 2557,
         "boost_clock_mhz": 2587,
         "boost_clock": 2587,
         "directx": "12 Ultimate",
@@ -1006567,7 +1005749,7 @@
         "length": "304 mm"
       },
       "matched_by": "identity",
-      "vendor_count": 2,
+      "vendor_count": 1,
       "offers": [
         {
           "vendor_id": "ivory",
@@ -1006646,100 +1005828,9 @@
             "length": "304 mm"
           },
           "model_code": null
-        },
-        {
-          "vendor_id": "tms",
-          "vendor_sku": "90YV0M10-M0NA00",
-          "listing_key": "tms:90YV0M10-M0NA00",
-          "url": "https://tms.co.il/nvidia-cards/asus-90yv0m10-m0na00",
-          "price_ils": null,
-          "in_stock": false,
-          "last_seen": "2026-11-26",
-          "seen_day": "2026-11-26",
-          "stale": false,
-          "title_raw": "Asus Prime RTX 5070 12GB GDDR7 OC Edition",
-          "category_guess": "gpu",
-          "category_normalized": "gpu",
-          "brand": "ASUS",
-          "mpn": "90YV0M10-M0NA00",
-          "image_url": "https://tms.co.il/image/catalog/products/90YV0M10-M0NA00/DAaIxSBGIh.jpg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "ASUS",
-            "brand": "ASUS",
-            "maker": "ASUS",
-            "vendor_brand": "ASUS",
-            "model": "Prime RTX 5070 GDDR7 OC Edition",
-            "model_name": "Prime RTX 5070 GDDR7 OC Edition",
-            "part_numbers": "90YV0M10-M0NA00",
-            "part_number": "90YV0M10-M0NA00",
-            "mpn": "90YV0M10-M0NA00",
-            "chipset": "GeForce RTX 5070",
-            "gpu_chip": "GeForce RTX 5070",
-            "gpu_chipset": "GeForce RTX 5070",
-            "graphics_processor": "GeForce RTX 5070",
-            "memory_gb": 12,
-            "vram_gb": 12,
-            "memory": "12GB",
-            "video_memory": 12,
-            "memory_type": "GDDR7",
-            "vram_type": "GDDR7",
-            "gddr": "GDDR7",
-            "memory_speed_gbps": 28,
-            "vram_speed": 28,
-            "memory_data_rate": 28,
-            "memory_bus_bit": 192,
-            "memory_bus_width": 192,
-            "vram_bus_width": 192,
-            "core_clock_mhz": 2557,
-            "core_clock": 2557,
-            "base_clock_mhz": 2557,
-            "directx": "12 Ultimate",
-            "directx_version": "12 Ultimate",
-            "opengl": "4.6",
-            "opengl_version": "4.6",
-            "interface": "PCIe 5.0 x16",
-            "bus_interface": "PCIe 5.0 x16",
-            "max_displays": 4,
-            "maximum_displays": 4,
-            "multi_display": 4,
-            "length_mm": 304,
-            "gpu_length_mm": 304,
-            "card_length_mm": 304,
-            "recommended_psu_w": 750,
-            "minimum_psu_w": 750,
-            "psu_requirement_w": 750,
-            "external_power": "1x16-pin",
-            "power_connections": "1x16-pin",
-            "power_connectors": "1x16-pin",
-            "length": "304 mm"
-          },
-          "model_code": null,
-          "eilat_price_ils": 3465,
-          "eilat_in_stock": false,
-          "eilat_stale": false,
-          "eilat_only": true
         }
       ],
-      "image_url": "https://tms.co.il/image/catalog/products/90YV0M10-M0NA00/DAaIxSBGIh.jpg",
-      "attribute_conflicts": {
-        "model": [
-          "PRIME GeForce RTX 5070 12GB GDDR7 OC Edition",
-          "Prime RTX 5070 GDDR7 OC Edition"
-        ],
-        "model_name": [
-          "PRIME GeForce RTX 5070 12GB GDDR7 OC Edition",
-          "Prime RTX 5070 GDDR7 OC Edition"
-        ],
-        "interface": [
-          "PCI Express 5.0",
-          "PCIe 5.0 x16"
-        ],
-        "bus_interface": [
-          "PCI Express 5.0",
-          "PCIe 5.0 x16"
-        ]
-      },
+      "image_url": "https://www.ivory.co.il/files/catalog/org/1741692038r38Lf.webp",
       "best_offer": {
         "vendor_id": "ivory",
         "vendor_sku": "90YV0M10-M0NA00",
@@ -1006830,7 +1005921,7 @@
         "memory_type": "GDDR7",
         "memory_speed_gbps": 28,
         "memory_bus_bit": 192,
-        "core_clock_mhz": 2557,
+        "core_clock_mhz": null,
         "boost_clock_mhz": 2587,
         "directx": "12 Ultimate",
         "opengl": "4.6",
@@ -1006874,11 +1005965,10 @@
         "color": "vendor",
         "fan_count": "catalog",
         "part_numbers": "vendor",
-        "core_clock_mhz": "vendor",
-        "directx": "vendor",
-        "opengl": "vendor",
         "tdp_w": "reference",
-        "chip_manufacturer": "derived:gpu.chipset_maker"
+        "chip_manufacturer": "derived:gpu.chipset_maker",
+        "directx": "derived:gpu.chipset_table",
+        "opengl": "derived:gpu.chipset_table"
       }
     },
     {
@@ -1061877,7 +1060967,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 7638,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1061981,7 +1061071,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 7638,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1081897,10 +1080987,7 @@
           "model_code": null,
           "promo_kind": "tms-new-pc",
           "promo_text_raw": "-5% \n                                                 \n                                             \n                                                                                             \n                                                    הנחת New PC",
-          "new_pc_deal": true,
-          "eilat_price_ils": 1993,
-          "eilat_in_stock": true,
-          "eilat_stale": false
+          "new_pc_deal": true
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/6000J3636F16GX2-IS/xmFr7L4VQK.jpg",
@@ -1082369,10 +1081456,7 @@
             "colour": "Black",
             "memory": "32GB"
           },
-          "model_code": null,
-          "eilat_price_ils": 1826,
-          "eilat_in_stock": true,
-          "eilat_stale": false
+          "model_code": null
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/5600J3636C16GX2-RS5K/wVGnatcaAh.jpg",
@@ -1083278,10 +1082362,7 @@
             "colour": "Black",
             "memory": "32GB"
           },
-          "model_code": null,
-          "eilat_price_ils": 1826,
-          "eilat_in_stock": true,
-          "eilat_stale": false
+          "model_code": null
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/5600J4040C16GX2-RS5K/GJqmO77TUW.jpg",
@@ -1083569,10 +1082650,7 @@
           "model_code": null,
           "promo_kind": "tms-new-pc",
           "promo_text_raw": "-5% \n                                                 \n                                             \n                                                                                             \n                                                    הנחת New PC",
-          "new_pc_deal": true,
-          "eilat_price_ils": 1826,
-          "eilat_in_stock": true,
-          "eilat_stale": false
+          "new_pc_deal": true
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/5600J4040C16GX2-RS5W/3Ts13Sruhi.jpg",
@@ -1119946,7 +1119024,7 @@
             "memory": "32GB"
           },
           "model_code": null,
-          "eilat_price_ils": 2198,
+          "eilat_price_ils": 2236,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1128623,7 +1127701,7 @@
             "memory": "32GB"
           },
           "model_code": null,
-          "eilat_price_ils": 2068,
+          "eilat_price_ils": 2087,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1128686,7 +1127764,7 @@
           "memory": "32GB"
         },
         "model_code": null,
-        "eilat_price_ils": 2068,
+        "eilat_price_ils": 2087,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1130142,7 +1129220,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 2888,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1130219,7 +1129297,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 2888,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1130812,7 +1129890,7 @@
             "memory": "32GB"
           },
           "model_code": null,
-          "eilat_price_ils": 2128,
+          "eilat_price_ils": 2194,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1131180,7 +1130258,7 @@
             "memory": "32GB"
           },
           "model_code": null,
-          "eilat_price_ils": 2128,
+          "eilat_price_ils": 2194,
           "eilat_in_stock": true,
           "eilat_stale": false
         },
@@ -1131598,7 +1130676,7 @@
             "memory": "32GB"
           },
           "model_code": null,
-          "eilat_price_ils": 2161,
+          "eilat_price_ils": 2198,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1143710,7 +1142788,7 @@
             "memory": "64GB"
           },
           "model_code": null,
-          "eilat_price_ils": 4099,
+          "eilat_price_ils": 4546,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1189756,7 +1188834,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 1772,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1189819,7 +1188897,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 1772,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1262297,7 +1261375,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 771,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1262476,7 +1261554,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 771,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1265131,7 +1264209,7 @@
             "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 3.0 x1 | PCIe 4.0 x16 | Trusted Platform Module (TPM)"
           },
           "model_code": "B550M AORUS ELITE AX",
-          "eilat_price_ils": 481,
+          "eilat_price_ils": 466,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1265254,7 +1264332,7 @@
           "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 3.0 x1 | PCIe 4.0 x16 | Trusted Platform Module (TPM)"
         },
         "model_code": "B550M AORUS ELITE AX",
-        "eilat_price_ils": 481,
+        "eilat_price_ils": 466,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1268368,7 +1267446,7 @@
             "expansion_slots": "Trusted Platform Module (TPM) | PCIe 4.0 x16 | PCIe 3.0 x1 | PCIe 3.0 x16, mode x4"
           },
           "model_code": "B550M AORUS ELITE",
-          "eilat_price_ils": 402,
+          "eilat_price_ils": 428,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1268480,7 +1267558,7 @@
           "expansion_slots": "Trusted Platform Module (TPM) | PCIe 4.0 x16 | PCIe 3.0 x1 | PCIe 3.0 x16, mode x4"
         },
         "model_code": "B550M AORUS ELITE",
-        "eilat_price_ils": 402,
+        "eilat_price_ils": 428,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1306005,7 +1305083,7 @@
             "expansion_slots": "PCIe 3.0 x16, mode x4 | PCIe 3.0 x16, mode x1 | PCIe 4.0 x16 | Trusted Platform Module (TPM)"
           },
           "model_code": "B550M DS3H R2",
-          "eilat_price_ils": 369,
+          "eilat_price_ils": 388,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1308433,7 +1307511,7 @@
             "expansion_slots": "Trusted Platform Module (TPM) | PCIe 4.0 x16 | PCIe 3.0 x1"
           },
           "model_code": "B550M K",
-          "eilat_price_ils": 338,
+          "eilat_price_ils": 361,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1366668,7 +1365746,7 @@
             "expansion_slots": "PCIe 5.0 x16 slot | PCIe 3.0 x16, mode x1 | Trusted Platform Module (TPM)"
           },
           "model_code": "B850 GAMING WIFI6",
-          "eilat_price_ils": 682,
+          "eilat_price_ils": 663,
           "eilat_in_stock": false,
           "eilat_stale": false
         },
@@ -1373920,10 +1372998,7 @@
           "model_code": "B850M EAGLE WIFI6E ICE",
           "promo_kind": "tms-new-pc",
           "promo_text_raw": "-9% \n                                                 \n                                             \n                                                                                             \n                                                    הנחת New PC",
-          "new_pc_deal": true,
-          "eilat_price_ils": 738,
-          "eilat_in_stock": false,
-          "eilat_stale": false
+          "new_pc_deal": true
         },
         {
           "vendor_id": "yahav",
@@ -1374509,10 +1373584,7 @@
           "model_code": "B850M EAGLE WIFI7",
           "promo_kind": "tms-new-pc",
           "promo_text_raw": "-8% \n                                                 \n                                             \n                                                                                             \n                                                    הנחת New PC",
-          "new_pc_deal": true,
-          "eilat_price_ils": 727,
-          "eilat_in_stock": true,
-          "eilat_stale": false
+          "new_pc_deal": true
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/GB850MEAGLEWIFI7/TWEWcIDAE6.jpg",
@@ -1377512,10 +1376584,7 @@
           "model_code": "B850M FORCE WIFI6E",
           "promo_kind": "tms-new-pc",
           "promo_text_raw": "-10% \n                                                 \n                                             \n                                                                                             \n                                                    הנחת New PC",
-          "new_pc_deal": true,
-          "eilat_price_ils": 648,
-          "eilat_in_stock": false,
-          "eilat_stale": false
+          "new_pc_deal": true
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/GB850MFORCEWIFI6E/DHaz2Fm5EL.jpg",
@@ -1382027,7 +1381096,7 @@
             "expansion_slots": "PCIe 3.0 x16, mode x4 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
           },
           "model_code": "B850M GAMING X WIFI6E",
-          "eilat_price_ils": 727,
+          "eilat_price_ils": 764,
           "eilat_in_stock": true,
           "eilat_stale": false
         },
@@ -1385543,8 +1384612,8 @@
           "url": "https://tms.co.il/computer-hardware-components/motherboards/gigabyte-b860-ds3h",
           "price_ils": null,
           "in_stock": false,
-          "last_seen": "2026-11-26",
-          "seen_day": "2026-11-26",
+          "last_seen": "2026-11-27",
+          "seen_day": "2026-11-27",
           "stale": false,
           "title_raw": "Gigabyte B860 DS3H",
           "category_guess": "motherboard",
@@ -1409008,7 +1408077,10 @@
             "audio_chip": "3 port",
             "expansion_slots": "PCIe 4.0 x4 | PCIe 5.0 x16 slot | PCIe 4.0 x1"
           },
-          "model_code": null
+          "model_code": null,
+          "eilat_price_ils": 484,
+          "eilat_in_stock": false,
+          "eilat_stale": false
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/MS-CHA-Z890M/ZgpAUMBrSd.jpg",
@@ -1409136,7 +1408208,10 @@
           "audio_chip": "3 port",
           "expansion_slots": "PCIe 4.0 x4 | PCIe 5.0 x16 slot | PCIe 4.0 x1"
         },
-        "model_code": null
+        "model_code": null,
+        "eilat_price_ils": 484,
+        "eilat_in_stock": false,
+        "eilat_stale": false
       },
       "specs": {
         "manufacturer": "MAXSUN",
@@ -1436632,7 +1435707,7 @@
             "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
           },
           "model_code": "X870 GAMING X WIFI7",
-          "eilat_price_ils": 1054,
+          "eilat_price_ils": 1002,
           "eilat_in_stock": false,
           "eilat_stale": false
         }
@@ -1436754,7 +1435829,7 @@
           "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
         },
         "model_code": "X870 GAMING X WIFI7",
-        "eilat_price_ils": 1054,
+        "eilat_price_ils": 1002,
         "eilat_in_stock": false,
         "eilat_stale": false
       },
@@ -1461024,160 +1460099,6 @@
       }
     },
     {
-      "product_id": "model:psu:0-3-m-modular-ne1300g-neoeco-1300w",
-      "canonical_name": "Antec NE1300G M 3.0 Neoeco 1300W 80 PLUS Gold",
-      "description": null,
-      "category": "psu",
-      "brand": "Antec",
-      "model": "NE1300G M 3.0 NeoECO Modular",
-      "attributes": {
-        "manufacturer": "Antec",
-        "brand": "Antec",
-        "maker": "Antec",
-        "vendor_brand": "Antec",
-        "model": "NE1300G M 3.0 NeoECO Modular",
-        "model_name": "NE1300G M 3.0 NeoECO Modular",
-        "part_numbers": "NE1300GM-ATX3.0",
-        "part_number": "NE1300GM-ATX3.0",
-        "mpn": "NE1300GM-ATX3.0",
-        "type": "ATX",
-        "form_factor": "ATX",
-        "wattage_w": 1300,
-        "wattage": "1300W",
-        "power_consumption": 1300,
-        "series_wattage_range": "1200-3000W",
-        "wattage_range": "1200-3000W",
-        "series_power_range": "1200-3000W",
-        "efficiency": "80 PLUS Gold",
-        "efficiency_rating": "80+ Gold",
-        "80plus": "80+ Gold",
-        "fanless": "No",
-        "atx_version": "ATX 3.0",
-        "atx_standard": "ATX 3.0",
-        "atx4_connectors": 1,
-        "atx_24pin": 1,
-        "eps8_connectors": 2,
-        "cpu_power_connectors": 2,
-        "pcie16_connectors": 1,
-        "pcie16pin": 1,
-        "12v_2x6": 1,
-        "pcie12_connectors": 1,
-        "12vhpwr": 1,
-        "pcie8_connectors": 4,
-        "sata_connectors": 12,
-        "sata_power_connectors": 12,
-        "molex4_connectors": 4,
-        "molex": 4
-      },
-      "matched_by": "identity",
-      "vendor_count": 1,
-      "offers": [
-        {
-          "vendor_id": "tms",
-          "vendor_sku": "NE1300GM-ATX3.0",
-          "listing_key": "tms:NE1300GM-ATX3.0",
-          "url": "https://tms.co.il/desktop-psu/antec-ne1300gm-atx30",
-          "price_ils": null,
-          "in_stock": false,
-          "last_seen": "2026-11-26",
-          "seen_day": "2026-11-26",
-          "stale": false,
-          "title_raw": "Antec PSU 1300W NE1300G M (ATX 3.0) NeoECO Gold Modular",
-          "category_guess": "psu",
-          "category_normalized": "psu",
-          "brand": "Antec",
-          "mpn": "NE1300GM-ATX3.0",
-          "image_url": "https://tms.co.il/image/catalog/products/NE1300GM-ATX3.0/p4qeRWuJOx.jpg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "Antec",
-            "brand": "Antec",
-            "maker": "Antec",
-            "vendor_brand": "Antec",
-            "model": "NE1300G M 3.0 NeoECO Modular",
-            "model_name": "NE1300G M 3.0 NeoECO Modular",
-            "part_numbers": "NE1300GM-ATX3.0",
-            "part_number": "NE1300GM-ATX3.0",
-            "mpn": "NE1300GM-ATX3.0",
-            "type": "ATX",
-            "form_factor": "ATX",
-            "wattage_w": 1300,
-            "wattage": "1300W",
-            "power_consumption": 1300,
-            "series_wattage_range": "1200-3000W",
-            "wattage_range": "1200-3000W",
-            "series_power_range": "1200-3000W",
-            "efficiency": "80 PLUS Gold",
-            "efficiency_rating": "80+ Gold",
-            "80plus": "80+ Gold",
-            "atx_version": "ATX 3.0",
-            "atx_standard": "ATX 3.0",
-            "eps8_connectors": 2,
-            "cpu_power_connectors": 2,
-            "pcie16_connectors": 1,
-            "pcie16pin": 1,
-            "12v_2x6": 1,
-            "pcie12_connectors": 1,
-            "12vhpwr": 1,
-            "pcie8_connectors": 4,
-            "sata_connectors": 12,
-            "sata_power_connectors": 12,
-            "molex4_connectors": 4,
-            "molex": 4
-          },
-          "model_code": null,
-          "eilat_price_ils": 590,
-          "eilat_in_stock": false,
-          "eilat_stale": false,
-          "eilat_only": true
-        }
-      ],
-      "image_url": "https://tms.co.il/image/catalog/products/NE1300GM-ATX3.0/p4qeRWuJOx.jpg",
-      "best_offer": null,
-      "specs": {
-        "manufacturer": "Antec",
-        "model": "NE1300G M 3.0 NeoECO Modular",
-        "part_numbers": [
-          "NE1300GM-ATX3.0"
-        ],
-        "type": "ATX",
-        "wattage_w": 1300,
-        "series_wattage_range": "1200-3000W",
-        "efficiency": "80+ Gold",
-        "modular": null,
-        "length_mm": null,
-        "fan_size_mm": null,
-        "fanless": false,
-        "atx_version": "ATX 3.0",
-        "atx4_connectors": 1,
-        "eps8_connectors": 2,
-        "pcie16_connectors": 1,
-        "pcie8_connectors": 4,
-        "pcie62_connectors": null,
-        "pcie6_connectors": null,
-        "sata_connectors": 12,
-        "molex4_connectors": 4,
-        "color": null
-      },
-      "spec_sources": {
-        "type": "vendor",
-        "series_wattage_range": "vendor",
-        "wattage_w": "vendor",
-        "efficiency": "vendor",
-        "sata_connectors": "vendor",
-        "molex4_connectors": "vendor",
-        "pcie8_connectors": "vendor",
-        "pcie16_connectors": "vendor",
-        "eps8_connectors": "vendor",
-        "atx_version": "vendor",
-        "model": "vendor",
-        "part_numbers": "vendor",
-        "manufacturer": "vendor",
-        "atx4_connectors": "derived:psu.single_24pin_main",
-        "fanless": "derived:psu.no_fanless_marker"
-      }
-    },
-    {
       "product_id": "model:psu:0-3-regulator-1000w",
       "canonical_name": "Kolink Regulator 3.0 1000W 80 PLUS Gold",
       "description": null,
@@ -1484667,7 +1483588,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 652,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1484737,7 +1483658,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 652,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1486211,7 +1485132,7 @@
             "molex": 4
           },
           "model_code": null,
-          "eilat_price_ils": 393,
+          "eilat_price_ils": 425,
           "eilat_in_stock": true,
           "eilat_stale": false
         }
@@ -1486267,7 +1485188,7 @@
           "molex": 4
         },
         "model_code": null,
-        "eilat_price_ils": 393,
+        "eilat_price_ils": 425,
         "eilat_in_stock": true,
         "eilat_stale": false
       },
@@ -1523547,7 +1522468,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 887,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1584089,7 +1583010,7 @@
       }
     },
     {
-      "product_id": "model:storage:d3-s4520-7680gb-sata-25",
+      "product_id": "model:storage:d3-s4520-solidigm-7680gb-sata-25",
       "canonical_name": "Intel Solidigm D3-S4520 7.68TB 7680GB SATA SSD 2.5\"",
       "description": null,
       "category": "storage",
@@ -1584128,7 +1583049,7 @@
         "nand_type": "3D NAND"
       },
       "matched_by": "identity",
-      "vendor_count": 2,
+      "vendor_count": 1,
       "offers": [
         {
           "vendor_id": "1pc",
@@ -1584174,88 +1583095,9 @@
             "nand_type": "3D NAND"
           },
           "model_code": null
-        },
-        {
-          "vendor_id": "tms",
-          "vendor_sku": "SSDSC2KB076TZ01",
-          "listing_key": "tms:SSDSC2KB076TZ01",
-          "url": "https://tms.co.il/ssd-drives/intel-ssdsc2kb076tz01",
-          "price_ils": null,
-          "in_stock": false,
-          "last_seen": "2026-11-26",
-          "seen_day": "2026-11-26",
-          "stale": false,
-          "title_raw": "Intel 7.68TB D3-S4520 2.5\" SATA SSD",
-          "category_guess": "ssd",
-          "category_normalized": "storage",
-          "brand": "Intel",
-          "mpn": "SSDSC2KB076TZ01",
-          "image_url": "https://tms.co.il/image/catalog/products/SSDSC2KB076TZ01/GYZr9RYJ62.jpg",
-          "bundle_only": false,
-          "attributes": {
-            "manufacturer": "Intel",
-            "brand": "Intel",
-            "maker": "Intel",
-            "vendor_brand": "Intel",
-            "model": "D3-S4520",
-            "model_name": "D3-S4520",
-            "part_numbers": "SSDSC2KB076TZ01",
-            "part_number": "SSDSC2KB076TZ01",
-            "mpn": "SSDSC2KB076TZ01",
-            "capacity_gb": 8000,
-            "capacity": "8TB",
-            "drive_capacity": 8000,
-            "total_capacity_gb": 8000,
-            "type": "SSD",
-            "drive_type": "SSD",
-            "form_factor": "2.5\"",
-            "drive_form_factor": "2.5\"",
-            "storage_form_factor": "2.5\"",
-            "interface": "SATA 6.0 Gb/s",
-            "connection_interface": "SATA 6.0 Gb/s",
-            "read_speed_mbs": 550,
-            "sequential_read_mbs": 550,
-            "max_read_mbs": 550,
-            "write_speed_mbs": 510,
-            "sequential_write_mbs": 510,
-            "max_write_mbs": 510,
-            "nand": "3D NAND",
-            "nand_type": "3D NAND"
-          },
-          "model_code": null,
-          "eilat_price_ils": 8114,
-          "eilat_in_stock": false,
-          "eilat_stale": false,
-          "eilat_only": true
         }
       ],
-      "image_url": "https://tms.co.il/image/catalog/products/SSDSC2KB076TZ01/GYZr9RYJ62.jpg",
-      "attribute_conflicts": {
-        "model": [
-          "Solidigm D3-S4520",
-          "D3-S4520"
-        ],
-        "model_name": [
-          "Solidigm D3-S4520",
-          "D3-S4520"
-        ],
-        "capacity_gb": [
-          7680,
-          8000
-        ],
-        "capacity": [
-          "7680GB",
-          "8TB"
-        ],
-        "drive_capacity": [
-          7680,
-          8000
-        ],
-        "total_capacity_gb": [
-          7680,
-          8000
-        ]
-      },
+      "image_url": "https://1pc.co.il/media/catalog/v1/36b3d7e2abc9330c3f6340c06db0d5eebd81e74f7233ae1681dae894436acdcf.webp",
       "best_offer": {
         "vendor_id": "1pc",
         "vendor_sku": "SSDSC2KB076TZ01",
@@ -1610785,6 +1609627,9 @@
     "model:cpu:14700kf-tray": "model:cpu:corei714700kf-tray",
     "model:cpu:14900k-tray": "model:cpu:corei914900k-tray",
     "model:case:c8-case-white": "model:case:c8-constellation-series-white",
+    "model:aio:360-x-360mm-white": "model:aio:360-wh-x-360mm-white",
+    "model:storage:d3-s4520-7680gb-sata-25": "model:storage:d3-s4520-solidigm-7680gb-sata-25",
+    "model:aio:360-x-360mm-black": "model:aio:360-bk-x-360mm",
     "model:gpu:4gd3v2-n730": "model:gpu:4gd3v2-n730-4gb",
     "model:gpu:2gd3h-4hdmi-710-gt": "model:gpu:2gd3h-4hdmi-710-gt-2gb",
     "model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb": "model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
@@ -1611889,7 +1610734,7 @@
     "model:gpu:32gd-5090-gv-n5090aorusx-rtx-w-32gb": "model:gpu:32g-5090-aorus-geforce-rtx-waterforce-xtreme-32gb",
     "model:aio:360-bk-dig-fairy-ice-lite-360mm-black": "model:aio:360-bk-dig-fairy-ice-lite-360mm",
     "model:gpu:32gd-5090-gv-if-infinity-n5090aorus-rtx-32gb": "model:gpu:32g-32gd-5090-aorus-geforce-gv-if-infinity-n5090aorus-rtx-32gb",
-    "model:storage:d3-s4520-8000gb-sata-25": "model:storage:d3-s4520-7680gb-sata-25",
+    "model:storage:d3-s4520-8000gb-sata-25": "model:storage:d3-s4520-solidigm-7680gb-sata-25",
     "model:psu:m-modular-ne850g-neoeco-850w": "model:psu:0-0-3-5-850w-active-atx-full-gold-modular-ne850gm-neoeco-pcie-pfc-ready-850w-full-black",
     "model:storage:2-4096gb-4t-4tb-7400mb-agammixs70b-blade-cs-gammix-gen4-m-nvme-s70-ssd-4000gb-pciegen4x4-m22280": "model:storage:2-2280-4t-4tb-agammixs70b-blade-cs-gammix-m-nvme-pcie-s70-ssd-xpg-4000gb-pciegen4x4-m22280",
     "model:case_fan:12-39-39-fan-sl-uni-wireless-120mm-1-rgb-black": "model:case_fan:12-fan-sl-uni-wireless-120mm-1-rgb-black",
@@ -1612775,7 +1611620,7 @@
     "model:case:gm7-4x-white": "model:case:4x-gm7-white",
     "model:case:gm7-4x-silver": "model:case:4x-gm7-silver",
     "model:case:uv6-3xargb-fans-case-black": "model:case:1fc7-2fc7r-bk-uv6-uv6-black",
-    "model:aio:x-360-360mm-white": "model:aio:360-x-360mm-white",
+    "model:aio:x-360-360mm-white": "model:aio:360-wh-x-360mm-white",
     "mpn:memory:ad4s3200732g22sgn": "model:memory:3200mhz-32gb-ddr4-dimm-premier-so-32gb-3200mhz-sodimm",
     "model:storage:thinksystem-max-4xb7a82290-960gb-serialataiii-25": "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
     "mpn:memory:4x77a77030": "model:memory:32gb-4800mhz-4x77a77030-rdimm-thinksystem-truddr5-32gb-4800mhz-black-dimm",
@@ -1614454,7 +1613299,6 @@
     "model:gpu:rtx-5090-gv-n5090aorusx-w-32gd-32gb": "model:gpu:32g-5090-aorus-geforce-rtx-waterforce-xtreme-32gb",
     "mpn:gpu:n5090gamingoc32gd": "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
     "mpn:gpu:n5090wf3oc32gd": "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb",
-    "model:psu:ne1300g-m-3-0-neoeco-modular-1300w": "model:psu:0-3-m-modular-ne1300g-neoeco-1300w",
     "model:gpu:geforce-rtx-5070-oc-12gb": "model:gpu:5070-geforce-oc-rtx-12gb",
     "model:cooler_air:nh-l12s-90mm-120mm": "model:cooler_air:l12s-nh-90mm-120mm",
     "model:cooler_air:nh-l12sx77-low-profile-90mm-120mm": "model:cooler_air:l12sx77-low-nh-profile-90mm-120mm",
@@ -1614526,7 +1613370,7 @@
     "model:gpu:rtx-5060-ti-16g-ventus-2x-oc-16gb": "model:gpu:16g-2x-5060-oc-rtx-ti-ventus-16gb",
     "model:gpu:rtx-5070-ti-oc-16gb": "model:gpu:5070-oc-rtx-ti-16gb",
     "model:storage:wd-purple-3000gb-sata-35": "model:storage:purple-wd-3000gb-sata-35",
-    "model:aio:x-360-360mm-black": "model:aio:360-x-360mm-black",
+    "model:aio:x-360-360mm-black": "model:aio:360-bk-x-360mm",
     "model:motherboard:mb-x12spa-tf-eatx": "model:motherboard:mb-tf-x12spa-eatx",
     "model:motherboard:mb-x12spi-tf-atx": "model:motherboard:mb-tf-x12spi-atx",
     "model:motherboard:mb-x12spm-tf-microatx": "model:motherboard:mb-tf-x12spm-microatx",
@@ -1616108,7 +1614952,6 @@
     "mpn:storage:lnq780x001trnnng": "model:storage:2280-gen4x4-nq780-1000gb-nvme-m22280",
     "mpn:case:pca76x": "model:case:a76x-black",
     "mpn:psu:csk750dc": "model:psu:750-csk-dc-750w-white",
-    "mpn:case:ax65argb": "model:case:ax65-black",
     "mpn:case:cx60margb": "model:case:cx60m-black",
     "mpn:motherboard:gx870aorustachyonice": "model:motherboard:aorus-ice-tachyon-x870-eatx",
     "mpn:motherboard:90mb1lb0m0eay0": "model:motherboard:crosshair-extreme-rog-x870e-eatx",
@@ -1616128,7 +1614971,7 @@
     "mpn:case:gm7wh3fn7rw1fn7w": "model:case:4x-gm7-white",
     "mpn:case:gm7sv3fn7rw1fn7w": "model:case:4x-gm7-silver",
     "mpn:case:uv6bk2fc7r1fc7": "model:case:1fc7-2fc7r-bk-uv6-uv6-black",
-    "mpn:aio:x360wh": "model:aio:360-x-360mm-white",
+    "mpn:aio:x360wh": "model:aio:360-wh-x-360mm-white",
     "mpn:storage:4xb7a82290": "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
     "mpn:gpu:90yv0lg3m0na00": "model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb-white",
     "mpn:motherboard:gb550maoruse": "model:motherboard:aorus-b550m-elite-microatx",
@@ -1618075,7 +1616918,6 @@
     "mpn:gpu:n5070aorusif12gd": "model:gpu:12gd-5070-gv-if-infinity-n5070aorus-rtx-12gb",
     "mpn:gpu:n5090aorusif32gd": "model:gpu:32g-32gd-5090-aorus-geforce-gv-if-infinity-n5090aorus-rtx-32gb",
     "mpn:gpu:n5090aorusxw32gd": "model:gpu:32g-5090-aorus-geforce-rtx-waterforce-xtreme-32gb",
-    "mpn:psu:ne1300gmatx30": "model:psu:0-3-m-modular-ne1300g-neoeco-1300w",
     "mpn:gpu:ne75070u19k9gb2050w": "model:gpu:5070-geforce-oc-rtx-12gb",
     "mpn:cooler_air:nhl12s": "model:cooler_air:l12s-nh-90mm-120mm",
     "mpn:cooler_air:nhl12sx77": "model:cooler_air:l12sx77-low-nh-profile-90mm-120mm",
@@ -1618122,7 +1616964,7 @@
     "mpn:case_fan:sfargb141bk3p": "model:case_fan:3xfans-neon-140mm-3-rgb-black",
     "mpn:storage:snv3s4000g": "manual:storage:ksp-338323-tms-snv3s-4000g",
     "mpn:psu:srpppx222a5a22st": "model:psu:1-2200-3-prime-px-2200w",
-    "mpn:storage:ssdsc2kb076tz01": "model:storage:d3-s4520-7680gb-sata-25",
+    "mpn:storage:ssdsc2kb076tz01": "model:storage:d3-s4520-solidigm-7680gb-sata-25",
     "mpn:psu:ssr1300tr2": "model:psu:1-1300-atx3-prime-titanium-tx-1300w",
     "mpn:psu:ssr1600pd2": "model:psu:1-1600-atx3-prime-px-1600w",
     "mpn:psu:ssr1600tr2": "model:psu:1-1600-atx3-prime-titanium-tx-1600w",
@@ -1618159,7 +1617001,7 @@
     "mpn:gpu:vcg5070t16tfxpb1o": "model:gpu:5070-oc-rtx-ti-16gb",
     "mpn:storage:wd33purz": "model:storage:purple-wd-3000gb-sata-35",
     "mpn:storage:wds200t4g0e00cps0": "manual:storage:1pc-222482-tms-wds200t4g0e-00cps0",
-    "mpn:aio:x360bk": "model:aio:360-x-360mm-black",
+    "mpn:aio:x360bk": "model:aio:360-bk-x-360mm",
     "mpn:motherboard:x12spatf": "model:motherboard:mb-tf-x12spa-eatx",
     "mpn:motherboard:x12spitf": "model:motherboard:mb-tf-x12spi-atx",
     "mpn:motherboard:x12spmtf": "model:motherboard:mb-tf-x12spm-microatx",
@@ -1636298,7 +1635140,7 @@
       },
       "tms": {
         "state": "fresh",
-        "last_seen": "2026-11-26"
+        "last_seen": "2026-11-27"
       },
       "1pc": {
         "state": "no_store",

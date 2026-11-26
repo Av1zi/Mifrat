@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T21:58:47.129414+00:00",
+  "generated_at": "2026-11-26T22:10:20.448244+00:00",
   "gaps": [
     {
       "category": "case",
@@ -332,16 +332,6 @@
       ]
     },
     {
-      "category": "aio",
-      "label": "הספק תרמי מירבי",
-      "count": 23,
-      "products": [
-        "model:aio:1stpalyer-a-f-lcd-s-t-360mm-black",
-        "model:aio:1stpalyer-a-f-lcd-s-t-360mm-white",
-        "model:aio:240-cooler-cpu-liquid-symphony-240mm-black"
-      ]
-    },
-    {
       "category": "case",
       "label": "חיבורים",
       "count": 23,
@@ -379,6 +369,16 @@
         "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
         "model:motherboard:a-b760m-csm-prime-microatx-2",
         "model:motherboard:a-csm-d4-h610m-prime-microatx"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "הספק תרמי מירבי",
+      "count": 22,
+      "products": [
+        "model:aio:1stpalyer-a-f-lcd-s-t-360mm-black",
+        "model:aio:1stpalyer-a-f-lcd-s-t-360mm-white",
+        "model:aio:240-cooler-cpu-liquid-symphony-240mm-black"
       ]
     },
     {
@@ -2303,16 +2303,6 @@
     },
     {
       "category": "case",
-      "label": "יבואן",
-      "count": 7,
-      "products": [
-        "model:case:01-7-c-compact-def7c-define-fd-black",
-        "model:case:01-7-c-def7a-define-fd-black",
-        "model:case:01-c-fd-pop-pos1m-silent-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "תמיכת מאווררים",
       "count": 7,
       "products": [
@@ -2539,6 +2529,16 @@
         "model:case:0-10232-2-761345-black",
         "model:case:3200d-argb-rs-black",
         "model:case:3200d-argb-rs-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "יבואן",
+      "count": 6,
+      "products": [
+        "model:case:01-7-c-compact-def7c-define-fd-black",
+        "model:case:01-7-c-def7a-define-fd-black",
+        "model:case:01-c-fd-pop-pos1m-silent-black"
       ]
     },
     {
@@ -4963,7 +4963,7 @@
       "count": 2,
       "products": [
         "model:aio:240mm-cooler-cpu-display-elite-h100i-icue-lcd-liquid-xt-240mm",
-        "model:aio:360-x-360mm-white"
+        "model:aio:360-wh-x-360mm-white"
       ]
     },
     {

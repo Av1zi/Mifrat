@@ -1410,7 +1410,7 @@
 "1pc:205930":"model:case:4x-gm7-white",
 "1pc:205931":"model:case:4x-gm7-silver",
 "1pc:205932":"model:case:1fc7-2fc7r-bk-uv6-uv6-black",
-"1pc:205953":"model:aio:360-x-360mm-white",
+"1pc:205953":"model:aio:360-wh-x-360mm-white",
 "1pc:205971":"model:memory:3200mhz-32gb-ddr4-dimm-premier-so-32gb-3200mhz-sodimm",
 "1pc:206002":"model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
 "1pc:206013":"model:memory:32gb-4800mhz-4x77a77030-rdimm-thinksystem-truddr5-32gb-4800mhz-black-dimm",
@@ -1617,7 +1617,7 @@
 "1pc:208052":"model:case_fan:cl-fan-fans-uni-wireless-x3-120mm-3-rgb-black",
 "1pc:208287":"model:storage:2280-gen3x4-lnm610p002t-nm610pro-rnnng-2000gb-nvme-m22280",
 "1pc:208338":"model:storage:0-3-nm610-pro-500gb-nvme-m22280",
-"1pc:208446":"model:storage:d3-s4520-7680gb-sata-25",
+"1pc:208446":"model:storage:d3-s4520-solidigm-7680gb-sata-25",
 "1pc:208448":"model:cpu:7970x-tray",
 "1pc:208451":"model:storage:enterprise-pm893-sed-8000gb-sata-25",
 "1pc:208453":"model:cpu:9975wx-tray",
@@ -1665,7 +1665,7 @@
 "1pc:209189":"model:memory:2x16gb-6400-cl32-expo-manta-xsky-32gb-x2-6400mhz-cl32-rgb-black",
 "1pc:209190":"model:storage:0-5-mp700-pro-xt-1000gb-m2pcie-m22280",
 "1pc:209192":"model:storage:0-5-mp700-pro-xt-4000gb-m2pcie-m22280",
-"1pc:209282":"model:aio:360-x-360mm-black",
+"1pc:209282":"model:aio:360-bk-x-360mm",
 "1pc:209283":"model:cooler_air:cryo-cy12d-pwm-160mm-120mm-black",
 "1pc:209284":"model:cooler_air:cryo-cy12ld-pwm-160mm-120mm-black",
 "1pc:209285":"model:psu:750w-80-platinum-sfx-750w-white",
@@ -9322,7 +9322,7 @@
 "tms:SRP-PPX222-A5A22ST":"model:psu:1-2200-3-prime-px-2200w",
 "tms:SS-600H2U":"model:psu:2u-600h2u-ss-600w",
 "tms:SSDPEDMW400G4X1":"model:storage:750-series-400gb-pciex4-pciecard",
-"tms:SSDSC2KB076TZ01":"model:storage:d3-s4520-7680gb-sata-25",
+"tms:SSDSC2KB076TZ01":"model:storage:d3-s4520-solidigm-7680gb-sata-25",
 "tms:SSR-1300TR2":"model:psu:1-1300-atx3-prime-titanium-tx-1300w",
 "tms:SSR-1600PD2":"model:psu:1-1600-atx3-prime-px-1600w",
 "tms:SSR-1600TR2":"model:psu:1-1600-atx3-prime-titanium-tx-1600w",
@@ -9509,8 +9509,8 @@
 "tms:WUH721816ALE6L4":"model:storage:dc-hc550-ultrastar-16000gb-sata-35",
 "tms:WUH722424ALE604":"model:storage:dc-hc580-ultrastar-24000gb-sata-35",
 "tms:WUS4BA176DSP3X3":"model:storage:dc-enterprise-sn840-ultrastar-wd-7680gb-u2-25",
-"tms:X-360-BK":"model:aio:360-x-360mm-black",
-"tms:X-360-WH":"model:aio:360-x-360mm-white",
+"tms:X-360-BK":"model:aio:360-bk-x-360mm",
+"tms:X-360-WH":"model:aio:360-wh-x-360mm-white",
 "tms:X-FAN-1IN1-B":"model:case_fan:120-1in1-1st-b-fan-player-pwm-x-xf7-120mm-black",
 "tms:X12SPA-TF":"model:motherboard:mb-tf-x12spa-eatx",
 "tms:X12SPI-TF":"model:motherboard:mb-tf-x12spi-atx",
@@ -11904,6 +11904,10 @@
 "Coolleo ICE Monarch Vision 360 BK",
 "aio"
 ],
+"model:aio:360-bk-x-360mm":[
+"1stPlayer X-360-BK 360mm Black",
+"aio"
+],
 "model:aio:360-black-th-360mm-black":[
 "Jonsbo TH-360 Black 360mm ARGB",
 "aio"
@@ -12120,11 +12124,7 @@
 "Antec Ultra 360mm ARGB",
 "aio"
 ],
-"model:aio:360-x-360mm-black":[
-"1stPlayer X-360 Black 360mm",
-"aio"
-],
-"model:aio:360-x-360mm-white":[
+"model:aio:360-wh-x-360mm-white":[
 "1stPlayer X-360-WH 360mm White",
 "aio"
 ],
@@ -28236,7 +28236,7 @@
 "Team Group CX2 III 512GB SATA SSD 2.5-inch",
 "storage"
 ],
-"model:storage:d3-s4520-7680gb-sata-25":[
+"model:storage:d3-s4520-solidigm-7680gb-sata-25":[
 "Intel Solidigm D3-S4520 7.68TB 7680GB SATA SSD 2.5\"",
 "storage"
 ],
