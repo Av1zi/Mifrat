@@ -98,7 +98,7 @@
 "1pc:109905":"model:case:0-07-c-kublai-type-usb3-black",
 "1pc:109906":"model:memory:0-2x16gb-3-6200-cl36-dominator-xmp-32gb-x2-6200mhz-cl36-rgb-black-2",
 "1pc:109933":"model:gpu:2gd5-4h-730-geforce-gt-gt730-sl-2gb",
-"1pc:110116":"model:memory:0-2x16gb-3-5600-cl36-dominator-xmp-32gb-x2-5600mhz-cl36-rgb-black",
+"1pc:110116":"model:memory:0-2x16gb-3-5600-cl36-dominator-xmp-32gb-x2-5600mhz-cl36-rgb-silver",
 "1pc:110333":"model:case:case-coolermaster-masterbox-mesh-td300-white",
 "1pc:110664":"mpn:gpu:axrx5504gbd5hle",
 "1pc:110910":"model:case_fan:120mm-1700-1700-1700p-fan-nf-nf-p12-p12redux-pwm-redux-rpm-120mm-grey",
@@ -206,13 +206,13 @@
 "1pc:131353":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
 "1pc:131354":"model:memory:16gx2-32g-6400-cl32-vengeance-32gb-6400mhz-cl32-rgb-dimm",
 "1pc:131355":"model:memory:0-2x16gb-3-6400-cl32-vengeance-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
-"1pc:131356":"model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
+"1pc:131356":"model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black",
 "1pc:131357":"model:memory:0-3-4x16gb-5600-cl36-expo-vengeance-xmp-64gb-x4-5600mhz-cl36-rgb-black-dimm",
 "1pc:131358":"model:memory:0-3-4x16gb-5600-cl36-expo-vengeance-xmp-64gb-x4-5600mhz-cl36-black",
 "1pc:131359":"model:memory:0-3-4x16gb-5600-cl36-dominator-expo-xmp-64gb-x4-5600mhz-cl36-rgb-grey-dimm",
 "1pc:131378":"model:case:120mm-3x120mm-5000d-airflow-glass-icue-mid-rgb-rgb-series-tempered-tower-black",
 "1pc:132009":"model:case:dp505-white",
-"1pc:132020":"model:motherboard:eg-h110m-microatx",
+"1pc:132020":"model:motherboard:ak-eg-h110m-microatx",
 "1pc:132022":"model:case:nx410-black",
 "1pc:132194":"model:case:04-c-fd-nor1c-north-white",
 "1pc:132195":"model:case:03-c-fd-nor1c-north-white",
@@ -1133,7 +1133,7 @@
 "1pc:190004":"mpn:gpu:n5070212d7195064n",
 "1pc:190006":"mpn:gpu:ne75080019t2gb2031a",
 "1pc:190022":"mpn:gpu:n5080316d7x17605211",
-"1pc:190071":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
+"1pc:190071":"model:gpu:5060-8gd-eagle-gv-n506teagle-oc-rtx-ti-8gb",
 "1pc:190072":"model:cpu:coreultra7265f-tray",
 "1pc:191687":"model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb",
 "1pc:191771":"mpn:gpu:dpz4cwwp01",
@@ -2376,7 +2376,7 @@
 "1pc:222511":"model:motherboard:b860m-gaming-plus-wifi6e-microatx",
 "1pc:222535":"model:storage:m461-spatium-1000gb-pciexpress40",
 "1pc:222536":"model:motherboard:a620am-b-evo-pro-microatx",
-"1pc:222538":"model:storage:5100-optimus-500gb-pciegen40-m22280",
+"1pc:222538":"model:storage:5100-optimus-500gb-pcie4-m22280",
 "1pc:222692":"model:motherboard:carbon-max-mpg-wifi-x870e-atx",
 "1pc:222698":"model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm",
 "1pc:222748":"model:motherboard:a-b760m-ii-prime-wifi-microatx",
@@ -2541,6 +2541,7 @@
 "1pc:223523":"model:gpu:730-geforce-gt-4gb",
 "1pc:223581":"model:memory:k4a8g085wr-u16gb32-16gb-black-dimm",
 "1pc:223582":"model:memory:hmcg88agbua081n-sk-32gb-green-dimm",
+"1pc:223587":"model:memory:32n220a-kd4agu880-klevv-standard-16gb-black",
 "1pc:2836":"model:cooler_air:002-e41997",
 "1pc:32632":"manual:cpu:1pc-32632-tms-g4400t",
 "1pc:32633":"manual:cpu:1pc-32633-tms-c7100t",
@@ -3081,7 +3082,7 @@
 "ivory:138150":"model:case_fan:120mm-fan-lcd-pack-rgb-single-sl-uni-white-wireless-120mm-1-rgb-white",
 "ivory:138156":"mpn:case_fan:slinf1203w",
 "ivory:138231":"model:gpu:5060-8g-geforce-rtx-ti-windforce-8gb",
-"ivory:138237":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
+"ivory:138237":"model:gpu:5060-8gd-eagle-gv-n506teagle-oc-rtx-ti-8gb",
 "ivory:138951":"model:gpu:16gb-5070-gaming-gddr7-geforce-oc-rtx-ti-tuf-white-16gb",
 "ivory:138984":"model:memory:cl46-elite-ted532g5600c4601-32gb-5600mhz-cl46-black",
 "ivory:139062":"model:memory:2x32gb-5600mhz-cl38-ddr5-delta-force-rgb-t-64gb-x2-5600mhz-cl38-rgb-white",
@@ -3473,7 +3474,7 @@
 "ivory:173653":"model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black",
 "ivory:173656":"model:memory:2x16gb-6000-cl30-fit-v-32gb-x2-6000mhz-cl30-white",
 "ivory:173665":"model:gpu:5070-geforce-ichill-rtx-x3-12gb",
-"ivory:173740":"model:storage:5100-optimus-500gb-pciegen40-m22280",
+"ivory:173740":"model:storage:5100-optimus-500gb-pcie4-m22280",
 "ivory:173785":"mpn:storage:lnm620x001trnnng",
 "ivory:173788":"model:storage:2280-5-t710-2000gb-m2pcie-m22280",
 "ivory:173812":"model:case:a70-vision-black-2",
@@ -4203,7 +4204,7 @@
 "ksp:387228":"model:gpu:5060-dual-fan-oc-rtx-ti-16gb",
 "ksp:387614":"model:case:4000d-frame-modular-rs-black",
 "ksp:387881":"model:case_fan:3-rs120-120mm-3-black",
-"ksp:387926":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
+"ksp:387926":"model:gpu:5060-8gd-eagle-gv-n506teagle-oc-rtx-ti-8gb",
 "ksp:389384":"model:gpu:9060-amd-oc-pulse-radeon-rx-xt-16gb",
 "ksp:389643":"model:gpu:o16g-prime-rx9060xt-16gb",
 "ksp:390235":"model:gpu:5060-8g-geforce-rtx-ti-windforce-8gb",
@@ -5814,7 +5815,7 @@
 "plonter:GV-N5060WF2MAX-OCV2-8GD":"model:gpu:5060-8gd-gv-n5060wf2max-ocv2-rtx-8gb",
 "plonter:GV-N5060WF2OC-8GD":"model:gpu:5060-8g-8gd-geforce-gv-n5060wf2oc-oc-rtx-windforce-8gb",
 "plonter:GV-N506TEAGLEMAX-OC-8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb",
-"plonter:GV-N506TEAGLEOC-8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
+"plonter:GV-N506TEAGLEOC-8GD":"model:gpu:5060-8gd-eagle-gv-n506teagle-oc-rtx-ti-8gb",
 "plonter:GV-N506TEAGLEOC-ICE-8GD":"model:gpu:5060-8g-eagle-geforce-ice-oc-rtx-ti-8gb",
 "plonter:GV-N506TGAMING-OC-8GD":"model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
 "plonter:GV-N506TWF2OC-8GD":"model:gpu:5060-8g-8gd-geforce-gv-n506twf2oc-oc-rtx-ti-windforce-8gb",
@@ -6768,7 +6769,7 @@
 "plonter:SAT5210-3840G":"mpn:storage:sat52103840g",
 "plonter:SB-RKT4P-8TB":"mpn:storage:sbrkt4p8tb",
 "plonter:SDSP51100TAN-000E0":"model:storage:5100-optimus-1000gb-pciegen40-m22280",
-"plonter:SDSP51500GAN-000E0":"model:storage:5100-optimus-500gb-pciegen40-m22280",
+"plonter:SDSP51500GAN-000E0":"model:storage:5100-optimus-500gb-pcie4-m22280",
 "plonter:SE-207-XT-ADVANCED":"mpn:cooler_air:se207xtadvanced",
 "plonter:SE-207-XT-SLIM":"mpn:cooling_other:se207xtslim",
 "plonter:SE-214-XT":"mpn:cooler_air:se214xt",
@@ -7590,12 +7591,12 @@
 "tms:AFHM65-ETH8EX":"model:motherboard:afhm65-eth8ex-mining-motherboard",
 "tms:AIPROR970032G-B":"mpn:gpu:aipror970032gb",
 "tms:AK-B760MEG-DDR4":"model:motherboard:ak-ak-b760-b760m-b760meg-eg-microatx",
-"tms:AK-H110MEG":"model:motherboard:eg-h110m-microatx",
+"tms:AK-H110MEG":"model:motherboard:ak-eg-h110m-microatx",
 "tms:AK-H510MEG":"model:motherboard:ak-eg-h510m-microatx",
 "tms:AK-H610MEG-VS":"model:motherboard:ak-eg-h610m-h610meg-vs-vs-microatx",
 "tms:AK-H610MSEG":"model:motherboard:ak-ak-eg-h610-h610ms-h610mseg-atx",
 "tms:AK-H81MEL-VS":"model:motherboard:el-h81m-vs-microatx",
-"tms:AKH110MEG":"model:motherboard:eg-h110m-microatx",
+"tms:AKH110MEG":"model:motherboard:ak-eg-h110m-microatx",
 "tms:AKH310MEG":"model:motherboard:eg-h310m-microatx",
 "tms:AKN1030D4S4GL1":"model:gpu:64bit-gt1030-4gb",
 "tms:AKN1030D5S2GL1":"model:gpu:64bit-gddr5-gt1030-2gb",
@@ -7979,8 +7980,8 @@
 "tms:CMP64GX5M2X6600C32":"model:memory:dominator-rgb-titanium-64gb-x2-6600mhz-cl32-rgb-black",
 "tms:CMP96GX5M2B6000Z30W":"mpn:memory:cmp96gx5m2b6000z30w",
 "tms:CMP96GX5M2B7000C40":"model:memory:dominator-rgb-titanium-96gb-x2-7000mhz-cl40-rgb-black",
-"tms:CMT32GX5M2B5600C36":"model:memory:0-2x16gb-3-5600-cl36-dominator-xmp-32gb-x2-5600mhz-cl36-rgb-black",
-"tms:CMT32GX5M2B6400C32":"model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
+"tms:CMT32GX5M2B5600C36":"model:memory:0-2x16gb-3-5600-cl36-dominator-xmp-32gb-x2-5600mhz-cl36-rgb-silver",
+"tms:CMT32GX5M2B6400C32":"model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black",
 "tms:CMT32GX5M2E6200C36":"model:memory:0-2x16gb-3-6200-cl36-dominator-xmp-32gb-x2-6200mhz-cl36-rgb-black",
 "tms:CMT32GX5M2X6200C36":"model:memory:0-2x16gb-3-6200-cl36-dominator-xmp-32gb-x2-6200mhz-cl36-rgb-black-2",
 "tms:CMT64GX5M2B5200Z40K":"model:memory:2x32gb-5200-cl40-dominator-expo-64gb-x2-5200mhz-cl40-rgb-grey",
@@ -8953,7 +8954,7 @@
 "tms:N506TAEROOC8GD":"model:gpu:5060-8gd-aero-geforce-gv-n506taero-oc-rtx-ti-8gb",
 "tms:N506TEAGLEMAXOC8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb",
 "tms:N506TEAGLEOC16GD":"model:gpu:16g-16gd-5060-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-16gb",
-"tms:N506TEAGLEOC8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
+"tms:N506TEAGLEOC8GD":"model:gpu:5060-8gd-eagle-gv-n506teagle-oc-rtx-ti-8gb",
 "tms:N506TEAGLEOCICE8G":"model:gpu:5060-8gd-eagle-geforce-gv-ice-n506teagleoc-oc-rtx-ti-8gb",
 "tms:N506TGAMINGOC16GD":"mpn:gpu:n506tgamingoc16gd",
 "tms:N506TGAMINGOC8GD":"model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
@@ -9880,7 +9881,7 @@
 "yahav:11037":"model:motherboard:b650-dp-edge-hdmi-lga1700-mpg-wifi-atx",
 "yahav:11042":"model:gpu:5060-8g-8gd-geforce-gv-max-n5060wf2max-oc-oc-rtx-windforce-8gb",
 "yahav:11047":"model:cpu:ryzen59500f-tray",
-"yahav:11048":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb",
+"yahav:11048":"model:gpu:5060-8gd-eagle-gv-n506teagle-oc-rtx-ti-8gb",
 "yahav:11050":"model:storage:1024gb-1tb-2-7200mb-basic-exceria-gen4-m-nvme-series-ssd-1000gb-pciem2-m2",
 "yahav:11053":"manual:gpu:1pc-221469-yahav-11053",
 "yahav:11063":"model:case:501-base-lx-pure-white",
@@ -10111,7 +10112,7 @@
 "yahav:11696":"model:case_fan:3-fan-flex-inf-lcd-sl-uni-120mm-3-rgb-white",
 "yahav:11697":"model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-white",
 "yahav:11700":"model:motherboard:1851-ddr5-gaming-hdmi-itx-lga-mini-rog-strix-thunderbolt-wifi-z890i-miniitx",
-"yahav:11701":"model:storage:5100-optimus-500gb-pciegen40-m22280",
+"yahav:11701":"model:storage:5100-optimus-500gb-pcie4-m22280",
 "yahav:11702":"model:case:501-base-bg073-pure-black",
 "yahav:11703":"model:gpu:16gb-2xdp-9060-gddr6-hdmi-hellhound-radeon-rx-spectral-white-xt-16gb",
 "yahav:11711":"model:gpu:02-11348-20g-9070-gaming-oc-pure-rx-xt-16gb",
@@ -14461,7 +14462,7 @@
 "case"
 ],
 "model:case:c8-c8w-case-white":[
-"Antec C8 Constellation White (C8W)",
+"Antec C8 Constellation White",
 "case"
 ],
 "model:case:c8-constellation-series-white":[
@@ -19913,7 +19914,7 @@
 "gpu"
 ],
 "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb":[
-"Gigabyte Windforce GeForce RTX 5060 Ti 8GB (GV-N506TWF2MAX OC-8GD)",
+"Gigabyte Windforce GeForce RTX 5060 Ti 8GB (GV-N506TWF2MAX-OC-8GD)",
 "gpu"
 ],
 "model:gpu:1xhdmi-3xdp-5070-gddr7-oc-prime-rtx-12gb":[
@@ -20204,10 +20205,6 @@
 "Gigabyte Eagle GeForce RTX 5060 8GB (N5060EAGLEOC8GD)",
 "gpu"
 ],
-"model:gpu:5060-8g-8gd-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-8gb":[
-"Gigabyte Eagle GeForce RTX 5060 Ti 8GB (N506TEAGLEOC8GD)",
-"gpu"
-],
 "model:gpu:5060-8g-8gd-geforce-gv-max-n5060wf2max-oc-oc-rtx-windforce-8gb":[
 "Gigabyte Windforce GeForce RTX 5060 8GB (N5060WF2MAXOC8GD)",
 "gpu"
@@ -20266,6 +20263,10 @@
 ],
 "model:gpu:5060-8gd-eagle-geforce-gv-ice-n506teagleoc-oc-rtx-ti-8gb":[
 "Gigabyte Eagle GeForce RTX 5060 Ti 8GB (N506TEAGLEOCICE8G)",
+"gpu"
+],
+"model:gpu:5060-8gd-eagle-gv-n506teagle-oc-rtx-ti-8gb":[
+"Gigabyte Eagle GeForce RTX 5060 Ti 8GB (GV-N506TEAGLE OC-8GD)",
 "gpu"
 ],
 "model:gpu:5060-8gd-gv-n5060wf2max-ocv2-rtx-8gb":[
@@ -20776,8 +20777,8 @@
 "G.Skill Aegis DDR5 32GB (2x16GB) 6000MHz CL36",
 "memory"
 ],
-"model:memory:0-2x16gb-3-5600-cl36-dominator-xmp-32gb-x2-5600mhz-cl36-rgb-black":[
-"Corsair Dominator RGB DDR5 32GB (2x16GB) 5600MHz CL36",
+"model:memory:0-2x16gb-3-5600-cl36-dominator-xmp-32gb-x2-5600mhz-cl36-rgb-silver":[
+"Corsair RGB 32GB DDR5 (2x16GB) 5600MHz CL36",
 "memory"
 ],
 "model:memory:0-2x16gb-3-5600-cl36-ripjaws-s5-xmp-32gb-x2-5600mhz-cl36-black":[
@@ -20880,8 +20881,8 @@
 "G.Skill Trident Z5 ARGB DDR5 32GB (2x16GB) 6400MHz CL30 (6400J3039G16GX2-TZ5RK)",
 "memory"
 ],
-"model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm":[
-"Corsair Dominator RGB 16X2 DDR5 32GB (2x16GB) 6400MHz CL32",
+"model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black":[
+"Corsair Dominator RGB DDR5 32GB (2x16GB) 6400MHz CL32",
 "memory"
 ],
 "model:memory:0-2x16gb-3-6400-cl32-ripjaws-s5-xmp-32gb-x2-6400mhz-cl32-black":[
@@ -22101,7 +22102,7 @@
 "memory"
 ],
 "model:memory:3200-cl22-pristine-8gb-x1-3200mhz-cl22-black":[
-"GeIL 8GB DDR4 (1x8GB) 3200MHz CL22 (GAP48GB3200C22SC)",
+"GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
 "memory"
 ],
 "model:memory:3200-cl22-sodimm-16gb-x1-3200mhz-cl22-sodimm":[
@@ -22186,6 +22187,10 @@
 ],
 "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm":[
 "KLEVV Standard DDR4 8GB KD48GU880 32N2200 Bulk",
+"memory"
+],
+"model:memory:32n220a-kd4agu880-klevv-standard-16gb-black":[
+"KLEVV Standard DDR4 16 GB KD4AGU880 32N220A",
 "memory"
 ],
 "model:memory:32n220a-kd4bgua80-klevv-32gb":[
@@ -23634,6 +23639,10 @@
 ],
 "model:motherboard:ak-ak-eg-h610-h610ms-h610mseg-atx":[
 "ARKTEK H610M EG",
+"motherboard"
+],
+"model:motherboard:ak-eg-h110m-microatx":[
+"ARKTEK AK-H110M EG",
 "motherboard"
 ],
 "model:motherboard:ak-eg-h510m-microatx":[
@@ -25242,10 +25251,6 @@
 ],
 "model:motherboard:edge-mpg-ti-wifi-z890-atx":[
 "MSI Z890 MPG Edge TI WIFI7",
-"motherboard"
-],
-"model:motherboard:eg-h110m-microatx":[
-"ARKTEK H110M EG",
 "motherboard"
 ],
 "model:motherboard:eg-h310m-microatx":[
@@ -27972,7 +27977,7 @@
 "SanDisk Optimus 100MB S 1TB NVMe Gen4 M.2-2280",
 "storage"
 ],
-"model:storage:5100-optimus-500gb-pciegen40-m22280":[
+"model:storage:5100-optimus-500gb-pcie4-m22280":[
 "SanDisk Optimus 600MBS 500GB NVMe Gen4 M.2-2280",
 "storage"
 ],

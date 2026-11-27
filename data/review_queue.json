@@ -868,6 +868,28 @@
   },
   {
     "kind": "duplicate_vendor",
+    "product_id": "model:cpu:265kf",
+    "category": "cpu",
+    "vendor": "1pc",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "1pc:171977",
+        "vendor_sku": "BX80768265KF",
+        "title": "מעבד Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - BOX",
+        "price": 1236
+      },
+      {
+        "listing_key": "1pc:189658",
+        "vendor_sku": "C265KFT",
+        "title": "מעבד Intel Core Ultra 7 265KF תושבת 1851",
+        "price": 1493,
+        "alias_of": "1pc:171977"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
     "product_id": "model:cpu:9850x3d-tray",
     "category": "cpu",
     "vendor": "yahav",
@@ -1095,6 +1117,28 @@
   },
   {
     "kind": "duplicate_vendor",
+    "product_id": "model:motherboard:ak-eg-h110m-microatx",
+    "category": "motherboard",
+    "vendor": "tms",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "tms:AKH110MEG",
+        "vendor_sku": "AKH110MEG",
+        "title": "ARKTEK H110M EG",
+        "price": 242
+      },
+      {
+        "listing_key": "tms:AK-H110MEG",
+        "vendor_sku": "AK-H110MEG",
+        "title": "ARKTEK AK-H110M EG",
+        "price": 296,
+        "alias_of": "tms:AKH110MEG"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
     "product_id": "model:motherboard:am5-atx-b650e-ddr5-displayport-e-gaming-gaming-hdmi-tuf-wifi-atx",
     "category": "motherboard",
     "vendor": "yahav",
@@ -1134,28 +1178,6 @@
         "vendor_sku": "277270",
         "title": "לוח אם ASUS ROG STRIX B760-G Gaming WIFI LGA1700 Intel B760 DDR5",
         "price": 1019
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:motherboard:eg-h110m-microatx",
-    "category": "motherboard",
-    "vendor": "tms",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "tms:AKH110MEG",
-        "vendor_sku": "AKH110MEG",
-        "title": "ARKTEK H110M EG",
-        "price": 242
-      },
-      {
-        "listing_key": "tms:AK-H110MEG",
-        "vendor_sku": "AK-H110MEG",
-        "title": "ARKTEK AK-H110M EG",
-        "price": 296,
-        "alias_of": "tms:AKH110MEG"
       }
     ]
   },
@@ -3253,7 +3275,7 @@
         "vendor": "1pc",
         "vendor_sku": "BGW83",
         "title": "מארז PC be quiet! LIGHT BASE 500",
-        "price": 486
+        "price": 529
       },
       {
         "listing_key": "tms:BGW83",
@@ -6246,7 +6268,7 @@
         "vendor": "1pc",
         "vendor_sku": "CO-9051062-WW",
         "title": "יחידת מאווררים Corsair iCUE LINK RX360 II Unified Frame RGB PWM White CO-9051062-WW",
-        "price": 411
+        "price": 477
       },
       {
         "listing_key": "tms:CO-9051062-WW",
@@ -9217,7 +9239,7 @@
         "vendor": "1pc",
         "vendor_sku": "221534",
         "title": "Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey",
-        "price": 2501
+        "price": 2523
       }
     ],
     "model_code": "2x16gb-6000-bolt-cl30-v"
@@ -9326,7 +9348,7 @@
         "vendor": "1pc",
         "vendor_sku": "221538",
         "title": "זיכרון Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
-        "price": 5390
+        "price": 5614
       }
     ],
     "model_code": "2x32gb-6400-cl32-cras-v"
@@ -10638,7 +10660,7 @@
         "vendor": "1pc",
         "vendor_sku": "GH810MGAMINGWIFI6",
         "title": "לוח אם Gigabyte H810M GAMING WiFi6",
-        "price": 599
+        "price": 612
       },
       {
         "listing_key": "tms:GH810MGAMINGWIFI6",
@@ -11456,7 +11478,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT2000T710SSD8",
         "title": "כונן SSD Crucial T710 2TB NVMe M.2 PCIe Gen5 בצבע שחור CT2000T710SSD8",
-        "price": 1651
+        "price": 1633
       },
       {
         "listing_key": "ivory:173788",
@@ -11678,7 +11700,7 @@
         "vendor": "1pc",
         "vendor_sku": "152798",
         "title": "כונן VERBATIM Vi550 S3 2.5\" SSD 1TB",
-        "price": 1038
+        "price": 1022
       },
       {
         "listing_key": "ksp:281494",
@@ -11734,7 +11756,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT4000T705SSD5",
         "title": "כונן SSD Crucial T705 4TB PCIe Gen5 NVMe M.2 עם גוף קירור",
-        "price": 2503
+        "price": 2473
       },
       {
         "listing_key": "tms:CT4000T705SSD5",
@@ -12726,6 +12748,31 @@
     "model_code": "265kf",
     "resolved": false,
     "reason": "different manufacturer part numbers"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:265kf-tray",
+    "vendor": "1pc",
+    "offers": [
+      {
+        "listing_key": "1pc:171978",
+        "vendor": "1pc",
+        "vendor_sku": "AT8076806410",
+        "title": "מעבד Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - Tray",
+        "price": 1223
+      },
+      {
+        "listing_key": "1pc:189658",
+        "vendor": "1pc",
+        "vendor_sku": "C265KFT",
+        "title": "מעבד Intel Core Ultra 7 265KF תושבת 1851",
+        "price": 1493
+      }
+    ],
+    "model_code": "265kf",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
   },
   {
     "kind": "packaging_conflict",
@@ -14446,6 +14493,27 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
+    "product_id": "model:cpu:265kf",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:189658",
+        "vendor": "1pc",
+        "vendor_sku": "C265KFT",
+        "title": "מעבד Intel Core Ultra 7 265KF תושבת 1851",
+        "price": 1493
+      }
+    ],
+    "model_code": "265kf",
+    "resolved": false,
+    "reason": "1pc:189658: no packaging stated: Box by default (retailer code C265KFT not read as packaging)",
+    "packaging_basis": {
+      "1pc:189658": "default"
+    }
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
     "product_id": "model:cpu:285k",
     "vendor": "",
     "offers": [
@@ -14756,27 +14824,6 @@
     "reason": "tms:EP7763: no packaging stated: Box by default",
     "packaging_basis": {
       "tms:EP7763": "default"
-    }
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
-    "product_id": "model:cpu:corei514600k-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:152181",
-        "vendor": "1pc",
-        "vendor_sku": "C14600KT",
-        "title": "מעבד Intel Core i5 14600K / 1700 Tray",
-        "price": 1155
-      }
-    ],
-    "model_code": "14600k",
-    "resolved": false,
-    "reason": "1pc:152181: the title beats its own vendor attribute",
-    "packaging_basis": {
-      "1pc:152181": "title_over_attribute"
     }
   },
   {
@@ -17786,7 +17833,7 @@
         "vendor": "1pc",
         "vendor_sku": "N507TEAGLEOC16GD",
         "title": "כרטיס מסך Gigabyte GeForce RTX 5070 Ti EAGLE OC SFF 16G",
-        "price": 5855
+        "price": 6510
       },
       {
         "listing_key": "tms:N507TEAGLEOC16GD",
@@ -18669,7 +18716,7 @@
         "vendor": "1pc",
         "vendor_sku": "GB760MGPWIFIDDR4",
         "title": "לוח אם Gigabyte B760M GAMING PLUS WiFi DDR4",
-        "price": 557
+        "price": 579
       },
       {
         "listing_key": "tms:GB760MGPWIFIDDR4",
