@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-27T00:08:00+00:00",
+ "generated_at": "2026-11-27T04:16:22+00:00",
  "night": "2026-11-27",
  "suite": "publish",
  "escalate_nights": 3,
@@ -45,7 +45,7 @@
    "title": "TMS detail-page parser (fixtures)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -67,7 +67,7 @@
    "title": "Active regressions and quarantined rule diagnostics",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.6,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -78,7 +78,7 @@
    "title": "QA enrichment identity and workbench rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -89,7 +89,7 @@
    "title": "Evidence-backed QA automation (offline pipeline corpus)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -199,7 +199,7 @@
    "title": "KSP stream transport offline integration",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.5,
+   "seconds": 1.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -210,7 +210,7 @@
    "title": "KSP delayed recovery and captured routes",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -221,7 +221,7 @@
    "title": "Scrape block stops and runner outcomes",
    "status": "pass",
    "exit": 0,
-   "seconds": 3.4,
+   "seconds": 3.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -232,7 +232,7 @@
    "title": "Population loss attribution",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.3,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -254,7 +254,7 @@
    "title": "Eilat price parsers, attach and history rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -276,7 +276,7 @@
    "title": "Cloud detail runner isolation and outcomes",
    "status": "pass",
    "exit": 0,
-   "seconds": 6.7,
+   "seconds": 6.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -353,7 +353,7 @@
    "title": "Ops report rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.5,
+   "seconds": 1.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -430,7 +430,7 @@
    "title": "Cover corpus (format, size, borders)",
    "status": "pass",
    "exit": 0,
-   "seconds": 17.7,
+   "seconds": 17.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -485,7 +485,7 @@
    "title": "Category reduction from source absences",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -496,7 +496,7 @@
    "title": "Spec golden fixtures",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.2,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -562,10 +562,10 @@
    "title": "Ledgers point at live data",
    "status": "warn",
    "exit": 1,
-   "seconds": 6.6,
+   "seconds": 6.4,
    "since": "2026-11-24T21:49:12+00:00",
    "nights": 3,
-   "detail": "      split_candidate|model:cpu:9950x3d2-tray|\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx-2|\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx|\n  image blocklist entries matching nothing      1 (budget 3)\n  enrichment entries no listing reaches      1576 (budget 1700)\n  detail ledger drift                           9 (budget 40)\n  cover files no listing uses                 127 (budget 900)\n  [fail] override model:storage:c715-cras-1000gb-nvme reaches no product\n  [fail] override model:storage:gp-vsd1tb-1000gb-usb reaches no product\n  [fail] manual products with no live listing: 7 > budget 6\n  [fail] qa_dismissed keys with no case: 19 > budget 10\n[check-ledgers] 4 failure(s)"
+   "detail": "      split_candidate|model:cpu:9950x3d2-tray|\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx-2|\n      variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx|\n  image blocklist entries matching nothing      1 (budget 3)\n  enrichment entries no listing reaches      1575 (budget 1700)\n  detail ledger drift                           9 (budget 40)\n  cover files no listing uses                 138 (budget 900)\n  [fail] override model:storage:c715-cras-1000gb-nvme reaches no product\n  [fail] override model:storage:gp-vsd1tb-1000gb-usb reaches no product\n  [fail] manual products with no live listing: 7 > budget 6\n  [fail] qa_dismissed keys with no case: 21 > budget 10\n[check-ledgers] 4 failure(s)"
   },
   {
    "name": "backtest",
@@ -573,7 +573,7 @@
    "title": "Inference-rule backtest",
    "status": "pass",
    "exit": 0,
-   "seconds": 5.6,
+   "seconds": 5.5,
    "since": null,
    "nights": 0,
    "detail": ""

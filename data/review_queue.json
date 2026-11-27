@@ -44,17 +44,6 @@
     "match_text_b": "435011 ASUS Dual Radeon RX 9060 XT 16GB GDDR6 -"
   },
   {
-    "score": 95,
-    "category": "gpu",
-    "brand": "Gigabyte",
-    "listing_a": "yahav:11816",
-    "listing_b": "yahav:11817",
-    "title_a": "כרטיס מסך חברת Gigabyte דגם Eagle OC SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP",
-    "title_b": "כרטיס מסך חברת Gigabyte דגם Eagle OC ICE SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP",
-    "match_text_a": "11816 Gigabyte Eagle OC SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP",
-    "match_text_b": "11817 Gigabyte Eagle OC ICE SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP"
-  },
-  {
     "score": 94,
     "category": "case",
     "brand": "ASUS",
@@ -64,6 +53,17 @@
     "title_b": "מציאון ועודפים - מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Metal - צבע שחור",
     "match_text_a": "395955 Mid Tower Asus ProArt PA401 Wood Edition Metal -",
     "match_text_b": "506575 - Mid Tower Asus ProArt PA401 Wood Edition Metal -"
+  },
+  {
+    "score": 93,
+    "category": "storage",
+    "brand": "Kingston",
+    "listing_a": "1pc:174979",
+    "listing_b": "ivory:107888",
+    "title_a": "כונן SSD Kingston NV3 M.2 2280 PCIe 4.0 NVMe 2TB SNV3S-2000G",
+    "title_b": "כונן Kingston 2TB NV3 PCIe 4.0 NVMe SSD M.2",
+    "match_text_a": "SNV3S-2000G SSD Kingston NV3 M.2 2280 PCIe 4.0 NVMe 2TB SNV3S-2000G",
+    "match_text_b": "SNV3S/2000G Kingston 2TB NV3 PCIe 4.0 NVMe SSD M.2"
   },
   {
     "score": 92,
@@ -141,17 +141,6 @@
     "title_b": "מציאון ועודפים - מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
     "match_text_a": "392918 Asus A23 PLUS ARGB Micro ATX -",
     "match_text_b": "511473 - Asus A23 PLUS ARGB Micro ATX -"
-  },
-  {
-    "score": 88,
-    "category": "gpu",
-    "brand": "Gigabyte",
-    "listing_a": "yahav:10409",
-    "listing_b": "yahav:11816",
-    "title_a": "כרטיס מסך חברת Gigabyte דגם Windforce RTX 5070Ti OC SFF 16GB GDDR7 HDMI 3xDP",
-    "title_b": "כרטיס מסך חברת Gigabyte דגם Eagle OC SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP",
-    "match_text_a": "GV-N507TWF3OC-16GD Gigabyte Windforce RTX 5070Ti OC SFF 16GB GDDR7 HDMI 3xDP",
-    "match_text_b": "11816 Gigabyte Eagle OC SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP"
   },
   {
     "score": 88,
@@ -951,28 +940,6 @@
         "vendor_sku": "VCG5070T16TFXXPB1-O",
         "title": "כרטיס מסך חברת PNY דגם EPIC-X RGB™ Overclocked Triple Fan GPU RTX 5070Ti 16GB GDDR7 1xHDMI 3xDP",
         "price": 5950
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:gpu:16gb-1xhdmi-3xdp-9070xt-amd-fan-gddr6-radeon-rx-swift-triple-16gb",
-    "category": "gpu",
-    "vendor": "yahav",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "yahav:11728",
-        "vendor_sku": "RX-97TSWF3B9",
-        "title": "כרטיס מסך חברת XFX דגם Swift AMD Radeon RX 9070XT 16GB Triple fan GDDR6 1xHDMI 3xDP בצבע שחור - ברכישת מחשב שלם בלבד",
-        "price": 3700,
-        "alias_of": "yahav:11815"
-      },
-      {
-        "listing_key": "yahav:11815",
-        "vendor_sku": "11815",
-        "title": "כרטיס מסך חברת XFX דגם Swift AMD Radeon RX 9070XT 16GB Triple fan GDDR6 1xHDMI 3xDP בצבע שחור",
-        "price": 3800
       }
     ]
   },
@@ -6382,40 +6349,6 @@
     "model_code": "p9-silent"
   },
   {
-    "kind": "variant_conflict",
-    "category": "cooler_air",
-    "product_id": "model:cooler_air:120-2-assassin-peerless-se-160mm-120mm-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:134946",
-        "vendor": "ivory",
-        "vendor_sku": "81425600376-6",
-        "title": "קירור למעבד THERMALRIGHT Peerless Assassin 120 SE ARGB הכולל 2 מאווררים - צבע שחור",
-        "price": 245
-      }
-    ],
-    "model_code": "120-2-assassin-peerless-se",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "cooler_air",
-    "product_id": "model:cooler_air:120-2-assassin-peerless-se-160mm-120mm-black-rgb",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:141869",
-        "vendor": "ivory",
-        "vendor_sku": "81425601829-6",
-        "title": "קירור למעבד THERMALRIGHT Peerless Assassin 120 SE BLACK הכולל 2 מאווררים - צבע שחור",
-        "price": 265
-      }
-    ],
-    "model_code": "120-2-assassin-peerless-se",
-    "manufacturer_pn": []
-  },
-  {
     "kind": "identity_merge",
     "category": "cooler_air",
     "product_id": "model:cooler_air:1700-1700-a30-a30-125mm-92mm",
@@ -7794,6 +7727,13 @@
         "price": 693
       },
       {
+        "listing_key": "ivory:178252",
+        "vendor": "ivory",
+        "vendor_sku": "100-000000926",
+        "title": "מעבד AMD Ryzen 7 5700X | תושבת AM4 | בעל 8 ליבות | אריזת Tray",
+        "price": 639
+      },
+      {
         "listing_key": "tms:100-000000926",
         "vendor": "tms",
         "vendor_sku": "100-000000926",
@@ -8060,7 +8000,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-100000910TRAY",
         "title": "מעבד חברת AMD דגם Ryzen 7 7800X3D Boost 5.0Ghz 96MB Cache AM5 TRAY",
-        "price": 1250
+        "price": 1280
       },
       {
         "listing_key": "ivory:108908",
@@ -8436,7 +8376,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-000000662",
         "title": "מעבד חברת AMD דגם Ryzen 9 9900X Boost 5.6Ghz 64MB L3 Cache AM5 Tray",
-        "price": 1580
+        "price": 1590
       },
       {
         "listing_key": "ksp:387026",
@@ -8480,7 +8420,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-000001368",
         "title": "מעבד חברת AMD דגם Ryzen 9 9900X3D Boost 5.5Ghz 128MB L3 Cache AM5 Tray Thermal Solution Not Included",
-        "price": 2130
+        "price": 2300
       },
       {
         "listing_key": "tms:100-000001368",
@@ -8577,7 +8517,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-000001978",
         "title": "מעבד חברת AMD דגם Ryzen 9 9950X3D2 Dual Edition Boost 5.6Ghz 192MB L3 Cache 16 Cores 32 Threads AM5 TRAY",
-        "price": 3350
+        "price": 3850
       },
       {
         "listing_key": "tms:100-000001978",
@@ -11796,7 +11736,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-100000910TRAY",
         "title": "מעבד חברת AMD דגם Ryzen 7 7800X3D Boost 5.0Ghz 96MB Cache AM5 TRAY",
-        "price": 1250
+        "price": 1280
       },
       {
         "listing_key": "ivory:108908",
@@ -12070,6 +12010,36 @@
   },
   {
     "kind": "split_candidate",
+    "category": "gpu",
+    "product_id": "model:gpu:32gb-5090-astral-gddr7-geforce-oc-rog-rtx-32gb",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:126408",
+        "vendor": "ivory",
+        "vendor_sku": "90YV0LW0-M0NA00",
+        "title": "כרטיס מסך ASUS ROG Astral GeForce RTX 5090 32GB GDDR7 OC Edition",
+        "price": 35800
+      },
+      {
+        "listing_key": "tms:90YV0LW0-M0NA00",
+        "vendor": "tms",
+        "vendor_sku": "90YV0LW0-M0NA00",
+        "title": "Asus ROG Astral RTX 5090 32GB GDDR7 OC Edition",
+        "price": 42505
+      },
+      {
+        "listing_key": "1pc:178539",
+        "vendor": "1pc",
+        "vendor_sku": "90YV0LW0-M0NA00",
+        "title": "כרטיס מסך ASUS GeForce RTX 5090 ROG Astral OC 32GB GDDR7",
+        "price": 50140
+      }
+    ],
+    "model_code": "32gb-5090-astral-gddr7-geforce-oc-rog-rtx"
+  },
+  {
+    "kind": "split_candidate",
     "category": "case",
     "product_id": "model:case:dynamic-o11-v2-black",
     "vendor": "",
@@ -12147,6 +12117,13 @@
         "vendor_sku": "SNV3S-2000G",
         "title": "Kingston 2TB SSD NV3 M.2 2280 PCIe 4.0 NVMe",
         "price": 1345
+      },
+      {
+        "listing_key": "ivory:107888",
+        "vendor": "ivory",
+        "vendor_sku": "SNV3S/2000G",
+        "title": "כונן Kingston 2TB NV3 PCIe 4.0 NVMe SSD M.2",
+        "price": 1240
       },
       {
         "listing_key": "yahav:9747",
@@ -12977,31 +12954,6 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:14700k-tray",
-    "vendor": "ivory",
-    "offers": [
-      {
-        "listing_key": "ivory:80270",
-        "vendor": "ivory",
-        "vendor_sku": "I7-14700K",
-        "title": "מעבד Intel Core i7-14700K up to 5.50GHz 33MB Cache Raptor Lake Tray",
-        "price": 1449
-      },
-      {
-        "listing_key": "ivory:80273",
-        "vendor": "ivory",
-        "vendor_sku": "I7-14700KB",
-        "title": "מעבד Intel Core i7-14700K up to 5.50GHz 33MB Cache Raptor Lake Box",
-        "price": 1670
-      }
-    ],
-    "model_code": "14700k",
-    "resolved": false,
-    "reason": "price/spec tags disagree"
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
     "product_id": "model:cpu:14900k-tray-2",
     "vendor": "ivory",
     "offers": [
@@ -13021,6 +12973,31 @@
       }
     ],
     "model_code": "14900k",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:14900kf-tray",
+    "vendor": "ivory",
+    "offers": [
+      {
+        "listing_key": "ivory:80276",
+        "vendor": "ivory",
+        "vendor_sku": "I9-14900KF",
+        "title": "מעבד Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Tray",
+        "price": 1885
+      },
+      {
+        "listing_key": "ivory:80279",
+        "vendor": "ivory",
+        "vendor_sku": "I9-14900KFB",
+        "title": "מעבד Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Box",
+        "price": 1799
+      }
+    ],
+    "model_code": "14900kf",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
@@ -14035,14 +14012,14 @@
         "vendor": "yahav",
         "vendor_sku": "100-000001978",
         "title": "מעבד חברת AMD דגם Ryzen 9 9950X3D2 Dual Edition Boost 5.6Ghz 192MB L3 Cache 16 Cores 32 Threads AM5 TRAY",
-        "price": 3350
+        "price": 3850
       },
       {
         "listing_key": "yahav:11441",
         "vendor": "yahav",
         "vendor_sku": "100-100001978WOF",
         "title": "מעבד חברת AMD דגם Ryzen 9 9950X3D2 Dual Edition Boost 5.6Ghz 192MB L3 Cache 16 Cores 32 Threads AM5 BOX",
-        "price": 3520
+        "price": 3950
       }
     ],
     "model_code": "9950x3d2",
@@ -17678,6 +17655,40 @@
   {
     "kind": "variant_conflict",
     "category": "cooler_air",
+    "product_id": "model:cooler_air:120-argb-assassin-peerless-se-155mm-120mm-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:134946",
+        "vendor": "ivory",
+        "vendor_sku": "81425600376-6",
+        "title": "קירור למעבד THERMALRIGHT Peerless Assassin 120 SE ARGB הכולל 2 מאווררים - צבע שחור",
+        "price": 245
+      }
+    ],
+    "model_code": "120-argb-assassin-peerless-se",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "cooler_air",
+    "product_id": "model:cooler_air:120-assassin-peerless-se-155mm-120mm-blacksilver",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:134943",
+        "vendor": "ivory",
+        "vendor_sku": "81425600375-9",
+        "title": "קירור למעבד THERMALRIGHT Peerless Assassin 120 SE הכולל 2 מאווררים - צבע כסוף ושחור",
+        "price": 245
+      }
+    ],
+    "model_code": "120-assassin-peerless-se",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "cooler_air",
     "product_id": "model:cooler_air:360-argb-matrix-omni-black",
     "vendor": "",
     "offers": [
@@ -17815,6 +17826,13 @@
         "vendor_sku": "N507TEAGLEOCICE16GD",
         "title": "Gigabyte GeForce RTX 5070 Ti EAGLE OC ICE SFF 16G GV-N507TEAGLEOC ICE-16GD",
         "price": 6419
+      },
+      {
+        "listing_key": "yahav:11817",
+        "vendor": "yahav",
+        "vendor_sku": "GV-N507TEAGLEOC-ICE-16GD",
+        "title": "כרטיס מסך חברת Gigabyte דגם Eagle OC ICE SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP",
+        "price": 5690
       }
     ],
     "model_code": "16g-16gd-5070-eagle-geforce-gv-ice-ice-n507teagleoc-oc-rtx-sff-ti",
@@ -17841,6 +17859,13 @@
         "vendor_sku": "N507TEAGLEOC16GD",
         "title": "Gigabyte GeForce RTX 5070 Ti EAGLE OC SFF 16G GV-N507TEAGLE OC-16GD",
         "price": 6375
+      },
+      {
+        "listing_key": "yahav:11816",
+        "vendor": "yahav",
+        "vendor_sku": "GV-N507TEAGLEOC-16GD",
+        "title": "כרטיס מסך חברת Gigabyte דגם Eagle OC SFF RTX 5070Ti 16GB GDDR7 HDMI 3xDP",
+        "price": 5650
       }
     ],
     "model_code": "16g-16gd-5070-eagle-geforce-gv-n507teagle-oc-oc-rtx-sff-ti",
