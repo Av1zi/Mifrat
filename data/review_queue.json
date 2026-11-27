@@ -9187,40 +9187,6 @@
   {
     "kind": "variant_conflict",
     "category": "memory",
-    "product_id": "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:6000J3038F16GX2-TZ5NR",
-        "vendor": "tms",
-        "vendor_sku": "6000J3038F16GX2-TZ5NR",
-        "title": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
-        "price": null
-      }
-    ],
-    "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:201770",
-        "vendor": "1pc",
-        "vendor_sku": "6000J3038F16GX2-TZ5N",
-        "title": "זיכרון G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 בצבע שחור",
-        "price": 2993
-      }
-    ],
-    "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
     "product_id": "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-grey-dimm",
     "vendor": "",
     "offers": [
