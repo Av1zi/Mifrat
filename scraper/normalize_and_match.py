@@ -55,7 +55,7 @@ try:
     from scraper.build_price_history import build_price_history
     from scraper.image_urls import best_of, candidate_urls
     from scraper.text_hygiene import clean_tree
-    from scraper.night import scrape_night
+    from scraper.night import STALE_LOOKBACK_DAYS, scrape_night
     from scraper import eilat
     from scraper import identity
 except ImportError:
@@ -80,7 +80,7 @@ except ImportError:
     from image_urls import best_of, candidate_urls  # type: ignore[no-redef]
     from build_price_history import build_price_history
     from text_hygiene import clean_tree  # type: ignore[no-redef]
-    from night import scrape_night  # type: ignore[no-redef]
+    from night import STALE_LOOKBACK_DAYS, scrape_night  # type: ignore[no-redef]
     import eilat  # type: ignore[no-redef]
     import identity  # type: ignore[no-redef]
 
@@ -109,8 +109,6 @@ VENDOR_FILE_ALIASES = {
     "onepc": ["onepc", "1pc"],
     "1pc": ["1pc", "onepc"],
 }
-
-STALE_LOOKBACK_DAYS = 14
 
 try:
     from zoneinfo import ZoneInfo

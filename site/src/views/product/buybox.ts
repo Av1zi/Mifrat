@@ -22,7 +22,7 @@ import { dealChip, wasPrice } from "../../ui/deal";
 import { emptyValue } from "../../ui/empty";
 import { html, type Html } from "../../ui/html";
 import { compareButton, saveButton } from "../../ui/pick";
-import { altPriceLine, notInEilatLine, positivePrice, priceCell } from "../../ui/price";
+import { altPriceLine, notInEilatLine, positivePrice, priceCell, stalePriceTag } from "../../ui/price";
 import { initialsOf, thumb } from "../../ui/thumb";
 import { vendorMono } from "../../ui/vendor";
 
@@ -59,6 +59,7 @@ export function buyBoxMarkup(
         <div class="buybox__price">
           ${wasPrice(offer, currency, lang)}${priceCell(price, currency, lang, "lg")}
           ${offer && price !== null ? html`<span class="buybox__where">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
+          ${stalePriceTag(offer?.stale, lang)}
           ${price !== null ? dealChip(offer, currency, lang) : ""}
           ${region === "eilat" && price === null
             ? notInEilatLine(effectivePrice(product), currency, lang)
@@ -96,6 +97,7 @@ export function buyBarMarkup(product: Product, lang: Lang, currency: Currency): 
     <div class="buybar__price">
       ${priceCell(price, currency, lang, "md")}
       <span class="buybar__where">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>
+      ${stalePriceTag(offer.stale, lang)}
       ${altPriceLine(effectivePrice(product), eilatPrice(product), isEilatOnly(product), region, currency, lang)}
     </div>
     ${button({

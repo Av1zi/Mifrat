@@ -1,19 +1,32 @@
 import schedule from "../../../scraper/ksp_schedule.json";
-import type { Lang } from "../types";
+import type { Lang, SiteMeta } from "../types";
 import { html, type Html } from "./html";
 
-export function kspNotice(lang: Lang, updatedAt?: string, now = new Date()): Html {
-  const recovered = updatedAt && Date.parse(updatedAt) >= Date.parse(schedule.resume_after);
-  if (!schedule.notice || recovered) return html``;
-  const date = new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-GB", {
+export function kspNotice(
+  lang: Lang,
+  meta?: Pick<SiteMeta, "vendor_updated_at" | "skipped_vendors">,
+  now = new Date()
+): Html {
+  const updatedAt = Date.parse(meta?.vendor_updated_at?.ksp ?? "");
+  const resumeAfter = Date.parse(schedule.resume_after);
+  if (!schedule.notice || updatedAt >= resumeAfter) return html``;
+
+  const he = lang === "he";
+  const date = new Intl.DateTimeFormat(he ? "he-IL" : "en-GB", {
     timeZone: "Asia/Jerusalem", day: "numeric", month: "short",
-  }).format(new Date(schedule.resume_after));
-  const due = now.getTime() >= Date.parse(schedule.resume_after);
-  const plan = lang === "he"
-    ? (due ? "העדכונים יחזרו לאחר ניסיון חידוש מוצלח." : `ניסיון חידוש מתוכנן ל־${date}.`)
-    : (due ? "Updates will return after a successful restart." : `A restart is planned for ${date}.`);
-  const message = lang === "he"
-    ? `עדכוני המחירים של KSP מופסקים זמנית. ${plan} מחירים קודמים עשויים להיות לא מעודכנים.`
-    : `KSP price updates are temporarily paused. ${plan} Previous prices may be out of date.`;
-  return html`<aside class="vendor-notice" aria-label="KSP"><div class="bleed__inner">${message}</div></aside>`;
+  });
+  const message = [he ? "עדכוני המחירים של KSP מופסקים זמנית." : "KSP price updates are temporarily paused."];
+  if (now.getTime() < resumeAfter) {
+    const next = date.format(resumeAfter);
+    message.push(he ? `ניסיון חידוש מתוכנן ל־${next}.` : `A restart is planned for ${next}.`);
+  }
+  if (meta?.skipped_vendors?.includes("ksp")) {
+    message.push(he ? "מחירי KSP אינם זמינים כרגע." : "KSP prices are currently unavailable.");
+  } else if (Number.isFinite(updatedAt)) {
+    const last = date.format(updatedAt);
+    message.push(he ? `עדכון מחיר אחרון: ${last}. ייתכן שהמחירים השתנו.` : `Last price update: ${last}. Prices may have changed.`);
+  } else {
+    message.push(he ? "מחירים קודמים עשויים להיות לא מעודכנים." : "Previous prices may be out of date.");
+  }
+  return html`<aside class="vendor-notice" aria-label="KSP"><div class="bleed__inner">${message.join(" ")}</div></aside>`;
 }

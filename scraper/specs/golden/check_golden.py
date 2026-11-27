@@ -59,7 +59,7 @@ import re
 import sys
 from collections import Counter
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from .. import schema
@@ -317,6 +317,59 @@ def moved_products(catalog: dict, baseline: dict) -> list[str]:
     return moved
 
 
+def _listing_vendor(key: str) -> str:
+    name = key.split(":", 1)[0]
+    return "onepc" if name == "1pc" else name
+
+
+def population_pause_losses(catalog: dict, baseline: dict) -> Counter[str]:
+    """Count products whose every offer aged out during a reviewed pause."""
+    from scraper.night import STALE_LOOKBACK_DAYS, scrape_night
+    from scraper.ops.registry import VENDORS
+
+    paused = {name for name in (catalog.get("skipped_vendors") or [])
+              if name in VENDORS and VENDORS[name].paused}
+    raw_keys = catalog.get("source_listing_keys")
+    if not paused or not isinstance(raw_keys, list):
+        return Counter()
+    try:
+        cutoff = scrape_night(datetime.fromisoformat(catalog["generated_at"])) - timedelta(days=STALE_LOOKBACK_DAYS)
+    except (KeyError, TypeError, ValueError):
+        return Counter()
+
+    # A skip by itself could be a missing input. Verify the previous snapshot
+    # actually aged out, and that no listing made it through either boundary.
+    paused.difference_update(_listing_vendor(str(key)) for key in raw_keys)
+    paused.difference_update(_listing_vendor(row.get("listing_key") or "")
+                             for row in catalog.get("listings") or [])
+    previous = {name: [] for name in paused}
+    for row in baseline.get("listings") or []:
+        vendor = _listing_vendor(row.get("listing_key") or "")
+        if vendor in previous:
+            previous[vendor].append(row)
+
+    expired_keys = set()
+    for rows in previous.values():
+        if not rows:
+            continue
+        try:
+            newest = max(date.fromisoformat(row["last_seen"]) for row in rows)
+        except (KeyError, TypeError, ValueError):
+            continue
+        if newest < cutoff:
+            expired_keys.update(row["listing_key"] for row in rows)
+
+    current_ids = {product.get("product_id") for product in catalog.get("products") or []}
+    losses: Counter[str] = Counter()
+    for product in baseline.get("products") or []:
+        if product.get("product_id") in current_ids:
+            continue
+        keys = {offer.get("listing_key") for offer in product.get("offers") or []}
+        if keys and keys <= expired_keys:
+            losses[str(product.get("category") or "")] += 1
+    return losses
+
+
 def population_source_losses(catalog: dict, baseline: dict) -> Counter:
     # A product whose listings all disappeared from an otherwise healthy
     # vendor input is source churn, not a matcher collapsing surviving rows.
@@ -328,12 +381,9 @@ def population_source_losses(catalog: dict, baseline: dict) -> Counter:
     if not isinstance(source_keys, list):
         return Counter()
     live_keys = {str(key) for key in source_keys}
-    def vendor(key: str) -> str:
-        name = key.split(":", 1)[0]
-        return "onepc" if name == "1pc" else name
-    fresh_vendor = Counter(vendor(key) for key in live_keys)
+    fresh_vendor = Counter(_listing_vendor(key) for key in live_keys)
     old_keys = {str(r.get("listing_key")) for r in baseline.get("listings") or [] if r.get("listing_key")}
-    old_vendor = Counter(vendor(key) for key in old_keys)
+    old_vendor = Counter(_listing_vendor(key) for key in old_keys)
     from scraper.ops.lifecycle import SUSPECT_SHARE
     from scraper.ops.registry import VENDORS
     healthy = {name for name, count in old_vendor.items()
@@ -342,7 +392,7 @@ def population_source_losses(catalog: dict, baseline: dict) -> Counter:
     source_losses = Counter()
     for product in baseline.get("products") or []:
         keys = {str(o.get("listing_key")) for o in product.get("offers") or [] if o.get("listing_key")}
-        if keys and not keys & live_keys and all(vendor(key) in healthy for key in keys):
+        if keys and not keys & live_keys and all(_listing_vendor(key) in healthy for key in keys):
             source_losses[str(product.get("category") or "")] += 1
     return source_losses
 
@@ -355,7 +405,8 @@ def population_problems(catalog: dict, baseline: dict) -> list[str]:
     base_counts = Counter(
         str(p.get("category") or "") for p in baseline.get("products") or []
     )
-    source_losses = population_source_losses(catalog, baseline)
+    pause_losses = population_pause_losses(catalog, baseline)
+    source_losses = population_source_losses(catalog, baseline) + pause_losses
 
     for category, before in base_counts.items():
         after = fresh_counts.get(category, 0)
@@ -371,12 +422,14 @@ def population_problems(catalog: dict, baseline: dict) -> list[str]:
 
     before_total = sum(base_counts.values())
     after_total = sum(fresh_counts.values())
+    expired = sum(pause_losses.values())
     if before_total >= POPULATION_MIN_TOTAL and after_total < (
-        before_total * (1 - POPULATION_TOTAL_DROP)
+        (before_total - expired) * (1 - POPULATION_TOTAL_DROP)
     ):
+        adjustment = f" after {expired} products from expired paused snapshots" if expired else ""
         problems.append(
             f"catalog: {before_total} -> {after_total} products "
-            f"(drop > {POPULATION_TOTAL_DROP:.0%}; matching collapse?)"
+            f"(drop > {POPULATION_TOTAL_DROP:.0%}{adjustment}; matching collapse?)"
         )
     return problems
 

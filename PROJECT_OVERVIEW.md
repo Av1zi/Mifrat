@@ -192,6 +192,10 @@ block, **quality** failures warn without freezing fresh prices. Warnings appear
 in operations and escalate in severity after three nights, never into blockers.
 Golden fixture exit codes still distinguish failure from churn; the central
 runner maps both to quality warnings. Population protection is separate.
+When a reviewed vendor pause outlasts the snapshot window, the population
+check accounts for products whose only offers expired. It requires evidence
+of the skip at the raw-loader boundary and the age of the previous snapshot;
+the existing integrity checks still apply to the remaining catalog.
 
 For collection/pipeline changes: use one policy-permitted test crawl to an
 ignored file, a local normalize in an isolated output environment, the checks

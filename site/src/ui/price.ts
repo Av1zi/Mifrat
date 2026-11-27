@@ -20,6 +20,10 @@ export function priceCell(
   return html`<span class="price price--${size}">${formatPrice(value, currency, lang)}</span>`;
 }
 
+export function stalePriceTag(stale: boolean | undefined, lang: Lang): Html {
+  return stale ? html`<span class="stale-tag">${t(lang, "staleData")}</span>` : html``;
+}
+
 /**
  * The small second price under a product's main one (owner, 2026-11-16):
  *   regular mode: "באילת ₪1,000", or "באילת בלבד ₪1,000" for an Eilat-only part;

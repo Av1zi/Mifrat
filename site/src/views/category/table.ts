@@ -4,7 +4,7 @@ import { icon } from "../../icons";
 import { bestRegionOffer, eilatPrice, isEilatOnly, regionInStock, regionMinPrice, regionOffers, sortOffers } from "../../offers";
 import { addToBuild, categoriesHash, getRegion, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
 import { clearAllFilters } from "./filters";
-import type { Lang, Product, SortKey } from "../../types";
+import type { Product, SortKey } from "../../types";
 import { displayName, safeUrl } from "../../utils";
 import { button } from "../../ui/button";
 import { compareCheck, saveButton, syncPickControls } from "../../ui/pick";
@@ -13,7 +13,7 @@ import { chip } from "../../ui/chip";
 import { dealChip, wasPrice } from "../../ui/deal";
 import { emptyBox } from "../../ui/emptyBox";
 import { html, mount, type Html } from "../../ui/html";
-import { altPriceLine, notInEilatLine, priceCell, positivePrice } from "../../ui/price";
+import { altPriceLine, notInEilatLine, priceCell, positivePrice, stalePriceTag } from "../../ui/price";
 import { specCell } from "../../ui/spec";
 import { bindThumbs, initialsOf, thumb } from "../../ui/thumb";
 import { specValue } from "../../specs";
@@ -38,7 +38,7 @@ function storesMarkup(ctx: CategoryCtx, p: Product, popover = true): Html {
         const original = originalOf.get(`${o.vendor}|${o.url}`);
         return html`<li class="${o.in_stock ? "" : "is-out"}">
           ${url ? html`<a href="${url}" target="_blank" rel="noopener noreferrer">${name}${icon("external", 12)}</a>` : html`<span>${name}</span>`}
-          <span>${wasPrice(o, currency, lang)}${priceCell(o.price, currency, lang)}${positivePrice(o.price) !== null ? dealChip(o, currency, lang, { alignEnd: true }) : ""}${original ? altPriceLine(original.price, original.eilat_price, original.eilat_only === true, getRegion(), currency, lang) : ""}</span>
+          <span>${wasPrice(o, currency, lang)}${priceCell(o.price, currency, lang)}${positivePrice(o.price) !== null ? html`${dealChip(o, currency, lang, { alignEnd: true })} ${stalePriceTag(o.stale, lang)}` : ""}${original ? altPriceLine(original.price, original.eilat_price, original.eilat_only === true, getRegion(), currency, lang) : ""}</span>
         </li>`;
       })}
     </ul>
@@ -73,9 +73,8 @@ function compareCell(ctx: CategoryCtx, p: Product): Html {
   return compareCheck(p, ctx.lang, true);
 }
 
-function titleMarkup(p: Product, lang: Lang, href: string): Html {
-  const allStale = p.offers.length > 0 && p.offers.every((o) => o.stale);
-  return html`<a class="row__title" href="${href}" dir="auto">${displayName(p)}</a>${allStale ? html` <span class="stale-tag">${t(lang, "staleData")}</span>` : ""}`;
+function titleMarkup(p: Product, href: string): Html {
+  return html`<a class="row__title" href="${href}" dir="auto">${displayName(p)}</a>`;
 }
 
 /** Stores that list the part, cheapest first, one entry per store. */
@@ -95,6 +94,7 @@ function priceBlock(ctx: CategoryCtx, p: Product, size: "md" | "lg"): Html {
   return html`<span class="row__price">
     ${priceCell(price, currency, lang, size)}
     ${offer && price !== null ? html`<span class="row__from">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
+    ${price !== null ? stalePriceTag(offer?.stale, lang) : ""}
     ${price !== null ? dealChip(offer, currency, lang, { alignEnd: true }) : ""}
     ${region === "eilat" && price === null
       ? notInEilatLine(p.min_price, currency, lang)
@@ -112,7 +112,7 @@ function cardRow(ctx: CategoryCtx, p: Product): Html {
   return html`<article class="row${p.in_stock ? "" : " is-out"}" data-id="${p.id}" data-href="${href}">
     <a class="row__thumb" href="${href}" tabindex="-1" aria-hidden="true">${thumb(p.thumb ?? p.image, initialsOf(p.brand, p.name), "md")}</a>
     <div class="row__main">
-      <div>${titleMarkup(p, lang, href)}</div>
+      <div>${titleMarkup(p, href)}</div>
       ${p.brand ? html`<span class="row__brand">${p.brand}</span>` : ""}
       ${chips.length > 0 ? html`<ul class="chip-list row__chips">${chips.map((c) => html`<li>${chip(c)}</li>`)}</ul>` : ""}
     </div>
@@ -136,7 +136,7 @@ function tableRow(ctx: CategoryCtx, p: Product): Html {
   const href = productHash(ctx.category, p.id);
   return html`<tr class="list-row${p.in_stock ? "" : " is-out"}" data-id="${p.id}" data-href="${href}">
     ${ctx.pickSlot ? "" : html`<td class="col-cmp">${compareCell(ctx, p)}</td>`}
-    <td class="col-name"><div class="col-name__in"><a class="col-name__thumb" href="${href}" tabindex="-1" aria-hidden="true">${thumb(p.thumb ?? p.image, initialsOf(p.brand, p.name), "sm")}</a><span class="col-name__text">${titleMarkup(p, lang, href)}${p.brand ? html`<span class="row__brand">${p.brand}</span>` : ""}</span></div></td>
+    <td class="col-name"><div class="col-name__in"><a class="col-name__thumb" href="${href}" tabindex="-1" aria-hidden="true">${thumb(p.thumb ?? p.image, initialsOf(p.brand, p.name), "sm")}</a><span class="col-name__text">${titleMarkup(p, href)}${p.brand ? html`<span class="row__brand">${p.brand}</span>` : ""}</span></div></td>
     ${ctx.columns.map((f) => html`<td class="col-spec">${specCell(specValue(p, f), lang)}</td>`)}
     <td class="col-stores">${vendorDots(vendorsOf(p))}</td>
     <td class="col-price">${priceBlock(ctx, p, "md")}</td>

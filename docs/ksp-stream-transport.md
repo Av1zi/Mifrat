@@ -43,6 +43,16 @@ on the following night. If login/CAPTCHA is required, stop for the owner. Review
 sanitized evidence offline before considering any parser or recovery change.
 This window is not installed as a timer or an unattended browser task.
 
+### Non-API lead (Nov 27)
+
+Search-indexed copies of KSP's [mobile CPU category](https://ksp.co.il/mob/cat/2)
+show regular and Eilat prices in the visible cards. The structured `ItemList`
+has ten initial products and regular prices; the page also shows a “show
+more” control. This does not establish full HTML pagination, current stock
+coverage, or permission to collect and republish those prices. KSP's
+[site terms](https://ksp.co.il/mob/help/regulations) state that reuse of site
+content requires KSP's approval. The evidence is from the search index.
+
 ## Evidence
 
 Nov 22 PC diagnostics (not a published snapshot): cookie-free POSTs with

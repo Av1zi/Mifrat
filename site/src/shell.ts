@@ -202,7 +202,7 @@ export function renderShell(app: HTMLElement, state: ShellState, handlers: Shell
   app.innerHTML = html`<a class="skip-link" href="#main-content">${t(state.lang, "skipToContent")}</a>${headerMarkup(state)}<div data-vendor-notice>${kspNotice(state.lang)}</div><main id="main-content" tabindex="-1"></main>${footerMarkup(state.lang)}<aside class="compare-tray" id="compare-tray" aria-label="${t(state.lang, "compareTitle")}" hidden></aside>`.value;
   const noticeHost = app.querySelector("[data-vendor-notice]");
   void loadMeta().then((meta) => {
-    if (noticeHost?.isConnected) noticeHost.innerHTML = kspNotice(state.lang, meta.vendor_updated_at?.ksp).value;
+    if (noticeHost?.isConnected) noticeHost.innerHTML = kspNotice(state.lang, meta).value;
   }).catch(() => {});
   openDropdown = null;
 

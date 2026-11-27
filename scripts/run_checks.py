@@ -112,7 +112,9 @@ def population_check(catalog: dict, baseline: dict | None, problems_fn) -> list[
 
 def population_source_churn() -> tuple[int, list[str]]:
     """Keep source-caused category reductions visible without freezing prices."""
-    from scraper.specs.golden.check_golden import population_source_losses, POPULATION_CATEGORY_DROP
+    from scraper.specs.golden.check_golden import (
+        POPULATION_CATEGORY_DROP, population_pause_losses, population_source_losses,
+    )
     if not CATALOG.exists():
         return 1, ["[source-churn] catalog missing"]
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
@@ -122,9 +124,11 @@ def population_source_churn() -> tuple[int, list[str]]:
     from collections import Counter
     before = Counter(p.get("category") for p in baseline.get("products") or [])
     after = Counter(p.get("category") for p in catalog.get("products") or [])
-    lost = population_source_losses(catalog, baseline)
+    paused = population_pause_losses(catalog, baseline)
+    lost = population_source_losses(catalog, baseline) + paused
     lines = [f"[source-churn] {category}: {before[category]} -> {after[category]}, "
              f"{count} products absent from vendor input (not confirmed gone)"
+             + (f"; {paused[category]} from expired paused snapshots" if paused[category] else "")
              for category, count in sorted(lost.items())
              if after[category] < before[category] * (1 - POPULATION_CATEGORY_DROP)]
     return (1, lines) if lines else (0, ["[source-churn] no large source-caused category reduction"])

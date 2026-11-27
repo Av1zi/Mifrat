@@ -54,24 +54,16 @@ BUILD = {
     "psu": ["mpn:psu:srpcgx851a5a32sfw"],
 }
 
-# Phase-4 fixtures: the compare tray and saved list live in localStorage.
-def _part(id_: str, category: str, name: str, brand: str, thumb: str) -> dict:
-    return {"id": id_, "category": category, "name": name, "brand": brand, "thumb": thumb}
-
-
-CPUS = [
-    _part("model:cpu:ryzen55500-tray", "cpu", "AMD Ryzen 5 5500 Tray", "AMD", "/images/tms/thumbs/100-000000457.webp"),
-    _part("model:cpu:ryzen53500-tray", "cpu", "AMD Ryzen 5 3500 Tray", "AMD", "/images/tms/thumbs/100-000000050.webp"),
-    _part("mpn:cpu:100000000159", "cpu", "AMD Ryzen 3 3300X", "AMD", "/images/onepc/thumbs/100-000000159.webp"),
-    _part("model:cpu:ryzen79800x3d-tray", "cpu", "AMD Ryzen 7 9800X3D Tray", "AMD", ""),
-]
-COMPARE_URL = "#/compare?ids=" + ",".join(quote(p["id"], safe="") for p in CPUS)
-GPU = _part("mpn:gpu:akn210d3s1gl1", "gpu", "ARKTEK GeForce GT 210 1GB VGA DVI", "ARKTEK", "/images/yahav/thumbs/AKN210D3S1GL1.webp")
-SEEDS = {
-    "category-cpu-tray": {"mifrat:compare": {"category": "cpu", "items": CPUS[:3]}},
-    "saved": {"mifrat:saved": [{**p, "savedAt": 1_000 + i} for i, p in enumerate([*CPUS[:3], GPU])]},
-    "compare-cpu": {"mifrat:compare": {"category": "cpu", "items": CPUS}},
-}
+def seed_parts(category: str, count: int) -> list[dict]:
+    """Use current catalog IDs and thumbnails in compare and saved fixtures."""
+    products = json.loads((DIST / f"data/site/{category}.json").read_bytes())
+    if len(products) < count:
+        raise ValueError(f"Need {count} products in {category} for the smoke fixtures")
+    return [
+        {"id": p["id"], "category": category, "name": p["name"],
+         "brand": p.get("brand"), "thumb": p.get("thumb") or p.get("image")}
+        for p in products[:count]
+    ]
 
 ROUTES = {
     "home": ("#/", None),
@@ -83,7 +75,7 @@ ROUTES = {
     "product-gpu": ("#/p/gpu/mpn%3Agpu%3An506taerooc8gd", None),
     "product-cpu": ("#/p/cpu/model%3Acpu%3Aryzen79800x3d-tray", None),
     "category-cpu-tray": ("#/c/cpu", None),
-    "compare-cpu": (COMPARE_URL, None),
+    "compare-cpu": ("#/compare", None),
     "compare-empty": ("#/compare", None),
     "saved": ("#/saved", None),
     "saved-empty": ("#/saved", None),
@@ -141,6 +133,15 @@ def main() -> int:
         print("site/dist missing: run `npm --prefix site run build` first", file=sys.stderr)
         return 2
 
+    cpus = seed_parts("cpu", 4)
+    gpus = seed_parts("gpu", 1)
+    routes = {**ROUTES, "compare-cpu": ("#/compare?ids=" + ",".join(quote(p["id"], safe="") for p in cpus), None)}
+    seeds = {
+        "category-cpu-tray": {"mifrat:compare": {"category": "cpu", "items": cpus[:3]}},
+        "saved": {"mifrat:saved": [{**p, "savedAt": 1_000 + i} for i, p in enumerate(cpus[:3] + gpus)]},
+        "compare-cpu": {"mifrat:compare": {"category": "cpu", "items": cpus}},
+    }
+
     out = Path(args.out) if args.out else SITE / "screenshots" / args.label
     if not args.no_images:
         out.mkdir(parents=True, exist_ok=True)
@@ -163,7 +164,7 @@ def main() -> int:
                             Literal["dark", "light", "no-preference"], theme),
                     )
                     for name in args.routes.split(","):
-                        hash_, seed = ROUTES[name]
+                        hash_, seed = routes[name]
                         errors: list[str] = []
                         page = ctx.new_page()
                         page.on(
@@ -182,8 +183,8 @@ def main() -> int:
                         else:
                             init += "localStorage.removeItem('mifrat:build');"
                         for key in ("mifrat:compare", "mifrat:saved"):
-                            if key in SEEDS.get(name, {}):
-                                init += f"localStorage.setItem('{key}',{json.dumps(json.dumps(SEEDS[name][key]))});"
+                            if key in seeds.get(name, {}):
+                                init += f"localStorage.setItem('{key}',{json.dumps(json.dumps(seeds[name][key]))});"
                             else:
                                 init += f"localStorage.removeItem('{key}');"
                         page.add_init_script(init)
@@ -201,7 +202,7 @@ def main() -> int:
                         # notfound route may render the 404 view.
                         rendered = page.evaluate(
                             "({text: (document.getElementById('main-content') || document.body).innerText.trim().length,"
-                            " notfound: !!document.querySelector('.notfound')})"
+                            " notfound: !!document.querySelector('#main-content > .nf')})"
                         )
                         if rendered["text"] == 0:
                             problems.append({"shot": tag, "render": "empty page"})

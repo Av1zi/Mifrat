@@ -62,6 +62,17 @@ cpSync(src, dest, { recursive: true });
 
 console.log(`[copy-data] copied ${src} -> ${dest}`);
 
+// The pipeline omits histories with no price series. Serve an empty history
+// for those catalog categories so their charts and drop lookups don't fetch a 404.
+const meta = JSON.parse(readFileSync(path.join(dest, "meta.json"), "utf8"));
+const historyDest = path.join(dest, "history");
+mkdirSync(historyDest, { recursive: true });
+for (const { id } of meta.categories ?? []) {
+  if (typeof id !== "string" || !/^[a-z][a-z0-9_-]*$/.test(id)) continue;
+  const file = path.join(historyDest, `${id}.json`);
+  if (!existsSync(file)) writeFileSync(file, '{"dates":[]}\n', { flag: "wx" });
+}
+
 // Scrape-console data (scraper/ops/report.py, scripts/run_checks.py): status,
 // changes and checks only, under
 // /admin/data/, which the Worker serves only after the ADMIN_PASSWORD check
@@ -177,7 +188,6 @@ const origin = (process.env.SITE_ORIGIN ?? "https://mifrat.avizi.workers.dev").r
 const xmlEscape = (text) =>
   text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-const meta = JSON.parse(readFileSync(path.join(dest, "meta.json"), "utf8"));
 const lastmod = typeof meta.generated_at === "string" ? meta.generated_at.slice(0, 10) : null;
 
 const routes = ["/", "/#/categories", "/#/build", "/#/qa"];

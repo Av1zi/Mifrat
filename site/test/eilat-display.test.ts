@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { t } from "../src/i18n";
 import type { Offer, Region } from "../src/types";
 import { product } from "./fixtures";
 import { html } from "../src/ui/html";
@@ -55,6 +56,27 @@ describe("small Eilat prices without switching region", () => {
     const markup = buyBarMarkup(p, "en", "ILS").value;
     expect(markup).toContain("Regular");
     expect(markup).toContain("1,180");
+  });
+
+  it("labels the displayed offer when its price is stale, using the active region", () => {
+    const stale = {
+      ...offer,
+      vendor: "ksp",
+      url: "https://ksp.co.il/web/item/1",
+      price: 1100,
+      eilat_price: 900,
+      stale: true,
+      eilat_stale: false,
+    };
+    const mixed = { ...p, offers: [offer, stale] };
+    const box = () => buyBoxMarkup(mixed, "he", "ILS", false, html``, p.name).value;
+    const bar = () => buyBarMarkup(mixed, "en", "ILS").value;
+    expect(box()).toContain(t("he", "staleData"));
+    expect(bar()).toContain(t("en", "staleData"));
+
+    region.value = "eilat";
+    expect(box()).not.toContain(t("he", "staleData"));
+    expect(bar()).not.toContain(t("en", "staleData"));
   });
 
   it("does not invent an Eilat price when none was scraped", () => {

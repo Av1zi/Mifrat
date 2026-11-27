@@ -37,6 +37,7 @@ from pathlib import Path
 
 NIGHT_START_UTC_HOUR = 21
 NIGHT_OFFSET = timedelta(hours=24 - NIGHT_START_UTC_HOUR)
+STALE_LOOKBACK_DAYS = 14
 
 
 def scrape_night(at: datetime) -> date:

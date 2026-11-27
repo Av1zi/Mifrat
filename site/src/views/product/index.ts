@@ -178,9 +178,21 @@ function bindBuyBar(container: HTMLElement): void {
   const offers = container.querySelector<HTMLElement>("#pdp-offers");
   if (!bar || !anchor) return;
   const desktop = window.matchMedia("(min-width: 1024px)");
+  const resize = new ResizeObserver(() => {
+    if (!bar.isConnected) {
+      resize.disconnect();
+      return;
+    }
+    const height = bar.offsetHeight;
+    if (!desktop.matches && height > 0) {
+      document.body.style.setProperty("--buybar-height", `${height}px`);
+    }
+  });
+  resize.observe(bar, { box: "border-box" });
   let pastAnchor = false;
   let offersVisible = false;
   const sync = (): void => {
+    if (!bar.isConnected) return;
     const show = pastAnchor && (desktop.matches || !offersVisible);
     bar.classList.toggle("is-concealed", !show);
     // Concealed is still laid out on desktop: keep it out of reach then.
@@ -205,8 +217,10 @@ function bindBuyBar(container: HTMLElement): void {
     "hashchange",
     () => {
       observer.disconnect();
+      resize.disconnect();
       desktop.removeEventListener("change", sync);
       document.body.classList.remove("has-buybar");
+      document.body.style.removeProperty("--buybar-height");
     },
     { once: true }
   );

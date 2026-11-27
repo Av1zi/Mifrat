@@ -301,6 +301,10 @@
   display: none;
 }
 
+.buybar__price > .stale-tag {
+  align-self: flex-start;
+}
+
 /* Desktop: once the price has scrolled away, a compact price + store link
    stays docked under the nav bar beside the offers and history. It keeps
    its slot in the column while concealed, so showing it never changes the
@@ -387,7 +391,7 @@
   }
 
   body.has-buybar #app {
-    padding-block-end: 4.5rem;
+    padding-block-end: var(--buybar-height, 4.5rem);
   }
 
   /* The compare tray takes the same edge; the buy bar sits above it. */
@@ -396,7 +400,7 @@
   }
 
   body.has-buybar.has-tray #app {
-    padding-block-end: 8.25rem;
+    padding-block-end: calc(var(--buybar-height, 4.5rem) + 3.75rem);
   }
 }
 
