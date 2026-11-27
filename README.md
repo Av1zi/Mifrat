@@ -32,11 +32,11 @@ the home Nano because they block datacenter access. Missing snapshots
 stale-forward for up to 14 days. Normalize runs after new scrape data, not on
 a separate cron; Cloudflare builds every `main` push.
 
-**KSP remains paused** after the failed Nov 22 recovery. Its consumed one-shot
-timer must not be reinstalled or re-armed; the fixed header update did not
-restore end-to-end prices. Read [KSP status](docs/ksp-stream-transport.md)
-before any request. One sanitized native-browser diagnostic is approved for
-Nov 25–26; it does not authorize a full crawl or timer changes.
+**KSP remains paused.** The Nov 22 recovery and Nov 26 browser diagnostics
+ended without current prices. The one-shot timer and manual attempts are
+consumed. Further recovery needs a KSP-approved price source; see the
+[KSP status and affiliate API lead](docs/ksp-stream-transport.md).
+
 **Ivory Eilat is retired (2026-11-25)**; its regular builder feed remains
 active. The builder JSON API carries one regular price. Eilat prices appear
 only on separate public category pages, which returned 13×403 on Nov 17 and

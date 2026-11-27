@@ -17,31 +17,31 @@ configuration change, not automatic identity rotation. First
 403/429/challenge still stops the run and persists the pause; no cookies,
 dynamic `tt`, CAPTCHA, fallback or retry against rejection.
 
-### One approved diagnostic: Nov 25–26
+### Nov 26 browser diagnostics (consumed)
 
-The owner approved one sanitized native-browser observation in this window,
-not a full recovery crawl. Observe one normal CPU-category navigation during
-the home night window (21:00–04:00 UTC). Atomically create the fixed local
-marker `ksp-native-diagnostic-2026-11-25.attempted` **before** navigation;
-use this same marker across the entire Nov 25–26 window and stop if it exists.
-Retain it even on a crash or rejection.
-Do not delete any earlier attempt/block marker, clear `ksp.paused`, reinstall
-the consumed recovery timer, or enable listing/detail timers.
+The CPU-category document returned HTTP 200, but the first capture ended
+before any price response was recorded. An offline fixture confirmed the
+capture could close before the browser received prices. In the owner-approved
+follow-up, the category document again returned 200; a KSP subrequest
+returned 403 before a price response was captured. The tab was closed at the
+block. Both manual attempt markers remain consumed, `ksp.paused` stays in
+place, and listing/detail timers remain disabled.
 
-Capture status codes, whether `cf-mitigated` says `challenge`, the response
-media type, and price-payload structure only. Never export raw headers, HAR,
-request bodies, cookies, dynamic `tt`, response strings or arbitrary JSON keys.
-`scripts/ksp_price_shape.py --stdin` sanitizes a captured price response in
-memory: only fixed public field names, types and counts leave it. It performs
-no network request or file write; success means the diagnostic parsed, **not**
-that prices passed the production parser. An encoded JSON string remains an
-invalid production price batch.
+`scripts/ksp_price_shape.py --stdin` still works offline with a permitted
+capture: only fixed public field names, types and counts leave it. Do not
+export raw headers, HAR, request bodies, cookies, dynamic `tt`, response
+strings or arbitrary JSON keys. An encoded JSON string remains an invalid
+production price batch.
 
-First HTTP/component 403, 429 or challenge ends the attempt. Keep/reassert the
-pause and make no reload, fallback endpoint, profile change or second attempt
-on the following night. If login/CAPTCHA is required, stop for the owner. Review
-sanitized evidence offline before considering any parser or recovery change.
-This window is not installed as a timer or an unattended browser task.
+### KSP-approved price source
+
+KSP's [affiliate program terms](https://ksp.co.il/affiliate/) (§4.8) mention
+an API. Its public terms do not establish catalog coverage or authorize
+Mifrat's recurring price comparisons. Ask [aff@ksp.co.il](mailto:aff@ksp.co.il)
+whether they can approve that use and provide API or feed documentation and a
+sample. Confirm PC-part category coverage, stable product IDs and links,
+current regular ILS prices and stock, and any refresh or link requirements.
+Use Eilat prices and availability only if the source supplies them separately.
 
 ### Non-API lead (Nov 27)
 
@@ -72,8 +72,7 @@ unwrapped payload was a string. The parser correctly refuses it; embedded
 listing prices are not a fallback. A later native headed-browser category
 load also received a stream HTTP403, ending all live testing. Header access
 is intermittent; this change is not a recovered scrape and must not be used
-to enable timers. Full-price protocol diagnosis needs new sanitized native
-evidence after owner review/cooldown, not guessed parameters or relaxed checks.
+to enable timers. Further recovery requires the approved source above.
 
 Observed through normal UI navigation in the owner's attached Chromium:
 
@@ -172,8 +171,5 @@ The site's small bilingual notice remains until a successful KSP snapshot
 after the scheduled date is published; it doesn't vanish at a deadline if
 the attempt fails. Other vendors continue normally.
 
-Still unverified: cookie-free Nano acceptance and a complete live crawl.
-If the transport requires challenge/clearance state, do not emulate it;
-pursue KSP's sanctioned affiliate/product feed instead.
-
-No claim is made that changing transport alone resolves the observed 403.
+The latest successful snapshot is Nov 16. Until there is a complete fresh
+snapshot, the catalog applies the normal 14-day stale-forward window.
