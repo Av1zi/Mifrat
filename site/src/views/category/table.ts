@@ -2,9 +2,9 @@ import { slotForCategory } from "../../build";
 import { attributeLabel, showingText, t, vendorLabel, vendorsCount } from "../../i18n";
 import { icon } from "../../icons";
 import { bestRegionOffer, eilatPrice, isEilatOnly, regionInStock, regionMinPrice, regionOffers, sortOffers } from "../../offers";
-import { addToBuild, categoriesHash, getRegion, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
+import { addToBuild, categoriesHash, getRegion, getStoredBuild, navigate, productHash, setStoredBuild, type ListView } from "../../state";
 import { clearAllFilters } from "./filters";
-import type { Product, SortKey } from "../../types";
+import type { Product, Region, SortKey } from "../../types";
 import { displayName, safeUrl } from "../../utils";
 import { button } from "../../ui/button";
 import { compareCheck, saveButton, syncPickControls } from "../../ui/pick";
@@ -13,7 +13,7 @@ import { chip } from "../../ui/chip";
 import { dealChip, wasPrice } from "../../ui/deal";
 import { emptyBox } from "../../ui/emptyBox";
 import { html, mount, type Html } from "../../ui/html";
-import { altPriceLine, notInEilatLine, priceCell, positivePrice, stalePriceTag } from "../../ui/price";
+import { altPriceLine, eilatPriceCell, notInEilatLine, priceCell, positivePrice, stalePriceTag } from "../../ui/price";
 import { specCell } from "../../ui/spec";
 import { bindThumbs, initialsOf, thumb } from "../../ui/thumb";
 import { specValue } from "../../specs";
@@ -78,27 +78,27 @@ function titleMarkup(p: Product, href: string): Html {
 }
 
 /** Stores that list the part, cheapest first, one entry per store. */
-function vendorsOf(p: Product): string[] {
+function vendorsOf(p: Product, region: Region): string[] {
   const seen = new Map<string, string>();
-  for (const o of sortOffers(regionOffers(p, getRegion())))
+  for (const o of sortOffers(regionOffers(p, region)))
     if (!seen.has(vendorKey(o.vendor))) seen.set(vendorKey(o.vendor), o.vendor);
   return [...seen.values()];
 }
 
-function priceBlock(ctx: CategoryCtx, p: Product, size: "md" | "lg"): Html {
+function priceBlock(ctx: CategoryCtx, p: Product, region: Region, view: ListView): Html {
   const { lang, currency } = ctx;
-  const region = getRegion();
   const offer = bestRegionOffer(p, region);
   const price = regionMinPrice(p, region);
   const inStock = region === "main" ? p.in_stock : regionInStock(p, region);
+  const showAlt = view === "cards" || region === "eilat";
   return html`<span class="row__price">
-    ${priceCell(price, currency, lang, size)}
+    ${priceCell(price, currency, lang, view === "cards" ? "lg" : "md")}
     ${offer && price !== null ? html`<span class="row__from">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
     ${price !== null ? stalePriceTag(offer?.stale, lang) : ""}
     ${price !== null ? dealChip(offer, currency, lang, { alignEnd: true }) : ""}
     ${region === "eilat" && price === null
       ? notInEilatLine(p.min_price, currency, lang)
-      : altPriceLine(p.min_price, eilatPrice(p), isEilatOnly(p), region, currency, lang)}
+      : showAlt ? altPriceLine(p.min_price, eilatPrice(p), isEilatOnly(p), region, currency, lang) : ""}
     ${inStock || price === null ? "" : html`<span class="row__out">${t(lang, "outOfStock")}</span>`}
     ${region === "main" ? signalBadges(ctx.signals.get(p.id), lang) : ""}
   </span>`;
@@ -117,7 +117,7 @@ function cardRow(ctx: CategoryCtx, p: Product): Html {
       ${chips.length > 0 ? html`<ul class="chip-list row__chips">${chips.map((c) => html`<li>${chip(c)}</li>`)}</ul>` : ""}
     </div>
     <div class="row__buy">
-      ${priceBlock(ctx, p, "lg")}
+      ${priceBlock(ctx, p, getRegion(), "cards")}
       ${storesMarkup(ctx, p)}
     </div>
     <div class="row__action" aria-label="${name}">${actionMarkup(ctx, p)}<div class="row__tools">${ctx.pickSlot ? "" : compareCheck(p, lang)}${toolsMarkup(ctx, p)}</div></div>
@@ -131,31 +131,36 @@ function sortHeader(ctx: CategoryCtx, label: string, asc: SortKey, desc: SortKey
   return html`<th scope="col" class="${className}" aria-sort="${active}"><button type="button" class="th-sort${active !== "none" ? " is-active" : ""}" data-sort="${next}" title="${t(ctx.lang, "sortLabel")}">${label}<span aria-hidden="true">${arrow}</span></button></th>`;
 }
 
-function tableRow(ctx: CategoryCtx, p: Product): Html {
-  const { lang } = ctx;
+function tableRow(ctx: CategoryCtx, p: Product, region: Region): Html {
+  const { lang, currency } = ctx;
   const href = productHash(ctx.category, p.id);
+  const eilatOffer = region === "main" ? bestRegionOffer(p, "eilat") : null;
   return html`<tr class="list-row${p.in_stock ? "" : " is-out"}" data-id="${p.id}" data-href="${href}">
     ${ctx.pickSlot ? "" : html`<td class="col-cmp">${compareCell(ctx, p)}</td>`}
     <td class="col-name"><div class="col-name__in"><a class="col-name__thumb" href="${href}" tabindex="-1" aria-hidden="true">${thumb(p.thumb ?? p.image, initialsOf(p.brand, p.name), "sm")}</a><span class="col-name__text">${titleMarkup(p, href)}${p.brand ? html`<span class="row__brand">${p.brand}</span>` : ""}</span></div></td>
+    <td class="col-price">${priceBlock(ctx, p, region, "table")}</td>
+    ${region === "main" ? html`<td class="col-price col-eilat-price">${eilatPriceCell(eilatOffer?.price ?? p.eilat_min_price, currency, lang, { only: isEilatOnly(p), stale: eilatOffer?.stale })}</td>` : ""}
     ${ctx.columns.map((f) => html`<td class="col-spec">${specCell(specValue(p, f), lang)}</td>`)}
-    <td class="col-stores">${vendorDots(vendorsOf(p))}</td>
-    <td class="col-price">${priceBlock(ctx, p, "md")}</td>
+    <td class="col-stores">${vendorDots(vendorsOf(p, region))}</td>
     <td class="col-action"><div class="col-action__in">${actionMarkup(ctx, p)}${toolsMarkup(ctx, p)}</div></td>
   </tr>`;
 }
 
 function tableMarkup(ctx: CategoryCtx, rows: Product[]): Html {
   const { lang } = ctx;
+  const region = getRegion();
+  const mainPriceHeading = t(lang, region === "main" ? "regularPriceHeading" : "eilatPriceHeading");
   return html`<div class="table-wrap"><table class="table list-table">
     <thead><tr>
       ${ctx.pickSlot ? "" : html`<th scope="col" class="col-cmp"><span class="visually-hidden">${t(lang, "compareAction")}</span></th>`}
       ${sortHeader(ctx, t(lang, "nameHeading"), "name", "name_desc")}
+      ${sortHeader(ctx, mainPriceHeading, "price_asc", "price_desc", "col-price")}
+      ${region === "main" ? html`<th scope="col" class="col-price col-eilat-price">${t(lang, "eilatPriceHeading")}</th>` : ""}
       ${ctx.columns.map((f) => html`<th scope="col" class="col-spec" title="${attributeLabel(f, lang, ctx.category)}">${attributeLabel(f, lang, ctx.category)}</th>`)}
       ${sortHeader(ctx, t(lang, "storesHeading"), "vendors_desc", "vendors_desc")}
-      ${sortHeader(ctx, t(lang, "priceHeading"), "price_asc", "price_desc", "col-price")}
       <th scope="col"><span class="visually-hidden">${t(lang, "buyHeaderLabel")}</span></th>
     </tr></thead>
-    <tbody>${rows.map((p) => tableRow(ctx, p))}</tbody>
+    <tbody>${rows.map((p) => tableRow(ctx, p, region))}</tbody>
   </table></div>`;
 }
 

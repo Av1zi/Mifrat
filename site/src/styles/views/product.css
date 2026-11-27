@@ -186,6 +186,10 @@
 }
 
 /* ---- offers ---- */
+.offers-wrap {
+  container: offers / inline-size;
+}
+
 .offers-table th[scope="row"] {
   color: var(--text);
   font-size: var(--fs-base);
@@ -219,10 +223,18 @@
   color: var(--warn);
 }
 
-/* Phones: each offer is a two-line block (store + price, then stock, freshness
-   and the store link) instead of a table that has to be scrolled sideways
-   to reach the button. Shipping/total columns are rare; they wrap in line. */
-@media (max-width: 639px) {
+.offer-mobile-label {
+  display: none;
+}
+
+@container offers (width >= 640px) {
+  .offers-table--two-prices :is(th, td) {
+    padding-inline: var(--sp-3);
+  }
+}
+
+/* When the offers card is narrow, stack prices above stock and the store link. */
+@container offers (width < 640px) {
   .offers-table,
   .offers-table tbody {
     display: block;
@@ -264,7 +276,7 @@
     background: none;
   }
 
-  /* Line one: store, price. Then a break, then every other cell in order. */
+  /* Store + active price, then the Eilat price line (or a break), then details. */
   .offers-table th[scope="row"] {
     flex: 1 1 auto;
     order: 0;
@@ -276,7 +288,7 @@
     order: 1;
   }
 
-  .offers-table tbody tr::after {
+  .offers-table:not(.offers-table--two-prices) tbody tr::after {
     content: "";
     flex-basis: 100%;
     order: 2;
@@ -284,6 +296,26 @@
 
   .offers-table td {
     order: 3;
+  }
+
+  .offers-table .col-eilat-price {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: var(--sp-2);
+    order: 2;
+  }
+
+  .offer-mobile-label {
+    display: inline;
+    color: var(--text-2);
+    font-size: var(--fs-sm);
+  }
+
+  .col-eilat-price .offer-mobile-label {
+    color: var(--brand-strong);
+    font-weight: var(--fw-semibold);
   }
 
   .offers-table .col-action {

@@ -27,9 +27,10 @@ Do not regenerate a production catalog just to start the frontend.
   `scraper/site_data.py`'s trimming allowlist.
 - Vendor images are local white-composited WebP; thumbnails are build-derived,
   never committed. The UI does not hotlink vendor hosts.
-- Eilat prices appear as a small second line in regular mode, including mobile
-  buy bars, offer rows, store popovers, search and similar cards. Only observed
-  prices are displayed; regular sorts, filters and build totals are unchanged.
+- In regular mode, category and vendor tables have a separate Eilat price
+  column. Compact views, including mobile buy bars, store popovers and search,
+  show a highlighted Eilat line. Only observed prices are displayed; regular
+  sorts, filters and build totals are unchanged.
 - Opening a shared build is view-only until the visitor edits it; it must not
   overwrite their draft. Old product ids resolve through aliases and legacy
   `#/build?...` links remain valid.

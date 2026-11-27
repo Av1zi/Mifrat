@@ -24,6 +24,22 @@ export function stalePriceTag(stale: boolean | undefined, lang: Lang): Html {
   return stale ? html`<span class="stale-tag">${t(lang, "staleData")}</span>` : html``;
 }
 
+/** A price under the Eilat column heading, with its own freshness. */
+export function eilatPriceCell(
+  price: number | null | undefined,
+  currency: Currency,
+  lang: Lang,
+  { only, stale }: { only?: boolean; stale?: boolean }
+): Html {
+  const amount = positivePrice(price);
+  if (amount === null) return emptyValue(lang);
+  return html`<span class="eilat-price-cell">
+    ${priceCell(amount, currency, lang)}
+    ${only ? html`<span class="eilat-price-cell__only">${t(lang, "eilatOnlyLine")}</span>` : ""}
+    ${stalePriceTag(stale, lang)}
+  </span>`;
+}
+
 /**
  * The small second price under a product's main one (owner, 2026-11-16):
  *   regular mode: "באילת ₪1,000", or "באילת בלבד ₪1,000" for an Eilat-only part;
@@ -46,7 +62,7 @@ export function altPriceLine(
   }
   if (eil === null) return html``;
   const label = eilatOnly ? t(lang, "eilatOnlyLine") : t(lang, "eilatLine");
-  return html`<span class="price-alt price-alt--eilat">${label} <bdi>${formatPrice(eil, currency, lang)}</bdi></span>`;
+  return html`<span class="price-alt price-alt--eilat"><span class="price-alt__badge">${label} <bdi>${formatPrice(eil, currency, lang)}</bdi></span></span>`;
 }
 
 /** Eilat mode, no Eilat price: the regular price muted, under "not sold in Eilat". */

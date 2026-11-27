@@ -34,7 +34,7 @@ const p = product(
   }
 );
 
-describe("small Eilat prices without switching region", () => {
+describe("Eilat price display", () => {
   beforeEach(() => {
     region.value = "main";
   });
@@ -46,9 +46,47 @@ describe("small Eilat prices without switching region", () => {
     expect(markup).toContain("1,000");
   });
 
-  it("keeps the existing Eilat line in the buy box and offer rows", () => {
-    expect(buyBoxMarkup(p, "he", "ILS", false, html``, p.name).value).toContain("באילת");
-    expect(offersCard(p, "en", "ILS").value).toContain("price-alt--eilat");
+  it("highlights the Eilat line in the buy box", () => {
+    const markup = buyBoxMarkup(p, "he", "ILS", false, html``, p.name).value;
+    expect(markup).toContain('class="price-alt__badge">באילת');
+  });
+
+  it("gives each vendor its own Eilat cell, including missing and Eilat-only prices", () => {
+    const mixed = {
+      ...p,
+      offers: [
+        { ...offer, eilat_stale: true },
+        {
+          ...offer,
+          vendor: "ivory",
+          price: 1260,
+          eilat_price: undefined,
+          stale: true,
+        },
+        {
+          ...offer,
+          vendor: "ksp",
+          price: null,
+          in_stock: false,
+          eilat_price: 900,
+          eilat_only: true,
+        },
+      ],
+    };
+    const markup = offersCard(mixed, "en", "ILS").value;
+    const cells = Array.from(
+      markup.matchAll(/<td class="col-eilat-price">([\s\S]*?)<\/td>/g),
+      ([, cell]) => cell
+    );
+    expect(markup).toContain('<th scope="col" class="col-eilat-price">Eilat price</th>');
+    expect(markup).not.toContain("price-alt--eilat");
+    expect(cells).toHaveLength(3);
+    expect(cells[0]).toContain("1,000");
+    expect(cells[0]).toContain(t("en", "staleData"));
+    expect(cells[1]).toContain(t("en", "notListed"));
+    expect(cells[1]).not.toContain(t("en", "staleData"));
+    expect(cells[2]).toContain("900");
+    expect(cells[2]).toContain(t("en", "eilatOnlyLine"));
   });
 
   it("shows the regular secondary price after switching to Eilat", () => {
@@ -56,6 +94,10 @@ describe("small Eilat prices without switching region", () => {
     const markup = buyBarMarkup(p, "en", "ILS").value;
     expect(markup).toContain("Regular");
     expect(markup).toContain("1,180");
+    const table = offersCard(p, "en", "ILS").value;
+    expect(table).not.toContain("col-eilat-price");
+    expect(table).toContain('<th scope="col">Eilat price</th>');
+    expect(table).toMatch(/class="price-alt">Regular .*1,180/);
   });
 
   it("labels the displayed offer when its price is stale, using the active region", () => {

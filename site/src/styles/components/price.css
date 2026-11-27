@@ -25,15 +25,53 @@
   line-height: 1.3;
 }
 
+.price-alt--eilat {
+  color: var(--brand-strong);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  white-space: normal;
+}
+
+.price-alt__badge {
+  display: inline-block;
+  padding-inline: var(--sp-2);
+  border-radius: var(--radius-sm);
+  background: var(--brand-soft);
+  line-height: var(--lh-base);
+}
+
+.price-alt--eilat bdi {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+}
+
 .price-alt--none {
   font-style: italic;
 }
 
-/* These price groups wrap badges inline; the secondary price is still a
-   separate, quiet line below the main amount in either region. */
+/* These price groups wrap badges inline; the secondary price gets its own line. */
 .buybox__price > .price-alt,
-.offer-price > .price-alt {
+.offer-price > .price-alt,
+.cmp-head__price > .price-alt {
   flex-basis: 100%;
+}
+
+.table thead .col-eilat-price,
+.eilat-price-cell .price {
+  color: var(--brand-strong);
+}
+
+.eilat-price-cell {
+  display: inline-grid;
+  justify-items: start;
+  gap: var(--sp-1);
+}
+
+.eilat-price-cell__only {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
 }
 
 .search-hit__prices {

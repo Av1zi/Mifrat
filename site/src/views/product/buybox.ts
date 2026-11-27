@@ -13,7 +13,7 @@ import {
   sortOffers,
 } from "../../offers";
 import { getRegion } from "../../state";
-import type { Currency, Lang, Offer, Product, Region } from "../../types";
+import type { Currency, Lang, Offer, Product } from "../../types";
 import { safeUrl } from "../../utils";
 import { button } from "../../ui/button";
 import { card } from "../../ui/card";
@@ -22,7 +22,7 @@ import { dealChip, wasPrice } from "../../ui/deal";
 import { emptyValue } from "../../ui/empty";
 import { html, type Html } from "../../ui/html";
 import { compareButton, saveButton } from "../../ui/pick";
-import { altPriceLine, notInEilatLine, positivePrice, priceCell, stalePriceTag } from "../../ui/price";
+import { altPriceLine, eilatPriceCell, notInEilatLine, positivePrice, priceCell, stalePriceTag } from "../../ui/price";
 import { initialsOf, thumb } from "../../ui/thumb";
 import { vendorMono } from "../../ui/vendor";
 
@@ -114,25 +114,20 @@ export function buyBarMarkup(product: Product, lang: Lang, currency: Currency): 
 
 const offerKey = (o: Offer): string => `${o.vendor}|${o.url}`;
 
-/** The small second price on one offer row (the other region's price). */
-function offerAltLine(original: Offer | undefined, region: Region, currency: Currency, lang: Lang): Html {
-  if (!original) return html``;
-  return altPriceLine(original.price, original.eilat_price, original.eilat_only === true, region, currency, lang);
-}
-
 /** Offers table, cheapest in-stock first, the best price highlighted. */
 export function offersCard(product: Product, lang: Lang, currency: Currency, noStore: string[] = []): Html {
   const region = getRegion();
   const offers = sortOffers(regionOffers(product, region));
   const best = bestRegionOffer(product, region);
-  // Each shown row's original offer: its other-region price is the small
-  // line (an Eilat-only offer's row shows only "Eilat only").
-  const originalOf = new Map(product.offers.map((o) => [offerKey(o), o]));
+  const showEilatColumn = region === "main";
+  const originalOf = region === "eilat" ? new Map(product.offers.map((o) => [offerKey(o), o])) : null;
+  const eilatHeading = t(lang, "eilatPriceHeading");
   // Shipping is rarely published (currently none of the ~6k listings): show
   // the column only when an offer supplies it, and the total only when
   // shipping can change it.
   const showShipping = offers.some((o) => o.shipping !== null && o.shipping !== undefined);
   const showTotal = offers.some((o) => (o.shipping ?? 0) > 0);
+  const columnCount = 5 + Number(showEilatColumn) + Number(showShipping) + Number(showTotal);
   const latest = offers.map((o) => o.last_seen).sort().at(-1);
 
   const rows = offers.map((offer) => {
@@ -141,9 +136,14 @@ export function offersCard(product: Product, lang: Lang, currency: Currency, noS
     const url = safeUrl(offer.url);
     const isBest = offer === best;
     const seen = lastSeenText(lang, offer.last_seen);
+    const original = originalOf?.get(offerKey(offer));
     return html`<tr class="${isBest ? "is-best" : offer.in_stock ? "" : "is-out"}">
       <th scope="row"><span class="offer-store">${vendorMono(offer.vendor)}<b>${vendorLabel(offer.vendor)}</b></span></th>
-      <td><span class="offer-price">${wasPrice(offer, currency, lang)}${priceCell(price, currency, lang)}${isBest && offers.length > 1 ? chip(t(lang, "cheapest"), { tone: "ok" }) : ""}${price !== null ? dealChip(offer, currency, lang) : ""}${offerAltLine(originalOf.get(offerKey(offer)), region, currency, lang)}</span></td>
+      <td><span class="offer-price">${wasPrice(offer, currency, lang)}${priceCell(price, currency, lang)}${isBest && offers.length > 1 ? chip(t(lang, "cheapest"), { tone: "ok" }) : ""}${price !== null ? dealChip(offer, currency, lang) : ""}${original ? altPriceLine(original.price, original.eilat_price, original.eilat_only === true, region, currency, lang) : ""}</span></td>
+      ${showEilatColumn ? html`<td class="col-eilat-price">
+        <span class="offer-mobile-label" aria-hidden="true">${eilatHeading}</span>
+        ${eilatPriceCell(offer.eilat_price, currency, lang, { only: offer.eilat_only, stale: offer.eilat_stale })}
+      </td>` : ""}
       ${showShipping
         ? html`<td>${offer.shipping === null || offer.shipping === undefined
             ? emptyValue(lang)
@@ -151,7 +151,7 @@ export function offersCard(product: Product, lang: Lang, currency: Currency, noS
               ? chip(t(lang, "freeShipping"), { tone: "ok" })
               : formatPrice(offer.shipping, currency, lang)}</td>`
         : ""}
-      <td>${stockLine(offer.in_stock, lang)}</td>
+      <td>${showEilatColumn ? html`<span class="offer-mobile-label" aria-hidden="true">${t(lang, "regularStockHeading")}: </span>` : ""}${stockLine(offer.in_stock, lang)}</td>
       ${showTotal ? html`<td>${price !== null ? formatPrice(total, currency, lang) : emptyValue(lang)}</td>` : ""}
       <td class="offer-seen">${seen}${offer.stale ? html`<span class="offer-stale" title="${t(lang, "staleData")}">${icon("clock", 14)}<span class="visually-hidden">${t(lang, "staleData")}</span></span>` : ""}</td>
       <td class="col-action">${url && price !== null
@@ -161,17 +161,18 @@ export function offersCard(product: Product, lang: Lang, currency: Currency, noS
   });
 
   return card(
-    html`<div class="table-wrap"><table class="table offers-table">
+    html`<div class="table-wrap offers-wrap"><table class="table offers-table${showEilatColumn ? " offers-table--two-prices" : ""}">
         <thead><tr>
           <th scope="col">${t(lang, "merchantHeading")}</th>
-          <th scope="col">${t(lang, "baseHeading")}</th>
+          <th scope="col">${showEilatColumn ? t(lang, "regularPriceHeading") : eilatHeading}</th>
+          ${showEilatColumn ? html`<th scope="col" class="col-eilat-price">${eilatHeading}</th>` : ""}
           ${showShipping ? html`<th scope="col">${t(lang, "shippingHeading")}</th>` : ""}
-          <th scope="col">${t(lang, "availability")}</th>
+          <th scope="col">${t(lang, showEilatColumn ? "regularStockHeading" : "availability")}</th>
           ${showTotal ? html`<th scope="col">${t(lang, "totalHeading")}</th>` : ""}
           <th scope="col">${t(lang, "lastUpdated")}</th>
           <th scope="col"><span class="visually-hidden">${t(lang, "buyHeaderLabel")}</span></th>
         </tr></thead>
-        <tbody>${rows.length > 0 ? rows : html`<tr><td colspan="9">${emptyValue(lang)} ${t(lang, "notInEilat")}</td></tr>`}</tbody>
+        <tbody>${rows.length > 0 ? rows : html`<tr><td colspan="${columnCount}">${emptyValue(lang)}${region === "eilat" ? html` ${t(lang, "notInEilat")}` : ""}</td></tr>`}</tbody>
       </table></div>
       ${region === "eilat"
         ? html`<p class="card__foot">${t(lang, "eilatNote")}${noStore.length > 0 ? html` ${t(lang, "eilatNoStore")}: ${noStore.map((v) => vendorLabel(v)).join(", ")}.` : ""}</p>`

@@ -577,6 +577,10 @@
     display: none;
   }
 
+  .row__price > .price-alt {
+    flex-basis: 100%;
+  }
+
   .row__action {
     flex-direction: row;
     align-items: center;
@@ -803,6 +807,10 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 0;
+}
+
+.list-table .eilat-price-cell {
+  justify-items: end;
 }
 
 .list-table .col-price .signals {
