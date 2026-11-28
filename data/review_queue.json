@@ -1363,7 +1363,7 @@
         "listing_key": "1pc:198620",
         "vendor_sku": "198620",
         "title": "כונן  WD Purple Pro 12TB מבית Western Digital דגם WD122PURP",
-        "price": 3199,
+        "price": 3236,
         "alias_of": "1pc:216257"
       }
     ]
@@ -1407,7 +1407,7 @@
         "listing_key": "1pc:200417",
         "vendor_sku": "200417",
         "title": "כונן WD Purple Pro בנפח 10TB מבית Western Digital דגם WD102PURP",
-        "price": 2717,
+        "price": 2749,
         "alias_of": "1pc:216274"
       }
     ]
@@ -11384,7 +11384,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT2000T710SSD8",
         "title": "כונן SSD Crucial T710 2TB NVMe M.2 PCIe Gen5 בצבע שחור CT2000T710SSD8",
-        "price": 1633
+        "price": 1612
       },
       {
         "listing_key": "ivory:173788",
@@ -11606,7 +11606,7 @@
         "vendor": "1pc",
         "vendor_sku": "152798",
         "title": "כונן VERBATIM Vi550 S3 2.5\" SSD 1TB",
-        "price": 1022
+        "price": 1012
       },
       {
         "listing_key": "ksp:281494",
@@ -11662,7 +11662,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT4000T705SSD5",
         "title": "כונן SSD Crucial T705 4TB PCIe Gen5 NVMe M.2 עם גוף קירור",
-        "price": 2473
+        "price": 2444
       },
       {
         "listing_key": "tms:CT4000T705SSD5",
@@ -11882,36 +11882,6 @@
       }
     ],
     "model_code": "360-ultra"
-  },
-  {
-    "kind": "split_candidate",
-    "category": "gpu",
-    "product_id": "model:gpu:5060-dual-fan-oc-rtx-ti-16gb",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221469",
-        "vendor": "1pc",
-        "vendor_sku": "221469",
-        "title": "PNY RTX 5060Ti 8GB OC Dual Fan",
-        "price": 2523
-      },
-      {
-        "listing_key": "yahav:11053",
-        "vendor": "yahav",
-        "vendor_sku": "VCG5060T8DFXPB1-O-PC",
-        "title": "כרטיס מסך חברת PNY דגם Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
-        "price": 2450
-      },
-      {
-        "listing_key": "tms:VCG5060T8DFXPB1-O",
-        "vendor": "tms",
-        "vendor_sku": "VCG5060T8DFXPB1-O",
-        "title": "PNY RTX 5060 Ti 8GB OC Dual Fan",
-        "price": 2439
-      }
-    ],
-    "model_code": "1xhdmi-3xdp-5060ti-8gb-dual-fan-gddr7-geforce-oc-rtx"
   },
   {
     "kind": "split_candidate",
@@ -12509,6 +12479,29 @@
     ],
     "model_code": "12700f",
     "merged_from": "model:cpu:12700f"
+  },
+  {
+    "kind": "split_candidate",
+    "category": "gpu",
+    "product_id": "model:gpu:5060-dual-fan-oc-rtx-ti-16gb",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "yahav:11053",
+        "vendor": "yahav",
+        "vendor_sku": "VCG5060T8DFXPB1-O-PC",
+        "title": "כרטיס מסך חברת PNY דגם Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
+        "price": 2450
+      },
+      {
+        "listing_key": "tms:VCG5060T8DFXPB1-O",
+        "vendor": "tms",
+        "vendor_sku": "VCG5060T8DFXPB1-O",
+        "title": "PNY RTX 5060 Ti 8GB OC Dual Fan",
+        "price": 2439
+      }
+    ],
+    "model_code": "1xhdmi-3xdp-5060ti-8gb-dual-fan-gddr7-geforce-oc-rtx"
   },
   {
     "kind": "split_candidate",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T21:55:35.713595+00:00",
+  "generated_at": "2026-11-28T00:15:30.878770+00:00",
   "gaps": [
     {
       "category": "case",
@@ -24,7 +24,7 @@
     {
       "category": "gpu",
       "label": "רזולוציה",
-      "count": 73,
+      "count": 72,
       "products": [
         "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
         "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
@@ -396,7 +396,7 @@
       "label": "תאימות",
       "count": 21,
       "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
+        "model:memory:16g21-3200-cl22-dimm-es-psh-so-16gb-3200mhz-cl22-dimm",
         "model:memory:2x16gb-3600mt-cl18-ripjaws-s-v-32gb-x2-3600mhz-cl18-black",
         "model:memory:2x16gb-5600mt-cl30-fit-s-v-32gb-x2-5600mhz-cl30-white"
       ]
@@ -1093,26 +1093,6 @@
     },
     {
       "category": "gpu",
-      "label": "DisplayPorts quantity",
-      "count": 13,
-      "products": [
-        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Cooling technology",
-      "count": 13,
-      "products": [
-        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "מאיץ גרפי",
       "count": 13,
       "products": [
@@ -1303,7 +1283,7 @@
     },
     {
       "category": "gpu",
-      "label": "HDMI version",
+      "label": "DisplayPorts quantity",
       "count": 12,
       "products": [
         "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
@@ -1313,27 +1293,7 @@
     },
     {
       "category": "gpu",
-      "label": "DisplayPort version",
-      "count": 12,
-      "products": [
-        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Dual Link DVI",
-      "count": 12,
-      "products": [
-        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "CUDA",
+      "label": "Cooling technology",
       "count": 12,
       "products": [
         "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
@@ -1433,6 +1393,46 @@
     },
     {
       "category": "gpu",
+      "label": "HDMI version",
+      "count": 11,
+      "products": [
+        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "DisplayPort version",
+      "count": 11,
+      "products": [
+        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Dual Link DVI",
+      "count": 11,
+      "products": [
+        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "CUDA",
+      "count": 11,
+      "products": [
+        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "HDMI",
       "count": 11,
       "products": [
@@ -1478,7 +1478,7 @@
       "products": [
         "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
         "model:memory:16-kf552c40bb-16gb-x1-5200mhz-cl40-dimm",
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm"
+        "model:memory:16g21-3200-cl22-dimm-es-psh-so-16gb-3200mhz-cl22-dimm"
       ]
     },
     {
@@ -1486,7 +1486,7 @@
       "label": "מתח עבודה",
       "count": 11,
       "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
+        "model:memory:16g21-3200-cl22-dimm-es-psh-so-16gb-3200mhz-cl22-dimm",
         "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-x1-6000mhz-cl30-rgb-black-dimm",
         "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6000mhz-cl30-rgb-white-dimm"
       ]
@@ -1669,46 +1669,6 @@
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
         "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "HDMI ports quantity",
-      "count": 10,
-      "products": [
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Parallel processing technology support",
-      "count": 10,
-      "products": [
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Number of slots",
-      "count": 10,
-      "products": [
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Weight",
-      "count": 10,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
       ]
     },
     {
@@ -1963,32 +1923,42 @@
     },
     {
       "category": "gpu",
-      "label": "Cooling type",
+      "label": "HDMI ports quantity",
       "count": 9,
       "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
+        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
       ]
     },
     {
       "category": "gpu",
-      "label": "Depth",
+      "label": "Parallel processing technology support",
       "count": 9,
       "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
+        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
       ]
     },
     {
       "category": "gpu",
-      "label": "Height",
+      "label": "Number of slots",
       "count": 9,
       "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
+        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Weight",
+      "count": 9,
+      "products": [
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
+        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
       ]
     },
     {
@@ -2113,17 +2083,7 @@
     },
     {
       "category": "gpu",
-      "label": "CUDA cores",
-      "count": 8,
-      "products": [
-        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "HDCP",
+      "label": "Cooling type",
       "count": 8,
       "products": [
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
@@ -2133,7 +2093,17 @@
     },
     {
       "category": "gpu",
-      "label": "HDCP version",
+      "label": "Depth",
+      "count": 8,
+      "products": [
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
+        "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
+        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Height",
       "count": 8,
       "products": [
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
@@ -2333,6 +2303,16 @@
     },
     {
       "category": "gpu",
+      "label": "CUDA cores",
+      "count": 7,
+      "products": [
+        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
+        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "אביזרים",
       "count": 7,
       "products": [
@@ -2343,22 +2323,22 @@
     },
     {
       "category": "gpu",
-      "label": "NVIDIA G-SYNC",
+      "label": "HDCP",
       "count": 7,
       "products": [
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
+        "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
+        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
       ]
     },
     {
       "category": "gpu",
-      "label": "SFF ready",
+      "label": "HDCP version",
       "count": 7,
       "products": [
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
+        "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
+        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
       ]
     },
     {
@@ -2543,12 +2523,22 @@
     },
     {
       "category": "gpu",
-      "label": "Processor frequency (OC mode)",
+      "label": "NVIDIA G-SYNC",
       "count": 6,
       "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
+        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "SFF ready",
+      "count": 6,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
+        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
       ]
     },
     {
@@ -2813,12 +2803,12 @@
     },
     {
       "category": "gpu",
-      "label": "NPU performance up to",
+      "label": "Processor frequency (OC mode)",
       "count": 5,
       "products": [
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
         "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white",
-        "model:gpu:5060-dual-gddr7-oc-rtx-ti-8gb-multicolour"
+        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
       ]
     },
     {
@@ -3353,12 +3343,12 @@
     },
     {
       "category": "gpu",
-      "label": "Virtual Reality (VR) ready",
+      "label": "NPU performance up to",
       "count": 4,
       "products": [
         "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-ti-8gb-multicolour",
-        "model:gpu:5070-dual-gddr7-geforce-oc-rtx-12gb"
+        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white",
+        "model:gpu:5060-dual-gddr7-oc-rtx-ti-8gb-multicolour"
       ]
     },
     {
@@ -4277,6 +4267,16 @@
       "products": [
         "model:gpu:2gd5-brk-evo-gt710-sl-2gb",
         "model:gpu:lp-o6g-rtx3050-6gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Virtual Reality (VR) ready",
+      "count": 3,
+      "products": [
+        "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
+        "model:gpu:5060-dual-gddr7-oc-rtx-ti-8gb-multicolour",
+        "model:gpu:5070-dual-gddr7-geforce-oc-rtx-12gb"
       ]
     },
     {
@@ -5689,15 +5689,6 @@
       "products": [
         "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb",
         "model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Form factor",
-      "count": 2,
-      "products": [
-        "model:gpu:5070-gddr7-geforce-oc-prime-rtx-12gb",
-        "model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb-white"
       ]
     },
     {
@@ -8527,6 +8518,14 @@
     },
     {
       "category": "gpu",
+      "label": "Form factor",
+      "count": 1,
+      "products": [
+        "model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb-white"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "Stream Processors",
       "count": 1,
       "products": [
@@ -8746,7 +8745,7 @@
       "label": "מיועד עבור",
       "count": 1,
       "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm"
+        "model:memory:16g21-3200-cl22-dimm-es-psh-so-16gb-3200mhz-cl22-dimm"
       ]
     },
     {

@@ -1715,7 +1715,7 @@
 "1pc:210591":"model:storage:0-2242-4-mp600-2000gb-m2pcie-m22242",
 "1pc:210592":"model:storage:elite-gen5x4-mp700-4000gb-m2pcie-m22280",
 "1pc:210593":"model:storage:0-2242-5-mp700-2000gb-m2pcie-m22242",
-"1pc:210594":"model:storage:0-5-elite-gen5x4-mp700-4000gb-m2pcie-m22280",
+"1pc:210594":"model:storage:0-5-elite-gen5x4-mp700-4000gb-pcie5-m2",
 "1pc:210599":"model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-rgb-white",
 "1pc:210668":"model:motherboard:b760m-gaming-x-microatx",
 "1pc:210669":"model:motherboard:aorus-stealth-x870-atx",
@@ -1992,7 +1992,7 @@
 "1pc:216264":"model:storage:n300-pro-18000gb-sata-35",
 "1pc:216267":"mpn:storage:hdwr51gxzsta",
 "1pc:216268":"model:storage:18tb-3-5-512mb-cache-iii-sata-18000gb-sata-35",
-"1pc:216270":"model:storage:3-5-512mb-8tb-cache-iii-sata-8000gb-sata-35",
+"1pc:216270":"model:storage:x300-8000gb-sata-35",
 "1pc:216272":"model:storage:purple-wd-8000gb-sata-35-5640",
 "1pc:216273":"model:storage:purple-wd-18000gb-sata-35",
 "1pc:216274":"model:storage:purple-wd-10000gb-sata-35",
@@ -2139,7 +2139,7 @@
 "1pc:218523":"model:motherboard:b760m-challenger-h-wifi-microatx",
 "1pc:218524":"model:motherboard:b760m-challenger-h-microatx",
 "1pc:218526":"model:motherboard:am5-b850m-icraft-wifi-microatx",
-"1pc:218548":"model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
+"1pc:218548":"model:memory:16g21-3200-cl22-dimm-es-psh-so-16gb-3200mhz-cl22-dimm",
 "1pc:218557":"model:cpu:225f",
 "1pc:218558":"model:memory:6400-ecc-rdimm-48gb-x1-6400mhz",
 "1pc:218572":"model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25",
@@ -8126,7 +8126,7 @@
 "tms:CSSD-F4000GBMP600PRO":"model:storage:mp600-pcie4-pro-x4-4000gb-m2pcie-m22280",
 "tms:CSSD-F4000GBMP600PXT":"model:storage:mp600-pro-s-series-xt-4000gb-m2pcie-m2",
 "tms:CSSD-F4000GBMP700EHS":"model:storage:elite-gen5x4-mp700-4000gb-m2pcie-m22280",
-"tms:CSSD-F4000GBMP700ENH":"model:storage:0-5-elite-gen5x4-mp700-4000gb-m2pcie-m22280",
+"tms:CSSD-F4000GBMP700ENH":"model:storage:0-5-elite-gen5x4-mp700-4000gb-pcie5-m2",
 "tms:CSSD-F4000GBMP700PHXS":"model:storage:0tb-4-cssd-f4000gbmp700phxs-hydro-mp700-pro-se-series-ssd-x-4000gb-m2-m22280",
 "tms:CSSD-F4000GBMP700PNH":"model:storage:0-2-cssd-f4000gbmp700pnh-mp700-pro-x4-4000gb-nvme-m22280",
 "tms:CSSD-F4000GBMP700PRO":"model:storage:air-cooler-mp700-pcie5x4-pro-4000gb-pcie5-m22280",
@@ -8668,7 +8668,7 @@
 "tms:HDWR51GXZSTA":"mpn:storage:hdwr51gxzsta",
 "tms:HDWR51JXZSTB":"model:storage:18tb-3-5-512mb-cache-iii-sata-18000gb-sata-35",
 "tms:HDWR71AXZSTA":"mpn:storage:hdwr71axzsta",
-"tms:HDWR780XZSTA":"model:storage:3-5-512mb-8tb-cache-iii-sata-8000gb-sata-35",
+"tms:HDWR780XZSTA":"model:storage:x300-8000gb-sata-35",
 "tms:HG2-5600V":"model:psu:5600v-hg2-industrial-power-supply-600w",
 "tms:HMA82GR7CJR8N-WMT4":"model:memory:2933-cl21-ecc-reg-16gb-x1-2933mhz-cl21",
 "tms:HMA84GR7CJR4N-WMT8":"model:memory:2933-ecc-reg-32gb-x1-2933mhz",
@@ -21243,8 +21243,8 @@
 "Transcend 16GB DDR5 (1x16GB) 5600MHz CL46",
 "memory"
 ],
-"model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm":[
-"Apacer 16GB DDR4 (1x16GB) 3200MHz CL22",
+"model:memory:16g21-3200-cl22-dimm-es-psh-so-16gb-3200mhz-cl22-dimm":[
+"Apacer ES.16G21.PSH DDR4 16GB (1x16GB) 3200MHz CL22",
 "memory"
 ],
 "model:memory:16gb-1x16gb-5600mhz-amd-cl46-ddr5-expo-intel-pack-pro-single-support-xmp-16gb-x1-5600mhz-cl46-black":[
@@ -27227,7 +27227,7 @@
 "Samsung 9100 PRO 8TB SSD PCIe 5.0 NVMe M.2",
 "storage"
 ],
-"model:storage:0-5-elite-gen5x4-mp700-4000gb-m2pcie-m22280":[
+"model:storage:0-5-elite-gen5x4-mp700-4000gb-pcie5-m2":[
 "Corsair MP700 Elite GEN5X4 4TB NVMe Gen5 M.2-2280",
 "storage"
 ],
@@ -27901,10 +27901,6 @@
 ],
 "model:storage:2tcs-960-960-aleg-legend-2000gb-pciegen4x4-m22280":[
 "SSD ADATA LEGEND 960 2TB ALEG 960 2TCS",
-"storage"
-],
-"model:storage:3-5-512mb-8tb-cache-iii-sata-8000gb-sata-35":[
-"Toshiba III 512MB 8TB 3.5\" Hdd",
 "storage"
 ],
 "model:storage:32261-usb-m2":[
@@ -28665,6 +28661,10 @@
 ],
 "model:storage:wd40efzz-4000gb-sata":[
 "Western Digital WD RED Plus NAS 4TB 3.5\"",
+"storage"
+],
+"model:storage:x300-8000gb-sata-35":[
+"Toshiba X300 512MB 8TB 3.5\" Hdd",
 "storage"
 ],
 "motherboard:1pc:1pc-203138":[
