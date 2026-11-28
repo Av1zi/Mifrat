@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-28",
+  "catalog_generated_at": "2026-11-28T03:46:22.015102+00:00",
+  "catalog_sha256": "db71605ce106ae3f172ef0a0c3dfe235f439da079e622ecaebb53d9038bf21c6",
+  "reason": "The overrides and manual grouping have no target in the published Nov 28 catalog. Re-evaluate the archived corrections if their exact listings return. The listed QA dismissals have no current case after following product ID aliases.",
+  "override_last_seen": {
+    "model:storage:c715-cras-1000gb-nvme": {
+      "listing_key": "1pc:222848",
+      "part_number": "K01TBM2SP0-C7T",
+      "last_snapshot": "2026-11-26"
+    },
+    "model:storage:gp-vsd1tb-1000gb-usb": {
+      "listing_key": "1pc:97405",
+      "part_number": "GP-VSD1TB",
+      "last_snapshot": "2026-11-25",
+      "evidence": "2026-11-22.jsonl, core_gap|model:storage:gp-vsd1tb-1000gb-usb|"
+    }
+  },
+  "overrides": {
+    "model:storage:c715-cras-1000gb-nvme": {
+      "form_factor": "M.2-2280"
+    },
+    "model:storage:gp-vsd1tb-1000gb-usb": {
+      "form_factor": "External"
+    }
+  },
+  "manual_listing_last_seen": {
+    "1pc:171578": "2026-10-05",
+    "tms:FLUX": "2026-10-19"
+  },
+  "manual_products": [
+    {
+      "product_id": "case:antec:flux",
+      "canonical_name": "Antec Flux",
+      "category": "case",
+      "brand": "Antec",
+      "model": "Flux",
+      "attributes": {},
+      "listing_keys": [
+        "1pc:171578",
+        "tms:FLUX"
+      ]
+    }
+  ],
+  "qa_dismissed": {
+    "duplicate_vendor|mpn:gpu:4711377301541|yahav": true,
+    "duplicate_vendor|mpn:gpu:90yv0lw0m0na00|yahav": true,
+    "identity_merge|model:cpu:265-tray|": true,
+    "packaging_conflict|model:cpu:9950x3d2-tray|ivory": true,
+    "packaging_conflict|model:cpu:corei514600k-tray|": true,
+    "spec_conflict|model:aio:360-a-freezer-iii-liquid-pro-rgb-360mm-black|lighting": true,
+    "spec_conflict|model:cooler_air:120-black-digital-knight-royal-162mm-120mm-black|height_mm": true,
+    "spec_conflict|model:cooler_air:120-black-digital-knight-royal-162mm-120mm-black|model": true,
+    "spec_conflict|model:cooler_air:130-black-pretor-royal-ultra-158mm-120mm-black|height_mm": true,
+    "spec_conflict|model:cooler_air:130-black-pretor-royal-ultra-158mm-120mm-black|model": true,
+    "spec_conflict|model:cooler_air:1700-coolermaster-i70c-lga-70mm-120mm|sockets": true,
+    "spec_conflict|model:cooler_air:22fp-blizzard-r1-rr-t2-t2-140mm-92mm|model": true,
+    "spec_conflict|model:cpu:14700k-tray|boost_clock_ghz": true,
+    "spec_conflict|model:cpu:14700k-tray|integrated_graphics": true,
+    "spec_conflict|model:memory:0-2-3600-cl18-lpx-vengeance-xmp-16gb-x1-3600mhz-cl18-black|speed_mhz": true,
+    "spec_conflict|model:memory:0-2-3600-cl18-lpx-vengeance-xmp-16gb-x1-3600mhz-cl18-black|voltage_v": true,
+    "spec_conflict|model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm|color": true,
+    "spec_conflict|model:motherboard:1851-atx-b860-ddr5-displayport-fi-gaming-hdmi-lga-plus-thunderbolt-wi-atx|ethernet": true,
+    "spec_conflict|model:motherboard:1851-atx-b860-ddr5-displayport-fi-gaming-hdmi-lga-plus-thunderbolt-wi-atx|wireless": true,
+    "split_candidate|model:case:c8-case-white|": true,
+    "split_candidate|model:cpu:9950x3d2-tray|": true,
+    "variant_conflict|model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-black|": true,
+    "variant_conflict|model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-black|": true,
+    "variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx-2|": true,
+    "variant_conflict|model:motherboard:b760-gaming-tuf-wifi-atx|": true
+  }
+}

@@ -148,9 +148,6 @@
     "model:storage:skyhawq-st8000vx010-surveillance-8000gb-sata": {
       "form_factor": "3.5\""
     },
-    "model:storage:c715-cras-1000gb-nvme": {
-      "form_factor": "M.2-2280"
-    },
     "model:storage:c715-cras-512gb-nvme": {
       "form_factor": "M.2-2280"
     },
@@ -256,9 +253,6 @@
     },
     "model:memory:3200-cl22-sodimm-16gb-x1-3200mhz-cl22-sodimm": {
       "module_size_gb": 16
-    },
-    "model:storage:gp-vsd1tb-1000gb-usb": {
-      "form_factor": "External"
     },
     "model:cooler_air:120-chromax-nh-ram-u12s-158mm-120mm-black": {
       "model": "NH-U12S chromax.black"
