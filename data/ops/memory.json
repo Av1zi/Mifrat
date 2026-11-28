@@ -3017,7 +3017,7 @@
 "ivory:133320":"model:gpu:3-5060-geforce-infinity-rtx-ti-16gb",
 "ivory:133386":"model:motherboard:a-b760m-csm-d4-prime-microatx",
 "ivory:133389":"model:motherboard:a-b760m-csm-prime-microatx-2",
-"ivory:133407":"model:motherboard:b850-gaming-plus-tuf-wifi-atx",
+"ivory:133407":"model:motherboard:am5-b850-gaming-tuf-wifi-atx",
 "ivory:133410":"model:motherboard:b850-e-gaming-tuf-wifi-atx",
 "ivory:133413":"model:motherboard:am5-b850-prime-wifi-atx",
 "ivory:133494":"model:motherboard:a-b550m-csm-prime-microatx",
@@ -3191,7 +3191,7 @@
 "ivory:149518":"model:memory:5-5200mt-cl36-elite-s-viper-32gb-5200mhz-cl36-rgb-white",
 "ivory:149521":"mpn:memory:ff4d516g6000hc38adc01",
 "ivory:149617":"model:motherboard:p-pro-wifi-x870e-atx",
-"ivory:149623":"model:motherboard:7-am5-amd-mag-tomahawk-wifi-x870e-atx",
+"ivory:149623":"model:motherboard:mag-tomahawk-wifi-x870e-atx",
 "ivory:149641":"model:motherboard:edge-mpg-ti-wifi-x870e-atx",
 "ivory:149683":"model:memory:vulcan-z-16gb-x2-3200mhz-cl16-grey",
 "ivory:149983":"model:gpu:5080-geforce-phoenix-rtx-16gb",
@@ -4151,7 +4151,7 @@
 "ksp:376634":"model:motherboard:a-am5-b840m-prime-wifi-microatx",
 "ksp:376649":"model:motherboard:am5-b850-prime-wifi-atx",
 "ksp:376663":"model:motherboard:a-b840m-csm-prime-microatx",
-"ksp:376671":"model:motherboard:b850-gaming-plus-tuf-wifi-atx",
+"ksp:376671":"model:motherboard:am5-b850-gaming-tuf-wifi-atx",
 "ksp:376700":"model:motherboard:am5-b840-prime-wifi-atx",
 "ksp:378814":"model:gpu:12g-12gd-5070-eagle-gv-ice-ice-n5070eagleoc-oc-rtx-sff-12gb",
 "ksp:378818":"model:gpu:12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff-12gb",
@@ -21540,7 +21540,7 @@
 "memory"
 ],
 "model:memory:2x16gb-3600mhz-ddr4-delta-force-t-tf3d432g3600hc18jdc01-32gb-x2-3600mhz-cl18-rgb-black":[
-"TeamGroup T-Force Delta RGB DDR4 32GB (2x16GB) 3600MHz CL18 (TF3D432G3600HC18JDC01)",
+"TeamGroup T-Force Delta RGB DDR4 32GB (2x16GB) 3600MHz CL18",
 "memory"
 ],
 "model:memory:2x16gb-3600mhz-ddr4-delta-force-t-tf4d432g3600hc18jdc01-32gb-x2-3600mhz-cl18-rgb-white":[
@@ -21608,11 +21608,11 @@
 "memory"
 ],
 "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black":[
-"Klevv ARGB 32GB DDR5 (2x16GB) 6000MT/s CL28 (KD5AGUA80-60B280V)",
+"Klevv ARGB 32GB DDR5 (2x16GB) 6000MHz CL28",
 "memory"
 ],
 "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-white":[
-"Klevv ARGB 32GB DDR5 (2x16GB) 6000MT/s CL28 (KD5AGUA80-60B280M)",
+"Klevv ARGB 32GB DDR5 (2x16GB) 6000MT/s CL28",
 "memory"
 ],
 "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white":[
@@ -23267,10 +23267,6 @@
 "Gigabyte B850 AI TOP WIFI7",
 "motherboard"
 ],
-"model:motherboard:7-am5-amd-mag-tomahawk-wifi-x870e-atx":[
-"MSI X870E MAG Tomahawk WIFI7",
-"motherboard"
-],
 "model:motherboard:7-am5-b840-hdmi-p-pro-wifi-atx":[
 "MSI PRO B840-P WIFI7",
 "motherboard"
@@ -23721,6 +23717,10 @@
 ],
 "model:motherboard:am5-b850-gaming-neo-pro-tuf-wifi-atx":[
 "ASUS TUF Gaming B850-PRO W WIFI7",
+"motherboard"
+],
+"model:motherboard:am5-b850-gaming-tuf-wifi-atx":[
+"ASUS TUF Gaming B850-Plus WiFi",
 "motherboard"
 ],
 "model:motherboard:am5-b850-hdmi-ii-mag-max-tomahawk-wifi-atx":[
@@ -24735,10 +24735,6 @@
 "ASUS TUF Gaming B850-PRO W WIFI7 (90MB1NW0-M0EAY0)",
 "motherboard"
 ],
-"model:motherboard:b850-gaming-plus-tuf-wifi-atx":[
-"ASUS TUF Gaming B850-Plus WIFI7",
-"motherboard"
-],
 "model:motherboard:b850-gaming-tuf-wifi-atx":[
 "ASUS TUF Gaming B850-Plus WIFI7",
 "motherboard"
@@ -25521,6 +25517,10 @@
 ],
 "model:motherboard:m12swa-mb-tf-eatx":[
 "Supermicro WRX80 MB M12SWA-TF",
+"motherboard"
+],
+"model:motherboard:mag-tomahawk-wifi-x870e-atx":[
+"MSI X870E MAG Tomahawk WIFI7",
 "motherboard"
 ],
 "model:motherboard:mag-tomahawk-wifi-z790-atx":[
